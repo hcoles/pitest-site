@@ -1,0 +1,18 @@
+---
+title: PIT 0.28 released
+keywords: release
+tags: release
+description: PIT 0.28 released
+---
+
+PIT 0.28 has now been released and is available from google code and maven central. <!-- more --> 
+
+
+Full details of what's included are available from the [downloads](/downloads/) section, but headline items include
+
+* inlined finally block detection 
+* new experimental switch statement mutator
+* faster coverage and classpath scanning
+* detection of Groovy classes
+* fix for concurrent modification exception
+* improved JUnit 3 support

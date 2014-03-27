@@ -1,0 +1,16 @@
+---
+title: PIT 0.31 released
+description: PIT 0.31 released
+tags: release
+---
+
+PIT 0.31 has now been released and is available from google code and maven central. <!-- more --> 
+
+
+Full details of what's included are available from the [downloads](/downloads/) section.
+
+Headline new features include
+
+* restores maven 2 compatibility
+* much faster line coverage calculation
+

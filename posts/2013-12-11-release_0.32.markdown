@@ -1,0 +1,21 @@
+---
+title: PIT 0.32 released
+description: PIT 0.32 released
+tags: release
+---
+
+PIT 0.32 has now been released and is available from google code and maven central. <!-- more --> 
+
+
+Full details of what's included are available from the [downloads](/downloads/) section.
+
+Headline changes include
+
+* restores java 7 compatibility
+* new remove conditionals mutator
+* support for mutating static initializers with TestNG
+* properly isolate classpaths when running via Ant
+* break builds on coverage threshold
+* allow JVM to be specified 
+
+

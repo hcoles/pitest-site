@@ -1,0 +1,47 @@
+---
+title: PIT 0.26 released
+keywords: documentation
+tags: release
+description: PIT 0.26 released
+---
+
+PIT 0.26 has now been released and is available from google code and maven central. <!-- more --> 
+
+This includes the first official release of the PIT Ant task, a new experimental mutator
+and a number of smaller improvements. 
+
+There is a known issue with the new mutator, please read the notes below before you enable it.
+
+## Ant task
+
+Nicolas Rusconi has contributed an Ant task, originally hosted at GitHub, but now merged into the main codebase. 
+
+The details are documented at [PIT ant documentation](/quickstart/ant)
+
+## Member variable mutator
+
+This new mutator removes assignments to member variables, replacing them with the default value for that type.
+
+There is a known issue with this mutator in the this release - it will create errors when it mutates
+synchronized methods.
+
+## Fix for issues 12/27
+
+PIT could previously be made to hang if the code under test launched non daemon threads. This has been fixed
+by changing the way PIT terminates its child processes.
+
+## Warning now issued when no test library found on classpath
+
+This was causing a lot of confusion for people setting up PIT for the first time. If JUnit or TestNG were not
+on the classpath PIT would unhelpfully report that it could not find any tests.
+
+## Errors now raised if mutated classes have no line or source debug
+
+Previously if classes without line debug were included PIT would report that the class was uncovered. If source file
+debug was not included a NullPointerException would be thrown. An explicit check is now made that each class has the required
+debug info.
+
+## JUnit assumptions now correctly handled
+
+Earlier versions of PIT treated assumption failures as test failures, these are now correctly handled as ignored tests.
+

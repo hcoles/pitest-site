@@ -91,7 +91,7 @@ Timeouts when running mutation tests are caused by one of two things
 
 2 PIT thinking an infinite loop has occured but being wrong
 
-In order to detect infnite loops PIT measures the normal execution time of each test
+In order to detect infinite loops PIT measures the normal execution time of each test
 without any mutations present. When the test is run in the presence of a mutation
 PIT checks that the test doesn't run for any longer than
 
@@ -118,7 +118,7 @@ to a large value with **--timeoutConst** (**timeoutConstant** in maven).
 Java 7 introduced stricter requirements for verifying stack frames, which caused issues in
 earlier versions of PIT. It is believed that there were all resolved in 0.29.
 
-If you are using 0.29 and see a verify error, please raised a defect. The issue can be worked around
+If you are using 0.29 and see a verify error, please raise a defect. The issue can be worked around
 by passing -XX:-UseSplitVerifier to the child jvm processes that PIT launches using the **jvmArgs** option. 
 
 ## How does PIT compare the mutation testing system X

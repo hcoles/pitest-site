@@ -5,9 +5,7 @@ description: Release details
 
 # Downloads and repository info
 
-PIT releases and source repository are hosted over at google code.
-
-releases: [http://code.google.com/p/pitestrunner/downloads/list](http://code.google.com/p/pitestrunner/downloads/list)
+releases: [https://github.com/hcoles/pitest/releases](https://github.com/hcoles/pitest/releases)
 
 source: [https://github.com/hcoles/pitest](https://github.com/hcoles/pitest)
 
@@ -15,9 +13,27 @@ bugtracker: [https://github.com/hcoles/pitest/issues](https://github.com/hcoles/
 
 google group: [http://groups.google.com/group/pitusers](http://groups.google.com/group/pitusers)
 
-Any questions or feedback welcome at **henry@pitest.org**
-
 ## Releases
+
+### 1.0.0
+
+* Switch version numbering scheme
+* Upgrade to ASM 5.0.2
+* Fix for #114 - fails to run for java 8 when -parameters flag is set
+* 99 Support additionalClasspathElements property in maven plugin (thanks artspb)
+* 98 Do not mutate java 7 try with resources (thanks @artspb)
+* 109 extended remove conditional mutator (thanks @vrthra)
+
+### 0.33
+
+* Move to Github
+* Upgrade of ASM to support Java 8 bytecode (thanks to "iirekm")
+* Partial support for JUnit categories (thanks to "chrisr")
+* New Remove Increments Mutator (thanks to Rahul Gopinath)
+* Minor logging improvements (thanks to Kyle Rogers aka Stephan Penndorf)
+* Fix for #92 - broken maven 2 support
+* Fix for #75 - incorrectly ignored tests in classes with both @Ignore and @BeforeClass / @AfterClass
+
 
 ### 0.32
 

@@ -1,7 +1,7 @@
 ---
 title: Ant quick start
 description: Quickstart guide for mutation testing with PIT via ant
-tags: quickstart, guide
+tags: quickstart guide
 keywords: ant, mutation testing
 ---
 
@@ -15,26 +15,26 @@ Download the latest pitest and pitest-ant jars and put them somewhere convienien
 
 First define the PIT task within your build
 
-~~~ {.xml}
-	<taskdef name="pitest" classname="org.pitest.ant.PitestTask"
-		classpathref="pit.path" />
-~~~
+```(xlm)
+    <taskdef name="pitest" classname="org.pitest.ant.PitestTask"
+        classpathref="pit.path" />
+```
 
 The referenced classpath should include both pitest.jar and pitest-ant.jar along with any plugins you wish to use. The test library (i.e JUnit or TestNG) must currently also be referenced here as well as on your compilation classpath. This requirement will hopefully be removed in a future release.
 
 Next create a target
 
-~~~{.xml}
-	<target name="mutationCoverage">
-		<pitest 
-                        pitClasspath="pit.path"
-			classPath="mutation.path" 
-			targetClasses="com.yourcodebase.*"  
-                        targetTests="com.yourcodebase.*"
-			reportDir="pathToWhereYouWantOutput" 
-			sourceDir="pathToYourSource"/>
-	</target>
-~~~
+```(xml)
+<target name="mutationCoverage">
+    <pitest
+        pitClasspath="pit.path"
+        classPath="mutation.path"
+        targetClasses="com.yourcodebase.*"
+        targetTests="com.yourcodebase.*"
+        reportDir="pathToWhereYouWantOutput"
+        sourceDir="pathToYourSource"/>
+</target>
+```
 
 Two seperate classpaths need to be supplied - pitClasspath should contain to the pitest jars and plugins (plus test library), classPath should contain the classpath used when normally running your unit tests (including the test library).
 
@@ -58,21 +58,15 @@ To help people evaluate PIT an example project using ant is provided at [pit ant
 
 To try it out checkout the source
 
-~~~{.bash}
-hg clone https://code.google.com/p/pit-ant-example/ 
-~~~
+```(bash)
+hg clone https://code.google.com/p/pit-ant-example/
+```
 
 then run the pit target
 
-~~~{.bash}
-ant pit 
-~~~
+```(bash)
+ant pit
+```
 
 Mutation testing should complete in 10 to 20 seconds (most of which is PIT waiting to decide if it has encountered an infinite loop), then results should be
 written in html to the pitReports folder.
-
-
-
-
-
-

@@ -17,14 +17,13 @@ In most cases the tests that have been written are sufficient to generate 100% b
 
 ## The untested side effect
 
-~~~ {.java}
-
-public static String foo(boolean b) { 
+```(java)
+public static String foo(boolean b) {
   if ( someLogic(i) ) {
     performVitallyImportantBusinessFunction();
     return "OK";
   }
-  
+
   return "FAIL";
 }
 
@@ -37,16 +36,14 @@ public void shouldFailWhenGivenFalse() {
 public void shouldBeOkWhenGivenTrue() {
   assertEquals("OK", foo(true));
 }
-
-~~~
+```
 
 *No check is ever made that performVitallyImportantBusinessFunction is called.*
 
 ## The missing boundary test
 
-~~~ {.java}
-
-public static String foo(int i) { 
+```(java)
+public static String foo(int i) {
   if ( i >= 0 ) {
       return "foo";
   } else {
@@ -63,16 +60,15 @@ public void shouldReturnBarWhenGiven1() {
 public void shouldReturnFooWhenGivenMinus1() {
   assertEquals("foo", foo(-1));
 }
-
-~~~
+```
 
 *The behaviour when i == 0 is never tested.*
 
 ## The myopic mockist
 
-~~~ {.java}
+```(java)
 
-public static String foo(Collaborator c, boolean b) { 
+public static String foo(Collaborator c, boolean b) {
   if ( b ) {
       return c.performAction();
   }
@@ -91,8 +87,7 @@ public void shouldNotPerformActionWhenGivenFalse() {
   foo(mockCollaborator,false);
   verify(never(),mockCollaborator).performAction();
 }
-
-~~~
+```
 
 *The return value of the function is never checked.*
 

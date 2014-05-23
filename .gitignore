@@ -5,3 +5,6 @@ site.o
 site.hi
 .hg
 .hgignore
+*.ipr
+*.iml
+*.iws

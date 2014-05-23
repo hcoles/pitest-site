@@ -2,14 +2,14 @@
 title: About
 description: About this site
 keywords: about
-bodyclass: about
 ---
 
 # About PIT
 
-PIT is largely the work of myself - Henry Coles, a software developer based in Edinburgh, but has benefited from contributions from numerous others. 
+PIT is largely the work of myself - Henry Coles, a software developer based in Edinburgh, but has benefited from contributions from numerous others.
 
-If you'd like to get in touch I can be contacted at **henry@pitest.org**. Please do not use this address for support requests - these should be sent to the google group where they'll getter a better/faster response.
+If you'd like to get in touch I can be contacted at **henry@pitest.org**. Please do not use this address for support requests - these should be sent
+to the google group where they'll getter a better/faster response.
 
 Elsewhere on the web you can find me at
 

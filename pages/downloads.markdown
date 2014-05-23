@@ -26,7 +26,7 @@ Any questions or feedback welcome at **henry@pitest.org**
 * support for mutating static initializers with TestNG
 * properly isolate classpaths when running via Ant
 * break builds on coverage threshold
-* allow JVM to be specified 
+* allow JVM to be specified
 * support user defined test selection strategies
 * support user defined output format
 * support user defined test prioritisation

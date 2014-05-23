@@ -1,7 +1,7 @@
 ---
 title: Advanced usage
 description: Advanced usage of PIT
-tags: quickstart, guide
+tags: quickstart guide
 keywords: mutation testing
 ---
 

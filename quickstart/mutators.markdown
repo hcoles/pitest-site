@@ -53,12 +53,36 @@ The conditionals boundary mutator replaces the relational operators `<, <=, >, >
 
 with their boundary counterpart as per the table below.
 
-| Original conditional |  Mutated conditional |
-|----------------------|----------------------|
-|  <                   |   <=                 |
-|  <=                  |   <                  |
-|  >                   |   >=                 |
-|  >=                  |   >                  |
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            Original conditional
+            </th>
+            <th>
+            Mutated conditional
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&lt;</td>
+            <td>&lt;=</td>
+        </tr>
+        <tr>
+            <td>&lt;=</td>
+            <td>&lt;</td>
+        </tr>
+        <tr>
+            <td>&gt;</td>
+            <td>&gt;=</td>
+        </tr>
+        <tr>
+            <td>&gt;=</td>
+            <td>&gt;</td>
+        </tr>
+    </tbody>
+</table>
 
 For example
 
@@ -84,14 +108,46 @@ Negate Conditionals Mutator (NEGATE\_CONDITIONALS)
 The negate conditionals mutator will mutate all conditionals found according
 to the replacement table below.
 
- Original conditional   Mutated conditional
----------------------- ---------------------
-  ==                      !=
-  !=                      ==
-  <=                      >
-  >=                      <
-  <                       >=
-  >                       <=
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            Original conditional
+            </th>
+            <th>
+            Mutated conditional
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>==</td>
+            <td>!=</td>
+        </tr>
+        <tr>
+            <td>!=</td>
+            <td>==</td>
+        </tr>
+        <tr>
+            <td>&lt;=</td>
+            <td>&gt;</td>
+        </tr>
+        <tr>
+            <td>&gt;=</td>
+            <td>&lt;</td>
+        </tr>
+        <tr>
+            <td>&lt;</td>
+            <td>&gt;=</td>
+        </tr>
+        <tr>
+            <td>&gt;</td>
+            <td>&lt;=</td>
+        </tr>
+
+    </tbody>
+</table>
+
 For example
 
 <pre class="prettyprint lang-java">
@@ -146,19 +202,64 @@ The math mutator replaces binary arithmetic operations for either integer or
 floating-point arithmetic with another operation. The replacements will be 
 selected according to the table below.
 
- Original operation   Mutated operation
--------------------- -------------------
-  +                    -
-  -                    +
-  *                    /
-  /                    *
-  %                    *
-  &                    |
-  |                    &
-  ^                    &
-  <<                   >>
-  >>                   <<
-  >>>                  <<
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            Original conditional
+            </th>
+            <th>
+            Mutated conditional
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>+</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>+</td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>/</td>
+        </tr>
+        <tr>
+            <td>/</td>
+            <td>*</td>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>*</td>
+        </tr>
+        <tr>
+            <td>&amp;</td>
+            <td>|</td>
+        </tr>
+        <tr>
+            <td>|</td>
+            <td>&amp;</td>
+        </tr>
+        <tr>
+            <td>^</td>
+            <td>&amp;</td>
+        </tr>
+        <tr>
+            <td>&lt;&lt;</td>
+            <td>&gt;&gt;</td>
+        </tr>
+        <tr>
+            <td>&gt;&gt;</td>
+            <td>&lt;&lt;</td>
+        </tr>
+        <tr>
+            <td>&gt;&gt;&gt;</td>
+            <td>&lt;&lt;&lt;</td>
+        </tr>
+    </tbody>
+</table>
 
 
 For example
@@ -291,31 +392,59 @@ Depending on the type of the inline constant another mutation is used. The rules
 are a little complex due to the different ways that apparently similar Java statements
 are converted to byte code.
 
-+------------------+-----------------------------------------------------------+
-| Constant Type    | Mutation                                                  |
-+==================+===========================================================+
-| boolean          | replace the unmutated value `true` with `false` and       |
-|                  | replace the unmutated value `false` with `true`           |
-+------------------+-----------------------------------------------------------+
-| integer, byte    | replace the unmutated value `1` with `0`, `-1` with `1`,  |
-| short            | `5` with `-1` or otherwise increment the unmutated value  |
-|                  | by one. [^1]                                                  |
-+------------------+-----------------------------------------------------------+
-| long             | replace the unmutated value `1` with `0`, otherwise       |
-|                  | increment the unmutated value by one.                     |
-+------------------+-----------------------------------------------------------+
-| float            | replace the unmutated values `1.0` and `2.0` with `0.0`   |
-|                  | and replace any other value with `1.0` [^2]               |
-+------------------+-----------------------------------------------------------+
-| double           | replace the unmutated value `1.0` with `0.0` and replace  |
-|                  | any other value with `1.0` [^3]                           |
-+------------------+-----------------------------------------------------------+
 
-[^1]: Integer numbers and booleans are actually represented in the same way be the JVM, it is therefore never safe if change a 0 to anything but a 1 or a 1 to anything but a 0.
+<table class="table">
+    <thead>
+        <tr>
+            <th>Constant Type</th>
+            <th>Mutation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>boolean</td>
+            <td>
+                replace the unmutated value <code>true</code> with <code>false</code> and
+                replace the unmutated value <code>false</code> with <code>true</code>
+            </td>
+        </tr>
+        <tr>
+            <td>integer, byte, short</td>
+            <td>
+                replace the unmutated value <code>1</code> with <code>0</code>,
+                <code>-1</code> with <code>1</code>, <code>5</code> with <code>-1</code>
+                or otherwise increment the unmutated value by one. <sup>1</sup>
+            </td>
+        </tr>
+        <tr>
+            <td>long</td>
+            <td>
+                replace the unmutated value <code>1</code> with <code>0</code>, otherwise
+                increment the unmutated value by one.
+            </td>
+        </tr>
+        <tr>
+            <td>float</td>
+            <td>
+                replace the unmutated values <code>1.0</code> and <code>2.0</code>
+                with <code>0.0</code> and replace any other value with <code>1.0</code> <sup>2</sup>
+            </td>
+        </tr>
+        <tr>
+            <td>double</td>
+            <td>
+                replace the unmutated value <code>1.0</code> with <code>0.0</code>
+                and replace any other value with <code>1.0</code> <sup>2</sup>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-[^2]: Floating point numbers are always changed to 1 rather than adding 1 to the original value as this would result in equivalent mutations. Adding 1 to a large floating point number doesn't necesarily change it's value due to the imprecise way in which floats are represented. 
+<sup>1</sup> Integer numbers and booleans are actually represented in the same way be the JVM, it is therefore never safe if change a 0 to anything but a 1 or a 1 to anything but a 0.
 
-[^3]: See note above which applies to boths floats and doubles.
+<sup>2</sup> Floating point numbers are always changed to 1 rather than adding 1 to the original value as this would result in equivalent mutations. Adding 1 to a large floating point number doesn't necesarily change it's value due to the imprecise way in which floats are represented.
+
+<sup>3</sup> See note above which applies to boths floats and doubles.
 
 For example
 

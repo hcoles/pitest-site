@@ -3,6 +3,8 @@ title: Command line quick start
 description: Quickstart guide for mutation testing with PIT via the command line
 tags: quickstart, guide
 keywords: command line, mutation testing
+layout: default
+alias: quickstart/commandline
 ---
 
 # Command Line Quick Start
@@ -15,14 +17,14 @@ Download the pitest-command-line and pitest jars and place them somewhere convie
 
 A mutation coverage report can be launched from the command line as follows
 
-~~~ {.bash}
-java -cp <your classpath including pit jar and dependencies> \
+<pre class="prettyprint lang-bash">
+java -cp &lt;your classpath including pit jar and dependencies&gt; \
     org.pitest.mutationtest.commandline.MutationCoverageReport \
     --reportDir <outputdir> \
     --targetClasses com.your.package.tobemutated* \
     --targetTests com.your.packge.*
     --sourceDirs <pathtosource> \
-~~~
+</pre>
 
 The command line jar, core pitest jar and either JUnit or TestNG will need to be on the classpath. 
 
@@ -51,15 +53,15 @@ The classes to be mutated. This is expressed as a comma seperated list of globs.
 
 For example
 
-~~~ {.bash}
+<pre class="prettyprint lang-bash">
 com.mycompany.*
-~~~
+</pre>
 
 or
 
-~~~ {.bash}
+<pre class="prettyprint lang-bash">
 com.mycompany.package.*, com.mycompany.packageB.Foo, com.partner.*
-~~~
+</pre>
 
 
 ### \--targetTests
@@ -166,7 +168,7 @@ to the process, but may be used to pass any valid JVM argument.
 
 ### \--jvmPath
 
-The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by JAVA_HOME.
+The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA\_HOME```.
 
 ### \--outputFormats
 
@@ -224,20 +226,20 @@ In the case of any doubt PIT will act cautiously and assume that the code is not
 
 This will be detected as two separate inlined instructions
 
-~~~ {.java}
+<pre class="prettyprint lang-java">
 finally {
   int++;
   int++;
 }
-~~~
+</pre>
 
 But this will look confusing so PIT will assume no in-lining is taking place.
 
-~~~ {.java}
+<pre class="prettyprint lang-java">
 finally {
   int++; int++;
 }
-~~~ 
+</pre>
 
 This sort of pattern might not be common with integer addition, but things like string concatenation are likely to produce multiple similar instructions on the same line.
 
@@ -268,8 +270,8 @@ Path to write history information for incremental analysis. May be the same as h
 
 ### Mutate all classes in package example.foo (and sub pacakges) in two threads potentially using any test on class path but do not mutate hashCode or equals methods
 
-~~~ {.bash}
-java -cp <your classpath> \
+<pre class="prettyprint lang-bash">
+java -cp &lt;your classpath&gt; \
      org.pitest.mutationtest.commandline.MutationCoverageReport \
     --reportDir c:\\mutationReports \
     --targetClasses example.foo.* \
@@ -277,16 +279,16 @@ java -cp <your classpath> \
     --targetTests example.foo*
     --threads 2
     --excludedMethods hasCode,equals
-~~~
+</pre>
 
 ### Mutate the classes example.foo.Specific and example.foo.Other using tests from the Suite example.ReflectionSuite that directly call the mutees
 
-~~~ {.bash}
-java -cp <your classpath> \
+<pre class="prettyprint lang-bash">
+java -cp &lt;your classpath&gt; \
      org.pitest.mutationtest.commandline.MutationCoverageReport \
     --reportDir c:\\mutationReports \
     --targetClasses example.foo.Specfic, example.foo.Other \
     --targetTests example.ReflectionSuite
     --sourceDirs c:\\myProject\\src \
     --dependencyDistance 0
-~~~
+</pre>

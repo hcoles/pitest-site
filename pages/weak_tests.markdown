@@ -1,6 +1,7 @@
 ---
 title: Weak tests
-description: Weak tests
+layout: default
+alias: weak_tests
 ---
 
 # Weak tests
@@ -17,7 +18,7 @@ In most cases the tests that have been written are sufficient to generate 100% b
 
 ## The untested side effect
 
-```(java)
+<pre class="prettyprint lang-java">
 public static String foo(boolean b) {
   if ( someLogic(i) ) {
     performVitallyImportantBusinessFunction();
@@ -36,13 +37,13 @@ public void shouldFailWhenGivenFalse() {
 public void shouldBeOkWhenGivenTrue() {
   assertEquals("OK", foo(true));
 }
-```
+</pre>
 
 *No check is ever made that performVitallyImportantBusinessFunction is called.*
 
 ## The missing boundary test
 
-```(java)
+<pre class="prettyprint lang-java">
 public static String foo(int i) {
   if ( i >= 0 ) {
       return "foo";
@@ -60,14 +61,13 @@ public void shouldReturnBarWhenGiven1() {
 public void shouldReturnFooWhenGivenMinus1() {
   assertEquals("foo", foo(-1));
 }
-```
+</pre>
 
 *The behaviour when i == 0 is never tested.*
 
 ## The myopic mockist
 
-```(java)
-
+<pre class="prettyprint lang-java">
 public static String foo(Collaborator c, boolean b) {
   if ( b ) {
       return c.performAction();
@@ -87,7 +87,7 @@ public void shouldNotPerformActionWhenGivenFalse() {
   foo(mockCollaborator,false);
   verify(never(),mockCollaborator).performAction();
 }
-```
+</pre>
 
 *The return value of the function is never checked.*
 

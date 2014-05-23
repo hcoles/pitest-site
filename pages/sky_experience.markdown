@@ -1,8 +1,7 @@
 ---
-title: Mutation testing at British Sky Broadcasting
-description: Mutation testing at British Sky Broadcasting
-keywords: about
-bodyclass: about
+title: Sky Experience
+layout: default
+alias: /sky_experience
 ---
 
 # Experience of introducing mutation testing to a team

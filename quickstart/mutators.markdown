@@ -3,6 +3,8 @@ title: Mutation operators
 description: Details of mutation operators provided with PIT
 tags: mutators
 keywords: mutation testing, mutation operator
+layout: default
+alias: quickstart/mutators
 ---
 
 # Overview
@@ -42,7 +44,7 @@ Here is the list of available mutators:
 ----
 
 
-Conditionals Boundary Mutator (CONDITIONALS_BOUNDARY)
+Conditionals Boundary Mutator (CONDITIONALS\_BOUNDARY)
 ------------------------------------------------------
 
 **Active by default**
@@ -51,31 +53,30 @@ The conditionals boundary mutator replaces the relational operators `<, <=, >, >
 
 with their boundary counterpart as per the table below.
 
- Original conditional   Mutated conditional
----------------------- ---------------------
-  <                       <=
-  <=                      <
-  >                       >=
-  >=                      >
+| Original conditional |  Mutated conditional |
+|----------------------|----------------------|
+|  <                   |   <=                 |
+|  <=                  |   <                  |
+|  >                   |   >=                 |
+|  >=                  |   >                  |
 
 For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
-if (a < b) {
+<pre class="prettyprint lang-java">
+if (a &lt; b) {
   // do something
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
-if (a <= b) {
+<pre class="prettyprint lang-java">
+if (a &lt;= b) {
   // do something
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
-
-Negate Conditionals Mutator (NEGATE_CONDITIONALS)
+Negate Conditionals Mutator (NEGATE\_CONDITIONALS)
 -------------------
 
 **Active by default**
@@ -91,28 +92,27 @@ to the replacement table below.
   >=                      <
   <                       >=
   >                       <=
-  
 For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 if (a == b) {
   // do something
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 if (a != b) {
   // do something
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 This mutator overlaps to a degree with the conditionals boundary mutator, but is less **stable** i.e these
 mutations are generally easier for a test suite to detect.
 
 
-Remove Conditionals Mutator (REMOVE_CONDITIONALS)
+Remove Conditionals Mutator (REMOVE\_CONDITIONALS)
 ---------------------------
 
 The remove conditionals mutator will remove all conditionals statements such that the guarded statements always
@@ -120,19 +120,20 @@ execute
 
 For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+
+<pre class="prettyprint lang-java">
 if (a == b) {
   // do something
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 if (true) {
   // do something
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 Although not currently enabled by default it is highly recomended that you enable it if you wish to ensure your test suite has full coverage of conditional statements. 
 
@@ -162,29 +163,28 @@ selected according to the table below.
 
 For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 int a = b + c;
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 int a = b - c;
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 Keep in mind that the `+` operator on `String`s as in
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 String a = "foo" + "bar";
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 is **not a mathematical operator** but a string concatenation and will be 
 replaced by the compiler with something like
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 String a = new StringBuilder("foo").append("bar").toString();
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 
 Please note that the compiler will also use binary arithmentic operations for
@@ -194,7 +194,7 @@ exists. This special opcode is restricted to local variables (also called stack
 variables) and cannot be used for member variables. That means the math mutator
 will also mutate
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public class A {
   private int i;
 
@@ -202,11 +202,11 @@ public class A {
     this.i++;
   }
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public class A {
   private int i;
 
@@ -214,7 +214,7 @@ public class A {
     this.i = this.i - 1;
   }
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 See the [Increments Mutator][INCREMENTS] for details.
 
@@ -230,29 +230,28 @@ increments with decrements and vice versa.
 
 For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public int method(int i) {
   i++;
   return i;
 }
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public int method(int i) {
   i--;
   return i;
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 Please note that the increments mutator will be applied to increments of 
 **local variables only**. Increments and decrements of member variables will be
 covered by the [Math Mutator][MATH].
 
 
-Invert Negatives Mutator (INVERT_NEGS)
+Invert Negatives Mutator (INVERT\_NEGS)
 --------------------------------------
 
 **Active by default**
@@ -260,33 +259,33 @@ Invert Negatives Mutator (INVERT_NEGS)
 The invert negatives mutator inverts negation of integer and floating point 
 numbers. For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public float negate(final float i) {
   return -i;
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public float negate(final float i) {
   return i;
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 
-Inline Constant Mutator (INLINE_CONSTS)
+Inline Constant Mutator (INLINE\_CONSTS)
 --------------------------------------
 
 The inline constant mutator mutates inline constants. An inline constant is a
 literal value assigned to a non-final variable, for example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public void foo() {
   int i = 3;
   // do something with i
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 Depending on the type of the inline constant another mutation is used. The rules
 are a little complex due to the different ways that apparently similar Java statements
@@ -320,27 +319,27 @@ are converted to byte code.
 
 For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public int foo() {
   int i = 42;
   return i;
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public int foo() {
   int i = 43;
   return i;
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 Please note that the compiler might optimize the use of final variables 
 (regardless whether those are stack variables or member variables). For example
 the following code
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public class A {
   private static final int VAR = 13;
   
@@ -349,22 +348,22 @@ public class A {
     return "" + VAR + ":" + i;
   }
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be changed/optimized by the compiler to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public class A {
   public String foo() {
     return "13:42";
   }
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 In such situations the mutation engine can not mutate any variable.
 
 
-Return Values Mutator (RETURN_VALS)
+Return Values Mutator (RETURN\_VALS)
 -----------------------------------
 
 **Active by default**
@@ -396,30 +395,30 @@ on the return type of the method another mutation is used.  [^4]
 
 For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public Object foo() {
   return new Object();
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public Object foo() {
   new Object();
   return null;
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 
-Void Method Call Mutator (VOID_METHOD_CALLS)
+Void Method Call Mutator (VOID\_METHOD\_CALLS)
 ---------------------------------------------
 
 **Active by default**
 
 The void method call mutator removes method calls to void methods. For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public void someVoidMethod(int i) {
   // does something
 }
@@ -429,11 +428,11 @@ public int foo() {
   doSomething(i);
   return i;
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public void someVoidMethod(int i) {
   // does something
 }
@@ -442,7 +441,7 @@ public int foo() {
   int i = 5;
   return i;
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 Please note that constructor calls are **not considered void method calls**.
 See the [Constructor Call Mutator][CONSTRUCTOR_CALL] for mutations of 
@@ -450,7 +449,7 @@ constructors or the [Non Void Method Call Mutator][NON_VOID_METHOD_CALL] for
 mutations of non void methods.
 
 
-Non Void Method Call Mutator (NON_VOID_METHOD_CALLS)
+Non Void Method Call Mutator (NON\_VOID\_METHOD\_CALLS)
 ---------------------------------------------------
 
 The non void method call mutator removes method calls to non void methods.
@@ -475,7 +474,7 @@ Table: Java Default Values for Primitives and Reference Types
 
 For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public int someNonVoidMethod() {
   return 5;
 }
@@ -484,11 +483,11 @@ public void foo() {
   int i = someNonVoidMethod();
   // do more stuff with i
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public int someNonVoidMethod() {
   return 5;
 }
@@ -497,11 +496,11 @@ public void foo() {
   int i = 0;
   // do more stuff with i
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 and for method calls returning an object type the call
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public Object someNonVoidMethod() {
   return new Object();
 }
@@ -510,11 +509,11 @@ public void foo() {
   Object o = someNonVoidMethod();
   // do more stuff with o
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
-will be mutated to 
+will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public Object someNonVoidMethod() {
   return new Object();
 }
@@ -523,7 +522,7 @@ public void foo() {
   Object o = null;
   // do more stuff with o
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 Please note that this mutation is fairly unstable for some types (especially Objects where
 **`NullPointerException`s** are likely) and may also create equivalent mutations if
@@ -535,38 +534,38 @@ This mutator does not affect void methods or constructor calls. See
 [Constructor Call Mutator][CONSTRUCTOR_CALL] for mutations of constructors.
 
 
-Constructor Call Mutator (CONSTRUCTOR_CALLS)
+Constructor Call Mutator (CONSTRUCTOR\_CALLS)
 -------------------------------------------
 
 The constructor call mutator replaces constructor calls with `null` values. For
 example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public Object foo() {
   Object o = new Object();
   return o;
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
+<pre class="prettyprint lang-java">
 public Object foo() {
   Object o = null;
   return o;
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 Please note that this mutation is fairly unstable and likely to cause **`NullPointerException`s** even
 with weak test suites.
 
 This mutator does not affect non constructor method calls. See [Void Method Call Mutator][VOID_METHOD_CALL] for 
-mutations of void methods and 
+mutations of void methods and
 [Non Void Method Call Mutator][NON_VOID_METHOD_CALL] for mutations of non void
 methods.
 
 
-Experimental Inline Constant Mutator (EXPERIMENTAL_INLINE_CONSTS)
+Experimental Inline Constant Mutator (EXPERIMENTAL\_INLINE\_CONSTS)
 --------------------------------------
 
 The experimental inline constant mutator is similar to the inline constant mutator but attempts
@@ -601,23 +600,19 @@ simply adding 1 would result in equivalent mutants (for large enough values, (a 
 
 The rolling behaviour is a little surprising for shorts and ints as the example below shows
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
-
-  short s = Byte.MAX_VALUE;
-  int i = Short.MAX_VALUE;
-  int j = Byte.MAX_VALUE;
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<pre class="prettyprint lang-java">
+short s = Byte.MAX_VALUE;
+int i = Short.MAX_VALUE;
+int j = Byte.MAX_VALUE;
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
-
-  short s = Byte.MIN_VALUE;
-  int i = Short.MIN_VALUE;
-  int j = Byte.MIN_VALUE
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<pre class="prettyprint lang-java">
+short s = Byte.MIN_VALUE;
+int i = Short.MIN_VALUE;
+int j = Byte.MIN_VALUE
+</pre>
 
 
 Experimental Member Variable Mutator (EXPERIMENTAL_MEMBER_VARIABLE)
@@ -646,39 +641,33 @@ Table: Java Default Values for Primitives and Reference Types
 
 For example
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
-
-  public class MutateMe {
+<pre class="prettyprint lang-java">
+public class MutateMe {
     private final int x = 5;
-    ...
-  }
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //...
+}
+</pre>
 
 will be mutated to
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
-
+<pre class="prettyprint lang-java">
   public class MutateMe {
     private final int x = 0;
     ...
   }
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
 
 **Please Note: This mutator is likely to create equivalent mutations** if a
 member variable is **explicitly** initialized with the Java default value for 
 the specific type of the member variable as in
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.java}
-
-  public class EquivalentMutant {
+<pre class="prettyprint lang-java">
+public class EquivalentMutant {
     private int x = 0;
-  }
+}
+</pre>
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Experimental Switch Mutator (EXPERIMENTAL_SWITCH)
+Experimental Switch Mutator (EXPERIMENTAL\_SWITCH)
 --------------------------------------
 
 The switch mutator finds the first label within a switch statement that differs from the default label. It mutates the switch statement by replacing the default label (wherever it is used) with this label. All the other labels are replaced by the default one.

@@ -1,0 +1,230 @@
+.pln {
+    color: #000
+}
+
+@media screen {
+    .str {
+        color: #080
+    }
+
+    .kwd {
+        color: #008
+    }
+
+    .com {
+        color: #800
+    }
+
+    .typ {
+        color: #606
+    }
+
+    .lit {
+        color: #066
+    }
+
+    .pun, .opn, .clo {
+        color: #660
+    }
+
+    .tag {
+        color: #008
+    }
+
+    .atn {
+        color: #606
+    }
+
+    .atv {
+        color: #080
+    }
+
+    .dec, .var {
+        color: #606
+    }
+
+    .fun {
+        color: red
+    }
+}
+
+@media print, projection {
+    .str {
+        color: #060
+    }
+
+    .kwd {
+        color: #006;
+        font-weight: bold
+    }
+
+    .com {
+        color: #600;
+        font-style: italic
+    }
+
+    .typ {
+        color: #404;
+        font-weight: bold
+    }
+
+    .lit {
+        color: #044
+    }
+
+    .pun, .opn, .clo {
+        color: #440
+    }
+
+    .tag {
+        color: #006;
+        font-weight: bold
+    }
+
+    .atn {
+        color: #404
+    }
+
+    .atv {
+        color: #060
+    }
+}
+
+pre.prettyprint {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+ol.linenums {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+li.L1, li.L3, li.L5, li.L7, li.L9 {
+    background: #eee
+}
+
+/* DARK BACKGROUND FOR CONSOLE
+ * Derived from einaros's Sons of Obsidian theme at
+ * http://studiostyl.es/schemes/son-of-obsidian by
+ * Alex Ford of CodeTunnel:
+ * http://CodeTunnel.com/blog/post/71/google-code-prettify-obsidian-theme
+ */
+
+.console .str {
+    color: #EC7600;
+}
+
+.console .kwd {
+    color: #93C763;
+}
+
+.console .com {
+    color: #66747B;
+}
+
+.console .typ {
+    color: #678CB1;
+}
+
+.console .lit {
+    color: #FACD22;
+}
+
+.console .pun {
+    color: #F1F2F3;
+}
+
+.console .pln {
+    color: #F1F2F3;
+}
+
+.console .pln, .console .nocode {
+    color: #F1F2F3;
+}
+
+.console .tag {
+    color: #8AC763;
+}
+
+.console .atn {
+    color: #E0E2E4;
+}
+
+.console .atv {
+    color: #EC7600;
+}
+
+.console .dec {
+    color: purple;
+}
+
+pre.prettyprint.console {
+    border: 0px solid #888;
+}
+
+.console ol.linenums {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.prettyprint.console {
+    background: #000;
+}
+
+.console li.L0, .console li.L1, .console li.L2, .console li.L3, .console li.L4,
+.console li.L5, .console li.L6, .console li.L7, .console li.L8, .console li.L9 {
+    color: #555;
+    list-style-type: decimal;
+}
+
+.console li.L1, .console li.L3, .console li.L5, .console li.L7, .console li.L9 {
+    background: #111;
+}
+
+@media print {
+    .console .str {
+        color: #060;
+    }
+
+    .console .kwd {
+        color: #006;
+        font-weight: bold;
+    }
+
+    .console .com {
+        color: #600;
+        font-style: italic;
+    }
+
+    .console .typ {
+        color: #404;
+        font-weight: bold;
+    }
+
+    .console .lit {
+        color: #044;
+    }
+
+    .console .pun {
+        color: #440;
+    }
+
+    .console .pln {
+        color: #000;
+    }
+
+    .console .tag {
+        color: #006;
+        font-weight: bold;
+    }
+
+    .console .atn {
+        color: #404;
+    }
+
+    .console .atv {
+        color: #060;
+    }
+}

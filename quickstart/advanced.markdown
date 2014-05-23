@@ -3,6 +3,8 @@ title: Advanced usage
 description: Advanced usage of PIT
 tags: quickstart guide
 keywords: mutation testing
+layout: default
+alias: quickstart/advanced
 ---
 
 # Advanced Usage

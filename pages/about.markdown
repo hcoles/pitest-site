@@ -1,7 +1,9 @@
 ---
 title: About
 description: About this site
+layout: default
 keywords: about
+alias: /about
 ---
 
 # About PIT

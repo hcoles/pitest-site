@@ -1,6 +1,8 @@
 ---
 title: Downloads
 description: Release details
+layout: default
+alias: /downloads
 ---
 
 # Downloads and repository info

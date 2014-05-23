@@ -3,6 +3,8 @@ title: Quickstart for maven users
 description: Quickstart guide for mutation testing with PIT and maven
 tags: quickstart, guide
 keywords: maven, mutation testing
+layout: default
+alias: quickstart/maven
 ---
 
 # Maven Quick Start
@@ -16,23 +18,23 @@ PIT is available from [maven central](http://search.maven.org/#search|ga|1|a%3A%
 
 Add the plugin to build/plugins in your pom.xml
 
-~~~ {.xml}
-  <plugin>
-    <groupId>org.pitest</groupId>
-    <artifactId>pitest-maven</artifactId>
-    <version>LATEST</version>
-    <configuration>
-      <targetClasses>
-        <param>com.your.package.root.want.to.mutate*</param>
-      </targetClasses>
-      <targetTests>
-        <param>com.your.package.root*</param>
-      </targetTests>
-    </configuration>
-  </plugin>
-~~~
+<pre class="prettyprint lang-xml">
+&lt;plugin&gt;
+    &lt;groupId&gt;org.pitest&lt;/groupId&gt;
+    &lt;artifactId&gt;pitest-maven&lt;/artifactId&gt;
+    &lt;version&gt;LATEST&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;targetClasses&gt;
+            &lt;param&gt;com.your.package.root.want.to.mutate*&lt;/param&gt;
+        &lt;/targetClasses&gt;
+        &lt;targetTests&gt;
+            &lt;param&gt;com.your.package.root*&lt;/param&gt;
+        &lt;/targetTests&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</pre>
 
-**That's it, you're up and running.** 
+**That's it, you're up and running.**
 
 PIT provides two goals
 
@@ -42,9 +44,9 @@ The mutation coverage goal analyses all classes in the codebase that match the t
 
 It can be run directly from the commandline
 
-~~~ {.bash}
-mvn org.pitest:pitest-maven:mutationCoverage 
-~~~
+<pre class="prettyprint lang-bash">
+mvn org.pitest:pitest-maven:mutationCoverage
+</pre>
 
 This will output an html report to **target/pit-reports/YYYYMMDDHHMI**.
 
@@ -53,9 +55,9 @@ This will output an html report to **target/pit-reports/YYYYMMDDHHMI**.
 
 The scm mutation coverage goal analyses only classes that match the filters and the source file has a given status within the project source control system (by default ADDED or MODIFIED). This provides a quick way to check the coverage of changes prior to checking code in / pushing code to a repository.
 
-~~~ {.bash}
+<pre class="prettyprint lang-bash">
 mvn org.pitest:pitest-maven:scmMutationCoverage -Dinclude=ADDED,UNKNOWN -DmutationThreshold=85
-~~~
+</pre>
 
 To use this goal the maven [scm plugin](http://maven.apache.org/scm/maven-scm-plugin/usage.html) must be correctly configured for the project
 
@@ -80,21 +82,21 @@ The classes to be mutated. This is expressed as a list of globs.
 
 For example
 
-~~~ {.xml}
-     <targetClasses>
-        <param>com.mycompany.*</param>
-     </targetClasses>
-~~~
+<pre class="prettyprint lang-xml">
+&lt;targetClasses&gt;
+    &lt;param&gt;com.mycompany.*&lt;/param&gt;
+&lt;/targetClasses&gt;
+</pre>
 
 or
 
-~~~ {.xml}
-     <targetClasses>
-        <param>com.mycompany.package.*</param>
-        <param>com.mycompany.packageB.Foo*</param>
-        <param>com.partner.*</param>
-     </targetClasses> 
-~~~
+<pre class="prettyprint lang-xml">
+&lt;targetClasses&gt;
+    &lt;param&gt;com.mycompany.package.*&lt;/param&gt;
+    &lt;param&gt;com.mycompany.packageB.Foo*&lt;/param&gt;
+    &lt;param&gt;com.partner.*&lt;/param&gt;
+&lt;/targetClasses&gt;
+</pre>
 
 ### targetTests
 
@@ -120,7 +122,7 @@ glob from the project's group id of the form. group.id.*~~
 
 ### maxDependencyDistance
 
-PIT can optionally apply an additional filter to the supplied tests, such that only tests a certain distance from 
+PIT can optionally apply an additional filter to the supplied tests, such that only tests a certain distance from
 a mutated class will be considered for running. e.g A test that directly calls a method on a mutated class has a distance of 1
 , a test that calls a method on a class that uses the mutee as an implementation detail has a distance of 2 etc.
 
@@ -130,7 +132,7 @@ The distance filter is particularly useful when performing a targeted mutation t
 a large project as it avoids the overheads of calculating the times and coverage of tests that cannot exercise the mutees.
 
 ### threads
- 
+
 The number of threads to use when mutation testing. By default a single thread will be used.
 
 ### mutateStaticInitializers
@@ -143,16 +145,14 @@ List of mutation operators to apply.
 
 for example
 
-~~~ {.xml}
-
-<configuration>
-<mutators>
-<mutator>CONSTRUCTOR_CALLS</mutator>
-<mutator>NON_VOID_METHOD_CALLS</mutator>
-</mutators>
-</configuration>
-
-~~~
+<pre class="prettyprint lang-xml">
+&lt;configuration&gt;
+    &lt;mutators&gt;
+        &lt;mutator&gt;CONSTRUCTOR_CALLS&lt;/mutator&gt;
+        &lt;mutator&gt;NON_VOID_METHOD_CALLS&lt;/mutator&gt;
+    &lt;/mutators&gt;
+&lt;/configuration&gt;
+</pre>
 
 For details of the available mutators and the default set applied see [mutation operators](/quickstart/mutators/).
 
@@ -208,15 +208,15 @@ to the process, but may be used to pass any valid JVM argument.
 
 For example when running on OpenJDK 7 the it is sometimes necessary to disable the split verifier.
 
-~~~ {.xml}
- <jvmArgs>
-        <value>-XX:-UseSplitVerifier</value>
- </jvmArgs>
-~~~
+<pre class="prettyprint lang-xml">
+&lt;jvmArgs&gt;
+    &lt;value&gt;-XX:-UseSplitVerifier&lt;/value&gt;
+&lt;/jvmArgs&gt;
+</pre>
 
 ### jvm
 
-The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by JAVA_HOME.
+The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA\_HOME```.
 
 ### outputFormats
 
@@ -277,20 +277,20 @@ In the case of any doubt PIT will act cautiously and assume that the code is not
 
 This will be detected as two separate inlined instructions
 
-~~~ {.java}
+<pre class="prettyprint lang-xml">
 finally {
-  int++;
-  int++;
+    int++;
+    int++;
 }
-~~~
+</pre>
 
 But this will look confusing so PIT will assume no in-lining is taking place.
 
-~~~ {.java}
+<pre class="prettyprint lang-xml">
 finally {
-  int++; int++;
+    int++; int++;
 }
-~~~ 
+</pre>
 
 This sort of pattern might not be common with integer addition, but things like string concatenation are likely to produce multiple similar instructions on the same line.
 

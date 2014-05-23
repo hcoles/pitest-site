@@ -1,7 +1,7 @@
 ---
 title: Roadmap
-description: Roadmap for PIT development
-keywords: roadmap
+layout: default
+alias: /roadmap
 ---
 
 # Roadmap

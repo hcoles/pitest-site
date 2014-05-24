@@ -2,10 +2,13 @@
 title: PIT 0.31 released
 description: PIT 0.31 released
 tags: release
+layout: post
+permalink: /posts/2013/09/02/release_0.31
 ---
 
-PIT 0.31 has now been released and is available from google code and maven central. <!-- more --> 
+PIT 0.31 has now been released and is available from google code and maven central.
 
+<!-- more -->
 
 Full details of what's included are available from the [downloads](/downloads/) section.
 

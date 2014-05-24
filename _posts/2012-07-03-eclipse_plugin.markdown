@@ -3,10 +3,11 @@ title: Eclipse plugin
 keywords: eclipse
 tags: announcement
 description: First cut of PIT eclipse plugin now available
+layout: post
+permalink: /posts/2012/07/03/eclipse_plugin
 ---
 
 Phil Glover has made a excellent start at implementing an Eclipse plugin for PIT. It is still early days, but it is already both usable and useful.
-<!-- more --> 
 
 The code is available at
 

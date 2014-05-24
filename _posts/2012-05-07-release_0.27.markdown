@@ -3,9 +3,11 @@ title: PIT 0.27 released
 keywords: release
 tags: release
 description: PIT 0.27 released
+layout: post
+permalink: /posts/2012/05/07/release_0.27
 ---
 
-PIT 0.27 has now been released and is available from google code and maven central. <!-- more --> 
+PIT 0.27 has now been released and is available from google code and maven central.
 
 
 Full details of what's included are available from the [downloads](/downloads/) section, but headline items include

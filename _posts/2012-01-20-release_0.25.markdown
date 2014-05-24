@@ -3,9 +3,11 @@ title: PIT 0.25 released
 keywords: documentation
 tags: release
 description: PIT 0.25 released
+layout: post
+permalink: /posts/2012/01/20/release_0.25
 ---
 
-PIT 0.25 has now been released and is available from google code and maven central. <!-- more --> 
+PIT 0.25 has now been released and is available from google code and maven central.
 
 The headline feature is support for TestNG, but there's lots of other good stuff included.
 

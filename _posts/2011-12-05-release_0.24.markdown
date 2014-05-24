@@ -3,9 +3,11 @@ title: Changes in PIT 0.24
 keywords: documentation
 tags: release
 description: Changes in PIT 0.24
+layout: post
+permalink: /posts/2011/12/05/release_0.24
 ---
 
-PIT 0.24 has now been released and is available from google code and maven central. <!-- more --> 
+PIT 0.24 has now been released and is available from google code and maven central.
 
 The original plan had been for the 0.24 release to introduce a proper split between mutation analysis and report generation, and to introduce experimental support for incremental mutation analysis. Progress on this has been fairly slow however so a release has been prepared with the following changes which we felt people shouldn't have to wait for.
 

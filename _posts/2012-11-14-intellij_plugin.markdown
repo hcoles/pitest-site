@@ -3,10 +3,11 @@ title: Intellij plugin
 keywords: Intellij
 tags: announcement
 description: First cut of Intellij IDEA plugin now available
+layout: post
+permalink: /posts/2012/11/14/intellij_plugin
 ---
 
 Michal Jedynak has put together a plugin for Intellij.
-<!-- more --> 
 
 The code is available at
 

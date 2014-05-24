@@ -1,6 +1,8 @@
 ---
 title: Pitest.org revamp
 description: Pitest.org website revamp
+layout: post
+permalink: /posts/2013/07/21/site_revamp
 ---
 
 The pitest.org website has had a bit of a revamp with a new look based on [bootstrap](http://twitter.github.io/bootstrap/) and a logo kindly provided by Ling Yeung.

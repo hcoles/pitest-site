@@ -3,9 +3,13 @@ title: Documentation for PIT mutation operators added
 keywords: documentation
 tags: documentation
 description: Documentation of mutation operators contributed by Stefan Penndorf
+layout: post
+permalink: /posts/2011/09/16/mutator_documentation
 ---
 
-Stefan Penndorf has contributed some great work documenting PIT's mutation operators. <!-- more -->
+Stefan Penndorf has contributed some great work documenting PIT's mutation operators.
+
+<!-- more -->
 
 This is now been merged into the site at [mutation operators](/quickstart/mutators/). He has also provided some improvements to the test cases 
 which now provide a clearer description of the behaviour.

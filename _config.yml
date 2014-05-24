@@ -1,4 +1,5 @@
 name: Pitest
 markdown: redcarpet
+excerpt_separator: <!-- more -->
 description: Pitest
 url: http://pitest.org

@@ -160,6 +160,10 @@ li.L1, li.L3, li.L5, li.L7, li.L9 {
     color: purple;
 }
 
+pre.prettyprint {
+    font-size: 1em !important;
+}
+
 pre.prettyprint.console {
     border: 0px solid #888;
 }

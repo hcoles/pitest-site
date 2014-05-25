@@ -2,7 +2,7 @@
 title: How to help
 description: How to help
 layout: default
-permalink: /how_to_help
+permalink: /how_to_help/
 ---
 
 # How to help

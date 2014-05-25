@@ -3,7 +3,7 @@ title: About
 description: About this site
 layout: default
 keywords: about
-permalink: /about
+permalink: /about/
 ---
 
 # About PIT

@@ -1,7 +1,7 @@
 ---
 title: Java Mutation Testing Systems
 layout: default
-permalink: /java_mutation_testing_systems
+permalink: /java_mutation_testing_systems/
 ---
 
 # Mutation testing systems for Java compared

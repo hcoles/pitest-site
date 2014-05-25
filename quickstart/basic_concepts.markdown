@@ -4,7 +4,7 @@ description: Basic concepts of muation testing with PIT
 tags: quickstart, guide
 keywords: mutation testing, equivalent mutations, mutation operator
 layout: default
-permalink: /quickstart/basic_concepts
+permalink: /quickstart/basic_concepts/
 ---
 
 # Basic Concepts

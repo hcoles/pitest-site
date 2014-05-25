@@ -4,7 +4,7 @@ description: Details of mutation operators provided with PIT
 tags: mutators
 keywords: mutation testing, mutation operator
 layout: default
-permalink: /quickstart/mutators
+permalink: /quickstart/mutators/
 ---
 
 # Overview

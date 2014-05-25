@@ -4,7 +4,7 @@ description: Quickstart guide for mutation testing with PIT via the command line
 tags: quickstart, guide
 keywords: command line, mutation testing
 layout: default
-permalink: /quickstart/commandline
+permalink: /quickstart/commandline/
 ---
 
 # Command Line Quick Start

@@ -4,3 +4,4 @@ excerpt_separator: <!-- more -->
 description: Pitest
 url: http://pitest.org
 relative_permalinks: false
+permalink: /posts/:year/:month/:day/:title/

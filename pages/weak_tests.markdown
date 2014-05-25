@@ -1,7 +1,7 @@
 ---
 title: Weak tests
 layout: default
-alias: weak_tests
+permalink: /weak_tests/
 ---
 
 # Weak tests

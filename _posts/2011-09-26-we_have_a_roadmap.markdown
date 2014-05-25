@@ -4,7 +4,6 @@ description: Now we have a roadmap
 keywords: roadmap
 tags: roadmap
 layout: post
-permalink: /posts/2011/09/26/we_have_a_roadmap
 ---
 
 Several people have asked if there is a roadmap for PIT, so with a nod to Heisenberg <sup>1</sup> [now we do](/roadmap/).

@@ -4,7 +4,6 @@ keywords: release
 tags: release
 description: PIT 0.28 released
 layout: post
-permalink: /posts/2012/08/14/release_0.28
 ---
 
 PIT 0.28 has now been released and is available from google code and maven central.

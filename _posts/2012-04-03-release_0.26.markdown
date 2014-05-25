@@ -4,7 +4,6 @@ keywords: documentation
 tags: release
 description: PIT 0.26 released
 layout: post
-permalink: /posts/2012/04/03/release_0.26
 ---
 
 PIT 0.26 has now been released and is available from google code and maven central.

@@ -4,7 +4,7 @@ description: Incremental mutation analysis with PIT
 tags: quickstart, guide
 keywords: mutation testing
 layout: default
-permalink: /quickstart/incremental_analysis
+permalink: /quickstart/incremental_analysis/
 ---
 
 # Incremental analysis

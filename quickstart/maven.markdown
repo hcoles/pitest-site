@@ -4,7 +4,7 @@ description: Quickstart guide for mutation testing with PIT and maven
 tags: quickstart, guide
 keywords: maven, mutation testing
 layout: default
-permalink: /quickstart/maven
+permalink: /quickstart/maven/
 ---
 
 # Maven Quick Start

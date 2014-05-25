@@ -1,7 +1,7 @@
 ---
 title: Privacy
 layout: default
-permalink: /privacy
+permalink: /privacy/
 ---
 
 ##Google Analytics

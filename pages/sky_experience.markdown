@@ -1,7 +1,7 @@
 ---
 title: Sky Experience
 layout: default
-permalink: /sky_experience
+permalink: /sky_experience/
 ---
 
 # Experience of introducing mutation testing to a team

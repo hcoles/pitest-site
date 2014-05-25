@@ -131,9 +131,9 @@ Of these libraries, BCEL is no longer actively developed or maintained.
 * Generally much faster
 * Generally easier to integrate into a build
 * Can potentially create mutants without access to source files
-* Same mutation operators can in theory work for other JVM languages [^1] 
+* Same mutation operators can in theory work for other JVM languages <sup>1</sup> 
 
-[^1]: In practice the operators may however end up mutating mainly the compiler generated plumbing code for these languages 
+<sup>1</sup>: In practice the operators may however end up mutating mainly the compiler generated plumbing code for these languages 
 
 #### Cons
 
@@ -205,7 +205,7 @@ Optimisations may also be implemented to choose an optimal running order for the
 
 #### Cons
 
-* Some overhead required to measure coverage [^cov1]
+* Some overhead required to measure coverage <sup>cov1</sup>
 
 ## Mutant insertion
 
@@ -400,7 +400,7 @@ by other tools, eg XML, RDMS etc.
             <td>T</td>
             <td>N</td>
             <td>APCH2</td>
-            <td>**Y**[^jmbl1]</td>
+            <td>**Y**<sup>jmbl1</sup></td>
         </tr>
         <tr>
             <td>[PIT](#pit)</td>
@@ -411,7 +411,7 @@ by other tools, eg XML, RDMS etc.
             <td>**AS**</td>
             <td>**Y**</td>
             <td>APCH2</td>
-            <td>**Y**[^pit1]</td>
+            <td>**Y**<sup>pit1</sup></td>
         </tr>
         <tr>
             <td>[&micro;Java](#&micro;Java)</td>
@@ -419,64 +419,111 @@ by other tools, eg XML, RDMS etc.
             <td>Manual</td>
             <td>N/A</td>
             <td>N/A</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>**AS**</td>
+            <td>N</td>
+            <td>?</td>
+            <td>N</td>
         </tr>
         <tr>
             <td>[javaLanche](#javaLanche)</td>
             <td>ASM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>**Coverage**</td>
+            <td>Schemata</td>
+            <td>EE Fine?</td>
+            <td>P</td>
+            <td>**Y**</td>
+            <td>LGPL</td>
+            <td>N</td>
         </tr>
     </tbody>
 </table>
 
-+---------------------------------+---------------+--------------+--------------+-------------+---------+-------+----------+--------------+
-|      |        |        |           |          | **AS**  |  N    |  ?       | N            |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+-------+----------+--------------+
-|        |            | **Coverage** | Schemata     | EE Fine?    | P       | **Y** | LGPL     | N            |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+-------+----------+--------------+
 
 ### Java and Test framework support
 
 <table class="table">
     <thead>
         <tr>
-            <th>Constant Type</th>
-            <th>Mutation</th>
+            <th>System</th>
+            <th>1.4</th>
+            <th>1.5</th>
+            <th>1.6</th>
+            <th>1.7</th>
+            <th>1.8</th>
+            <th>JUnit3</th>
+            <th>JUnit4</th>
+            <th>TestNG</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td></td>
-            <td></td>
+            <td>[Jester](#jester)</td>
+            <td>N</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>N</td>
+            <td>N</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>N</td>
+        </tr>
+        <tr>
+            <td>[Simple Jester](#simple jester)</td>
+            <td>N</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>N</td>
+            <td>N</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>N</td>
+        </tr>
+        <tr>
+            <td>[Jumble](#jumble)</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>?</td>
+            <td>?</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>N</td>
+        </tr>
+        <tr>
+            <td>[PIT](#pit)</td>
+            <td>N</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+        </tr>
+        <tr>
+            <td>[&micro;Java](#&micro;Java)</td>
+            <td>**Y**</td>
+            <td>N</td>
+            <td>N</td>
+            <td>N</td>
+            <td>N</td>
+            <td>N</td>
+            <td>N</td>
+            <td>N</td>
+        </tr>
+        <tr>
+            <td>[javaLanche](#javaLanche)</td>
+            <td>N</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>?</td>
+            <td>?</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>N</td>
         </tr>
     </tbody>
 </table>
-
-+---------------------------------+-------+-------+-------+-------+--------+---------+---------+
-| System                          | 1.4   | 1.5   | 1.6   | 1.7   | JUnit3 | JUnit4  |Test NG  |
-+=================================+=======+=======+=======+=======+========+=========+=========+
-| [Jester](#jester)               |  N    | **Y** | **Y** | N     |  **Y** |  **Y**  |   N     |
-+---------------------------------+-------+-------+-------+-------+--------+---------+---------+
-| [Simple Jester](#simple jester) |  N    | **Y** | **Y** | N     |  **Y** |  **Y**  |   N     |
-+---------------------------------+-------+-------+-------+-------+--------+---------+---------+
-| [Jumble](#jumble)               | **Y** | **Y** | **Y** | ?     |  **Y** |  **Y**  |   N     | 
-+---------------------------------+-------+-------+-------+-------+--------+---------+---------+
-| [PIT](#pit)                     |  N    | **Y** | **Y** | **Y** |  **Y** |  **Y**  | **Y**   |
-+---------------------------------+-------+-------+-------+-------+--------+---------+---------+
-| [&micro;Java](#&micro;Java)     | **Y** |  N    |  N    | N     |   N    |    N    |   N     |
-+---------------------------------+-------+-------+-------+-------+--------+---------+---------+
-| [javaLanche](#javaLanche)       |  N    | **Y** | **Y** | ?     |  **Y** |  **Y**  |   N     |
-+---------------------------------+-------+-------+-------+-------+--------+---------+---------+
-
 
 ### Tool integration
 
@@ -492,34 +539,93 @@ mocking frameworks. Most mocking systems are implemented with dynamic proxies or
 <table class="table">
     <thead>
         <tr>
-            <th>Constant Type</th>
-            <th>Mutation</th>
+            <th>System</th>
+            <th>Ant</th>
+            <th>Maven</th>
+            <th>Eclipse</th>
+            <th>Powermock</th>
+            <th>JMock</th>
+            <th>JMock2</th>
+            <th>Mockito</th>
+            <th>JMockit</th>
+            <th>EasyMock</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td></td>
-            <td></td>
+            <td>[Jester](#jester)</td>
+            <td>N</td>
+            <td>N</td>
+            <td>N</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+        </tr>
+        <tr>
+            <td>[Simple Jester](#simple jester)</td>
+            <td>N</td>
+            <td>N</td>
+            <td>N</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+        </tr>
+        <tr>
+            <td>[Jumble](#jumble)</td>
+            <td>**Y**</td>
+            <td>N</td>
+            <td>**Y**</td>
+            <td>?</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>N<sup>jmb2</sup></td>
+            <td>?</td>
+        </tr>
+        <tr>
+            <td>[PIT](#pit)</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>3rd</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+            <td>**Y**</td>
+        </tr>
+        <tr>
+            <td>[&micro;Java](#&micro;Java)</td>
+            <td>N</td>
+            <td>N</td>
+            <td>3rd <sup>mu1</sup></td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+        </tr>
+        <tr>
+            <td>[javaLanche](#javaLanche)</td>
+            <td>N</td>
+            <td>N</td>
+            <td>N</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>N<sup>jl2</sup></td>
+            <td>! <sup>jl1</sup></td>
         </tr>
     </tbody>
 </table>
-
-+---------------------------------+---------------+--------------+--------------+-------------+---------+--------+---------+----------+-----------+
-| System                          | Ant           | Maven        | Eclipse      | Powermock   | JMock   | JMock2 | Mockito | JMockit  | EasyMock  |
-+=================================+===============+==============+==============+=============+=========+========+=========+==========+===========+
-| [Jester](#jester)               | N             | N            | N            | ?           | ?       |  ?     |  ?      |    ?     |    ?      | 
-+---------------------------------+---------------+--------------+--------------+-------------+---------+--------+---------+----------+-----------+
-| [Simple Jester](#simple jester) | N             | N            | N            | ?           | ?       |  ?     |  ?      |    ?     |    ?      |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+--------+---------+----------+-----------+
-| [Jumble](#jumble)               |**Y**          | N            |**Y**         | ?           |**Y**    | **Y**  | **Y**   | N[^jmb2] |    ?      |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+--------+---------+----------+-----------+
-| [PIT](#pit)                     |**Y**          |**Y**         | 3rd          |**Y**        |**Y**    | **Y**  | **Y**   |  **Y**   |   **Y**   |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+--------+---------+----------+-----------+
-| [&micro;Java](#&micro;Java)     | N             | N            | 3rd [^mu1]   | ?           | ?       |  ?     |  ?      |    ?     |    ?      |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+--------+---------+----------+-----------+
-| [javaLanche](#javaLanche)       | N             | N            | N            | ?           | ?       |  ?     |  ?      |  N[^jl2] |  ! [^jl1] |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+--------+---------+----------+-----------+
-
 
 # Conclusions
 

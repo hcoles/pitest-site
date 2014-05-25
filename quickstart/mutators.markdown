@@ -4,7 +4,7 @@ description: Details of mutation operators provided with PIT
 tags: mutators
 keywords: mutation testing, mutation operator
 layout: default
-alias: quickstart/mutators
+permalink: /quickstart/mutators
 ---
 
 # Overview
@@ -402,14 +402,14 @@ are converted to byte code.
     </thead>
     <tbody>
         <tr>
-            <td>boolean</td>
+            <td><code>boolean</code></td>
             <td>
                 replace the unmutated value <code>true</code> with <code>false</code> and
                 replace the unmutated value <code>false</code> with <code>true</code>
             </td>
         </tr>
         <tr>
-            <td>integer, byte, short</td>
+            <td><code>integer</code> <code>byte</code> <code>short</code></td>
             <td>
                 replace the unmutated value <code>1</code> with <code>0</code>,
                 <code>-1</code> with <code>1</code>, <code>5</code> with <code>-1</code>
@@ -417,21 +417,21 @@ are converted to byte code.
             </td>
         </tr>
         <tr>
-            <td>long</td>
+            <td><code>long</code></td>
             <td>
                 replace the unmutated value <code>1</code> with <code>0</code>, otherwise
                 increment the unmutated value by one.
             </td>
         </tr>
         <tr>
-            <td>float</td>
+            <td><code>float</code></td>
             <td>
                 replace the unmutated values <code>1.0</code> and <code>2.0</code>
                 with <code>0.0</code> and replace any other value with <code>1.0</code> <sup>2</sup>
             </td>
         </tr>
         <tr>
-            <td>double</td>
+            <td><code>double</code></td>
             <td>
                 replace the unmutated value <code>1.0</code> with <code>0.0</code>
                 and replace any other value with <code>1.0</code> <sup>2</sup>
@@ -498,29 +498,56 @@ Return Values Mutator (RETURN\_VALS)
 **Active by default**
 
 The return values mutator mutates the return values of method calls. Depending
-on the return type of the method another mutation is used.  [^4]
+on the return type of the method another mutation is used.<sup>4</sup>
 
-[^4]: The strategy used by this mutator was translated from code in the Jumble project
+<sup>4</sup>: The strategy used by this mutator was translated from code in the Jumble project
 
-+------------------+-----------------------------------------------------------+
-| Return type      | Mutation                                                  |
-+==================+===========================================================+
-| boolean          | replace the unmutated return value `true` with `false` and|
-|                  | replace the unmutated return value `false` with `true`    |
-+------------------+-----------------------------------------------------------+
-| integer, byte    | if the unmutated return value is `0` return `1`, otherwise|
-| short            | mutate to return value `0`                                |
-+------------------+-----------------------------------------------------------+
-| long             | replace the unmutated return value `x` with the result of |
-|                  | `x+1`                                                     |
-+------------------+-----------------------------------------------------------+
-| float, double    | replace the unmutated return value `x` with the result of |
-|                  | `-(x+1.0)` if `x` is not `NAN` and replace `NAN` with `0` |
-+------------------+-----------------------------------------------------------+
-| object reference | replace non-`null` return values with `null` and throw a  |
-|                  | `java.lang.RuntimeException` if the unmutated method      |
-|                  | would return `null`                                       |
-+------------------+-----------------------------------------------------------+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Return Type</th>
+            <th>Mutation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>boolean</code></td>
+            <td>
+                replace the unmutated return value <code>true</code> with <code>false</code> and
+                replace the unmutated return value <code>false</code> with <code>true</code>
+            </td>
+        </tr>
+        <tr>
+            <td><code>int</code> <code>byte</code> <code>short</code></td>
+            <td>
+                if the unmutated return value is <code>0</code> return <code>1</code>, otherwise
+                mutate to return value <code>0</code>
+            </td>
+        </tr>
+        <tr>
+            <td><code>long</code></td>
+            <td>
+                replace the unmutated return value <code>x</code> with the result of <code>x+1</code>
+            </td>
+        </tr>
+        <tr>
+            <td><code>float</code> <code>double</code></td>
+            <td>
+                replace the unmutated return value <code>x</code> with the result of
+                <code>-(x+1.0)</code> if <code>x</code> is not <code>NAN</code> and
+                replace <code>NAN</code> with <code>0</code>
+            </td>
+        </tr>
+        <tr>
+            <td><code>Object</code></td>
+            <td>
+                replace non-<code>null</code> return values with <code>null</code> and throw a
+                <code>java.lang.RuntimeException</code> if the unmutated method
+                would return <code>null</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 For example
 
@@ -587,19 +614,37 @@ type. See the table below.
 
 Table: Java Default Values for Primitives and Reference Types
 
-+------------------------------------+---------------+
-| Type                               | Default Value |
-+====================================+===============+
-| `boolean`                          | `false`       |
-+------------------------------------+---------------+
-| `integer`, `short`, `byte`, `long` | `0`           |
-+------------------------------------+---------------+
-| `float`, `double`                  | `0.0`         |
-+------------------------------------+---------------+
-| `char`                             | `'\u0000'`    |
-+------------------------------------+---------------+
-| Object reference                   | `null`        |
-+------------------------------------+---------------+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Default Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>int</code> <code>byte</code> <code>short</code> <code>long</code></td>
+            <td><code>0</code></td>
+        </tr>
+        <tr>
+            <td><code>float</code> <code>double</code></td>
+            <td><code>0.0</code></td>
+        </tr>
+        <tr>
+            <td><code>char</code></td>
+            <td><code>'\u0000'</code></td>
+        </tr>
+        <tr>
+            <td><code>Object</code></td>
+            <td><code>null</code></td>
+        </tr>
+    </tbody>
+</table>
 
 For example
 
@@ -704,28 +749,55 @@ As much as possible the mutator simply adds 1 to the value. This is not done in
 some cases for due to esoteric JVM details. In the case of floating point types
 simply adding 1 would result in equivalent mutants (for large enough values, (a + 1) == a).
 
-+------------------+-----------------------------------------------------------+
-| Constant Type    | Mutation                                                  |
-+==================+===========================================================+
-| boolean          | replace the unmutated value `true` with `false` and       |
-|                  | replace the unmutated value `false` with `true`           |
-+------------------+-----------------------------------------------------------+
-| integer, byte    | replace the unmutated value `1` with `0`, `-1` with `0`,  |
-| short            | otherwise increment the unmutated value  by one.          |
-|                  |                                                           |
-|                  | Values of Byte.MAX, Short.MAX and Integer.MAX will be     |
-|                  | rolled to the corresponding min value. This happens even  |
-|                  | if the declared type would not overflow.                  |
-+------------------+-----------------------------------------------------------+
-| long             | replace the unmutated value `1` with `0`, otherwise       |
-|                  | increment the unmutated value by one.                     |
-+------------------+-----------------------------------------------------------+
-| float            | replace the `0.0` with `1.0`, `1.0` with `2.0`            |
-|                  | and replace any other value with `1.0`                    |
-+------------------+-----------------------------------------------------------+
-| double           | replace the `0.0` with `1.0`, `1.0` with `2.0`            |
-|                  | any replace other value with `1.0`                        |
-+------------------+-----------------------------------------------------------+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Constant Type</th>
+            <th>Mutation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>boolean</code></td>
+            <td>
+                replace the unmutated value `true` with `false` and
+                replace the unmutated value `false` with `true`
+            </td>
+        </tr>
+        <tr>
+            <td><code>int</code> <code>byte</code> <code>short</code></td>
+            <td>
+                replace the unmutated value `1` with `0`, `-1` with `0`,
+                otherwise increment the unmutated value  by one.
+
+                Values of Byte.MAX, Short.MAX and Integer.MAX will be
+                rolled to the corresponding min value. This happens even
+                if the declared type would not overflow.
+            </td>
+        </tr>
+        <tr>
+            <td><code>long</code></td>
+            <td>
+                replace the unmutated value `1` with `0`, otherwise
+                increment the unmutated value by one.
+            </td>
+        </tr>
+        <tr>
+            <td><code>float</code></td>
+            <td>
+                replace the `0.0` with `1.0`, `1.0` with `2.0`
+                and replace any other value with `1.0`
+            </td>
+        </tr>
+        <tr>
+            <td><code>double</code></td>
+            <td>
+                replace the `0.0` with `1.0`, `1.0` with `2.0`
+                any replace other value with `1.0`
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 The rolling behaviour is a little surprising for shorts and ints as the example below shows
 
@@ -744,7 +816,7 @@ int j = Byte.MIN_VALUE
 </pre>
 
 
-Experimental Member Variable Mutator (EXPERIMENTAL_MEMBER_VARIABLE)
+Experimental Member Variable Mutator (EXPERIMENTAL\_MEMBER\_VARIABLE)
 --------------------------------------
 
 The experimental member variable mutator mutates classes by removing assignments
@@ -754,19 +826,50 @@ type. See the table below.
 
 Table: Java Default Values for Primitives and Reference Types
 
-+------------------------------------+---------------+
-| Type                               | Default Value |
-+====================================+===============+
-| `boolean`                          | `false`       |
-+------------------------------------+---------------+
-| `integer`, `short`, `byte`, `long` | `0`           |
-+------------------------------------+---------------+
-| `float`, `double`                  | `0.0`         |
-+------------------------------------+---------------+
-| `char`                             | `'\u0000'`    |
-+------------------------------------+---------------+
-| Object reference                   | `null`        |
-+------------------------------------+---------------+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Default Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <code>boolean</code>
+            </td>
+            <td>`false`</td>
+        </tr>
+        <tr>
+            <td>
+                <code>int</code>
+                <code>short</code>
+                <code>byte</code>
+                <code>long</code>
+            </td>
+            <td>`0`</td>
+        </tr>
+        <tr>
+            <td>
+                <code>float</code>
+                <code>double</code>
+            </td>
+            <td>`0.0`</td>
+        </tr>
+        <tr>
+            <td>
+                <code>char</code>
+            </td>
+            <td>`'\u0000'`</td>
+        </tr>
+        <tr>
+            <td>
+                <code>Object</code>
+            </td>
+            <td>`null`</td>
+        </tr>
+    </tbody>
+</table>
 
 For example
 
@@ -803,18 +906,34 @@ The switch mutator finds the first label within a switch statement that differs 
 
 *Thanks to Stefan Penndorf who contributed this documentation.*
 
-[TEST_CASES]:            http://code.google.com/p/pitestrunner/source/browse/pitest/src/test/java/org/pitest/mutationtest/engine/gregor/mutators/ "mutator test cases at google code"
-[CONDITIONALS_BOUNDARY]: #conditionals-boundary-mutator-conditionals_boundary            "Conditionals Boundary Mutator"
-[NEGATE_CONDITIONALS]:   #negate-conditionals-mutator-negate_conditionals                "Negate Conditionals Mutator"
-[REMOVE_CONDITIONALS]:   #remove-conditionals-mutator-remove_conditionals                "Remove Conditionals Mutator"
-[INCREMENTS]:            #increments-mutator-increments                                  "Increments Mutator"
-[MATH]:                  #math-mutator-math                                              "Math Mutator"
-[INVERT_NEGS]:           #invert-negatives-mutator-invert_negs                           "Invert Negatives Mutator"
-[RETURN_VALS]:           #return-values-mutator-return_vals                              "Return Values Mutator"
-[VOID_METHOD_CALLS]:     #void-method-call-mutator-void_method_calls                     "Void Method Calls Mutator"
-[NON_VOID_METHOD_CALLS]: #non-void-method-call-mutator-non_void_method_calls             "Non Void Method Calls Mutator"
-[CONSTRUCTOR_CALLS]:     #constructor-call-mutator-constructor_calls                     "Constructor Calls Mutator"
-[INLINE_CONSTS]:         #inline-constant-mutator-inline_consts                          "Inline Constant Mutator"
-[EXPERIMENTAL_INLINE_CONSTS]:  #experimental-inline-constant-mutator-experimental_inline_consts "Experimental Inline Constant Mutator"
-[EXPERIMENTAL_MEMBER_VARIABLE]:  #experimental-member-variable-mutator-experimental_member_variable "Experimental Member Variable Mutator"
-[EXPERIMENTAL_SWITCH]: #experimental-switch-mutator-experimental_switch "Experimental Switch Mutator"
+<hr/>
+
+<sup>TEST_CASES</sup>:            [mutator test cases at google code](http://code.google.com/p/pitestrunner/source/browse/pitest/src/test/java/org/pitest/mutationtest/engine/gregor/mutators/)
+
+<sup>CONDITIONALS_BOUNDARY</sup>: [Conditionals Boundary Mutator](#conditionals-boundary-mutator-conditionals_boundary)
+
+<sup>NEGATE_CONDITIONALS</sup>:   [Negate Conditionals Mutator](#negate-conditionals-mutator-negate_conditionals)
+
+<sup>REMOVE_CONDITIONALS</sup>:   [Remove Conditionals Mutator](#remove-conditionals-mutator-remove_conditionals)
+
+<sup>INCREMENTS</sup>:            [Increments Mutator](#increments-mutator-increments)
+
+<sup>MATH</sup>:                  [Math Mutator](#math-mutator-math)
+
+<sup>INVERT_NEGS</sup>:           [Invert Negatives Mutator](#invert-negatives-mutator-invert_negs)
+
+<sup>RETURN_VALS</sup>:           [Return Values Mutator](#return-values-mutator-return_vals)
+
+<sup>VOID_METHOD_CALLS</sup>:     [Void Method Calls Mutator](#void-method-call-mutator-void_method_calls)
+
+<sup>NON_VOID_METHOD_CALLS</sup>: [Non Void Method Calls Mutator](#non-void-method-call-mutator-non_void_method_calls)
+
+<sup>CONSTRUCTOR_CALLS</sup>:     [Constructor Calls Mutator](#constructor-call-mutator-constructor_calls)
+
+<sup>INLINE_CONSTS</sup>:         [Inline Constant Mutator](#inline-constant-mutator-inline_consts)
+
+<sup>EXPERIMENTAL_INLINE_CONSTS</sup>:  [Experimental Inline Constant Mutator](#experimental-inline-constant-mutator-experimental_inline_consts)
+
+<sup>EXPERIMENTAL_MEMBER_VARIABLE</sup>:  [Experimental Member Variable Mutator](#experimental-member-variable-mutator-experimental_member_variable)
+
+<sup>EXPERIMENTAL_SWITCH</sup>: [Experimental Switch Mutator](#experimental-switch-mutator-experimental_switch)

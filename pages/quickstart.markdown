@@ -1,7 +1,7 @@
 ---
 title: Quickstart
 layout: default
-alias: /quickstart
+permalink: /quickstart
 ---
 
 # Quickstart

@@ -4,7 +4,7 @@ description: Quickstart guide for mutation testing with PIT via ant
 tags: quickstart guide
 keywords: ant, mutation testing
 layout: default
-alias: quickstart/ant
+permalink: /quickstart/ant
 ---
 
 # Ant Quick Start

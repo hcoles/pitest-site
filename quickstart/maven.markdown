@@ -4,7 +4,7 @@ description: Quickstart guide for mutation testing with PIT and maven
 tags: quickstart, guide
 keywords: maven, mutation testing
 layout: default
-alias: quickstart/maven
+permalink: /quickstart/maven
 ---
 
 # Maven Quick Start
@@ -106,19 +106,19 @@ then any test fixture that matched inScopeClasses may be used.
 This parameter can be used to point PIT to a top level suite or suites. Custom suites such as [ClassPathSuite](http://johanneslink.net/projects/cpsuite.jsp) 
 are supported. Tests found via these suites can also be limited by the distance filter (see below).
 
-### ~~inScopeClasses~~ (removed in 0.27)
+### <del>inScopeClasses</del> (removed in 0.27)
 
-~~The inScopeClasses and targetClasses parameters look confusingly similar. Both are
-lists of globs that will be matched against the names of classes on your classpath.~~
+<del>The inScopeClasses and targetClasses parameters look confusingly similar. Both are
+lists of globs that will be matched against the names of classes on your classpath.</del>
 
-~~Only classes that match the inScopeClasses globs will be considered as runnable tests or mutable classes. If you
-have a large classpath to scan this parameter can be used to limit the classes that are examined (and therefore loaded).~~
+<del>Only classes that match the inScopeClasses globs will be considered as runnable tests or mutable classes. If you
+have a large classpath to scan this parameter can be used to limit the classes that are examined (and therefore loaded).</del>
 
-~~The targetClasses globs are then used to filter out a subset of these classes which will be considered
-for mutation.~~
+<del>The targetClasses globs are then used to filter out a subset of these classes which will be considered
+for mutation.</del>
 
-~~In practice inScopeClasses and targetClasses are often then same. If you don't specify them explicitly then PIT will construct a
-glob from the project's group id of the form. group.id.*~~
+<del>In practice inScopeClasses and targetClasses are often then same. If you don't specify them explicitly then PIT will construct a
+glob from the project's group id of the form. group.id.*</del>
 
 ### maxDependencyDistance
 
@@ -216,7 +216,7 @@ For example when running on OpenJDK 7 the it is sometimes necessary to disable t
 
 ### jvm
 
-The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA\_HOME```.
+The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.
 
 ### outputFormats
 

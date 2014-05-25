@@ -834,3 +834,7 @@ h2 + .row {
   }
   
 }
+
+code, table.table td {
+    line-height: 34px;
+}

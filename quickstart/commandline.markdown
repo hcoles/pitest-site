@@ -4,7 +4,7 @@ description: Quickstart guide for mutation testing with PIT via the command line
 tags: quickstart, guide
 keywords: command line, mutation testing
 layout: default
-alias: quickstart/commandline
+permalink: /quickstart/commandline
 ---
 
 # Command Line Quick Start
@@ -168,7 +168,7 @@ to the process, but may be used to pass any valid JVM argument.
 
 ### \--jvmPath
 
-The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA\_HOME```.
+The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.
 
 ### \--outputFormats
 

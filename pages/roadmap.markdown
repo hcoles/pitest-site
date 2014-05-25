@@ -1,7 +1,7 @@
 ---
 title: Roadmap
 layout: default
-alias: /roadmap
+permalink: /roadmap
 ---
 
 # Roadmap

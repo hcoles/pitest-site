@@ -2,7 +2,7 @@
 title: Downloads
 description: Release details
 layout: default
-alias: /downloads
+permalink: /downloads
 ---
 
 # Downloads and repository info

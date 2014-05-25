@@ -2,7 +2,7 @@
 title: FAQ
 description: Frequently Asked Questions
 layout: default
-alias: /faq
+permalink: /faq
 ---
 
 # FAQ

@@ -1,7 +1,7 @@
 ---
 title: Java Mutation Testing Systems
 layout: default
-alias: /java_mutation_testing_systems
+permalink: /java_mutation_testing_systems
 ---
 
 # Mutation testing systems for Java compared
@@ -42,7 +42,7 @@ Jester was the first open source mutation system for Java, but does not appear t
 
 WebSite : [http://jester.sourceforge.net/](http://jester.sourceforge.net/)
 
-Simple Jester is a variant of the original Jester by the same author who describes it as easier to use, but slower [^jester1].
+Simple Jester is a variant of the original Jester by the same author who describes it as easier to use, but slower <sup>jester1</sup>.
 
 It appears to no longer be actively developed or supported.
 
@@ -353,23 +353,113 @@ by other tools, eg XML, RDMS etc.
 ## Summary Of Mutation Testing Systems
 
 ### Clasification and details
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>System</th>
+            <th>Generation</th>
+            <th>Selection</th>
+            <th>Insertion</th>
+            <th>Detection</th>
+            <th>Output</th>
+            <th>SF</th>
+            <th>License</th>
+            <th>Mailing List</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>[Jester](#jester)</td>
+            <td>Source</td>
+            <td>Naive?</td>
+            <td>Naive?</td>
+            <td>Naive?</td>
+            <td>**AS**</td>
+            <td>N</td>
+            <td>MIT</td>
+            <td>N</td>
+        </tr>
+        <tr>
+            <td>[Simple Jester](#simple jester)</td>
+            <td>Source</td>
+            <td>Naive?</td>
+            <td>Naive?</td>
+            <td>Naive?</td>
+            <td>**AS**</td>
+            <td>N</td>
+            <td>MIT</td>
+            <td>N</td>
+        </tr>
+        <tr>
+            <td>[Jumble](#jumble)</td>
+            <td>BCEL</td>
+            <td>Convention</td>
+            <td>NDClassloader</td>
+            <td>**EE Fine**</td>
+            <td>T</td>
+            <td>N</td>
+            <td>APCH2</td>
+            <td>**Y**[^jmbl1]</td>
+        </tr>
+        <tr>
+            <td>[PIT](#pit)</td>
+            <td>ASM</td>
+            <td>**Coverage**</td>
+            <td>Instrument</td>
+            <td>**EE Fine**</td>
+            <td>**AS**</td>
+            <td>**Y**</td>
+            <td>APCH2</td>
+            <td>**Y**[^pit1]</td>
+        </tr>
+        <tr>
+            <td>[&micro;Java](#&micro;Java)</td>
+            <td>Source?</td>
+            <td>Manual</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>[javaLanche](#javaLanche)</td>
+            <td>ASM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
 +---------------------------------+---------------+--------------+--------------+-------------+---------+-------+----------+--------------+
-| System                          | Generation    | Selection    | Insertion    | Detection   | Output  | SF    | Licence  | Mailing List |
-+=================================+===============+==============+==============+=============+=========+=======+==========+==============+
-| [Jester](#jester)               | Source        | Naive?       | Naive?       | Naive?      | **AS**  |  N    | MIT      | N            |
+|      |        |        |           |          | **AS**  |  N    |  ?       | N            |
 +---------------------------------+---------------+--------------+--------------+-------------+---------+-------+----------+--------------+
-| [Simple Jester](#simple jester) | Source        | Naive?       | Naive?       | Naive?      | **AS**  |  N    | MIT      | N            |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+-------+----------+--------------+
-| [Jumble](#jumble)               | BCEL          | Convention   | NDClassloader| **EE Fine** | T       |  N    | APCH2    |**Y**[^jmbl1] |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+-------+----------+--------------+
-| [PIT](#pit)                     | ASM           | **Coverage** | Instrument   | **EE Fine** | **AS**  | **Y** | APCH2    |**Y**[^pit1]  |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+-------+----------+--------------+
-| [&micro;Java](#&micro;Java)     | Source?       | Manual       | N/A          | N/A         | **AS**  |  N    |  ?       | N            |
-+---------------------------------+---------------+--------------+--------------+-------------+---------+-------+----------+--------------+
-| [javaLanche](#javaLanche)       | ASM           | **Coverage** | Schemata     | EE Fine?    | P       | **Y** | LGPL     | N            |
+|        |            | **Coverage** | Schemata     | EE Fine?    | P       | **Y** | LGPL     | N            |
 +---------------------------------+---------------+--------------+--------------+-------------+---------+-------+----------+--------------+
 
 ### Java and Test framework support
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Constant Type</th>
+            <th>Mutation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
 +---------------------------------+-------+-------+-------+-------+--------+---------+---------+
 | System                          | 1.4   | 1.5   | 1.6   | 1.7   | JUnit3 | JUnit4  |Test NG  |
@@ -398,6 +488,21 @@ by other tools, eg XML, RDMS etc.
 
 *note that with the exception of PIT little information is available on the compatibility of the various mutation testing systems and
 mocking frameworks. Most mocking systems are implemented with dynamic proxies or custom class loaders, and will probably work across all the mutation testing sytems. The exceptions are Powermock and JMockit where issues might be encountered.*
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Constant Type</th>
+            <th>Mutation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
 +---------------------------------+---------------+--------------+--------------+-------------+---------+--------+---------+----------+-----------+
 | System                          | Ant           | Maven        | Eclipse      | Powermock   | JMock   | JMock2 | Mockito | JMockit  | EasyMock  |
@@ -428,14 +533,22 @@ Allthough PIT is the most recent of the three projects it is actively developed 
 
 Support is available via a google group and documentation is the strongest of the three. PIT integrates with both the major build systems - it is the only project to provide a Maven plugin. PIT is the only option for TestNG users, and also the only system to have no known issues with any of the major mocking frameworks. It also offers the unique feature of incremental analysis.
 
+<hr/>
 
-[^cov1]: In most circumstances this will be insignificant compared to the cost of mutation analysis, but could be significant if only a small number of mutants are being generated within a large project with a slow test suite. PIT's dependency analysis feature addresses this scneario.
-[^jmbl1]: [jumble mailing list](https://lists.sourceforge.net/lists/listinfo/jumble-users)
-[^jmb2]: [jmockit bug report of issues with jumble](http://code.google.com/p/jmockit/issues/detail?id=92)
-[^pit1]: [pit google group](http://groups.google.com/group/pitusers?pli=1)
-[^jester1]: [ivan more on simple jester](http://ivan.truemesh.com/archives/000725.html)
-[^mu1]:  note that [muclipse](http://muclipse.sourceforge.net/) is no longer actively developed
-[^jl1]: [report of issues with easymock and javalanche](http://blog.octo.com/en/mutation-testing-a-step-further-to-the-perfection/)
-[^jl2]: [user report of issues with JMockit and javalanche](http://groups.google.com/group/pitusers/browse_thread/thread/ffcf8b5a7ff1bcc2)
+<sup>cov1</sup>: In most circumstances this will be insignificant compared to the cost of mutation analysis, but could be significant if only a small number of mutants are being generated within a large project with a slow test suite. PIT's dependency analysis feature addresses this scneario.
+
+<sup>jmbl1</sup>: [jumble mailing list](https://lists.sourceforge.net/lists/listinfo/jumble-users)
+
+<sup>jmb2</sup>: [jmockit bug report of issues with jumble](http://code.google.com/p/jmockit/issues/detail?id=92)
+
+<sup>pit1</sup>: [pit google group](http://groups.google.com/group/pitusers?pli=1)
+
+<sup>jester1</sup>: [ivan more on simple jester](http://ivan.truemesh.com/archives/000725.html)
+
+<sup>mu1</sup>:  note that [muclipse](http://muclipse.sourceforge.net/) is no longer actively developed
+
+<sup>jl1</sup>: [report of issues with easymock and javalanche](http://blog.octo.com/en/mutation-testing-a-step-further-to-the-perfection/)
+
+<sup>jl2</sup>: [user report of issues with JMockit and javalanche](http://groups.google.com/group/pitusers/browse_thread/thread/ffcf8b5a7ff1bcc2)
 
 

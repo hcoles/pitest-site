@@ -2,7 +2,7 @@
 title: Links
 description: Mutation testing links
 layout: default
-alias: /links
+permalink: /links
 ---
 
 ## PIT Ecosystem

@@ -4,7 +4,7 @@ description: Advanced usage of PIT
 tags: quickstart guide
 keywords: mutation testing
 layout: default
-alias: quickstart/advanced
+permalink: /quickstart/advanced
 ---
 
 # Advanced Usage

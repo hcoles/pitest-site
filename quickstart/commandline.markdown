@@ -73,18 +73,18 @@ This parameter can be used to point PIT to a top level suite or suites. Custom s
 ClassPathSuite are supported. Tests found via these suites can also be limited by the distance filter (see below).
 
 
-### ~~\--inScopeClasses~~ (removed in 0.27)
+### <del>\--inScopeClasses</del> (removed in 0.27)
 
-~~The inScopeClasses and targetClasses parameters look confusingly similar. Both are comma seperated
-lists of globs that will be matched against the names of classes on your classpath.~~
+<del>The inScopeClasses and targetClasses parameters look confusingly similar. Both are comma seperated
+lists of globs that will be matched against the names of classes on your classpath.</del>
 
-~~Only classes that match the inScopeClasses globs will be considered as runnable tests or mutable classes. If you
-have a large classpath to scan this parameter can be used to limit the classes that are examined (and therefore loaded).~~
+<del>Only classes that match the inScopeClasses globs will be considered as runnable tests or mutable classes. If you
+have a large classpath to scan this parameter can be used to limit the classes that are examined (and therefore loaded).</del>
 
-~~The targetClasses globs are then used to filter out a subset of these classes which will be considered
-for mutation.~~
+<del>The targetClasses globs are then used to filter out a subset of these classes which will be considered
+for mutation.</del>
 
-~~In practice inScopeClasses and targetClasses are often then same.~~
+<del>In practice inScopeClasses and targetClasses are often then same.</del>
 
 
 ### \--dependencyDistance
@@ -106,10 +106,10 @@ The number of threads to use when mutation testing.
 
 Whether or not to create mutations in static initializers. Defaults to false.
 
-### ~~\--includeJarFiles~~ (removed in 0.25)
+### <del>\--includeJarFiles</del> (removed in 0.25)
 
-~~Whether or not to consider classes in jar files for mutations and as a source
-of tests.~~
+<del>Whether or not to consider classes in jar files for mutations and as a source
+of tests.</del>
 
 ### \--mutators
 

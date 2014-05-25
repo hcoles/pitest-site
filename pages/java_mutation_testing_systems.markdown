@@ -121,7 +121,7 @@ Source mutators create mutations by making changes to the Java source files and 
 
 ### Byte code
 
-Byte code mutators create mutations by manipulating the compied byte code. This will
+Byte code mutators create mutations by manipulating the compiled byte code. This will
 usually be done using a third party library such as ASM, javassist or BCEL.
 
 Of these libraries, BCEL is no longer actively developed or maintained.
@@ -370,68 +370,68 @@ by other tools, eg XML, RDMS etc.
     </thead>
     <tbody>
         <tr>
-            <td>[Jester](#jester)</td>
+            <td><a href="#jester">Jester</a></td>
             <td>Source</td>
             <td>Naive?</td>
             <td>Naive?</td>
             <td>Naive?</td>
-            <td>**AS**</td>
+            <td><strong>AS</strong></td>
             <td>N</td>
             <td>MIT</td>
             <td>N</td>
         </tr>
         <tr>
-            <td>[Simple Jester](#simple jester)</td>
+            <td><a href="#simple jester">Simple Jester</a></td>
             <td>Source</td>
             <td>Naive?</td>
             <td>Naive?</td>
             <td>Naive?</td>
-            <td>**AS**</td>
+            <td><strong>AS</strong></td>
             <td>N</td>
             <td>MIT</td>
             <td>N</td>
         </tr>
         <tr>
-            <td>[Jumble](#jumble)</td>
+            <td><a href="#jumble">Jumble</a></td>
             <td>BCEL</td>
             <td>Convention</td>
             <td>NDClassloader</td>
-            <td>**EE Fine**</td>
+            <td><strong>EE Fine</strong></td>
             <td>T</td>
             <td>N</td>
             <td>APCH2</td>
-            <td>**Y**<sup>jmbl1</sup></td>
+            <td><strong>Y</strong><sup>jmbl1</sup></td>
         </tr>
         <tr>
-            <td>[PIT](#pit)</td>
+            <td><a href="#pit">PIT</a></td>
             <td>ASM</td>
-            <td>**Coverage**</td>
+            <td><strong>Coverage</strong></td>
             <td>Instrument</td>
-            <td>**EE Fine**</td>
-            <td>**AS**</td>
-            <td>**Y**</td>
+            <td><strong>EE Fine</strong></td>
+            <td><strong>AS</strong></td>
+            <td><strong>Y</strong></td>
             <td>APCH2</td>
-            <td>**Y**<sup>pit1</sup></td>
+            <td><strong>Y</strong><sup>pit1</sup></td>
         </tr>
         <tr>
-            <td>[&micro;Java](#&micro;Java)</td>
+            <td><a href="#&micro;Java">&micro;Java</a></td>
             <td>Source?</td>
             <td>Manual</td>
             <td>N/A</td>
             <td>N/A</td>
-            <td>**AS**</td>
+            <td><strong>AS</strong></td>
             <td>N</td>
             <td>?</td>
             <td>N</td>
         </tr>
         <tr>
-            <td>[javaLanche](#javaLanche)</td>
+            <td><a href="#javaLanche">javaLanche</a></td>
             <td>ASM</td>
-            <td>**Coverage**</td>
+            <td><strong>Coverage</strong></td>
             <td>Schemata</td>
             <td>EE Fine?</td>
             <td>P</td>
-            <td>**Y**</td>
+            <td><strong>Y</strong></td>
             <td>LGPL</td>
             <td>N</td>
         </tr>
@@ -457,52 +457,52 @@ by other tools, eg XML, RDMS etc.
     </thead>
     <tbody>
         <tr>
-            <td>[Jester](#jester)</td>
+            <td><a href="#jester">Jester</a></td>
             <td>N</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>N</td>
-            <td>N</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td>[Simple Jester](#simple jester)</td>
-            <td>N</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
             <td>N</td>
             <td>N</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
             <td>N</td>
         </tr>
         <tr>
-            <td>[Jumble](#jumble)</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
+            <td><a href="#simple jester">Simple Jester</a></td>
+            <td>N</td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td>N</td>
+            <td>N</td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td>N</td>
+        </tr>
+        <tr>
+            <td><a href="#jumble">Jumble</a></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
             <td>?</td>
             <td>?</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
             <td>N</td>
         </tr>
         <tr>
-            <td>[PIT](#pit)</td>
+            <td><a href="#pit">PIT</a></td>
             <td>N</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
         </tr>
         <tr>
-            <td>[&micro;Java](#&micro;Java)</td>
-            <td>**Y**</td>
+            <td><a href="#&micro;Java">&micro;Java</a></td>
+            <td><strong>Y</strong></td>
             <td>N</td>
             <td>N</td>
             <td>N</td>
@@ -512,14 +512,14 @@ by other tools, eg XML, RDMS etc.
             <td>N</td>
         </tr>
         <tr>
-            <td>[javaLanche](#javaLanche)</td>
+            <td><a href="#javaLanche">javaLanche</a></td>
             <td>N</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
             <td>?</td>
             <td>?</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
             <td>N</td>
         </tr>
     </tbody>
@@ -553,7 +553,7 @@ mocking frameworks. Most mocking systems are implemented with dynamic proxies or
     </thead>
     <tbody>
         <tr>
-            <td>[Jester](#jester)</td>
+            <td><a href="#jester">Jester</a></td>
             <td>N</td>
             <td>N</td>
             <td>N</td>
@@ -565,7 +565,7 @@ mocking frameworks. Most mocking systems are implemented with dynamic proxies or
             <td>?</td>
         </tr>
         <tr>
-            <td>[Simple Jester](#simple jester)</td>
+            <td><a href="#simple jester">Simple Jester</a></td>
             <td>N</td>
             <td>N</td>
             <td>N</td>
@@ -577,31 +577,31 @@ mocking frameworks. Most mocking systems are implemented with dynamic proxies or
             <td>?</td>
         </tr>
         <tr>
-            <td>[Jumble](#jumble)</td>
-            <td>**Y**</td>
+            <td><a href="#jumble">Jumble</a></td>
+            <td><strong>Y</strong></td>
             <td>N</td>
-            <td>**Y**</td>
+            <td><strong>Y</strong></td>
             <td>?</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
             <td>N<sup>jmb2</sup></td>
             <td>?</td>
         </tr>
         <tr>
-            <td>[PIT](#pit)</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
+            <td><a href="#pit">PIT</a></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
             <td>3rd</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
-            <td>**Y**</td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
+            <td><strong>Y</strong></td>
         </tr>
         <tr>
-            <td>[&micro;Java](#&micro;Java)</td>
+            <td><a href="#&micro;Java">&micro;Java</a></td>
             <td>N</td>
             <td>N</td>
             <td>3rd <sup>mu1</sup></td>
@@ -613,7 +613,7 @@ mocking frameworks. Most mocking systems are implemented with dynamic proxies or
             <td>?</td>
         </tr>
         <tr>
-            <td>[javaLanche](#javaLanche)</td>
+            <td><a href="#javaLanche">javaLanche</a></td>
             <td>N</td>
             <td>N</td>
             <td>N</td>
@@ -635,7 +635,7 @@ Jumble is the only one to offer support for versions of Java prior to 1.5. It is
 
 Javalanche is less mature than Jumble, and currently does not integrate with any of the main build tools. It is unclear what support is available, and documentation is limited. It does however provide the unique feature of equivalent mutation detection. This comes with a high computational cost, but would be the least time consuming approach if you have a large number of surviving mutants and a requirement to categorize each one.
 
-Allthough PIT is the most recent of the three projects it is actively developed and releases frequently, making it more mature than the other projects that seem to have had little attention after their initial release.
+Although PIT is the most recent of the three projects it is actively developed and releases frequently, making it more mature than the other projects that seem to have had little attention after their initial release.
 
 Support is available via a google group and documentation is the strongest of the three. PIT integrates with both the major build systems - it is the only project to provide a Maven plugin. PIT is the only option for TestNG users, and also the only system to have no known issues with any of the major mocking frameworks. It also offers the unique feature of incremental analysis.
 

@@ -9,6 +9,8 @@ permalink: /posts/2012/11/12/release_0.29
 
 PIT 0.29 has now been released and is available from google code and maven central. Among other changes it introduces a major new feature - incremental analysis
 
+<!-- more -->
+
 Full details of what's included are available from the [downloads](/downloads/) section, but headline items include
 
 * new experimental incremental analysis feature (see [incremental analysis](/quickstart/incremental_analysis) for details 

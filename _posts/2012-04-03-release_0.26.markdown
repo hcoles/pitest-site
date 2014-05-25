@@ -9,6 +9,8 @@ permalink: /posts/2012/04/03/release_0.26
 
 PIT 0.26 has now been released and is available from google code and maven central.
 
+<!-- more -->
+
 This includes the first official release of the PIT Ant task, a new experimental mutator
 and a number of smaller improvements. 
 

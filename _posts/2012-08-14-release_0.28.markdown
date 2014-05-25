@@ -9,6 +9,8 @@ permalink: /posts/2012/08/14/release_0.28
 
 PIT 0.28 has now been released and is available from google code and maven central.
 
+<!-- more -->
+
 Full details of what's included are available from the [downloads](/downloads/) section, but headline items include
 
 * inlined finally block detection 

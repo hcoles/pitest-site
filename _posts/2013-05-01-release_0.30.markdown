@@ -8,6 +8,8 @@ permalink: /posts/2013/05/01/release_0.30
 
 PIT 0.30 has now been released and is available from google code and maven central.
 
+<!-- more -->
+
 Full details of what's included are available from the [downloads](/downloads/) section, but headline items include
 
 * integration with source control for maven users 

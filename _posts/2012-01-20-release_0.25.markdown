@@ -9,6 +9,8 @@ permalink: /posts/2012/01/20/release_0.25
 
 PIT 0.25 has now been released and is available from google code and maven central.
 
+<!-- more -->
+
 The headline feature is support for TestNG, but there's lots of other good stuff included.
 
 If you're about to upgrade (and you should due to the fix for issue 17) please read all of the below as there are some breaking changes that might affect a small percentage of users.

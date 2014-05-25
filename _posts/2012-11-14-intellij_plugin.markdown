@@ -9,6 +9,8 @@ permalink: /posts/2012/11/14/intellij_plugin
 
 Michal Jedynak has put together a plugin for Intellij.
 
+<!-- more -->
+
 The code is available at
 
 [https://github.com/mjedynak/pit-idea-plugin](https://github.com/mjedynak/pit-idea-plugin)

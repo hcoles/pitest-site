@@ -5,7 +5,7 @@ tags: quickstart, guide
 keywords: mutation testing
 ---
 
-# Incremental anlaysis
+# Incremental analysis
 
 PIT contains an experimental feature to enable its use on very large codebases - incremental analysis.
 

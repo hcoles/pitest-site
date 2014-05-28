@@ -119,7 +119,7 @@ mutation can currently result in an run error. If you see a large number of run 
 be an indication that something went wrong.
 
 
-## Incremental anlaysis
+## Incremental analysis
 
 PIT contains an experimental feature to enable it use on very large codebases - incremental analysis.
 

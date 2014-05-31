@@ -4,8 +4,8 @@ title: News
 permalink: /news/
 ---
 {% for post in site.posts %}
-<h3>{{ post.date | date_to_string }}</h3>
-<h2><a href="{{ post.url }}">{{ post.description }}</a></h2>
+### {{ post.date | date_to_string }}
+##[{{ post.description }}]({{ post.url }})
 {{ post.excerpt }}
 {% endfor %}
 

@@ -27,7 +27,7 @@ The main issue is that class behaviour is defined not only by its bytecode, but 
 
 So the incremental feature is based on the assumption that it will be relatively rare for changes in the dependencies of a class to change the status of a mutation. Although this assumption seems reasonable, it is currently **unproven**.
 
-Optimisation 5) carries the additonal risk that the mutations within the meta mutant might cancel each other out, leaving the behaviour of the class unchanged. Again it seems likely that this would be rare but this has not been quanitified.
+Optimisation 5) carries the additional risk that the mutations within the meta mutant might cancel each other out, leaving the behaviour of the class unchanged. Again it seems likely that this would be rare but this has not been quantified.
 
 Incremental analysis is currently controlled by two parameters
 
@@ -42,7 +42,7 @@ or for maven
 **historyOutputFile**
 
 
-These point to the locations from which to read and write mutation analysis results. This can be the same location. If diferent locations are used
+These point to the locations from which to read and write mutation analysis results. This can be the same location. If different locations are used
 you will need to implement some mechanism to swap the values between runs as PIT does itself does not currently provide a mechanism.
 
 

@@ -11,7 +11,7 @@ permalink: /quickstart/ant/
 
 ## Installation
 
-Download the latest pitest and pitest-ant jars and put them somewhere convienient.
+Download the latest pitest and pitest-ant jars and put them somewhere convenient.
 
 ## Getting started
 
@@ -37,9 +37,9 @@ Next create a target
 &lt;/target&gt;
 </pre>
 
-Two seperate classpaths need to be supplied - pitClasspath should contain to the pitest jars and plugins (plus test library), classPath should contain the classpath used when normally running your unit tests (including the test library).
+Two separate classpaths need to be supplied - pitClasspath should contain to the pitest jars and plugins (plus test library), classPath should contain the classpath used when normally running your unit tests (including the test library).
 
-The two classpaths are kept seperate so no conflict should occur if you use a plugin that depends upon a conflicting version of a library used by your code.
+The two classpaths are kept separate so no conflict should occur if you use a plugin that depends upon a conflicting version of a library used by your code.
 
 ## Ant specific configuration
 

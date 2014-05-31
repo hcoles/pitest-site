@@ -56,7 +56,7 @@ fail in the presence of the mutant.
 
 ## Equivalent Mutations
 
-Things are not quite this simple in practice as not all mutations will behave diffently than the unmutated
+Things are not quite this simple in practice as not all mutations will behave differently than the unmutated
 class. These mutants are referred to as **equivalent mutations**.
 
 There are various reasons why a mutation might be equivalent including
@@ -83,13 +83,13 @@ if ( i > 1 ) {
 A common example are mutations to code related to logging or debug. Most teams are not interested 
 in testing these. PIT avoids generating this type of equivalent mutation by not generating mutations
 for lines that contain a call to common logging frameworks (this list of frameworks is configurable, so
-mutation of logging statements can be enabled by configuring a list containing only a non-existant class). 
+mutation of logging statements can be enabled by configuring a list containing only a non-existent class).
       
 ## Running the tests
 
 PIT runs your unit tests against the mutated code automatically. Before running the
 tests PIT performs a traditional line coverage analysis for the tests, then uses this data along with the
-timings of the tests to pick a set of test cases targetted at the mutated code.
+timings of the tests to pick a set of test cases targeted at the mutated code.
 
 This approach makes PIT much faster than previous mutation testing systems such as Jester and Jumble, and 
 enables PIT to test entire code bases, rather than single classes at a time.
@@ -103,16 +103,16 @@ For each mutation PIT will report one of the following outcomes
 * **Memory error**
 * **Run error**
 
-**Killed** and **Lived** are self explainitary.
+**Killed** and **Lived** are self explanatory.
 
 A mutation may **time out** if it causes an infinite loop, such as removing the increment from a counter in
 a for loop.
 
 A **non viable** mutation is one that could not be loaded by the JVM as the bytecode was in some way
-invalid. PIT tries to minimise the number of univable muations that it creates.
+invalid. PIT tries to minimise the number of non-viable mutations that it creates.
 
 A **memory error** might occur as a result of a mutation that increases the amount of memory used by the system,
-or may be the result of the additional memory overhead required to repeatedly runyour tests in the presence
+or may be the result of the additional memory overhead required to repeatedly run your tests in the presence
 of mutations. If you see a large number of memory errors consider configuring more heap and permgen space
 for the tests.
 
@@ -141,14 +141,14 @@ So the incremental feature is based on the assumption that it will be relatively
 
 *Although this assumption seems reasonable, it is currently unproven.*
 
-Optimisation 5) carries the additonal risk that the mutations within the meta mutant might cancel each other out, leaving the behaviour of the class unchanged. Again, it seems likely that this would be rare, but this has not been quanitified.
+Optimisation 5) carries the additional risk that the mutations within the meta mutant might cancel each other out, leaving the behaviour of the class unchanged. Again, it seems likely that this would be rare, but this has not been quanitified.
 
 Incremental analysis is currently controlled by two parameters
 
 *historyInputLocation*
 *historyOutputLocation*
 
-These point to the locations from which to read and write mutation analysis results. This can be the same location, if diferent locations are used
+These point to the locations from which to read and write mutation analysis results. This can be the same location, if different locations are used
 you will need to implement some mechanism to swap the values between runs as PIT does itself does not currently provide a mechanism.
 
 

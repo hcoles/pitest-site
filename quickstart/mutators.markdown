@@ -423,7 +423,7 @@ are converted to byte code.
             <td>
                 replace the unmutated value <code>1</code> with <code>0</code>,
                 <code>-1</code> with <code>1</code>, <code>5</code> with <code>-1</code>
-                or otherwise increment the unmutated value by one. <sup>1</sup>
+                or otherwise increment the unmutated value by one. <a href="#fn1"><sup>1</sup></a> <a name="fnref1" id="fnref1"></a>
             </td>
         </tr>
         <tr>
@@ -437,24 +437,18 @@ are converted to byte code.
             <td><code>float</code></td>
             <td>
                 replace the unmutated values <code>1.0</code> and <code>2.0</code>
-                with <code>0.0</code> and replace any other value with <code>1.0</code> <sup>2</sup>
+                with <code>0.0</code> and replace any other value with <code>1.0</code> <a href="#fn2"><sup>2</sup></a> <a name="fnref2" id="fnref2"></a>
             </td>
         </tr>
         <tr>
             <td><code>double</code></td>
             <td>
                 replace the unmutated value <code>1.0</code> with <code>0.0</code>
-                and replace any other value with <code>1.0</code> <sup>2</sup>
+                and replace any other value with <code>1.0</code> <a href="#fn3"><sup>3</sup></a> <a name="fnref3" id="fnref3"></a>
             </td>
         </tr>
     </tbody>
 </table>
-
-<sup>1</sup> Integer numbers and booleans are actually represented in the same way be the JVM, it is therefore never safe if change a 0 to anything but a 1 or a 1 to anything but a 0.
-
-<sup>2</sup> Floating point numbers are always changed to 1 rather than adding 1 to the original value as this would result in equivalent mutations. Adding 1 to a large floating point number doesn't necesarily change it's value due to the imprecise way in which floats are represented.
-
-<sup>3</sup> See note above which applies to boths floats and doubles.
 
 For example
 
@@ -509,9 +503,7 @@ Return Values Mutator (RETURN_VALS)
 **Active by default**
 
 The return values mutator mutates the return values of method calls. Depending
-on the return type of the method another mutation is used.<sup>4</sup>
-
-<sup>4</sup>: The strategy used by this mutator was translated from code in the Jumble project
+on the return type of the method another mutation is used.<a href="#fn4"><sup>4</sup></a> <a name="fnref4" id="fnref4"></a>
 
 <table class="table">
     <thead>
@@ -926,32 +918,13 @@ The switch mutator finds the first label within a switch statement that differs 
 
 <hr/>
 
-<sup>TEST_CASES</sup>:            [mutator test cases at google code](http://code.google.com/p/pitestrunner/source/browse/pitest/src/test/java/org/pitest/mutationtest/engine/gregor/mutators/)
-
-<sup>CONDITIONALS_BOUNDARY</sup>: [Conditionals Boundary Mutator](#conditionals-boundary-mutator-conditionals_boundary)
-
-<sup>NEGATE_CONDITIONALS</sup>:   [Negate Conditionals Mutator](#negate-conditionals-mutator-negate_conditionals)
-
-<sup>REMOVE_CONDITIONALS</sup>:   [Remove Conditionals Mutator](#remove-conditionals-mutator-remove_conditionals)
-
-<sup>INCREMENTS</sup>:            [Increments Mutator](#increments-mutator-increments)
-
-<sup>MATH</sup>:                  [Math Mutator](#math-mutator-math)
-
-<sup>INVERT_NEGS</sup>:           [Invert Negatives Mutator](#invert-negatives-mutator-invert_negs)
-
-<sup>RETURN_VALS</sup>:           [Return Values Mutator](#return-values-mutator-return_vals)
-
-<sup>VOID_METHOD_CALLS</sup>:     [Void Method Calls Mutator](#void-method-call-mutator-void_method_calls)
-
-<sup>NON_VOID_METHOD_CALLS</sup>: [Non Void Method Calls Mutator](#non-void-method-call-mutator-non_void_method_calls)
-
-<sup>CONSTRUCTOR_CALLS</sup>:     [Constructor Calls Mutator](#constructor-call-mutator-constructor_calls)
-
-<sup>INLINE_CONSTS</sup>:         [Inline Constant Mutator](#inline-constant-mutator-inline_consts)
-
-<sup>EXPERIMENTAL_INLINE_CONSTS</sup>:  [Experimental Inline Constant Mutator](#experimental-inline-constant-mutator-experimental_inline_consts)
-
-<sup>EXPERIMENTAL_MEMBER_VARIABLE</sup>:  [Experimental Member Variable Mutator](#experimental-member-variable-mutator-experimental_member_variable)
-
-<sup>EXPERIMENTAL_SWITCH</sup>: [Experimental Switch Mutator](#experimental-switch-mutator-experimental_switch)
+1. <a name="fn1" id="fn1"></a> Integer numbers and booleans are actually represented in the same way be the JVM,
+  it is therefore never safe if change a 0 to anything but a 1 or a 1 to anything but a 0.
+  [↩](#fnref1)
+2. <a name="fn2" id="fn2"></a> Floating point numbers are always changed to 1 rather than adding 1 to the original value
+  as this would result in equivalent mutations. Adding 1 to a large floating point number
+  doesn't necessarily change its value due to the imprecise way in which floats are represented.
+  [↩](#fnref2)
+3. <a name="fn3" id="fn3"></a> See note above which applies to both floats and doubles. [↩](#fnref3)
+4. <a name="fn4" id="fn4"></a> The strategy used by this mutator was translated from code in the Jumble project
+  [↩](#fnref4)

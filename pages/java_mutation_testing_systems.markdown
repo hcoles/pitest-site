@@ -42,7 +42,7 @@ Jester was the first open source mutation system for Java, but does not appear t
 
 WebSite : [http://jester.sourceforge.net/](http://jester.sourceforge.net/)
 
-Simple Jester is a variant of the original Jester by the same author who describes it as easier to use, but slower <sup>jester1</sup>.
+Simple Jester is a variant of the original Jester by the same author who describes it as easier to use, but slower <a name="fnref1" id="fnref1"></a> <a href="#fn1"><sup>1</sup></a>.
 
 It appears to no longer be actively developed or supported.
 
@@ -131,9 +131,7 @@ Of these libraries, BCEL is no longer actively developed or maintained.
 * Generally much faster
 * Generally easier to integrate into a build
 * Can potentially create mutants without access to source files
-* Same mutation operators can in theory work for other JVM languages <sup>1</sup> 
-
-<sup>1</sup>: In practice the operators may however end up mutating mainly the compiler generated plumbing code for these languages 
+* Same mutation operators can in theory work for other JVM languages <a name="fnref2" id="fnref2"></a> <a href="#fn2"><sup>2</sup></a>
 
 #### Cons
 
@@ -205,7 +203,7 @@ Optimisations may also be implemented to choose an optimal running order for the
 
 #### Cons
 
-* Some overhead required to measure coverage <sup>cov1</sup>
+* Some overhead required to measure coverage <a name="fnref3" id="fnref3"></a> <a href="#fn3"><sup>3</sup></a>.
 
 ## Mutant insertion
 
@@ -400,7 +398,7 @@ by other tools, eg XML, RDMS etc.
             <td>T</td>
             <td>N</td>
             <td>APCH2</td>
-            <td><strong>Y</strong><sup>jmbl1</sup></td>
+            <td><strong>Y</strong><a name="fnref4" id="fnref4"></a> <a href="#fn4"><sup>4</sup></a>.</td>
         </tr>
         <tr>
             <td><a href="#pit">PIT</a></td>
@@ -411,7 +409,7 @@ by other tools, eg XML, RDMS etc.
             <td><strong>AS</strong></td>
             <td><strong>Y</strong></td>
             <td>APCH2</td>
-            <td><strong>Y</strong><sup>pit1</sup></td>
+            <td><strong>Y</strong><a name="fnref5" id="fnref5"></a> <a href="#fn5"><sup>5</sup></a>.</td>
         </tr>
         <tr>
             <td><a href="#&micro;Java">&micro;Java</a></td>
@@ -585,7 +583,7 @@ mocking frameworks. Most mocking systems are implemented with dynamic proxies or
             <td><strong>Y</strong></td>
             <td><strong>Y</strong></td>
             <td><strong>Y</strong></td>
-            <td>N<sup>jmb2</sup></td>
+            <td>N<a name="fnref6" id="fnref6"></a> <a href="#fn6"><sup>6</sup></a>.</td>
             <td>?</td>
         </tr>
         <tr>
@@ -604,7 +602,7 @@ mocking frameworks. Most mocking systems are implemented with dynamic proxies or
             <td><a href="#&micro;Java">&micro;Java</a></td>
             <td>N</td>
             <td>N</td>
-            <td>3rd <sup>mu1</sup></td>
+            <td>3rd <a name="fnref7" id="fnref7"></a> <a href="#fn7"><sup>7</sup></a>.</td>
             <td>?</td>
             <td>?</td>
             <td>?</td>
@@ -621,8 +619,8 @@ mocking frameworks. Most mocking systems are implemented with dynamic proxies or
             <td>?</td>
             <td>?</td>
             <td>?</td>
-            <td>N<sup>jl2</sup></td>
-            <td>! <sup>jl1</sup></td>
+            <td>N<a name="fnref8" id="fnref8"></a> <a href="#fn8"><sup>8</sup></a>.</td>
+            <td>! <a name="fnref9" id="fnref9"></a> <a href="#fn9"><sup>9</sup></a>.</td>
         </tr>
     </tbody>
 </table>
@@ -641,20 +639,21 @@ Support is available via a google group and documentation is the strongest of th
 
 <hr/>
 
-<sup>cov1</sup>: In most circumstances this will be insignificant compared to the cost of mutation analysis, but could be significant if only a small number of mutants are being generated within a large project with a slow test suite. PIT's dependency analysis feature addresses this scneario.
-
-<sup>jmbl1</sup>: [jumble mailing list](https://lists.sourceforge.net/lists/listinfo/jumble-users)
-
-<sup>jmb2</sup>: [jmockit bug report of issues with jumble](http://code.google.com/p/jmockit/issues/detail?id=92)
-
-<sup>pit1</sup>: [pit google group](http://groups.google.com/group/pitusers?pli=1)
-
-<sup>jester1</sup>: [ivan more on simple jester](http://ivan.truemesh.com/archives/000725.html)
-
-<sup>mu1</sup>:  note that [muclipse](http://muclipse.sourceforge.net/) is no longer actively developed
-
-<sup>jl1</sup>: [report of issues with easymock and javalanche](http://blog.octo.com/en/mutation-testing-a-step-further-to-the-perfection/)
-
-<sup>jl2</sup>: [user report of issues with JMockit and javalanche](http://groups.google.com/group/pitusers/browse_thread/thread/ffcf8b5a7ff1bcc2)
-
-
+1. [Ivan more on Simple Jester](http://ivan.truemesh.com/archives/000725.html) <a name="fn1" id="fn1"></a>
+  [↩](#fnref1)
+2. In practice the operators may however end up mutating mainly the compiler generated plumbing code for these languages <a name="fn2" id="fn2"></a>
+  [↩](#fnref2)
+3. In most circumstances this will be insignificant compared to the cost of mutation analysis, but could be significant if only a small number of mutants are being generated within a large project with a slow test suite. PIT’s dependency analysis feature addresses this scneario. <a name="fn3" id="fn3"></a>
+  [↩](#fnref3)
+4. [jumble mailing list](https://lists.sourceforge.net/lists/listinfo/jumble-users) <a name="fn4" id="fn4"></a>
+  [↩](#fnref4)
+5. [pit google group](http://groups.google.com/group/pitusers?pli=1) <a name="fn5" id="fn5"></a>
+  [↩](#fnref5)
+6. [jmockit bug report of issues with jumble](http://code.google.com/p/jmockit/issues/detail?id=92) <a name="fn6" id="fn6"></a>
+  [↩](#fnref6)
+7. note that [muclipse](http://muclipse.sourceforge.net/) is no longer actively developed <a name="fn7" id="fn7"></a>
+  [↩](#fnref7)
+8. [user report of issues with JMockit and javalanche](http://groups.google.com/group/pitusers/browse_thread/thread/ffcf8b5a7ff1bcc2) <a name="fn8" id="fn8"></a>
+  [↩](#fnref8)
+9. [report of issues with easymock and javalanche](http://blog.octo.com/en/mutation-testing-a-step-further-to-the-perfection/)<a name="fn9" id="fn9"></a>
+  [↩](#fnref9)

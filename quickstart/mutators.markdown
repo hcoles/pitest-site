@@ -20,32 +20,33 @@ The operators are largely designed to be **stable** (i.e not be too easy to dete
 
 # Available mutators
 
-We'll briefly describe the available mutators in the following sections. See the [test cases][TEST_CASES] for
+We'll briefly describe the available mutators in the following sections. See the [test cases](#TEST_CASES) for
 more detailed examples.
 
 Here is the list of available mutators:
 
-- [Conditionals Boundary Mutator][CONDITIONALS_BOUNDARY]
-- [Negate Conditionals Mutator][NEGATE_CONDITIONALS]
-- [Remove Conditionals Mutator][REMOVE_CONDITIONALS]
-- [Math Mutator][MATH]
-- [Increments Mutator][INCREMENTS]
-- [Invert Negatives Mutator][INVERT_NEGS]
-- [Inline Constant Mutator][INLINE_CONSTS]
-- [Return Values Mutator][RETURN_VALS]
-- [Void Method Calls Mutator][VOID_METHOD_CALLS]
-- [Non Void Method Calls Mutator][NON_VOID_METHOD_CALLS]
-- [Constructor Calls Mutator][CONSTRUCTOR_CALLS]
-- [Experimental Inline Constant Mutator][EXPERIMENTAL_INLINE_CONSTS]
-- [Experimental Member Variable Mutator][EXPERIMENTAL_MEMBER_VARIABLE]
-- [Experimental Switch Mutator][EXPERIMENTAL_SWITCH]
+- [Conditionals Boundary Mutator](#CONDITIONALS_BOUNDARY)
+- [Negate Conditionals Mutator](#NEGATE_CONDITIONALS)
+- [Remove Conditionals Mutator](#REMOVE_CONDITIONALS)
+- [Math Mutator](#MATH)
+- [Increments Mutator](#INCREMENTS)
+- [Invert Negatives Mutator](#INVERT_NEGS)
+- [Inline Constant Mutator](#INLINE_CONSTS)
+- [Return Values Mutator](#RETURN_VALS)
+- [Void Method Calls Mutator](#VOID_METHOD_CALLS)
+- [Non Void Method Calls Mutator](#NON_VOID_METHOD_CALLS)
+- [Constructor Calls Mutator](#CONSTRUCTOR_CALLS)
+- [Experimental Inline Constant Mutator](#EXPERIMENTAL_INLINE_CONSTS)
+- [Experimental Member Variable Mutator](#EXPERIMENTAL_MEMBER_VARIABLE)
+- [Experimental Switch Mutator](#EXPERIMENTAL_SWITCH)
 
 
 ----
 
+<a name="CONDITIONALS_BOUNDARY" id="CONDITIONALS_BOUNDARY"></a>
 
-Conditionals Boundary Mutator (CONDITIONALS\_BOUNDARY)
-------------------------------------------------------
+Conditionals Boundary Mutator
+-----------------------------
 
 **Active by default**
 
@@ -100,8 +101,10 @@ if (a &lt;= b) {
 }
 </pre>
 
-Negate Conditionals Mutator (NEGATE\_CONDITIONALS)
--------------------
+<a name="NEGATE_CONDITIONALS" id="NEGATE_CONDITIONALS"></a>
+
+Negate Conditionals Mutator
+---------------------------
 
 **Active by default**
 
@@ -168,7 +171,9 @@ This mutator overlaps to a degree with the conditionals boundary mutator, but is
 mutations are generally easier for a test suite to detect.
 
 
-Remove Conditionals Mutator (REMOVE\_CONDITIONALS)
+<a name="REMOVE_CONDITIONALS" id="REMOVE_CONDITIONALS"></a>
+
+Remove Conditionals Mutator
 ---------------------------
 
 The remove conditionals mutator will remove all conditionals statements such that the guarded statements always
@@ -191,10 +196,12 @@ if (true) {
 }
 </pre>
 
-Although not currently enabled by default it is highly recomended that you enable it if you wish to ensure your test suite has full coverage of conditional statements. 
+Although not currently enabled by default it is highly recomended that you enable it if you wish to ensure your test suite has full coverage of conditional statements.
 
-Math Mutator (MATH)
--------------------
+<a name="MATH" id="MATH"></a>
+
+Math Mutator
+------------
 
 **Active by default**
 
@@ -317,11 +324,12 @@ public class A {
 }
 </pre>
 
-See the [Increments Mutator][INCREMENTS] for details.
+See the [Increments Mutator](#INCREMENTS) for details.
 
+<a name="INCREMENTS" id="INCREMENTS"></a>
 
-Increments Mutator (INCREMENTS)
--------------------
+Increments Mutator
+------------------
 
 **Active by default**
 
@@ -349,11 +357,12 @@ public int method(int i) {
 
 Please note that the increments mutator will be applied to increments of 
 **local variables only**. Increments and decrements of member variables will be
-covered by the [Math Mutator][MATH].
+covered by the [Math Mutator](#MATH).
 
+<a name="INVERT_NEGS" id="INVERT_NEGS"></a>
 
-Invert Negatives Mutator (INVERT\_NEGS)
---------------------------------------
+Invert Negatives Mutator
+------------------------
 
 **Active by default**
 
@@ -374,9 +383,10 @@ public float negate(final float i) {
 }
 </pre>
 
+<a name="INLINE_CONSTS" id="INLINE_CONSTS"></a>
 
-Inline Constant Mutator (INLINE\_CONSTS)
---------------------------------------
+Inline Constant Mutator
+-----------------------
 
 The inline constant mutator mutates inline constants. An inline constant is a
 literal value assigned to a non-final variable, for example
@@ -491,9 +501,10 @@ public class A {
 
 In such situations the mutation engine can not mutate any variable.
 
+<a name="RETURN_VALS" id="RETURN_VALS"></a>
 
-Return Values Mutator (RETURN\_VALS)
------------------------------------
+Return Values Mutator
+---------------------
 
 **Active by default**
 
@@ -566,9 +577,10 @@ public Object foo() {
 }
 </pre>
 
+<a name="VOID_METHOD_CALLS" id="VOID_METHOD_CALLS"></a>
 
-Void Method Call Mutator (VOID\_METHOD\_CALLS)
----------------------------------------------
+Void Method Call Mutator
+------------------------
 
 **Active by default**
 
@@ -600,13 +612,14 @@ public int foo() {
 </pre>
 
 Please note that constructor calls are **not considered void method calls**.
-See the [Constructor Call Mutator][CONSTRUCTOR_CALL] for mutations of 
-constructors or the [Non Void Method Call Mutator][NON_VOID_METHOD_CALL] for
+See the [Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of 
+constructors or the [Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for
 mutations of non void methods.
 
+<a name="NON_VOID_METHOD_CALLS" id="NON_VOID_METHOD_CALLS"></a>
 
-Non Void Method Call Mutator (NON\_VOID\_METHOD\_CALLS)
----------------------------------------------------
+Non Void Method Call Mutator
+----------------------------
 
 The non void method call mutator removes method calls to non void methods.
 Their return value is replaced by the Java Default Value for that specific
@@ -704,12 +717,13 @@ it replaces a method that already returns one of the default values without also
 a side effect.
 
 This mutator does not affect void methods or constructor calls. See 
-[Void Method Call Mutator][VOID_METHOD_CALL] for mutations of void methods and
-[Constructor Call Mutator][CONSTRUCTOR_CALL] for mutations of constructors.
+[Void Method Call Mutator](#VOID_METHOD_CALL) for mutations of void methods and
+[Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of constructors.
 
+<a name="CONSTRUCTOR_CALLS" id="CONSTRUCTOR_CALLS"></a>
 
-Constructor Call Mutator (CONSTRUCTOR\_CALLS)
--------------------------------------------
+Constructor Call Mutator
+------------------------
 
 The constructor call mutator replaces constructor calls with `null` values. For
 example
@@ -733,14 +747,15 @@ public Object foo() {
 Please note that this mutation is fairly unstable and likely to cause **`NullPointerException`s** even
 with weak test suites.
 
-This mutator does not affect non constructor method calls. See [Void Method Call Mutator][VOID_METHOD_CALL] for 
+This mutator does not affect non constructor method calls. See [Void Method Call Mutator](#VOID_METHOD_CALL) for 
 mutations of void methods and
-[Non Void Method Call Mutator][NON_VOID_METHOD_CALL] for mutations of non void
+[Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for mutations of non void
 methods.
 
+<a name="EXPERIMENTAL_INLINE_CONSTS" id="EXPERIMENTAL_INLINE_CONSTS"></a>
 
-Experimental Inline Constant Mutator (EXPERIMENTAL\_INLINE\_CONSTS)
---------------------------------------
+Experimental Inline Constant Mutator
+------------------------------------
 
 The experimental inline constant mutator is similar to the inline constant mutator but attempts
 to provide a more consistent behaviour.
@@ -815,9 +830,10 @@ int i = Short.MIN_VALUE;
 int j = Byte.MIN_VALUE
 </pre>
 
+<a name="EXPERIMENTAL_MEMBER_VARIABLE" id="EXPERIMENTAL_MEMBER_VARIABLE"></a>
 
-Experimental Member Variable Mutator (EXPERIMENTAL\_MEMBER\_VARIABLE)
---------------------------------------
+Experimental Member Variable Mutator
+------------------------------------
 
 The experimental member variable mutator mutates classes by removing assignments
 to member variables. The mutator can even remove assignments to final members.
@@ -899,8 +915,10 @@ public class EquivalentMutant {
 }
 </pre>
 
-Experimental Switch Mutator (EXPERIMENTAL\_SWITCH)
---------------------------------------
+<a name="EXPERIMENTAL_SWITCH" id="EXPERIMENTAL_SWITCH"></a>
+
+Experimental Switch Mutator
+---------------------------
 
 The switch mutator finds the first label within a switch statement that differs from the default label. It mutates the switch statement by replacing the default label (wherever it is used) with this label. All the other labels are replaced by the default one.
 

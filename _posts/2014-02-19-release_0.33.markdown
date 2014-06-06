@@ -1,0 +1,16 @@
+---
+title: PIT 0.33 released
+description: PIT 0.33 released
+tags: release
+layout: post
+---
+
+<!--permalink: /posts/2014/02/19/release_0.33-->
+
+PIT 0.33 has now been released and is available to download from github and maven central.
+
+<!-- more -->
+
+See [0.33](https://github.com/hcoles/pitest/releases/tag/pitest-parent-0.33) for details
+
+

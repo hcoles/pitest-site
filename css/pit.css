@@ -24,34 +24,6 @@ h3 code {
   font-weight: normal;
 }
 
-
-
-/* Tweak navbar brand link to be super sleek
--------------------------------------------------- */
-
-body > .navbar {
-  font-size: 13px;
-}
-
-/* Change the docs' brand */
-body > .navbar .brand {
-  padding-right: 0;
-  padding-left: 0;
-  margin-left: 20px;
-  float: right;
-  font-weight: bold;
-  color: #000;
-  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
-  -webkit-transition: all .2s linear;
-     -moz-transition: all .2s linear;
-          transition: all .2s linear;
-}
-body > .navbar .brand:hover {
-  text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
-}
-
-
 /* Sections
 -------------------------------------------------- */
 
@@ -95,7 +67,7 @@ hr.soften {
   padding: 40px 0;
   color: #000;
   text-align: center;
- 
+  background-color: #fff;
 }
 .jumbotron h1 {
   font-size: 80px;
@@ -154,17 +126,7 @@ hr.soften {
   position: relative;
   z-index: 2;
 }
-.jumbotron:after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url(../img/bs-docs-masthead-pattern.png) repeat center center;
-  opacity: .4;
-}
+
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (   min--moz-device-pixel-ratio: 2),
@@ -333,32 +295,6 @@ font-style: italic;
 font-size: smaller;
 padding-bottom: 0.5em;
 }
-
-
-/* Syntax */
-code { font-size: 1em;}
-code.sourceCode { font-size: 1.5em; }
-pre { border: 1px solid #efefef; padding: 10px;  background-color: #fbfbfb; overflow: auto; margin: 1em 0; line-height: 2em; }
-
-pre code { background-color: transparent; margin: 0; padding: 0; }
-table.sourceCode { border: 1px solid #efefef;}
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode, table.sourceCode pre { margin: 0; padding: 0; vertical-align: baseline; }
-td.lineNumbers { border-right: 1px solid #AAAAAA; text-align: right; color: #AAAAAA; padding: 0 5px 0 5px; }
-td.sourceCode { padding-left: 5px; }
-code.sourceCode span.kw { color: #007020; font-weight: bold; }
-code.sourceCode span.dt { color: #902000; }
-code.sourceCode span.dv { color: #40a070; }
-code.sourceCode span.bn { color: #40a070; }
-code.sourceCode span.fl { color: #40a070; }
-code.sourceCode span.ch { color: #4070a0; }
-code.sourceCode span.st { color: #4070a0; }
-code.sourceCode span.co { color: #60a0b0; font-style: italic; }
-code.sourceCode span.ot { color: #007020; }
-code.sourceCode span.al { color: red; font-weight: bold; }
-code.sourceCode span.fu { color: #06287e; }
-code.sourceCode span.re { }
-code.sourceCode span.er { color: red; font-weight: bold; }
-
 
 span.language {
     border: 1px solid #efefef;
@@ -833,4 +769,8 @@ h2 + .row {
     padding-bottom: 20px;
   }
   
+}
+
+code, table.table td {
+    line-height: 34px;
 }

@@ -1,3 +1,9 @@
+---
+title: Quickstart
+layout: default
+permalink: /quickstart/
+---
+
 # Quickstart
 
 Out of the box PIT can be launched from the command line, ant or maven. Third party

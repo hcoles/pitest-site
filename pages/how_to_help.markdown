@@ -1,7 +1,8 @@
 ---
 title: How to help
 description: How to help
-keywords: PIT
+layout: default
+permalink: /how_to_help/
 ---
 
 # How to help

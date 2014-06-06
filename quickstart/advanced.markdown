@@ -1,8 +1,10 @@
 ---
 title: Advanced usage
 description: Advanced usage of PIT
-tags: quickstart, guide
+tags: quickstart guide
 keywords: mutation testing
+layout: default
+permalink: /quickstart/advanced/
 ---
 
 # Advanced Usage
@@ -46,7 +48,7 @@ To create a new test prioritiser implement the **org.pitest.mutationtest.build.T
 
 ### Mutation Engine
 
-Additional mutation engines may be supplied. Allthough multiple mutation engine plugins may be supplied, only one may currently be used
+Additional mutation engines may be supplied. Although multiple mutation engine plugins may be supplied, only one may currently be used
 within a single analysis.
 
 The engine to use is indicated by the mutationEngine config parameter. If none is supplied the default "gregor" engine will be used.

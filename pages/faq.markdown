@@ -1,3 +1,10 @@
+---
+title: FAQ
+description: Frequently Asked Questions
+layout: default
+permalink: /faq/
+---
+
 # FAQ
 
 ## What does PIT stand for?
@@ -147,20 +154,20 @@ Two groups are currently defined
 
 To use the defaults, plus some others
 
-~~~{.bash}
+<pre class="prettyprint lang-bash">
 DEFAULTS, EXPERIMENTAL_MEMBER_VARIABLE
-~~~
+</pre>
  
 by the command line
 
 or
 
-~~~{.xml} 
-  <mutators>
-  <mutator>DEFAULTS</mutator>
-  <mutator>EXPERIMENTAL_MEMBER_VARIABLE</mutator>
-  </mutators>
-~~~
+<pre class="prettyprint lang-xml">
+&lt;mutators&gt;
+  &lt;mutator&gt;DEFAULTS&lt;/mutator&gt;
+  &lt;mutator&gt;EXPERIMENTAL_MEMBER_VARIABLE&lt;/mutator&gt;
+&lt;/mutators&gt;
+</pre>
 
 in your pom.xml
 

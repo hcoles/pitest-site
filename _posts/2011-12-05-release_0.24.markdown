@@ -1,0 +1,49 @@
+---
+title: Changes in PIT 0.24
+keywords: documentation
+tags: release
+description: Changes in PIT 0.24
+layout: post
+---
+
+PIT 0.24 has now been released and is available from google code and maven central.
+
+<!-- more -->
+
+The original plan had been for the 0.24 release to introduce a proper split between mutation analysis and report generation, and to introduce experimental support for incremental mutation analysis. Progress on this has been fairly slow however so a release has been prepared with the following changes which we felt people shouldn't have to wait for.
+
+## Support for [JMockit](http://code.google.com/p/jmockit/) 
+
+This means that PIT now works with all the major mocking frameworks (Mockito, JMock, EasyMock, PowerMock, JMockit).
+
+## Alternate output formats
+
+PIT now accepts an additional parameter **outputFormats** which accepts a list of data formats in which mutation results will be generated during the analysis phase. Supported formats are currently
+
+ * HTML (the default if the parameter is ommited)
+ * CSV
+ * XML
+
+The purpose of these additional formats is to enable PIT to be integrated with other tools. With the exception of the HTML report, they contain only raw data relating to the mutations (line number, description, detection status etc). No line coverage information is included.
+
+When PIT is updated to perform distinct analysis and reporting steps these output files will continue to be generated at the analysis stage, 
+but the HTML option will be removed. It will instead be possible to generate an improved HTML report in the report stage.
+
+## New mutator
+
+Stpehen Pendorf has contributed an improved version of the InlineConstantMutator with a more consistent behaviour. This will eventually replace the
+existing InlineConstantMutator but is being initially released as a seperate option.
+
+It can be enabled by adding EXPERIMENTAL_INLINE_CONSTS to the mutators list.
+
+## Fix for [issue 11](http://code.google.com/p/pitestrunner/issues/detail?id=11)
+
+Source files for classes in package default were not being located so PIT could not produce annotated source reports. This issue had litle
+impact on most real codebases, but caused a lot of confusion for people trying out PIT on toy projects.
+
+## Internal changes
+
+In addition there have been some significant changes behind the scenes. Large amounts of code unrelated to mutation testing has been removed (PIT began life as a system to run tests in parallel and distribute them across multiple machines), and this has resulted in some changes in the way the PIT finds, splits and runs tests.
+
+These changes should be invisible to end users, but will make it easier to make improvements to PIT in the future.
+

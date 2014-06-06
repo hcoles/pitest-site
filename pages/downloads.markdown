@@ -1,6 +1,8 @@
 ---
 title: Downloads
 description: Release details
+layout: default
+permalink: /downloads/
 ---
 
 # Downloads and repository info
@@ -42,7 +44,7 @@ google group: [http://groups.google.com/group/pitusers](http://groups.google.com
 * support for mutating static initializers with TestNG
 * properly isolate classpaths when running via Ant
 * break builds on coverage threshold
-* allow JVM to be specified 
+* allow JVM to be specified
 * support user defined test selection strategies
 * support user defined output format
 * support user defined test prioritisation

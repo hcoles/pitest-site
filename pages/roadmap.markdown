@@ -30,7 +30,7 @@ when a reasonable number of interesting new features have been implemented.
 5. New / improved mutation operators based on [mutation of java objects](http://www.cs.colostate.edu/~bieman/Pubs/AlexanderBiemanGhoshJiISSRE02.pdf) [&asymp; help?](/how_to_help/)
 6. <del>Confirm PIT works with all major mocking frameworks (already done as part of build for Mockito, JMock and Powermock)</del> **0.24 release added support for JMockit meaning all the major frameworks are now covered**
 7. <del>Detect and avoid assert statements</del> **released in 0.27**
-8. Improved maven multi-project support - see [issue 6](http://code.google.com/p/pitestrunner/issues/detail?id=6) [&asymp; help?](/how_to_help/)
+8. <del>Improved maven multi-project support</del>
 9. Other mutation operators - <del>switch statements</del>, enums, parameter swapping, removal of super calls . . . other things [&asymp; help?](/how_to_help/)
 10. Better documentation [&asymp; help?](/how_to_help/)
 11. Pretty graphs and things in the html report (dependant on 3 and cleaning up the current mess that generates the html report) [&asymp; help?](/how_to_help/)
@@ -49,9 +49,9 @@ that takes into account the type of the mutation operator.*
 
 4. Annotations to mark code not to be mutated. *Possibly quite useful, but conceptutally polluting your production code with a testing concern is wrong.*
 
-5. More intelligent block based coverage. *The line coverage implementation currently used by PIT is fairly basic, and could be improved in terms of both performance and the information it gathers. A block based approach would potentially allow PIT to target tests more
+5. More intelligent block based coverage. <del>*The line coverage implementation currently used by PIT is fairly basic, and could be improved in terms of both performance and the information it gathers. A block based approach would potentially allow PIT to target tests more
 narrowly in some circumstances and also report partial line coverage. One obvious way to achieve this would be to use
-a third party implementation such as JaCoCo (it would help if JaCoCo was available from maven central).*
+a third party implementation such as JaCoCo (it would help if JaCoCo was available from maven central).*</del> The built in coverage system is now pretty efficient, out performing cobertura by a significant margin. Work is underway to switch to work on a block basis.
 
 ## Shameful things
 

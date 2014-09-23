@@ -12,6 +12,14 @@ permalink: /links/
 * Alexandre Victoor maintains a Sonar plugin. [PIT Sonar plugin](http://docs.codehaus.org/display/SONAR/Pitest)
 * Michal Jedynak maintains an Intellij plugin [PIT intellij plugin](http://plugins.intellij.net/plugin/?idea&pluginId=7119)
 
+## Videos
+
+* [Me talking mutation testing (32 mins)](http://vimeo.com/89083982)
+* [Gleb Smirnov at GeeCON (58 mins)](http://vimeo.com/99550776) 
+* [Nicolas Fränkel at JavaZone (10 mins)](http://vimeo.com/105758362)
+* [Alexandre Victoor on pitest and sonar (18 mins, french)](https://www.youtube.com/watch?v=ck2dIrrVTWs)
+* [Marcin Zajączkowski (42 mins)](https://www.youtube.com/watch?v=OiqNhmYkRRc)
+
 ## Books and articles about mutation testing and PIT
 
 * Chris Rimmer put together a nice explaination of what mutation testing is all about for a lightning talk in oxford. [Getting mutants to test your tests](http://media.ogn.s3.amazonaws.com/ogn27/microslot-ChrisRimmer.pdf). Audio is also available [mp3](http://media.ogn.s3.amazonaws.com/27-microslot-ChrisRimmer.mp3). 

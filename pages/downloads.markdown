@@ -17,6 +17,16 @@ google group: [http://groups.google.com/group/pitusers](http://groups.google.com
 
 ## Releases
 
+### 1.1.0
+
+* Change scheme for identifying mutants (see https://github.com/hcoles/pitest/issues/125)
+* Support alternate test apis via plugin system
+* Report error when supplied mutator name does not match (thanks artspb)
+* Report exit codes from coverage child process (thanks KyleRogers)
+* Treat JUnit tests with ClassRule annotation as one unit (thanks devmop)
+
+Please note that any stored history files or sonar results are invalidated by this release.
+
 ### 1.0.0
 
 * Switch version numbering scheme

@@ -14,3 +14,4 @@ PIT 1.1.0 has now been released and is available from github and maven central.
 See [1.1.0](https://github.com/hcoles/pitest/releases/tag/pitest-parent-1.1.0) for details
 
 This will be the last release to support running on a Java 5 JVM. The next release will requite Java 6 or above to run, but will continue to support Java 5 bytecode.
+

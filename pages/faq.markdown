@@ -199,10 +199,11 @@ See [PIT Gradle plugin](http://gradle-pitest-plugin.solidsoft.info/)
 
 ## Is there any IDE integration?
 
-The only IDE integration at present is the work Phil Glover has done towards an eclipse plugin
-[Pitclipse](https://github.com/philglover/pitclipse).
+Phil Glover maintains an Eclipse plugin. [Pitclipse](https://github.com/philglover/pitclipse)
 
-It is however possible to launch PIT from most IDEs as a Java application.
+Michal Jedynak maintains an IntelliJ plugin. [PIT intellij plugin](http://plugins.intellij.net/plugin/?idea&pluginId=7119)
+
+It is also possible to launch PIT from most other IDEs as a Java application.
 
 ## I'd like to help out, what can I do?
 

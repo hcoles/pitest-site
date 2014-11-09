@@ -1,0 +1,17 @@
+---
+title: PIT 1.1.1 released
+description: PIT 1.1.1 released
+tags: release
+layout: post
+---
+
+<!--permalink: /posts/2014/09/23/release_1.1.1-->
+
+PIT 1.1.1 has now been released and is available from github and maven central.
+
+<!-- more -->
+
+See [1.1.1](https://github.com/hcoles/pitest/releases/tag/pitest-parent-1.1.1) for details
+
+Amongst other changes this release drops support for running on a Java 5 JVM. Although projects compiled against Java 5 are still supported, a Java 6 or greater JVM is now required to run pitest.
+

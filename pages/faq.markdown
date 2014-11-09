@@ -17,7 +17,7 @@ So PIT originally stood for Parallel Isolated Test. Now it stands for PIT.
 
 ## What are the requirements for running PIT?
 
-PIT requires Java 5 or above and either JUnit or TestNG to be on the classpath.
+PIT requires Java 6 or above (1.1.0 was the last release to support running pitest on Java 5) and either JUnit or TestNG to be on the classpath.
 
 JUnit 4.6 or above is supported (note JUnit 3 tests can be run using JUnit 4 so JUnit 3 tests are supported).
 
@@ -57,6 +57,16 @@ the filters are not excluding your code. If you have supplied a specific mutable
 Note that PIT is a bytecode mutator - it does not compile your code but instead modifies
 the byte code in memory. Your code must be on the classpath - PIT only requires the location
 of your source code in order to generate a human readable report.
+
+## My tests normally run green but PIT says the suite isn't green
+
+Most comonly this is because either :-
+
+* PIT is picking up tests that are not included/are excluded in the normal test config
+* Some test rely on an environment variable or other property set in the test config, but not set in the pitest config
+* The tests have a hidden order dependency that is not revealed during the normal test run 
+
+If you are using an unusual or custom JUnit runner this can also sometimes causes problems. To make things fast PIT does some tricksy stuff to split your tests into small independent units. This works well with most JUnit runners but if you encounter one where it doesn't please post to the user group. 
 
 ## Will PIT work with my mocking framework?
 
@@ -125,7 +135,7 @@ to a large value with **--timeoutConst** (**timeoutConstant** in maven).
 Java 7 introduced stricter requirements for verifying stack frames, which caused issues in
 earlier versions of PIT. It is believed that there were all resolved in 0.29.
 
-If you are using 0.29 and see a verify error, please raise a defect. The issue can be worked around
+If you see a verify error, please raise a defect. The issue can be worked around
 by passing -XX:-UseSplitVerifier to the child jvm processes that PIT launches using the **jvmArgs** option. 
 
 ## How does PIT compare the mutation testing system X
@@ -140,8 +150,7 @@ If so this is due to the way in which the java compiler handles finally blocks. 
 a copy of the contents of the finally block for each possible exit point. PIT creates seperate mutations for each of
 the copied blocks. Most test suites are only able to kill one of these mutations.
 
-As of 0.28 PIT contains experimental support for detecting inlined code. To activate it add the **detectInlinedCode** option to your
-your configuration. 
+As of 0.28 PIT contains experimental support for detecting inlined code that is now active by default.
 
 ## Can I activate more mutators without relisting all the default ones?
 

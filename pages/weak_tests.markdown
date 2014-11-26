@@ -20,7 +20,7 @@ In most cases the tests that have been written are sufficient to generate 100% b
 
 <pre class="prettyprint lang-java">
 public static String foo(boolean b) {
-  if ( someLogic(i) ) {
+  if ( b ) {
     performVitallyImportantBusinessFunction();
     return "OK";
   }

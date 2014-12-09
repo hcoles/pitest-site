@@ -15,6 +15,10 @@ Download the pitest-command-line and pitest jars and place them somewhere conven
 
 ## Getting started
 
+It recommended that you use one of the provided build system plugins instead of the commandline tool. The build plugins are easier to use and you are much less likely to encounter configuration problems. 
+
+Please only use the commandline tool if you have a really good reason to do so.
+
 A mutation coverage report can be launched from the command line as follows
 
 <pre class="prettyprint lang-bash">

@@ -1,0 +1,18 @@
+---
+title: PIT 1.1.3 released
+description: PIT 1.1.3 released
+tags: release
+layout: post
+---
+
+<!--permalink: /posts/2014/12/24/release_1.1.3-->
+
+PIT 1.1.3 has now been released and is available from github and maven central.
+
+<!-- more -->
+
+See [1.1.3](https://github.com/hcoles/pitest/releases/tag/pitest-parent-1.1.3) for details
+
+This release contains a fix for the critical defect 158 which affect versions 1.1.1 and 1.1.2.
+
+Users of affected versions should upgrade to 1.1.3 as soon as possible.

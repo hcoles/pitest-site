@@ -118,7 +118,7 @@ have a large classpath to scan this parameter can be used to limit the classes t
 for mutation.</del>
 
 <del>In practice inScopeClasses and targetClasses are often then same. If you don't specify them explicitly then PIT will construct a
-glob from the project's group id of the form. group.id.*</del>
+glob from the project's group id of the form. group.id.\*</del>
 
 ### maxDependencyDistance
 
@@ -319,3 +319,15 @@ Path to a file containing history information for [incremental analysis](/quicks
 ### historyOutputFile
 
 Path to write history information for [incremental analysis](/quickstart/incremental_analysis/). May be the same as historyInputFile.
+
+### skip
+
+You can skip the launch by adding the parameter ``skip`` on ``configuration`` section:
+
+<pre class="prettyprint lang-xml">
+&lt;configuration&gt;
+    &lt;skip&gt;true&lt;/skip&gt;
+&lt;/configuration&gt;
+</pre>
+
+It's very useful on maven module: when you need to skip an entire module, you can add this setting on the declaration of the plugin to ignore it.

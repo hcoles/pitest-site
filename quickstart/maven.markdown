@@ -180,6 +180,18 @@ packages as follows
 * org.slf4j
 * org.apache.commons.logging
 
+So, the configuration section must look like:
+
+<pre class="prettyprint lang-xml">
+&lt;avoidCallsTo&gt;
+    &lt;avoidCallsTo&gt;java.util.logging&lt;/avoidCallsTo&gt;
+    &lt;avoidCallsTo&gt;org.apache.log4j&lt;/avoidCallsTo&gt;
+    &lt;avoidCallsTo&gt;org.slf4j&lt;/avoidCallsTo&gt;
+    &lt;avoidCallsTo&gt;org.apache.commons.logging&lt;/avoidCallsTo&gt;
+&lt;/avoidCallsTo&gt;
+</pre>
+
+
 ### verbose
 
 Output verbose logging. Defaults to off/false.

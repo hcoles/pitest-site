@@ -1,0 +1,17 @@
+---
+title: PIT 1.1.4 released
+description: PIT 1.1.4 released
+tags: release
+layout: post
+---
+
+<!--permalink: /posts/2015/01/30/release_1.1.4-->
+
+PIT 1.1.4 has now been released and is available from github and maven central.
+
+<!-- more -->
+
+See [1.1.4](https://github.com/hcoles/pitest/releases/tag/pitest-parent-1.1.4) for details
+
+Amongst other changes this release restores compatibility with Java 5.
+

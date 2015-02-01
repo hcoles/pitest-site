@@ -17,7 +17,7 @@ So PIT originally stood for Parallel Isolated Test. Now it stands for PIT.
 
 ## What are the requirements for running PIT?
 
-PIT requires Java 6 or above (1.1.0 was the last release to support running pitest on Java 5) and either JUnit or TestNG to be on the classpath.
+PIT requires Java 5 or above and either JUnit or TestNG to be on the classpath.
 
 JUnit 4.6 or above is supported (note JUnit 3 tests can be run using JUnit 4 so JUnit 3 tests are supported).
 

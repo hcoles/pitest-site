@@ -55,12 +55,12 @@ PIT supports a number of configuration options, their behaviour is identical to 
 
 ## Quick start example
 
-To help people evaluate PIT an example project using ant is provided at [pit ant example](http://code.google.com/p/pit-ant-example/)
+To help people evaluate PIT an example project using ant is provided at [pit ant example](https://github.com/hcoles/pitest-ant-example)
 
 To try it out checkout the source
 
 <pre class="prettyprint lang-bash">
-hg clone https://code.google.com/p/pit-ant-example/
+git clone https://github.com/hcoles/pitest-ant-example.git
 </pre>
 
 then run the pit target

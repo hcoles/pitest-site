@@ -98,12 +98,15 @@ For each mutation PIT will report one of the following outcomes
 
 * **Killed**
 * **Lived**
+* **No coverage**
 * **Non viable**
 * **Timed Out**
 * **Memory error**
 * **Run error**
 
 **Killed** and **Lived** are self explanatory.
+
+**No coverage** is the same as **Lived** except there were no tests that exercised the line of code where the mutation was created.
 
 A mutation may **time out** if it causes an infinite loop, such as removing the increment from a counter in
 a for loop.
@@ -120,6 +123,7 @@ A **run error** means something went wrong when trying to test the mutation. Cer
 mutation can currently result in an run error. If you see a large number of run errors this is probably
 be an indication that something went wrong.
 
+Under normal circumstances you should no non viable mutations or run errors.
 
 ## Incremental analysis
 

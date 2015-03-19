@@ -123,7 +123,7 @@ A **run error** means something went wrong when trying to test the mutation. Cer
 mutation can currently result in an run error. If you see a large number of run errors this is probably
 be an indication that something went wrong.
 
-Under normal circumstances you should no non viable mutations or run errors.
+Under normal circumstances you should see no non viable mutations or run errors.
 
 ## Incremental analysis
 

@@ -343,3 +343,95 @@ You can skip the launch by adding the parameter ``skip`` on ``configuration`` se
 </pre>
 
 It's very useful on maven module: when you need to skip an entire module, you can add this setting on the declaration of the plugin to ignore it.
+
+## Reporting Goal
+
+Starting with version 1.1.6, the pit maven plugin has a maven report goal.  This goal should only be invoked as part of the maven site lifecycle.  To execute this goal, the ``mutationCoverage`` goal must have already been executed to produce an HTML report (i.e. the ``outputFormat`` parameter must have HTML in it if the parameter is specified.  The report goal then copies the latest HTML report to the site directory.  If multiple reports exist (as in the case where ``timestampedReports`` is set to true), then only the report with the latest create time is used.
+
+To generate the pit site report, execute the maven following command (assuming the pom has the pitest-maven plugin set up in either the ``pluginsManagement`` or ``plugins`` section).
+<pre class="prettyprint lang-xml">
+mvn clean org.pitest:pitest-maven:mutationCoverage site
+</pre>
+
+The following configuration is the minimum required to generate the pit site report:
+<pre class="prettyprint lang-xml">
+&lt;reporting&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.pitest&lt;/groupId&gt;
+            &lt;artifactId&gt;pitest-maven&lt;/artifactId&gt;
+            &lt;version&gt;${pit.version}&lt;/version&gt;
+            &lt;reportSets&gt;
+                &lt;reportSet&gt;
+                    &lt;reports&gt;
+                        &lt;report&gt;report&lt;/report&gt;
+                    &lt;/reports&gt;
+                &lt;/reportSet&gt;
+            &lt;/reportSets&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/reporting&gt;
+</pre>
+
+#### Additional Parameters
+Additional parameters exist to customize the generation of the report.  They are:
+
+##### skip
+* Boolean indicating if the report generation should be skipped.
+* Default is ``false``
+* User Property is ``${pit.report.skip}``
+
+##### reportsDirectory
+* Indicates where the ``mutationCoverage`` goal wrote the pit HTML reports.  This parameter does not need to be set unless the ``reportsDirectory`` parameter was set during the execution of the ``mutationCoverage`` goal.  The value in this paramater must be an absolute path to the directory where the pit HTML report is located.
+* Default is ``${project.build.directory}/pit-reports``
+* User property is ``${reportsDirectory}``
+
+##### sourceDataFormats
+* List of strings specifying what data files should be read for the generation of the site report.  Currently, the only supported value is "HTML" thus this parameter should not be used.
+* Default is "HTML"
+* User property is ``${sourceDataFormats}``
+
+##### siteReportName
+* String that determines the name of the pit report that displays in the "Project Reports" section of the maven site.
+* Default is "PIT Test Report"
+* User property is ``${pit.report.name}``
+
+##### siteReportDescription
+* String that determines the "Description" of the pit report in the "Project Reports" section of the maven site.
+* Default is "Report of the pit test coverage"
+* User property is ``${pit.report.description}``
+
+##### siteReportDirectory
+* String that determines the name of the sub-directory under the directory where the maven site is written (usually target/site). 
+* Default value is "pit-reports" which means the pit report will be written to ``target/site/pit-reports``
+* User property is ``${pit.report.outputdir}``
+
+##### Example Showing All Options
+<pre class="prettyprint lang-xml">
+&lt;reporting&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.pitest&lt;/groupId&gt;
+            &lt;artifactId&gt;pitest-maven&lt;/artifactId&gt;
+            &lt;version&gt;${pit.version}&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;skip&gt;false&lt;/skip&gt;
+                &lt;reportsDirectory&gt;${project.build.directory}/pit-custom-output-dir&lt;/reportsDirectory&gt;
+                &lt;sourceDataFormats&gt;
+                    &lt;sourceDataFormat&gt;HTML&lt;/sourceDataFormat&gt;
+                &lt;/sourceDataFormats&gt;
+                &lt;siteReportName&gt;my-pit-report-name&lt;/siteReportName&gt;
+                &lt;siteReportDescription&gt;my pit report custom description&lt;/siteReportDescription&gt;
+                &lt;siteReportDirectory&gt;pit-custom-site-directory&lt;/siteReportDirectory&gt;
+            &lt;/configuration&gt;
+            &lt;reportSets&gt;
+                &lt;reportSet&gt;
+                    &lt;reports&gt;
+                        &lt;report&gt;report&lt;/report&gt;
+                    &lt;/reports&gt;
+                &lt;/reportSet&gt;
+            &lt;/reportSets&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/reporting&gt;
+</pre>

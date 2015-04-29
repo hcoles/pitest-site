@@ -391,7 +391,7 @@ Additional parameters exist to customize the generation of the report.  They are
 ##### sourceDataFormats
 * List of strings specifying what data files should be read for the generation of the site report.  Currently, the only supported value is "HTML" thus this parameter should not be used.  Future versions of the pitest-maven plugin may implement other source data formats (i.e. XML or CSV).
 * Default is "HTML"
-* User property is ``${sourceDataFormats}``
+* User property is ``${pit.report.sourceDataFormats}``
 
 ##### siteReportName
 * String that determines the name of the pit report that displays in the "Project Reports" section of the generated maven site.

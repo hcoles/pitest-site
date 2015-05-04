@@ -348,10 +348,9 @@ It's very useful on maven module: when you need to skip an entire module, you ca
 ### Introduction
 Starting with version 1.1.6, the pit maven plugin has a maven report goal.  This goal should only be invoked as part of the maven site lifecycle.  To execute this goal, the ``mutationCoverage`` goal must have already been executed to produce an HTML report (i.e. the ``outputFormat`` parameter must have HTML in it if the parameter is specified.  The report goal then copies the latest HTML report to the site directory.  If multiple reports exist (as in the case where ``timestampedReports`` is set to true), then only the report with the latest create time is used.
 
-To generate the pit site report, set up the pitest-maven plugin in the project's pom as explained above and the ``<reporting>`` section as explained below.  Then, execute both the ``mutationCoverage`` goal and the site lifecycle using one of the following commands:
+To generate the pit site report, set up the pitest-maven plugin in the project's pom as explained in the Getting Started section above and the ``<reporting>`` section as explained below.  Then, execute both the ``mutationCoverage`` goal and the site lifecycle.  For example:
 <pre class="prettyprint lang-xml">
 mvn clean org.pitest:pitest-maven:mutationCoverage site
-mvn clean verify site
 </pre>
 
 ### POM Configuration

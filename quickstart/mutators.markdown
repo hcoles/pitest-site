@@ -39,6 +39,7 @@ Here is the list of available mutators:
 - [Experimental Member Variable Mutator](#EXPERIMENTAL_MEMBER_VARIABLE)
 - [Experimental Switch Mutator](#EXPERIMENTAL_SWITCH)
 
+See the current [code](https://github.com/hcoles/pitest/blob/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor/config/Mutator.java) for current list (latest development version).
 
 ----
 

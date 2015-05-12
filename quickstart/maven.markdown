@@ -12,7 +12,7 @@ permalink: /quickstart/maven/
 ## Installation
 
 PIT is available from [maven central](http://search.maven.org/#search|ga|1|a%3A%22pitest-maven%22) and
-[jcenter](https://bintray.com/bintray/jcenter/org.pitest%3Apitest-maven/view) as of version 0.20.
+[jcenter](https://bintray.com/hcoles/maven/org.pitest%3Apitest-maven/view) as of version 0.20.
 
 ## Getting started
 

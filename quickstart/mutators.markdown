@@ -22,17 +22,20 @@ more detailed examples.
 
 Here is the list of available mutators:
 
+(*activated by default*)
 - [Conditionals Boundary Mutator](#CONDITIONALS_BOUNDARY)
-- [Negate Conditionals Mutator](#NEGATE_CONDITIONALS)
-- [Remove Conditionals Mutator](#REMOVE_CONDITIONALS)
-- [Math Mutator](#MATH)
+- [Constructor Calls Mutator](#CONSTRUCTOR_CALLS)
 - [Increments Mutator](#INCREMENTS)
-- [Invert Negatives Mutator](#INVERT_NEGS)
 - [Inline Constant Mutator](#INLINE_CONSTS)
+- [Invert Negatives Mutator](#INVERT_NEGS)
+- [Negate Conditionals Mutator](#NEGATE_CONDITIONALS)
+- [Non Void Method Calls Mutator](#NON_VOID_METHOD_CALLS)
+- [Math Mutator](#MATH)
+- [Remove Conditionals Mutator](#REMOVE_CONDITIONALS)
 - [Return Values Mutator](#RETURN_VALS)
 - [Void Method Calls Mutator](#VOID_METHOD_CALLS)
-- [Non Void Method Calls Mutator](#NON_VOID_METHOD_CALLS)
-- [Constructor Calls Mutator](#CONSTRUCTOR_CALLS)
+
+(*deactivated by default*)
 - [Experimental Member Variable Mutator](#EXPERIMENTAL_MEMBER_VARIABLE)
 - [Experimental Switch Mutator](#EXPERIMENTAL_SWITCH)
 

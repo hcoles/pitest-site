@@ -196,7 +196,9 @@ Defaults to 3000
 
 ### maxMutationsPerClass
 
-The maximum number of mutations to create per class. Use 0 or -ve number to set no limit.
+The maximum number of mutations to create per class. Use 0 or -ve number to set no limit. 
+
+Defaults to 0 (unlimited)
 
 ### jvmArgs
 

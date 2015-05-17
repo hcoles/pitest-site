@@ -24,8 +24,8 @@ Development has been kindly supported by the following companies
 
 * [YourKit](http://www.yourkit.com/ "creator of innovative and intelligent tools for profiling Java and .NET applications") - Provide free access to their full featured Java profiler
 * [Sonatype](http://www.sonatype.com/ "sonatype") - Host the maven repo and provide syncing across to maven central
-* [Google](http://code.google.com/ "google code") - Provide the mercurial source repo and binary hosting
-* [Cloudbees](http://www.cloudbees.com "cloudbees") - Provide hosted Jenkins CI
+* [Github](https://github.com/ "github") - Provide the git source repo and binary hosting
+* [TravisCI](https://travis-ci.org "travis-ci") - Provide hosted CI
 
 
 # About this site

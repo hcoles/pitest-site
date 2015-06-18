@@ -198,6 +198,57 @@ if (true) {
 
 Although not currently enabled by default it is highly recommended that you enable it if you wish to ensure your test suite has full coverage of conditional statements.
 
+As shown above the basic remove conditionals mutator ensures that the statements following the conditional always execute. It will also only mutate only equality checks (eg ==, !=).
+
+Additional specialised versions of the mutator exist that will ensure the block never executes so
+
+<pre class="prettyprint lang-java">
+if (a == b) {
+  // do something
+}
+</pre>
+
+will be mutated to
+
+<pre class="prettyprint lang-java">
+if (false) {
+  // do something
+}
+</pre>
+
+If an else block is present it will always execute 
+
+<pre class="prettyprint lang-java">
+if (a == b) {
+  // do something
+} else {
+  // do something else
+}
+</pre>
+
+will be mutated to
+
+<pre class="prettyprint lang-java">
+if (false) {
+  // do something
+} else {
+  // do something else
+}
+</pre>
+
+Specialisations also exist that will mutate the bytecode instructions for order checks (eg <=, >).
+
+The available specialisations are
+
+* REMOVE_CONDITIONALS_EQ_IF
+* REMOVE_CONDITIONALS_EQ_ELSE
+* REMOVE_CONDITIONALS_ORD_IF
+* REMOVE_CONDITIONALS_ORD_ELSE
+
+The names reflect which branch will be forced to execute (the "if" or the "else") and the type of checks that will be mutated. 
+
+The reason these are not enabled by default is that there is a large degree of overlap in the tests required to kill these mutations and those required to kill mutations from other default operators such as the conditional boundaries mutator.
+
 <a name="MATH" id="MATH"></a>
 
 Math Mutator (MATH)

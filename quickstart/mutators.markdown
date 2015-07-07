@@ -314,7 +314,7 @@ selected according to the table below.
         </tr>
         <tr>
             <td>&gt;&gt;&gt;</td>
-            <td>&lt;&lt;&lt;</td>
+            <td>&lt;&lt;</td>
         </tr>
     </tbody>
 </table>

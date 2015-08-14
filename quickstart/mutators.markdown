@@ -620,7 +620,7 @@ public Object foo() {
 }
 </pre>
 
-<a name="VOID_METHOD_CALLS" id="VOID_METHOD_CALLS"></a>
+<a name="VOID_METHOD_CALLS" id="VOID\_METHOD\_CALLS"></a>
 
 Void Method Call Mutator (VOID_METHOD_CALLS)
 --------------------------------------------
@@ -661,7 +661,7 @@ mutations of non void methods.
 
 <a name="NON_VOID_METHOD_CALLS" id="NON_VOID_METHOD_CALLS"></a>
 
-Non Void Method Call Mutator (NON_VOID_METHOD_CALLS)
+Non Void Method Call Mutator (NON\_VOID\_METHOD\_CALLS)
 ----------------------------------------------------
 
 The non void method call mutator removes method calls to non void methods.
@@ -796,7 +796,7 @@ mutations of void methods and
 methods.
 
 <a name="EXPERIMENTAL_MEMBER_VARIABLE" id="EXPERIMENTAL_MEMBER_VARIABLE"></a>
-Experimental Member Variable Mutator (EXPERIMENTAL_MEMBER_VARIABLE)
+Experimental Member Variable Mutator (EXPERIMENTAL\_MEMBER\_VARIABLE)
 -------------------------------------------------------------------
 
 The experimental member variable mutator mutates classes by removing assignments

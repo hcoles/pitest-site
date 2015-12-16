@@ -207,7 +207,7 @@ Optimisations may also be implemented to choose an optimal running order for the
 
 ## Mutant insertion
 
-### Niave
+### Naive
 
 Mutants are generated, the class files written to disk, and a new JVM launched with the mutant on the classpath.
 
@@ -220,9 +220,9 @@ Mutants are generated, the class files written to disk, and a new JVM launched w
 
 * Slow - a new JVM has to be launched for each mutant
 
-### Mutant schmeta
+### Mutant schemata
 
-A single class is generated that contains all mutants, each mutant is then enabled programatically. Mutant schmeta could be used as part of any scheme for mutant insertion, but makes most sense as a variant of a scheme in which class files are written to disk.
+A single class is generated that contains all mutants, each mutant is then enabled programatically. Mutant schemata could be used as part of any scheme for mutant insertion, but makes most sense as a variant of a scheme in which class files are written to disk.
 
 #### Pros
 

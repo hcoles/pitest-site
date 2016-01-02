@@ -50,6 +50,11 @@ mvn org.pitest:pitest-maven:mutationCoverage
 
 This will output an html report to **target/pit-reports/YYYYMMDDHHMI**.
 
+To speed-up repeated analysis of the same codebase set the `withHistory` parameter to true.
+
+<pre class="prettyprint lang-bash">
+mvn -DwithHistory org.pitest:pitest-maven:mutationCoverage
+</pre>
 
 ### scmMutationCoverage goal
 
@@ -318,6 +323,12 @@ Path to a file containing history information for [incremental analysis](/quicks
 ### historyOutputFile
 
 Path to write history information for [incremental analysis](/quickstart/incremental_analysis/). May be the same as historyInputFile.
+
+### withHistory
+
+Sets the history input and output files to point a project specific file within the temp directory.
+
+This is a convenient way of using history files to speed up local analysis.
 
 ### skip
 

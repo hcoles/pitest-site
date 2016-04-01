@@ -14,7 +14,7 @@ permalink: /quickstart/advanced/
 PIT exposes a number of extension points that allow user defined functionality to be plugged in. Depending on the 
 extension point the default behaviour will be either replaced or extended.
 
-Plugins must be packaged into jar files and added to the classpath with which PIT is launched. If the plugin code has dependencies these must be either included in the jar or added to the classpath manually.
+Plugins must be listed, using the qualified factory name, into a file located in `classpath:META-INF/services` named with the qualified name of the factory interface (e.g. `org.pitest.mutationtest.MutationResultListenerFactory`), packaged into jar files and added to the classpath with which PIT is launched. If the plugin code has dependencies these must be either included in the jar or added to the classpath manually.
 
 The launch classpath (aka the tool classpath) and the classpath of the system under test (aka the client classpath) are generally kept seperate so no conflict should occur if the system under test contains a conflicting version of a library used by a plugin. Some plugins must however be present while the tests are executed - these plugins should either contain no dependencies or should relocate them to internal packages to ensure that no conflict occurs. Extension points that carry this requirement can be easily identified as they extend the ClientClasspathPlugin interface.
 

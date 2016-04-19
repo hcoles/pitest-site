@@ -203,19 +203,13 @@ candidate for mutation.
 PIT will always attempt not to mutate test classes even if they are defined on a mutable path.
 
 
-### \--includedTestNGGroups
+### \--includedGroups
 
-Comma separated list of TestNG groups to include in mutation analysis.
+Comma separated list of TestNG groups/JUnit categories to include in mutation analysis. Note that only class level categories are supported.
 
-### \--excludedTestNGGroups
+### \--excludedGroups
 
-Comma separated list of TestNG groups to exclude from mutation analysis
-
-### \--configFile (experimental)
-
-Separate config file from which to PIT configuration. If supplied all other parameters will be ignore and the content of this file used.
-
-*TODO - document the format.*
+Comma separated list of TestNG groups/JUnit categories to exclude from mutation analysis. Note that only class level categories are supported.
 
 ### \--detectInlinedCode
 

@@ -19,6 +19,7 @@ The impatient can jump strait to the section for their chosen build tool - it ma
 
 [Ant quick start](/quickstart/ant "Ant quick start")
 
+[Gradle quick start (external link)](http://gradle-pitest-plugin.solidsoft.info/)
 
 ## More detail
 

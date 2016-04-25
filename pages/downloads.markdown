@@ -21,6 +21,8 @@ See [https://github.com/hcoles/pitest/releases](https://github.com/hcoles/pitest
 
 ## Historic releases
 
+These are old releases from before pitest was migrated to github. Please see [https://github.com/hcoles/pitest/releases](https://github.com/hcoles/pitest/releases) for recent releases.
+
 ### 0.32
 
 * restores java 7 compatibility

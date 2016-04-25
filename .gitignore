@@ -9,3 +9,4 @@ site.hi
 *.iml
 *.iws
 .idea
+*.lock

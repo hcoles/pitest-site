@@ -53,13 +53,13 @@ public static String foo(int i) {
 }
 
 @Test
-public void shouldReturnBarWhenGiven1() {
-  assertEquals("bar", foo(1));
+public void shouldReturnFooWhenGiven1() {
+  assertEquals("foo", foo(1));
 }
 
 @Test
-public void shouldReturnFooWhenGivenMinus1() {
-  assertEquals("foo", foo(-1));
+public void shouldReturnBarWhenGivenMinus1() {
+  assertEquals("bar", foo(-1));
 }
 ```
 

@@ -20,6 +20,8 @@ Elsewhere on the web you can find me at
 * [stackoverflow](http://stackoverflow.com/users/640224/henry "stackoverflow profile")
 * [linkedin](http://www.linkedin.com/pub/henry-coles/3/ab9/474 "linkedin profile")
 
+Or you can find me in person at the [Edinburgh Java User Group](http://www.edjug.org/).
+
 Development has been kindly supported by the following companies
 
 * [YourKit](http://www.yourkit.com/ "creator of innovative and intelligent tools for profiling Java and .NET applications") - Provide free access to their full featured Java profiler

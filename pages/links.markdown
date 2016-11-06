@@ -7,7 +7,7 @@ permalink: /links/
 
 ## PIT Ecosystem
 
-* Marcin Zajaczkowski maintains a Gradle plugin. [PIT Gradle plugin](http://gradle-pitest-plugin.solidsoft.info/)
+* Marcin Zajączkowski maintains a Gradle plugin. [PIT Gradle plugin](http://gradle-pitest-plugin.solidsoft.info/)
 * Phil Glover maintains an Eclipse plugin. [Pitclipse](https://github.com/philglover/pitclipse)
 * Alexandre Victoor maintains a Sonar plugin. [PIT Sonar plugin](http://docs.codehaus.org/display/SONAR/Pitest)
 * Michal Jedynak maintains an Intellij plugin. [PIT intellij plugin](http://plugins.intellij.net/plugin/?idea&pluginId=7119)
@@ -18,8 +18,8 @@ permalink: /links/
 * [Me talking mutation testing (32 mins)](http://vimeo.com/89083982)
 * [Gleb Smirnov at GeeCON (58 mins)](http://vimeo.com/99550776) 
 * [Nicolas Fränkel at JavaZone (10 mins)](http://vimeo.com/105758362)
-* [Alexandre Victoor on pitest and sonar (18 mins, french)](https://www.youtube.com/watch?v=ck2dIrrVTWs)
-* [Marcin Zajączkowski (42 mins)](https://www.youtube.com/watch?v=OiqNhmYkRRc)
+* [Alexandre Victoor on pitest and sonar (18 mins in French)](https://www.youtube.com/watch?v=ck2dIrrVTWs)
+* Marcin Zajączkowski at Boiling Frogs [(slides in English)](https://speakerdeck.com/szpak/mutation-testing-how-good-your-tests-really-are) [(video in Polish - 60 mins)](https://www.youtube.com/watch?v=lhvDp0_2MI4)
 
 ## Books and articles about mutation testing and PIT
 

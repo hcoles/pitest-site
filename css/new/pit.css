@@ -64,6 +64,10 @@ i {
     border-radius: 4px;
 }
 
+li {
+    padding: 10px 0 10px 0;
+}
+
 svg * {
     fill: none;
     stroke: currentColor;
@@ -166,7 +170,6 @@ blockquote p {
 
 .bloc-why {
     color: #666666;
-    margin-top: 50px;
 }
 
 .bloc-doc {
@@ -179,6 +182,12 @@ blockquote p {
 
 
 /* Custom */
+
+#bug,
+#watch,
+#tree {
+    padding: 20px 60px 0 20px;
+}
 
 #hi-there {
     width: 100%;

@@ -1,276 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>PIT mutation testing</title>
-		<meta name="description" content="pitest mutation testing for java and the jvm" />
 
-		<style type="text/css">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIT mutation testing</title>
+    <meta name="description" content="pitest mutation testing for java and the jvm" />
 
-			/* Base style */
-			html {
-				font-size: 24px;
-			}
-			body {
-				margin: 0 0 40px;
-				font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-				font-weight: 200;
-				color: #666666;
-				background-color: #FFFFFF;
-				word-break: break-word;
-			}
+    <link rel="stylesheet" type="text/css" href="/css/new/pit.css">
+</head>
 
-     strong {
-         font-weight: bold;
-     }
-      a, a:visited, a:hover, a:link {
-				color: inherit;
-				outline: 0;
-			}
-			small {
-				font-weight: 100;
-			}
-			p {
-				font-size: 1rem;
-				line-height: 1.4rem;
-			}
-			button, .button {
-				margin: 0; padding: 3px 6px;
-				border-radius: 6px;
-				border: 1px solid currentColor;
-				color: inherit;
-				background-color: rgba(0,0,0,0);
-				font-size: 0.6rem;
-				font-weight: 300;
-				text-decoration: none;
-				cursor: pointer;
-				outline: 0;
-			}
-			button.active, .button.active {
-				background-color: currentColor;
-			}
-			button.active span, .button.active span {
-				color: #FFFFFF;
-			}
-			i {
-				background-color: rgba(0, 0, 0, 0.05);
-				border-radius: 4px;
-			}
-			svg * {
-				fill: none;
-				stroke: currentColor;
-			}
-blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-  min-height: 110px;
-     }
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-blockquote p {
-  display: inline;
-}
-			/* Common components */
-			.bloc {
-				color: #f9f9f9;
-				padding: 1px 0 30px;
-				clear: both;
-			}
-			.content {
-				margin: auto;
-				max-width: 960px;
-				padding: 0 20px;
-			}
-			.col3 {
-				width: 50%;
-				float: left;
-				text-align: center;
-				border-bottom-color: currentColor;
-				border-bottom-style: solid;
-			}
-			.col-container {
-				padding: 0 12px;
-			}
-			.col3 p {
-				font-size: 0.75rem;
-				line-height: 1.05rem;
-			}
+<body>
 
-			/* Text */
-			.bigger {
-				font-size: 1rem;
-				font-weight: 100;
-				line-height: 1.4rem;
-			}
-			.center {
-				text-align: center;
-			}
-			.clearer {
-				clear: both;
-			}
-			.striked {
-				text-decoration: line-through;
-			}
-			.italic {
-				font-style: italic;
-			}
-
-			/* Blocs */
-			.bloc-head     { color: #000000; padding: 30px; }
-			.bloc-demo     { color: #FF0084; }
-			.bloc-scenario { color: #FF0084; }
-			.bloc-why      { color: #666666; }
-			.bloc-doc      { color: #69B0CA; }
-      .bloc-quote    { color: #666666; }
-
-     /* Custom */
-			#hi-there {
-				width: 100%;
-				stroke-width:4;
-			}
-			.intro-links {
-				text-align: right;
-			}
-			.example-description {
-				margin-left: 440px;
-			}
-			.timing-description {
-				min-height: 200px;
-				margin-right: 240px;
-			}
-			.obturateur {
-				stroke-width: 3;
-				stroke-miterlimit: 10;
-			}
-      #bug {
-         width: 320px; height: 320px;
-         float: left;
-      }
-      #tree {
-         width: 150px; height: 150px;
-         float: left;
-      }
-      #maven {
-         float: left;
-         width: 200px;
-         height: 200px;
-      }
-      #eclipse {
-         float: left;
-         width: 150px;
-         height: 210px;
-      }
-      #intellij {
-         float: left;
-         width: 100px;
-         height: 150px;
-      }
-      #gradle {
-         float: left;
-         width: 150px;
-         height: 200px;
-      }
-      #watch {
-         float: left;
-         width: 200px;
-         height: 200px;
-         padding-right: 30px;
-      }
-      #unclebob {
-         float: left;
-         width: 220px;
-         height: 130px;
-      }
-      #henry {
-         float: left;
-         width: 220px;
-         height: 130px;
-      }
-      #sky {
-         float: left;
-         width: 220px;
-         height: 130px;
-      }
-		  #timing-example {
-				float: right;
-				width: 175px; height: 175px;
-			}
-			.goodbye-head {
-				font-size: 1.5rem;
-				text-align: center;
-				margin-bottom: 0;
-			}
-			.goodbye-sub {
-				font-size: 0.875rem;
-				text-align: center;
-				margin: 0 0 20px;
-			}
-
-			/* Media queries */
-			@media (max-width: 960px) {
-				.button-group { display: block; line-height: 1.8em; }
-			}
-
-			@media (min-width: 768px) {
-				.col3 { border-bottom: none; }
-			}
-
-			@media (max-width: 767px) {
-				#polaroid { width: 100%; max-height: 300px; }
-				.example-description { margin-left: 0; }
-				.timing-description { margin-right: 0; }
-				#timing-example { float: none; width: 100%; }
-
-				.col3 { width: 100%; float: none; margin-bottom: 25px; padding-bottom: 25px; border-bottom-width: 1px; min-height: 200px; }
-				.col3:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom-width: 0px; }
-			}
-
-			@media (min-width: 481px) and (max-width: 767px) {
-				#polaroid { width: 100%; max-height: 300px; }
-				.example-description { margin-left: 0; }
-				.timing-description { margin-right: 0; }
-
-				.col3:nth-child(2n) svg {
-					width: 200px;
-					float: right;
-				}
-				.col3:nth-child(2n) .col-container {
-					text-align: right;
-					margin-right: 200px;
-				}
-				.col3:nth-child(2n+1) svg {
-					width: 200px;
-					float: left;
-				}
-				.col3:nth-child(2n+1) .col-container {
-					text-align: left;
-					margin-left: 200px;
-				}
-			}
-
-			@media (max-width: 480px) {
-				.col-container { padding: 0px; }
-				#polaroid { width: 100%; max-height: 260px; }
-			}
-
-		</style>
-	</head>
-	<body>
-
-		<!-- Head: HI THERE -->
-		  <div class="bloc bloc-head">
-<svg xmlns="http://www.w3.org/2000/svg" id="hi-there" viewBox="0 0 254 259" width="254.54" height="259.232">
+    <!-- Head: HI THERE -->
+    <div class="bloc bloc-head">
+        <svg xmlns="http://www.w3.org/2000/svg" id="hi-there" viewBox="0 0 254 259" width="254.54" height="259.232">
   <path id="path3024" d="m 49.492834,239.36797 c 0,0.92399 0.144277,1.77806 0.431537,2.56526 0.285965,0.7852 0.704274,1.47227 1.253489,2.0581 0.54864,0.58647 1.204032,1.04795 1.96596,1.38549 0.760131,0.33631 1.614146,0.506 2.562979,0.506 0.947756,0 1.803927,-0.16969 2.564633,-0.506 0.762359,-0.33754 1.416673,-0.79902 1.966606,-1.38549 0.548281,-0.58583 0.964721,-1.2729 1.252915,-2.0581 0.287691,-0.7872 0.430746,-1.64127 0.430746,-2.56526 0,-0.92383 -0.143055,-1.77726 -0.430746,-2.5651 -0.288194,-0.78519 -0.704634,-1.47121 -1.252915,-2.05768 -0.549933,-0.58609 -1.204247,-1.04838 -1.966606,-1.38489 -0.760706,-0.33689 -1.616877,-0.506 -2.564633,-0.506 -0.948833,0 -1.802848,0.16911 -2.562979,0.506 -0.761928,0.33651 -1.41732,0.7988 -1.96596,1.38489 -0.549215,0.58647 -0.967524,1.27249 -1.253489,2.05768 -0.28726,0.78784 -0.431537,1.64127 -0.431537,2.5651 z m -2.919969,-8.75985 2.919969,0 0,2.54567 0.0762,0 c 0.796506,-0.94784 1.727008,-1.68477 2.787985,-2.20835 1.062271,-0.52379 2.227196,-0.78663 3.500742,-0.78663 1.372678,0 2.626671,0.23099 3.762051,0.69249 1.135236,0.46356 2.10161,1.10506 2.901566,1.92893 0.797871,0.82217 1.421921,1.79587 1.871213,2.91957 0.449795,1.12316 0.672788,2.346 0.672788,3.66817 0,1.32339 -0.222993,2.54561 -0.672788,3.66932 -0.449292,1.12272 -1.067016,2.09641 -1.851588,2.92023 -0.788885,0.82321 -1.716512,1.46579 -2.790932,1.92729 -1.07176,0.46148 -2.220798,0.69246 -3.441939,0.69246 -1.573458,0 -2.952534,-0.34333 -4.137731,-1.02834 -1.185485,-0.68603 -2.054596,-1.52955 -2.601367,-2.52804 l -0.0762,0 0,11.64301 -2.919969,0 0,-26.05578" fill="none" stroke="#000" stroke-width="4.238" stroke-linecap="round" stroke-linejoin="round"/>
   <path id="path3026" d="m 69.856777,230.60812 2.920112,0 0,17.51986 -2.920112,0 0,-17.51986 z m -0.672285,-6.85014 c 0,-0.57427 0.205021,-1.0728 0.616644,-1.49727 0.412702,-0.42419 0.919145,-0.63716 1.515661,-0.63716 0.601333,0 1.104612,0.21297 1.517314,0.63716 0.410618,0.42447 0.616142,0.923 0.616142,1.49727 0,0.62314 -0.199198,1.13634 -0.597092,1.53474 -0.398899,0.39961 -0.91174,0.59827 -1.536364,0.59827 -0.624049,0 -1.135811,-0.19866 -1.534207,-0.59827 -0.3989,-0.3984 -0.598098,-0.9116 -0.598098,-1.53474" fill="none" stroke="#000" stroke-width="4.238" stroke-linecap="round" stroke-linejoin="round"/>
   <path id="path3028" d="m 88.163395,233.07908 -5.16593,0 0,8.7598 c 0,0.57533 0.0122,1.10512 0.0381,1.59142 0.0223,0.48654 0.12235,0.91079 0.29876,1.27317 0.1754,0.36067 0.43549,0.64854 0.78572,0.86089 0.34966,0.21085 0.8487,0.31846 1.49762,0.31846 0.42543,0 0.86041,-0.0499 1.30963,-0.15105 0.44879,-0.0986 0.87364,-0.24859 1.27412,-0.44825 l 0.11236,2.65737 c -0.50119,0.22474 -1.05587,0.38683 -1.66619,0.48636 -0.6124,0.10011 -1.19303,0.15002 -1.74138,0.15002 -1.04739,0 -1.88552,-0.13785 -2.50849,-0.41164 -0.62304,-0.27441 -1.11044,-0.66015 -1.46009,-1.16033 -0.34916,-0.49956 -0.57905,-1.1173 -0.69084,-1.85322 -0.11343,-0.73565 -0.16958,-1.55267 -0.16958,-2.45231 l 0,-9.62069 -3.819126,0 0,-2.47096 3.819126,0 0,-4.97787 2.92019,0 0,4.97787 5.16592,0 0,2.47096" fill="none" stroke="#000" stroke-width="4.238" stroke-linecap="round" stroke-linejoin="round"/>
@@ -283,26 +28,26 @@ blockquote p {
   <path id="path3042" d="m 187.47956,239.36797 c 0,0.89914 0.16153,1.7282 0.48473,2.48955 0.32472,0.76278 0.76869,1.42294 1.32977,1.984 0.5615,0.56166 1.21639,1.00551 1.96603,1.32921 0.74906,0.32429 1.54643,0.48634 2.39512,0.48634 0.99757,0 1.88444,-0.17389 2.65794,-0.52337 0.77343,-0.34978 1.42882,-0.81646 1.96596,-1.40392 0.53563,-0.5871 0.94251,-1.25931 1.21697,-2.02128 0.27389,-0.76114 0.41105,-1.56636 0.41105,-2.41466 0,-0.94882 -0.14938,-1.81613 -0.44922,-2.60276 -0.29933,-0.78619 -0.72368,-1.46494 -1.27362,-2.03923 -0.54828,-0.57428 -1.20949,-1.01819 -1.9835,-1.32964 -0.7735,-0.31164 -1.6227,-0.46791 -2.54558,-0.46791 -0.92396,0 -1.76733,0.16911 -2.52653,0.506 -0.76186,0.33651 -1.41243,0.7988 -1.94641,1.38489 -0.53613,0.58647 -0.95523,1.27249 -1.25399,2.05768 -0.30092,0.78784 -0.44872,1.64127 -0.44872,2.5651 z m 15.34776,7.97379 c 0,3.19402 -0.81851,5.62153 -2.45235,7.28144 -1.63442,1.65868 -3.99985,2.48934 -7.09436,2.48934 -1.72068,0 -3.27559,-0.24895 -4.661,-0.74914 -1.3854,-0.49852 -2.70078,-1.36045 -3.94845,-2.58268 l 2.09586,-2.39622 c 0.92231,0.99872 1.90241,1.75365 2.93974,2.2648 1.03466,0.5124 2.22612,0.76778 3.57385,0.76778 1.29748,0 2.37665,-0.19349 3.23857,-0.58007 0.86041,-0.38741 1.54118,-0.91077 2.03972,-1.57197 0.49954,-0.66222 0.84812,-1.4178 1.04789,-2.26481 0.20078,-0.84872 0.30034,-1.73569 0.30034,-2.65847 l 0,-2.24615 -0.0763,0 c -0.69773,1.12351 -1.60789,1.94737 -2.73206,2.47073 -1.12157,0.52459 -2.27061,0.78744 -3.44359,0.78744 -1.37318,0 -2.633,-0.2258 -3.77945,-0.67449 -1.14911,-0.45029 -2.13503,-1.07339 -2.95886,-1.87218 -0.82274,-0.79845 -1.46117,-1.74622 -1.90881,-2.84551 -0.44871,-1.09767 -0.67386,-2.29609 -0.67386,-3.59363 0,-1.42236 0.22515,-2.70772 0.67386,-3.85523 0.44764,-1.14856 1.07974,-2.11579 1.89027,-2.90156 0.8111,-0.7862 1.78962,-1.39069 2.93873,-1.81557 1.14803,-0.42445 2.41899,-0.6368 3.81812,-0.6368 0.59918,0 1.19785,0.0684 1.79753,0.20721 0.59867,0.13551 1.1783,0.3495 1.7393,0.6351 0.56316,0.28767 1.06802,0.64999 1.51732,1.08563 0.44922,0.4375 0.82324,0.94243 1.1215,1.51565 l 0.0763,0 0,-2.99428 2.92019,0 0,16.73364" fill="none" stroke="#000" stroke-width="4.238" stroke-linecap="round" stroke-linejoin="round"/>
   <path id="path3044" d="m 164.97807,138.43284 c -2.97202,4.42527 -6.47341,8.49188 -10.28413,12.23638 -3.84249,3.71642 -8.07547,7.03021 -12.57227,9.9313 -9.02589,5.76721 -19.24646,9.60919 -29.77536,11.2992 -10.49439,1.70907 -21.353385,1.25081 -31.476405,-1.55015 10.41704,1.2932 20.879725,0.90435 30.963065,-1.26353 10.05581,-2.14826 19.68727,-6.08667 28.32216,-11.5768 4.33945,-2.7162 8.39544,-5.87687 12.16008,-9.35436 3.79217,-3.45365 7.21089,-7.30676 10.34825,-11.3845 6.22762,-8.20368 11.01686,-17.52732 14.27024,-27.50364 -1.7774,10.35459 -5.95582,20.37065 -11.95563,29.1661 z m 64.40566,-88.057244 23.65636,0 c -1.45851,-3.892312 -4.93172,-6.799225 -9.14932,-7.452977 0.32687,-0.408991 0.53081,-0.920232 0.53081,-1.481802 l 0,-10.054737 c 0,-1.31651 -1.07701,-2.393558 -2.39304,-2.393558 l -3.95054,0 c -1.31703,0 -2.39361,1.077048 -2.39361,2.393558 l 0,1.533719 -3.42555,0 C 225.21538,14.567081 207.41844,1.5 186.61656,1.5 160.74933,1.5 139.5231,21.702189 137.85799,47.15611 l 58.80532,3.220016 -47.54634,2.603881 c -5.58553,29.897729 -21.7047,55.547143 -44.39101,74.103313 L 31.835645,178.12041 1.693088,199.22694 1.5,199.36257 l 1.693868,2.41899 c 5.903127,8.42995 17.522114,10.47851 25.952061,4.57579 l 26.128543,-18.29661 c 15.441567,11.38977 34.523263,18.12649 55.182148,18.12649 51.40214,0 93.07317,-41.67056 93.07317,-93.07322 0,-3.8245 -0.23622,-7.64846 -0.70247,-11.44383 -0.41637,-3.382664 -1.02935,-6.748364 -0.62729,-10.167584 0.51816,-4.40514 2.63516,-9.28497 7.4763,-10.12361 0,-0.006 0,-0.0117 0,-0.0175 l 20.63079,-3.5861 c 0.0129,0.007 0.0252,0.0132 0.0403,0.0217 -0.0108,-0.007 -0.0208,-0.0159 -0.0316,-0.0233 l 0.0187,-0.003 -0.11178,-0.0646 c -0.29294,-0.20291 -0.58171,-0.41271 -0.8625,-0.63098 -0.27655,-0.21349 -0.54569,-0.43494 -0.81002,-0.66487 -1.57396,-1.36578 -2.92018,-2.9885 -3.97282,-4.80142 -0.009,-0.01535 -0.0187,-0.03179 -0.0288,-0.04767 -0.16368,-0.285023 -0.32054,-0.574284 -0.46992,-0.868314 -0.0101,-0.01855 -0.0187,-0.03656 -0.0288,-0.05509 -0.78407,-1.55332 -1.36053,-3.228494 -1.69215,-4.991078 -0.007,-0.03232 -0.0115,-0.0641 -0.0172,-0.09589 -0.0575,-0.315221 -0.10812,-0.633089 -0.14938,-0.953608 -0.007,-0.04397 -0.0108,-0.089 -0.0165,-0.133503 -0.0388,-0.317871 -0.0704,-0.638389 -0.0942,-0.961026 0,-0.03867 -0.007,-0.07576 -0.009,-0.114432 -0.023,-0.356015 -0.0381,-0.714676 -0.0417,-1.075989 0,-0.06251 -0.007,-0.12344 -0.007,-0.185953 0,-0.428594 0.0187,-0.85242 0.0482,-1.273597 0.007,-0.10013 0.0136,-0.199727 0.0223,-0.299328 0.0331,-0.409521 0.0763,-0.816394 0.13565,-1.217969 0,-0.0058 0,-0.01219 0,-0.01855 0.0647,-0.432302 0.14679,-0.858777 0.23946,-1.282072 0.0129,-0.05457 0.0259,-0.109665 0.0388,-0.165292 0.0937,-0.410582 0.1997,-0.815867 0.32262,-1.225388 l -0.0911,-0.089 c 0.34175,-2.009994 0.52873,-4.072436 0.52873,-6.17938 l 6.10994,0" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-      </div>
+    </div>
 
-		<!-- Intro -->
-		<div class="content">
-			<h1>pitest<small>. State of the art mutation testing for the jvm</small></h1>
-			<p>PIT is a state of the art <strong>mutation testing</strong> system, providing <strong>gold standard test coverage</strong> for Java and the jvm. It's fast, scalable and integrates with modern test and build tooling.</p>
-			<p class="intro-links">
-                        	<a href="http://pitest.org/quickstart/" class="button bigger">Get started</a>
-			</p>
+    <!-- Intro -->
+    <div class="content">
+        <h1>pitest<small>. State of the art mutation testing for the jvm</small></h1>
+        <p>PIT is a state of the art <strong>mutation testing</strong> system, providing <strong>gold standard test coverage</strong> for Java and the jvm. It's fast, scalable and integrates with modern test and build tooling.</p>
+        <p class="intro-links">
+            <a href="http://pitest.org/quickstart/" class="button bigger">Get started</a>
+        </p>
 
-		</div>
+    </div>
 
-		<!-- Animation examples/demo -->
-		<div class="bloc bloc-demo">
-			<div class="content">
+    <!-- Animation examples/demo -->
+    <div class="bloc bloc-demo">
+        <div class="content">
 
-				<h2>What is mutation testing?</h2>
-                                <p> Mutation testing is conceptually quite simple. Bugs (or mutations) are automatically seeded into your code, then your tests are run. </p>
+            <h2>What is mutation testing?</h2>
+            <p> Mutation testing is conceptually quite simple. Bugs (or mutations) are automatically seeded into your code, then your tests are run. </p>
 
-					<svg id="bug" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" enable-background="new 0 0 200 200" xml:space="preserve" >
+            <svg id="bug" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" enable-background="new 0 0 200 200" xml:space="preserve">
   <g id="layer1">
     <g id="g4341" fill="none" stroke="#000" stroke-width="2.851">
       <path id="path4037" d="m1027.5-107.51-212.5-61.071s-21.429-8.5714-24.286-15.714c-2.8571-7.1429 1.4286-61.429 7.1429-77.143s42.857-57.143 52.857-60c10-2.8571 138.57 81.429 160 104.29 21.429 22.857 40 61.071 44.286 75.357" color="#000" transform="translate(-413.24 213.35) scale(.52614)"/>
@@ -389,27 +134,28 @@ blockquote p {
     </g>
   </g>
 </svg>
-<p>The most extreme example of the problem are tests with no assertions. Fortunately these are uncommon in most code bases. Much more common is code that is only partially tested by its suite. A suite that only partially tests code can still execute all its branches (<a href="http://pitest.org/weak_tests/">examples)</a>.</p>
+            <p>The most extreme example of the problem are tests with no assertions. Fortunately these are uncommon in most code bases. Much more common is code that is only partially tested by its suite. A suite that only partially tests code can still
+                execute all its branches (<a href="http://pitest.org/weak_tests/">examples)</a>.</p>
 
-<p>As it is actually able to detect whether each statement is meaningfully tested, mutation testing is the gold standard against which all other types of coverage are measured..</p>
+            <p>As it is actually able to detect whether each statement is meaningfully tested, mutation testing is the gold standard against which all other types of coverage are measured..</p>
 
 
 
-			</div>
-		</div>
+        </div>
+    </div>
 
-		<!-- Scripting example -->
-		<div class="bloc bloc-scenario">
-			<div class="content">
+    <!-- Scripting example -->
+    <div class="bloc bloc-scenario">
+        <div class="content">
 
-			<h2>Why PIT</h2>
-<p>There are other mutation testing systems for Java, but they are not widely used.</p>
+            <h2>Why PIT</h2>
+            <p>There are other mutation testing systems for Java, but they are not widely used.</p>
 
-<p>They are mostly slow, difficult to use and written to meet the needs of academic research rather than real development teams.</p>
+            <p>They are mostly slow, difficult to use and written to meet the needs of academic research rather than real development teams.</p>
 
-<p>PIT is different. It's :-</p>
+            <p>PIT is different. It's :-</p>
 
-<svg id="watch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200">
+            <svg id="watch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200">
   <g fill="none" stroke="#000">
     <path d="M942.858 689.04c0 250.292-202.902 453.194-453.195 453.194-250.292 0-453.194-202.902-453.194-453.194 0-250.292 202.9-453.194 453.19-453.194 250.293 0 453.195 202.902 453.195 453.194z" stroke-width="73.247"/>
     <path d="M445.763 55.787h97.463c9.31 0 16.804 7.494 16.804 16.804v77.3c0 9.31-7.495 16.806-16.804 16.806h-97.463c-9.31 0-16.804-7.495-16.804-16.804v-77.3c0-9.31 7.49-16.802 16.8-16.802z" stroke-width="13.308"/>
@@ -421,30 +167,30 @@ blockquote p {
   </g>
 </svg>
 
-<p>
-<ul>
-    <li><strong>fast</strong> - can analyse in minutes what would take earlier systems days
-<li>actively developed
-<li>actively supported
-</ul>
-</p>
-<div class="clearer"></div>
-<p>
-It's also easy to use, and integrates with ant, maven, gradle and others
-</p>
+            <p>
+                <ul>
+                    <li><strong>fast</strong> - can analyse in minutes what would take earlier systems days
+                        <li>actively developed
+                            <li>actively supported
+                </ul>
+            </p>
+            <div class="clearer"></div>
+            <p>
+                It's also easy to use, and integrates with ant, maven, gradle and others
+            </p>
 
-<a href ="http://gradle-pitest-plugin.solidsoft.info/">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="gradle" viewBox="0 0 180 180" >
+            <a href="http://gradle-pitest-plugin.solidsoft.info/">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="gradle" viewBox="0 0 180 180">
     <path class="st0" d="m 175.22685,45.375112 c 4,-9.2 3.9,-18.3 1.5,-25.5 -3,-8.8 -15.3,-20.40000028 -19.2,-15.8000003 -0.5,0.6 -7.6,-0.2 -8.7,1.3 -1.7,2.2 -0.7,2.9 0.1,3.7 2.5,2.2000003 8.8,4.6000003 11.7,12.1000003 1.2,3.2 4,10.6 -0.9,15.1 -5.5,5 -11.7,6.2 -37.1,-17.4 C 95.626852,-6.2248883 59.426852,3.9751117 47.426852,7.9751117 c -12,4.0000003 -17.5,8.0000003 -12.8,17.2000003 6.4,12.6 4.3,8.7 10.6,19.1 9.9,16.5 31.7,-7.6 31.7,-7.6 -16.2,24.4 -30.1,18.5 -35.4,10 -4.8,-7.7 -8.5,-16.5 -8.5,-16.5 -40.9999997,14.8 -29.8999997,79.999998 -29.8999997,79.999998 H 23.526852 c 5.2,-23.999998 23.8,-23.099998 26.9,0 h 15.5 c 13.7,-46.899998 43.099998,0 43.099998,0 h 17.4 c 0,-24.999998 -2.6,-34.399998 10.2,-36.199998 21.8,-2.9 32,-13.1 38.6,-28.6 z" id="path5002" fill="none" stroke="#000" stroke-width="3.714"/>
   <g id="g5012" fill="none" stroke="#000" stroke-width="1.651">
     <path class="st2" d="m 102.7,34.5 c 0,0 9.4,3.1 22,7.3 -0.7,3.4 -7,9.9 -15.1,7.1 -10.8,-3.5 -6.9,-14.4 -6.9,-14.4 z" id="path5014" transform="translate(1.727 .475)"/>
     <path transform="rotate(-6.066 118.71 25.227)" d="m 119.1,41.299999 c 0,3.037566 -2.55198,5.5 -5.7,5.5 -3.14802,0 -5.7,-2.462434 -5.7,-5.5 0,-3.037566 2.55198,-5.5 5.7,-5.5 3.14802,0 5.7,2.462434 5.7,5.5 z" id="ellipse5016"/>
   </g>
 </svg>
-</a>
+            </a>
 
-<a href="http://pitest.org/quickstart/maven/">
-<svg id="maven" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120">
+            <a href="http://pitest.org/quickstart/maven/">
+                <svg id="maven" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120">
   <g fill="none" stroke="#000" stroke-width="4.216">
     <path d="M267.1 19.6c-8.4 5-22.4 19-39 39.3l15.3 28.9c10.7-15.4 21.7-29.2 32.7-41 .8-.9 1.3-1.4 1.3-1.4-.4.5-.9.9-1.3 1.4-3.6 3.9-14.4 16.5-30.7 41.6 15.7-.8 39.8-4 59.5-7.4 5.9-32.8-5.7-47.8-5.7-47.8 0 0-14.8-23.9-32.1-13.6zM241.1 184.4c.1 0 .2 0 .3-.1l-2.2.2c-.1.1-.3.1-.4.2.8-.1 1.6-.2 2.3-.3zM225.5 236.1c-1.2.3-2.5.5-3.8.7 1.3-.2 2.6-.4 3.8-.7zM119.3 352.2c.2-.4.3-.9.5-1.3 3.4-8.9 6.7-17.5 10-26 3.7-9.4 7.4-18.6 11-27.5 3.8-9.3 7.6-18.4 11.3-27.1 3.9-9.2 7.7-18 11.5-26.5 3.1-6.9 6.1-13.6 9.1-20.1 1-2.2 2-4.3 3-6.4 2-4.2 3.9-8.3 5.8-12.3 1.8-3.7 3.5-7.3 5.2-10.9.6-1.2 1.2-2.4 1.7-3.5.1-.2.2-.4.3-.6l-1.9.2-1.5-2.9c-.1.3-.3.6-.4.9-2.7 5.3-5.4 10.7-8 16.2-1.5 3.1-3 6.3-4.6 9.5-4.2 8.8-8.3 17.6-12.3 26.6-4.1 9-8.1 18.1-12 27.1-3.9 8.9-7.6 17.8-11.3 26.7-3.7 8.9-7.3 17.7-10.8 26.5-3.7 9.2-7.3 18.3-10.7 27.3-.8 2-1.6 4.1-2.3 6.1-2.8 7.3-5.5 14.4-8.1 21.5l2.4 4.7 2.1-.2c.1-.2.2-.4.2-.6 3.1-9.5 6.5-18.6 9.8-27.4zM220.7 236.9l0 0c0 0 0 0 0 0 0 0 0 0 0 0zM215.6 262.2c-2 .4-4 .7-6 1 0 0 0 0 0 0 1-.1 2.1-.3 3.1-.5 1-.1 2-.3 2.9-.5z" transform="rotate(-36.275 15.332 48.253) scale(.1186)"/>
     <path d="m 215.6,262.2 c -2,0.4 -4,0.7 -6,1 0,0 0,0 0,0 1,-0.1 2.1,-0.3 3.1,-0.5 1,-0.1 2,-0.3 2.9,-0.5 z" opacity=".35" transform="rotate(-36.275 15.332 48.253) scale(.1186)"/>
@@ -479,7 +225,7 @@ It's also easy to use, and integrates with ant, maven, gradle and others
   </g>
 </svg>
 
-<a href="https://github.com/philglover/pitclipse">
+                <a href="https://github.com/philglover/pitclipse">
 <svg xmlns="http://www.w3.org/2000/svg xmlns:xlink="http://www.w3.org/1999/xlink" id="eclipse" viewBox="0 0 100 180">
     <path d="M 30.554,65.709994 H 13.81 c 2.217,7.605 6.331,14.421 12.354,20.445 9.602,9.603004 21.148,14.398006 34.65,14.398006 2.699,0 5.314,-0.201 7.854,-0.584001 10.17,-1.535 19.074,-6.133005 26.703,-13.814005 6.062,-6.022 10.205,-12.84 12.439,-20.445 h -6.795 -9.936 -60.525 z" id="path3" fill="none" stroke="#000" stroke-width="1.4"/>
   <g id="g5" fill="none" stroke="#000" stroke-width="1.4">
@@ -496,8 +242,8 @@ It's also easy to use, and integrates with ant, maven, gradle and others
 </svg>
 </a>
 
-<a href="https://github.com/zalando/zester">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" id="intellij">
+                <a href="https://github.com/zalando/zester">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" id="intellij">
   <g id="g6991" fill="none" stroke="#000" stroke-width="10.8">
     <title id="title6993">
       background
@@ -515,13 +261,13 @@ It's also easy to use, and integrates with ant, maven, gradle and others
     </g>
   </g>
 </svg>
-</a>
-      </div>
-		</div>
+                </a>
+        </div>
+    </div>
 
-    <div class ="bloc bloc-quote">
-      <div class="content">
-<svg xmlns="http://www.w3.org/2000/svg" id="unclebob" viewBox="0 0 3080 3040">
+    <div class="bloc bloc-quote">
+        <div class="content">
+            <svg xmlns="http://www.w3.org/2000/svg" id="unclebob" viewBox="0 0 3080 3040">
  <g id="layer1" fill="none" stroke="#000">
     <path d="m 1326,1897 c 3,-10 9,-15 12,-12 3,3 0,11 -7,18 -10,9 -11,8 -5,-6 z" id="path9147" transform="translate(278.208 -48.61) scale(.8433)"/>
     <path d="m 686,1517 c 3,-10 9,-15 12,-12 3,3 0,11 -7,18 -10,9 -11,8 -5,-6 z" id="path9173" transform="translate(278.208 -48.61) scale(.8433)"/>
@@ -813,12 +559,12 @@ It's also easy to use, and integrates with ant, maven, gradle and others
     </g>
   </g>
 </svg>
-    <p>
-<blockquote>
-    . . . if I saw a team using mutation testing to guarantee the semantic stability of a test-after suite; I would smile, and nod, and consider them to be highly professional . . .
-</blockquote>
-    </p>
-<svg xmlns="http://www.w3.org/2000/svg" id="henry" viewBox="0 0 1490 1580" >
+            <p>
+                <blockquote>
+                    . . . if I saw a team using mutation testing to guarantee the semantic stability of a test-after suite; I would smile, and nod, and consider them to be highly professional . . .
+                </blockquote>
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" id="henry" viewBox="0 0 1490 1580">
   <g id="layer1" fill="none" stroke="#000" stroke-width="11">
     <g id="g10286">
       <path d="m 520,284 c 0,-17 28,-49 36,-41 4,4 -2,17 -14,30 -12,12 -22,17 -22,11 z" id="path3086" transform="translate(299.2 9.964) scale(.6694)"/>
@@ -1076,11 +822,11 @@ It's also easy to use, and integrates with ant, maven, gradle and others
     </g>
   </g>
 </svg>
-<p>
-    <blockquote>I wrote PIT as it allows me to be lazy and stupid, but still produce good code and tests. Also I was bored.</blockquote>
-      </p>
+            <p>
+                <blockquote>I wrote PIT as it allows me to be lazy and stupid, but still produce good code and tests. Also I was bored.</blockquote>
+            </p>
 
-<svg xmlns="http://www.w3.org/2000/svg" id="sky" viewBox="0 0 1090 1000" >
+            <svg xmlns="http://www.w3.org/2000/svg" id="sky" viewBox="0 0 1090 1000">
       <g id="layer1" fill="none" stroke="#000" stroke-width="8">
     <path d="M723 834 c-3 -8 11 -48 31 -88 20 -41 36 -78 36 -83 0 -4 -12 -26 -27 -48 -15 -22 -41 -63 -59 -92 l-31 -52 -32 33 -32 33 47 74 c26 41 51 77 57 80 18 12 -1 37 -32 44 -52 11 -99 -20 -148 -100 l-43 -69 0 65 c0 50 -4 70 -17 81 -24 21 -59 31 -83 23 -19 -6 -20 -15 -20 -236 l0 -230 25 -25 c19 -19 34 -24 58 -22 l32 3 3 139 3 139 70 -76 c74 -81 116 -101 162 -79 12 5 45 48 72 96 28 47 52 86 56 86 3 0 20 -36 37 -79 27 -65 38 -82 65 -95 33 -15 76 -12 88 7 11 17 -174 428 -209 462 -29 30 -99 36 -109 9z m92 -8 c10 -7 19 -22 20 -32 1 -10 6 -29 13 -40 6 -12 8 -24 5 -28 -3 -3 -1 -6 6 -6 7 0 28 -35 47 -77 20 -43 56 -121 80 -173 24 -52 44 -98 44 -102 0 -5 -18 -8 -39 -8 -31 0 -44 6 -60 26 -12 15 -21 31 -21 37 0 15 -52 127 -59 127 -4 0 -31 -41 -60 -91 -81 -139 -122 -141 -237 -12 l-68 75 23 42 c75 133 98 156 156 156 48 0 44 -9 -71 -186 -13 -18 -11 -23 19 -50 l32 -29 -29 33 c-37 40 -20 43 19 2 16 -17 34 -30 39 -30 12 0 39 39 98 138 l38 63 -41 80 c-22 44 -37 84 -34 89 9 15 58 12 80 -4z m-360 -120 c17 -13 19 -32 23 -231 5 -235 1 -258 -41 -217 -21 21 -22 34 -29 205 -3 100 -9 199 -13 220 -7 34 -6 37 17 37 13 0 33 -6 43 -14z m-55 -153 c0 -54 -3 -73 -10 -63 -13 20 -13 140 0 140 6 0 10 -32 10 -77z" id="path3068"/>
     <path d="M771 785 c19 -53 54 -125 60 -125 9 0 -38 110 -53 125 -7 7 -9 7 -7 0z" id="path3070"/>
@@ -1100,74 +846,112 @@ It's also easy to use, and integrates with ant, maven, gradle and others
   <path id="path3097" d="m 395,683 c 4,-21 10,-120 13,-220 7,-171 8,-184 29,-205 42,-41 46,-18 41,217 -4,199 -6,218 -23,231 -10,8 -30,14 -43,14 -23,0 -24,-3 -17,-37 z m 62,-235 c -1,-46 -3,-11 -3,77 0,88 2,125 3,83 2,-42 2,-114 0,-160 z" fill="none" stroke="#000" stroke-width="8"/>
   <path id="path3099" d="m 380,568 c 0,-35 5,-70 10,-78 7,-10 10,9 10,63 0,45 -4,77 -10,77 -6,0 -10,-27 -10,-62 z" fill="none" stroke="#000" stroke-width="8"/>
 </svg>
-<p>
-    <blockquote>. . . I've found it not only gives me confidence in the quality of both my own and others unit test quality, but has been a design aid in so much that as well as finding untested code, it can also find redundant code</blockquote>
-</p>
-      </div>
+            <p>
+                <blockquote>. . . I've found it not only gives me confidence in the quality of both my own and others unit test quality, but has been a design aid in so much that as well as finding untested code, it can also find redundant code</blockquote>
+            </p>
+        </div>
     </div>
-		<!-- Info and documentation link -->
-		<div class="bloc bloc-doc">
-			<div class="content">
-				<p class="center">More information and documentation on <a href="https://github.com/hcoles/pitest">GitHub</a>.</p>
-			</div>
-		</div>
+    <!-- Info and documentation link -->
+    <div class="bloc bloc-doc">
+        <div class="content">
+            <p class="center">More information and documentation on <a href="https://github.com/hcoles/pitest">GitHub</a>.</p>
+        </div>
+    </div>
 
-		<!-- Goodbye -->
-		<div class="content">
-			<p class="goodbye-head">Go mutate</p>
-			<p class="goodbye-sub">This page made with a lot of help from <a href="https://maxwellito.github.io/vivus/">vivus</a></p>
-		</div>
+    <!-- Goodbye -->
+    <div class="content">
+        <p class="goodbye-head">Go mutate</p>
+        <p class="goodbye-sub">This page made with a lot of help from <a href="https://maxwellito.github.io/vivus/">vivus</a></p>
+    </div>
 
-		<!-- Le scripts -->
-		<script src="js/vivus.js"></script>
-		<script>
-			function easeOutBounce (x) {
-				var base = -Math.cos(x * (0.5 * Math.PI)) + 1;
-				var rate = Math.pow(base,1.5);
-				var rateR = Math.pow(1 - x, 2);
-				var progress = -Math.abs(Math.cos(rate * (2.5 * Math.PI) )) + 1;
-				return (1- rateR) + (progress * rateR);
-			}
+    <!-- Le scripts -->
+    <script src="js/vivus.js"></script>
+    <script>
+        function easeOutBounce(x) {
+            var base = -Math.cos(x * (0.5 * Math.PI)) + 1;
+            var rate = Math.pow(base, 1.5);
+            var rateR = Math.pow(1 - x, 2);
+            var progress = -Math.abs(Math.cos(rate * (2.5 * Math.PI))) + 1;
+            return (1 - rateR) + (progress * rateR);
+        }
 
-			var timing,
-				timingProps = {
-					type: 'delayed',
-					duration: 150,
-					start: 'autostart',
-					pathTimingFunction: Vivus.LINEAR,
-					animTimingFunction: Vivus.LINEAR
-				};
+        var timing,
+            timingProps = {
+                type: 'delayed',
+                duration: 150,
+                start: 'autostart',
+                pathTimingFunction: Vivus.LINEAR,
+                animTimingFunction: Vivus.LINEAR
+            };
 
-			function timingTest (buttonEl, property, type) {
-				var activeSibling = buttonEl.parentNode.querySelector('button.active');
-				activeSibling.classList.remove('active');
-				buttonEl.classList.add('active');
+        function timingTest(buttonEl, property, type) {
+            var activeSibling = buttonEl.parentNode.querySelector('button.active');
+            activeSibling.classList.remove('active');
+            buttonEl.classList.add('active');
 
-				timingProps.type = (property === 'type') ? type : timingProps.type;
-				timingProps.pathTimingFunction = (property === 'path') ? Vivus[type] : timingProps.pathTimingFunction;
-				timingProps.animTimingFunction = (property === 'anim') ? Vivus[type] : timingProps.animTimingFunction;
+            timingProps.type = (property === 'type') ? type : timingProps.type;
+            timingProps.pathTimingFunction = (property === 'path') ? Vivus[type] : timingProps.pathTimingFunction;
+            timingProps.animTimingFunction = (property === 'anim') ? Vivus[type] : timingProps.animTimingFunction;
 
-				timing && timing.stop().destroy();
-				timing = new Vivus('timing-example', timingProps);
-			}
+            timing && timing.stop().destroy();
+            timing = new Vivus('timing-example', timingProps);
+        }
 
-			var hi = new Vivus('hi-there', {type: 'oneByOne', duration: 120, start: 'autostart', dashGap: 20, forceRender: false},
-				function () {
-					if (window.console) {
-						console.log('Animation finished. [log triggered from callback]');
-					}
-				}),
+        var hi = new Vivus('hi-there', {
+                    type: 'oneByOne',
+                    duration: 120,
+                    start: 'autostart',
+                    dashGap: 20,
+                    forceRender: false
+                },
+                function() {
+                    if (window.console) {
+                        console.log('Animation finished. [log triggered from callback]');
+                    }
+                }),
 
-				bug = new Vivus('bug', {type: 'oneByOne', duration: 150}),
-				maven = new Vivus('maven', {type: 'oneByOne', duration: 150}),
-				watch = new Vivus('watch', {type: 'delayed', duration: 150}),
-				obt3 = new Vivus('gradle', {type: 'oneByOne', duration: 150}),
-				eclipse = new Vivus('eclipse', {type: 'scenario-sync', duration: 20, forceRender: false});
-				intelij = new Vivus('intellij', {type: 'oneByOne', duration: 160});
-				tree = new Vivus('tree', {type: 'oneByOne', duration: 160});
-        uncleBob = new Vivus('unclebob', {type: 'delayed', duration: 300});
-        henry = new Vivus('henry', {type: 'delayed', duration: 300});
-        sky = new Vivus('sky', {type: 'delayed', duration: 150});
-		</script>
-	</body>
+            bug = new Vivus('bug', {
+                type: 'oneByOne',
+                duration: 150
+            }),
+            maven = new Vivus('maven', {
+                type: 'oneByOne',
+                duration: 150
+            }),
+            watch = new Vivus('watch', {
+                type: 'delayed',
+                duration: 150
+            }),
+            obt3 = new Vivus('gradle', {
+                type: 'oneByOne',
+                duration: 150
+            }),
+            eclipse = new Vivus('eclipse', {
+                type: 'scenario-sync',
+                duration: 20,
+                forceRender: false
+            });
+        intelij = new Vivus('intellij', {
+            type: 'oneByOne',
+            duration: 160
+        });
+        tree = new Vivus('tree', {
+            type: 'oneByOne',
+            duration: 160
+        });
+        uncleBob = new Vivus('unclebob', {
+            type: 'delayed',
+            duration: 300
+        });
+        henry = new Vivus('henry', {
+            type: 'delayed',
+            duration: 300
+        });
+        sky = new Vivus('sky', {
+            type: 'delayed',
+            duration: 150
+        });
+    </script>
+</body>
+
 </html>

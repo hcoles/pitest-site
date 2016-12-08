@@ -5,7 +5,6 @@ function easeOutBounce(x) {
     var progress = -Math.abs(Math.cos(rate * (2.5 * Math.PI))) + 1;
     return (1 - rateR) + (progress * rateR);
 }
-
 var timing,
     timingProps = {
         type: 'delayed',
@@ -19,28 +18,23 @@ function timingTest(buttonEl, property, type) {
     var activeSibling = buttonEl.parentNode.querySelector('button.active');
     activeSibling.classList.remove('active');
     buttonEl.classList.add('active');
-
     timingProps.type = (property === 'type') ? type : timingProps.type;
     timingProps.pathTimingFunction = (property === 'path') ? Vivus[type] : timingProps.pathTimingFunction;
     timingProps.animTimingFunction = (property === 'anim') ? Vivus[type] : timingProps.animTimingFunction;
-
     timing && timing.stop().destroy();
     timing = new Vivus('timing-example', timingProps);
 }
-
 var hi = new Vivus('hi-there', {
-            type: 'oneByOne',
-            duration: 120,
-            start: 'autostart',
-            dashGap: 20,
-            forceRender: false
-        },
-        function() {
-            if (window.console) {
-                console.log('Animation finished. [log triggered from callback]');
-            }
-        }),
-
+        type: 'oneByOne',
+        duration: 120,
+        start: 'autostart',
+        dashGap: 20,
+        forceRender: false
+    }, function() {
+        if (window.console) {
+            console.log('Animation finished. [log triggered from callback]');
+        }
+    }),
     bug = new Vivus('bug', {
         type: 'oneByOne',
         duration: 150

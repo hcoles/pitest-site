@@ -86,22 +86,22 @@
       <path id="path4339" d="m1074.9 36.912c-3.204 0-6.3267 4.8324-5.5953 7.6218 0.8702 3.3188 2.593 5.2228 5.797 5.2228 3.2041 0 5.8151-2.3391 5.8151-5.2228s-2.8126-7.6218-6.0168-7.6218z" color="#000" transform="translate(-413.24 213.35) scale(.52614)"/>
     </g>
   </g>
-</svg
-<p> If your tests fail then the mutation is killed.</p>
-<p>If your tests pass then the mutation lived.</p>
-<p>The quality of your tests can be gauged from the percentage of mutations killed.</p>
-				</div>
+</svg>
+            <p> If your tests fail then the mutation is killed.</p>
+            <p>If your tests pass then the mutation lived.</p>
+            <p>The quality of your tests can be gauged from the percentage of mutations killed.</p>
+        </div>
+    </div>
 
-		</div>
+    <!-- Scripting -->
+    <div class="bloc bloc-why">
+        <div class="content">
 
-		<!-- Scripting -->
-		<div class="bloc bloc-why">
-			<div class="content">
+            <h2>Why?</h2>
+            <p>Traditional test coverage measures only which code is executed by your tests. It does not check that your tests are actually able to detect faults in the executed code. It is therefore only able to identify code that is definitely not tested.
+                This is true whether you are measuring lines, statements or branches.</p>
 
-				<h2>Why?</h2>
-				<p>Traditional test coverage measures only which code is executed by your tests. It does not check that your tests are actually able to detect faults in the executed code. It is therefore only able to identify code that is definitely not tested. This is true whether you are measuring lines, statements or branches.</p>
-
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" id="tree">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" id="tree">
   <g id="layer1">
     <g id="g4088" fill="none" stroke="#000">
       <path d="m 138.14891,73.144872 402.633,129.866718 c 2.22431,0.71744 3.43742,3.0857 2.71998,5.31001 l -21.18309,65.67512 c -0.71744,2.22431 -3.0857,3.43742 -5.31001,2.71998 l -402.633,-129.86672 c -2.22431,-0.71744 -3.43742,-3.0857 -2.71998,-5.31001 L 132.8389,75.864853 c 0.71744,-2.224306 3.0857,-3.437418 5.31001,-2.719981 z" id="rect2619" stroke-width="4.44" transform="rotate(-60.122 256.27 296.676)"/>
@@ -138,9 +138,6 @@
                 execute all its branches (<a href="http://pitest.org/weak_tests/">examples)</a>.</p>
 
             <p>As it is actually able to detect whether each statement is meaningfully tested, mutation testing is the gold standard against which all other types of coverage are measured..</p>
-
-
-
         </div>
     </div>
 
@@ -166,7 +163,6 @@
     <path d="M489.78 294.69v44.107m393.712 349.607h-44.106M489.78 1082.116v-44.105M96.067 688.407h44.105M686.635 347.44l-22.052 38.195m166.16 105.913L792.55 513.6m38.196 371.66l-38.196-22.053M686.635 1029.37l-22.052-38.198m-371.66 38.198l22.053-38.198M148.814 885.26l38.197-22.053m-38.194-371.66L187.01 513.6m105.913-166.16l22.053 38.196m-22.053-38.196l22.053 38.196" stroke-width="9.156"/>
   </g>
 </svg>
-
             <p>
                 <ul>
                     <li><strong>fast</strong> - can analyse in minutes what would take earlier systems days
@@ -866,92 +862,7 @@
 
     <!-- Le scripts -->
     <script src="js/vivus.js"></script>
-    <script>
-        function easeOutBounce(x) {
-            var base = -Math.cos(x * (0.5 * Math.PI)) + 1;
-            var rate = Math.pow(base, 1.5);
-            var rateR = Math.pow(1 - x, 2);
-            var progress = -Math.abs(Math.cos(rate * (2.5 * Math.PI))) + 1;
-            return (1 - rateR) + (progress * rateR);
-        }
-
-        var timing,
-            timingProps = {
-                type: 'delayed',
-                duration: 150,
-                start: 'autostart',
-                pathTimingFunction: Vivus.LINEAR,
-                animTimingFunction: Vivus.LINEAR
-            };
-
-        function timingTest(buttonEl, property, type) {
-            var activeSibling = buttonEl.parentNode.querySelector('button.active');
-            activeSibling.classList.remove('active');
-            buttonEl.classList.add('active');
-
-            timingProps.type = (property === 'type') ? type : timingProps.type;
-            timingProps.pathTimingFunction = (property === 'path') ? Vivus[type] : timingProps.pathTimingFunction;
-            timingProps.animTimingFunction = (property === 'anim') ? Vivus[type] : timingProps.animTimingFunction;
-
-            timing && timing.stop().destroy();
-            timing = new Vivus('timing-example', timingProps);
-        }
-
-        var hi = new Vivus('hi-there', {
-                    type: 'oneByOne',
-                    duration: 120,
-                    start: 'autostart',
-                    dashGap: 20,
-                    forceRender: false
-                },
-                function() {
-                    if (window.console) {
-                        console.log('Animation finished. [log triggered from callback]');
-                    }
-                }),
-
-            bug = new Vivus('bug', {
-                type: 'oneByOne',
-                duration: 150
-            }),
-            maven = new Vivus('maven', {
-                type: 'oneByOne',
-                duration: 150
-            }),
-            watch = new Vivus('watch', {
-                type: 'delayed',
-                duration: 150
-            }),
-            obt3 = new Vivus('gradle', {
-                type: 'oneByOne',
-                duration: 150
-            }),
-            eclipse = new Vivus('eclipse', {
-                type: 'scenario-sync',
-                duration: 20,
-                forceRender: false
-            });
-        intelij = new Vivus('intellij', {
-            type: 'oneByOne',
-            duration: 160
-        });
-        tree = new Vivus('tree', {
-            type: 'oneByOne',
-            duration: 160
-        });
-        uncleBob = new Vivus('unclebob', {
-            type: 'delayed',
-            duration: 300
-        });
-        henry = new Vivus('henry', {
-            type: 'delayed',
-            duration: 300
-        });
-        sky = new Vivus('sky', {
-            type: 'delayed',
-            duration: 150
-        });
-    </script>
+    <script src="js/new/pit-vivus.js"></script>
 </body>
 
 </html>

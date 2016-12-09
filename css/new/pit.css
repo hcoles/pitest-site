@@ -68,9 +68,22 @@ li {
     padding: 10px 0 10px 0;
 }
 
-svg * {
+#unclebob *,
+#sky *,
+#gradle *,
+#maven *,
+#eclipse *,
+#intellij *,
+#watch *,
+#tree *,
+#bug * {
     fill: none;
     stroke: currentColor;
+}
+
+#henry * {
+    fill: none;
+    stroke-width: 1px;
 }
 
 blockquote {
@@ -189,6 +202,10 @@ blockquote p {
     padding: 20px 60px 0 20px;
 }
 
+#tree {
+    float: right;
+}
+
 #hi-there {
     width: 100%;
     stroke-width: 4;
@@ -259,6 +276,8 @@ blockquote p {
     float: left;
     width: 220px;
     height: 130px;
+    fill: none;
+    stroke: currentColor;
 }
 
 #henry {
@@ -271,6 +290,8 @@ blockquote p {
     float: left;
     width: 220px;
     height: 130px;
+    fill: none;
+    stroke: currentColor;
 }
 
 #timing-example {

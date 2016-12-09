@@ -23,6 +23,18 @@ Add the plugin to build/plugins in your pom.xml
     &lt;groupId&gt;org.pitest&lt;/groupId&gt;
     &lt;artifactId&gt;pitest-maven&lt;/artifactId&gt;
     &lt;version&gt;LATEST&lt;/version&gt;
+ &lt;/plugin&gt;
+</pre>
+
+**That's it, you're up and running.**
+
+By default pitest will mutate all code in your project. You can limit which code is mutated and which tests are run using `targetClasses` and `targetTests`.
+
+<pre class="prettyprint lang-xml">
+&lt;plugin&gt;
+    &lt;groupId&gt;org.pitest&lt;/groupId&gt;
+    &lt;artifactId&gt;pitest-maven&lt;/artifactId&gt;
+    &lt;version&gt;LATEST&lt;/version&gt;
     &lt;configuration&gt;
         &lt;targetClasses&gt;
             &lt;param&gt;com.your.package.root.want.to.mutate*&lt;/param&gt;
@@ -34,7 +46,7 @@ Add the plugin to build/plugins in your pom.xml
 &lt;/plugin&gt;
 </pre>
 
-**That's it, you're up and running.**
+If no `targetClasses` are provided in versions before 1.11.12-SNAPSHOT pitest assumes that your classes live in a package matching your projects group id. In versions after 1.11.12 pitest will scan your project to determine which classes are present.
 
 PIT provides two goals
 
@@ -102,6 +114,8 @@ or
     &lt;param&gt;com.partner.*&lt;/param&gt;
 &lt;/targetClasses&gt;
 </pre>
+
+If no targetClasses are supplied pitest will automatically determine what to mutate. Before 1.11.12-SNAPSHOT pitest will assume that all code lives in a package matching the maven group id. After 1.11.12-SNAPSHOT the classes to mutate will be determined by scanning the maven output directory.
 
 ### targetTests
 

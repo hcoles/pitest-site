@@ -246,13 +246,13 @@ By default PIT will create a date and time stamped folder for its output each it
 
 ### \--mutationThreshold
 
-Mutation score threshold at which to fail build.
+Mutation score threshold below which the build will fail. This is an integer percent (0-100) that represents the fraction of killed mutations out of all mutations.
 
 Please bear in mind that your build may contain equivalent mutations. Careful thought must therefore be given when selecting a threshold.
 
 ### \--coverageThreshold
 
-Line coverage threshold at which to fail build.
+Line coverage threshold below which the build will fail. This is an integer percent (0-100) that represents the fraction of the project covered by the tests.
 
 ### \--historyInputLocation
 

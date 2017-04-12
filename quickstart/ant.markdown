@@ -21,7 +21,7 @@ First define the PIT task within your build
 &lt;taskdef name="pitest" classname="org.pitest.ant.PitestTask" classpathref="pit.path" /&gt;
 </pre>
 
-The referenced classpath should include both pitest.jar and pitest-ant.jar along with any plugins you wish to use. The test library (i.e JUnit or TestNG) must currently also be referenced here as well as on your compilation classpath. This requirement will hopefully be removed in a future release.
+The referenced classpath should pitest.jar, pitest-ant.jar and pitest-entry.jar along with any plugins you wish to use. The test library (i.e JUnit or TestNG), xstream and xmlpull must also be referenced here as well as on your compilation classpath. The requirement for these additional jars will hopefully be removed in a future release.
 
 Next create a target
 

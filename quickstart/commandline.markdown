@@ -275,7 +275,7 @@ java -cp &lt;your classpath&gt; \
     --sourceDirs c:\\myProject\\src \
     --targetTests example.foo*
     --threads 2
-    --excludedMethods hasCode,equals
+    --excludedMethods hashCode,equals
 ```
 
 ### Mutate the classes example.foo.Specific and example.foo.Other using tests from the Suite example.ReflectionSuite that directly call the mutees

@@ -26,7 +26,7 @@ java -cp &lt;your classpath including pit jar and dependencies&gt; \
     org.pitest.mutationtest.commandline.MutationCoverageReport \
     --reportDir <outputdir> \
     --targetClasses com.your.package.tobemutated* \
-    --targetTests com.your.packge.*
+    --targetTests com.your.package.*
     --sourceDirs <pathtosource>
 ```
 
@@ -275,7 +275,7 @@ java -cp &lt;your classpath&gt; \
     --sourceDirs c:\\myProject\\src \
     --targetTests example.foo*
     --threads 2
-    --excludedMethods hasCode,equals
+    --excludedMethods hashCode,equals
 ```
 
 ### Mutate the classes example.foo.Specific and example.foo.Other using tests from the Suite example.ReflectionSuite that directly call the mutees

@@ -125,9 +125,13 @@ globs will be excluded from mutation.
 
 ### \--excludedClasses
 
-List of globs to match against class names. Matching classes will be excluded
-from mutation. Matching test classes will not be run (note if a test suite includes an
-excluded class, then it will "leak" back in).
+List of globs to match against class names. Matching classes will be excluded from mutation. 
+
+Prior to release 1.3.0 tests matching this filter were also exlcuded from being run. From 1.3.0 onwards tests are excluded with the excludedTests parameter.
+
+### \--excludedTests
+
+List of globs to match against test class names. Mathcing tests will not be run (note if a test suite includes an excluded class, then it will "leak" back in).
 
 ### \--avoidCallsTo
 

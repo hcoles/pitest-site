@@ -115,7 +115,9 @@ or
 &lt;/targetClasses&gt;
 </pre>
 
-If no targetClasses are supplied pitest will automatically determine what to mutate. Before 1.11.12-SNAPSHOT pitest will assume that all code lives in a package matching the maven group id. After 1.11.12-SNAPSHOT the classes to mutate will be determined by scanning the maven output directory.
+If no targetClasses are supplied pitest will automatically determine what to mutate. 
+
+Before 1.11.12 pitest assumed that all code lives in a package matching the maven group id. After 1.11.12 the classes to mutate are determined by scanning the maven output directory.
 
 ### targetTests
 
@@ -167,8 +169,13 @@ globs will be excluded from mutation.
 
 ### excludedClasses
 
-List of globs to match against class names. Matching classes will be excluded
-from mutation. Matching test classes will not be run (note if a suite includes an
+List of globs to match against class names. Matching classes will be excluded from mutation. 
+
+Prior to 1.3.0 matching test classes were also not run. From 1.3.0 onwards tests are excluded with the excludedTests parameter
+
+### excludedTests
+
+List of globs to match against test class names. Matching tests will not bre run (note if a suite includes an
 excluded class, then it will "leak" back in).
 
 ### avoidCallsTo

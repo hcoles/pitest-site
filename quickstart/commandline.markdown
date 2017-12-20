@@ -206,6 +206,9 @@ candidate for mutation.
 
 PIT will always attempt not to mutate test classes even if they are defined on a mutable path.
 
+### \--testPlugin
+
+Plugin to use to run tests. Defaults to junit.
 
 ### \--includedGroups
 

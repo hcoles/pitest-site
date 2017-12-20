@@ -281,6 +281,15 @@ Engine to use when generating mutations. Additional engines may be added via plu
 
 Defaults to gregor
 
+### testPlugin
+
+The test framework to use. Support values are
+
+* junit (default) - runs junit 3 and 4 tests
+* testng - runs TestNG tests
+
+Support for other test frameoworks such as junit5 can be added via plugins.
+
 ### additionalClasspathElements
 
 List of additional classpath entries to use when looking for tests and mutable code.

@@ -659,6 +659,65 @@ See the [Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of
 constructors or the [Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for
 mutations of non void methods.
 
+
+<a name="TRUE_RETURNS" id="TRUE_RETURNS"></a>
+
+True returns Mutator (TRUE\_RETURNS)
+-------------------------------------
+
+Replaces primitive and boxed boolean return values with true.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return true.
+
+
+<a name="FALSE_RETURNS" id="FALSE_RETURNS"></a>
+
+False returns Mutator (FALSE\_RETURNS)
+-------------------------------------
+
+Replaces primitive and boxed boolean return values with false.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return false.
+
+<a name="PRIMITIVE_RETURNS" id="PRIMITIVE_RETURNS"></a>
+
+Primitive returns Mutator (PRIMITIVE\_RETURNS)
+----------------------------------------------
+
+Replaces int, short, long, char, float and double return values with 0.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return 0.
+
+<a name="EMPTY_RETURNS" id="EMPTY_RETURNS"></a>
+
+Empty returns Mutator (EMPTY\_RETURNS)
+--------------------------------------
+
+Replaces return values with an 'empty' value for that type as follows
+
+* java.lang.String -> ""
+* java.util.Optional -> Optional.empty()
+* java.util.List -> Collections.emptyList()
+* java.util.Collection -> Collections.emptyList()
+* java.util.Set -> Collections.emptySet()
+* java.lang.Integer -> 0
+* java.lang.Short -> 0
+* java.lang.Long -> 0
+* java.lang.Character -> 0
+* java.lang.Float -> 0
+* java.lang.Double -> 0
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return the empty value.
+
+<a name="NULL_RETURNS" id="NULL_RETURNS"></a>
+
+Null returns Mutator (NULL\_RETURNS)
+--------------------------------------
+
+Replaces return values with null. Methods that can be mutated by the EMPTY_RETURNS mutator or that are directly annotated with NotNull will not be mutated.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return null.
+
 <a name="NON_VOID_METHOD_CALLS" id="NON_VOID_METHOD_CALLS"></a>
 
 Non Void Method Call Mutator (NON\_VOID\_METHOD\_CALLS)

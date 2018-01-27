@@ -7,9 +7,9 @@ permalink: /quickstart/
 # Quickstart
 
 Out of the box PIT can be launched from the command line, ant or maven. Third party
-components provide integration with Gradle, Eclipse, InteliJ and others (see the [links](/links "links") section for details).
+components provide integration with Gradle, Eclipse, IntelliJ and others (see the [links](/links "links") section for details).
 
-The impatient can jump strait to the section for their chosen build tool - it may however be helpful to read the basic concepts section first.
+The impatient can jump straight to the section for their chosen build tool - it may however be helpful to read the basic concepts section first.
 
 ## Getting started
 

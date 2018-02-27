@@ -60,7 +60,7 @@ of your source code in order to generate a human readable report.
 
 ## My tests normally run green but PIT says the suite isn't green
 
-Most comonly this is because either :-
+Most commonly this is because either :-
 
 * PIT is picking up tests that are not included/are excluded in the normal test config
 * Some test rely on an environment variable or other property set in the test config, but not set in the pitest config

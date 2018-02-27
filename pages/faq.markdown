@@ -9,7 +9,7 @@ permalink: /faq/
 
 ## What does PIT stand for?
 
-PIT began life as a spike to run JUnit tests in parallel, using seperate classloaders
+PIT began life as a spike to run JUnit tests in parallel, using separate classloaders
 to isolate static state. Once this was working it turned out to be a much less interesting problem
 than mutation testing which initially needed a lot of the same plumbing.
 

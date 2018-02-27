@@ -144,7 +144,7 @@ See [mutation testing systems compared](/java_mutation_testing_systems)
 
 ## I have mutations that are not killed but should be
 
-Are the mutations in finally blocks? Do you seem to have two ore more identical mutations, some killed and some not?
+Are the mutations in finally blocks? Do you seem to have two or more identical mutations, some killed and some not?
 
 If so this is due to the way in which the java compiler handles finally blocks. Basically the compiler creates
 a copy of the contents of the finally block for each possible exit point. PIT creates seperate mutations for each of

@@ -173,9 +173,9 @@ List of globs to match against class names. Matching classes will be excluded fr
 
 Prior to 1.3.0 matching test classes were also not run. From 1.3.0 onwards tests are excluded with the excludedTests parameter
 
-### excludedTests
+### excludedTestClasses
 
-List of globs to match against test class names. Matching tests will not bre run (note if a suite includes an
+List of globs to match against test class names. Matching tests will not be run (note if a suite includes an
 excluded class, then it will "leak" back in).
 
 ### avoidCallsTo

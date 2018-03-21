@@ -28,7 +28,7 @@ you think are relevant to the report.
 
 Similarly if you have a good idea for a feature or change please do suggest it. Your idea may in fact be truly terrible, but if so we promise to be polite about it. 
 
-General feeback of what you think works well, or doesn't work well is also always welcome. PIT's aim is to make mutation testing as usable and practical as
+General feedback of what you think works well, or doesn't work well is also always welcome. PIT's aim is to make mutation testing as usable and practical as
 possible. It's nice to know how we're doing.
 
 ## Development
@@ -37,9 +37,9 @@ This is of course what most people have in mind when they think of contributing,
 
 [The roadmap](/roadmap/) contains a list of possible tasks that people could help out on. One good way to start might be to implement a new mutation operator, the roadmap contains some suggestions for new ones but you may be able to think of others.
 
-The core codebase might not be the best place for you to contribute however. Your skillset may be more suited to other areas. 
+The core codebase might not be the best place for you to contribute however. Your skill set may be more suited to other areas. 
 
-Tool integration is especially important, anyone wanting to work on an Eclipse plugin, ant task, or sonar plugin would be particularly wellcome.
+Tool integration is especially important, anyone wanting to work on an Eclipse plugin, ant task, or sonar plugin would be particularly welcome.
 
 Web development skills could also be useful - at some point we hope to create a web app that allows the mutation analysis results to be navigated and annotated. 
 

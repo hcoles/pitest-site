@@ -30,7 +30,7 @@ It currently supports:
 It does not yet support:
 
 * Running PIT against multiple unit tests
-* Mutating accross all open projects in the workspace
+* Mutating across all open projects in the workspace
 * Integration between the html results & the source
 * Eclipse versions prior to 3.7.2 
 

@@ -66,7 +66,7 @@ Most commonly this is because either :-
 * Some test rely on an environment variable or other property set in the test config, but not set in the pitest config
 * The tests have a hidden order dependency that is not revealed during the normal test run 
 
-If you are using an unusual or custom JUnit runner this can also sometimes causes problems. To make things fast PIT does some tricksy stuff to split your tests into small independent units. This works well with most JUnit runners but if you encounter one where it doesn't please post to the user group. 
+If you are using an unusual or custom JUnit runner this can also sometimes causes problems. To make things fast PIT does some tricky stuff to split your tests into small independent units. This works well with most JUnit runners but if you encounter one where it doesn't please post to the user group. 
 
 ## Will PIT work with my mocking framework?
 
@@ -91,11 +91,11 @@ PIT chooses and prioritises tests based on three factors
 * Test naming convention 
 
 Per test case line coverage information is first gathered and all tests that do not exercise
-the mutated line of code are disguarded. The remaining tests are then ordered by
+the mutated line of code are discarded. The remaining tests are then ordered by
 increasing execution time - test cases that belong to a class that is identified
 as a unit test for the mutated class are however weighted above other tests.
 
-A class is considered to be the unit test for a particular class if it matches the standard JUnit naming convetion of FooTest or TestFoo.
+A class is considered to be the unit test for a particular class if it matches the standard JUnit naming convention of FooTest or TestFoo.
 
 Unlike earlier systems PIT does **not** require that your tests follow this naming convention in order for it to work. Test names are
 used only as part of a heuristic to optimise run order.
@@ -106,7 +106,7 @@ Timeouts when running mutation tests are caused by one of two things
 
 1 A mutation that causes an infinite loop
 
-2 PIT thinking an infinite loop has occured but being wrong
+2 PIT thinking an infinite loop has occurred but being wrong
 
 In order to detect infinite loops PIT measures the normal execution time of each test
 without any mutations present. When the test is run in the presence of a mutation
@@ -122,7 +122,7 @@ required for that test. This can be particularly pronounced in code that uses XM
 frameworks such as jaxb where classloading may take several seconds.
 
 When PIT runs the tests against a mutation the order of the tests will be different. Tests that
-previously took miliseconds may now take seconds as they now carry the overhead of classloading. 
+previously took milliseconds may now take seconds as they now carry the overhead of classloading. 
 PIT may therefore incorrectly flag the mutation as causing an infinite loop.
 
 An fix for this issue may be developed in a future version of PIT. In the meantime
@@ -147,7 +147,7 @@ See [mutation testing systems compared](/java_mutation_testing_systems)
 Are the mutations in finally blocks? Do you seem to have two or more identical mutations, some killed and some not?
 
 If so this is due to the way in which the java compiler handles finally blocks. Basically the compiler creates
-a copy of the contents of the finally block for each possible exit point. PIT creates seperate mutations for each of
+a copy of the contents of the finally block for each possible exit point. PIT creates separate mutations for each of
 the copied blocks. Most test suites are only able to kill one of these mutations.
 
 As of 0.28 PIT contains experimental support for detecting inlined code that is now active by default.

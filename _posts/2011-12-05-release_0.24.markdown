@@ -38,7 +38,7 @@ It can be enabled by adding EXPERIMENTAL_INLINE_CONSTS to the mutators list.
 
 ## Fix for [issue 11](http://code.google.com/p/pitestrunner/issues/detail?id=11)
 
-Source files for classes in package default were not being located so PIT could not produce annotated source reports. This issue had litle
+Source files for classes in package default were not being located so PIT could not produce annotated source reports. This issue had little
 impact on most real codebases, but caused a lot of confusion for people trying out PIT on toy projects.
 
 ## Internal changes

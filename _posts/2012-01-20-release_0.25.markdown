@@ -43,7 +43,7 @@ The **includeJarFiles** option that existed in 0.24 and below has been removed a
 
 ## Ability to add non launch classpaths
 
-A new parameter (**classPath**) has been added to the commandline tool to allow addtional classpaths to be specified.
+A new parameter (**classPath**) has been added to the commandline tool to allow additional classpaths to be specified.
 
 ## Option to not throw an error when no mutations are found
 

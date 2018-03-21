@@ -137,7 +137,7 @@ Of these libraries, BCEL is no longer actively developed or maintained.
 
 * More difficult to develop mutation operators this way
 * Mutations are divorced from the source code and may not be representative of errors a programmer would make
-* Can be hard to describe / explain the mutations that must work roud intricacies of the JVM
+* Can be hard to describe / explain the mutations that must work around intricacies of the JVM
 
 
 ## Test selection
@@ -214,7 +214,7 @@ Mutants are generated, the class files written to disk, and a new JVM launched w
 #### Pros
 
 * Should reliably work with any JVM
-* Mutants will be active during the construction of static state (singletons, static intializers etc)
+* Mutants will be active during the construction of static state (singletons, static initializers etc)
 
 #### Cons
 
@@ -222,7 +222,7 @@ Mutants are generated, the class files written to disk, and a new JVM launched w
 
 ### Mutant schemata
 
-A single class is generated that contains all mutants, each mutant is then enabled programatically. Mutant schemata could be used as part of any scheme for mutant insertion, but makes most sense as a variant of a scheme in which class files are written to disk.
+A single class is generated that contains all mutants, each mutant is then enabled programmatically. Mutant schemata could be used as part of any scheme for mutant insertion, but makes most sense as a variant of a scheme in which class files are written to disk.
 
 #### Pros
 
@@ -231,7 +231,7 @@ A single class is generated that contains all mutants, each mutant is then enabl
 
 #### Cons
 
-* Mutants will not be active during the construction of static state (singletons, static intializers etc)
+* Mutants will not be active during the construction of static state (singletons, static initializers etc)
 
 ### Non delegating class loader
 
@@ -241,7 +241,7 @@ the mutant class.
 #### Pros
 
 * Faster than naive scheme
-* Mutants will be active during the construction of static state (singletons, static intializers etc)
+* Mutants will be active during the construction of static state (singletons, static initializers etc)
 * Mutants cannot be accidentally released
 
 #### Cons
@@ -257,7 +257,7 @@ Mutants are held in memory and inserted into the JVM by creating a new classload
 
 * Faster than naive scheme
 * Fewer classpath problems than non delegating classloader
-* Mutants will be active during the construction of static state (singletons, static intializers etc)
+* Mutants will be active during the construction of static state (singletons, static initializers etc)
 * Mutants cannot be accidentally released
 
 #### Cons
@@ -280,7 +280,7 @@ of a JVM significantly, but this approach does avoid having to launch a new JVM 
 #### Cons
 
 * Performance (?)
-* Mutants will not be active during the construction of static state (singletons, static intializers etc)
+* Mutants will not be active during the construction of static state (singletons, static initializers etc)
 * Requires a JVM with support for this api
 
 ### Instrumentation api
@@ -293,7 +293,7 @@ Mutants are held in memory and inserted into a JVM using the instrumentation api
 
 #### Cons
 
-* Mutants will not be active during the construction of static state (singletons, static intializers etc)
+* Mutants will not be active during the construction of static state (singletons, static initializers etc)
 * Requires a JVM with support for this api
 
 ## Mutant detection
@@ -350,7 +350,7 @@ by other tools, eg XML, RDMS etc.
 
 ## Summary Of Mutation Testing Systems
 
-### Clasification and details
+### Classification and details
 
 <table class="table">
     <thead>
@@ -643,7 +643,7 @@ Support is available via a google group and documentation is the strongest of th
   [↩](#fnref1)
 2. In practice the operators may however end up mutating mainly the compiler generated plumbing code for these languages <a name="fn2" id="fn2"></a>
   [↩](#fnref2)
-3. In most circumstances this will be insignificant compared to the cost of mutation analysis, but could be significant if only a small number of mutants are being generated within a large project with a slow test suite. PIT’s dependency analysis feature addresses this scneario. <a name="fn3" id="fn3"></a>
+3. In most circumstances this will be insignificant compared to the cost of mutation analysis, but could be significant if only a small number of mutants are being generated within a large project with a slow test suite. PIT’s dependency analysis feature addresses this scenario. <a name="fn3" id="fn3"></a>
   [↩](#fnref3)
 4. [jumble mailing list](https://lists.sourceforge.net/lists/listinfo/jumble-users) <a name="fn4" id="fn4"></a>
   [↩](#fnref4)

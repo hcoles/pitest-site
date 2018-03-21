@@ -10,7 +10,7 @@ permalink: /sky_experience/
 
 ## Manual mutation testing
 
-After working as a developer on a green field project at Sky which actually had very good unit test coverage (cica 95%) and had been mostly been built in a TDD fashion, there were still some areas which were either not covered at all by unit tests, or the unit tests weren't testing anything.  
+After working as a developer on a green field project at Sky which actually had very good unit test coverage (circa 95%) and had been mostly been built in a TDD fashion, there were still some areas which were either not covered at all by unit tests, or the unit tests weren't testing anything.  
 
 The reasons for this varied from different skill levels in the team, time pressures, etc. but the upshot was the same, reduced confidence.  
 

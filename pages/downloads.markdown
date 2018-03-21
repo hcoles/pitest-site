@@ -69,7 +69,7 @@ A new class (org.pitest.mutationtest.tooling.EntryPoint) has been introduced tha
 
 * Incremental analysis (--historyInputLocation and --historyOutputLocation)
 * Inlined code detection turned on by default
-* Quieter loggging by default
+* Quieter logging by default
 * Improved Java 7 support
 * Upgrade of ASM from 3.3 to 4
 * Fix for concurrency issues during coverage collection

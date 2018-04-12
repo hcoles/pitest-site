@@ -85,3 +85,15 @@ within a single analysis.
 The engine to use is indicated by the mutationEngine config parameter. If none is supplied the default "gregor" engine will be used.
 
 Implementing a mutation engine is non trivial - for details of what is required see the org.pitest.mutationtest.engine.gregor.* packages.
+
+#### Descartes
+Descartes is a mutation engine plugin for PIT which implements extreme mutation operators.
+
+In Extreme Mutation testing, the whole logic of a method under test is eliminated. All
+statements in a void method are removed. In other case the body is replaced by a return
+statement. With this approach, a smaller number of mutants is generated.
+The goal of Descartes is to bring an effective implementation of this kind of mutation
+operator into the world of PIT and check its performance in real world projects.
+
+Descartes is availabe in ![Maven Central](http://search.maven.org), and source and
+documentation are available in ![Descartes github](http://github.com/STAMP-project/pitest-descartes).

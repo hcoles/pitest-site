@@ -485,5 +485,5 @@ be used. PitMP runs test suite as PIT does, just extending the list of classes t
 mutated to the whole project tree, instead of mutating only the classes of
 the test suite module.
 
-PitMP is availabe in ![Maven Central](http://search.maven.org), and source and
-documentation are available in ![PitMP github](http://github.com/STAMP-project/pitmp-maven-plugin).
+PitMP is availabe in [Maven Central](http://search.maven.org), and source and
+documentation are available in [PitMP github](http://github.com/STAMP-project/pitmp-maven-plugin).

@@ -95,5 +95,5 @@ statement. With this approach, a smaller number of mutants is generated.
 The goal of Descartes is to bring an effective implementation of this kind of mutation
 operator into the world of PIT and check its performance in real world projects.
 
-Descartes is availabe in ![Maven Central](http://search.maven.org), and source and
-documentation are available in ![Descartes github](http://github.com/STAMP-project/pitest-descartes).
+Descartes is availabe in [Maven Central](http://search.maven.org), and source and
+documentation are available in [Descartes github](http://github.com/STAMP-project/pitest-descartes).

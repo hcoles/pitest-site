@@ -465,23 +465,16 @@ Additional parameters exist to customize the generation of the report.  They are
 &lt;/reporting&gt;
 </pre>
 
-### PitMP: Handling multi-module projects
-PitMP (PIT for Multi-module Project) is a Maven plugin able to run
+### Handling projects composed of mutiple Maven modules (PitMP)
+[PitMP (PIT for Multi-module Project)](http://github.com/STAMP-project/pitmp-maven-plugin) is a Maven plugin to run
 PIT on multi-module projects.
 
-PIT mutates only the classes defined in the same module than the
-test suite:    
-![PIT project](../images/quickstart_maven_pit_project.png)
+By default, PIT mutates only the classes defined in the same module as the test suite.    
 
-PitMP runs PIT on every test suite, mutating classes of all dependencies of modules
-located in the same project tree:    
-![PitMP project](../images/quickstart_maven_pmp_project_1.png)  
-then:  
-![PitMP project](../images/quickstart_maven_pmp_project_2.png)  
-etc...
+Meanwhile, PitMP runs PIT on a complete project: the test suites are executed against the mutants generated in all classes of the project. In return, it produces a global mutation score for the project.
+The key rationale for the plugin is that some projects include test cases that are meant to assess the correctness of code regions that are in other modules.
 
-PitMP just extends PIT, it doesn't rewrite PIT features, so all PIT properties can
-be used. PitMP runs test suite as PIT does, just extending the list of classes to be
+PitMP extends PIT, it doesn't rewrite PIT features. So, all PIT properties can be used. PitMP runs test suite as PIT does, just extending the list of classes to be
 mutated to the whole project tree, instead of mutating only the classes of
 the test suite module.
 

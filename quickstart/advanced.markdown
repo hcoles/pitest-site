@@ -79,21 +79,27 @@ To create a new test prioritiser implement the **org.pitest.mutationtest.build.T
 
 ### Mutation Engine
 
-Additional mutation engines may be supplied. Although multiple mutation engine plugins may be supplied, only one may currently be used
-within a single analysis.
+The default mutation engine of Pit is called [Gregor](https://github.com/AntonKovalyov1/pit_project/tree/f52389ea0bbadb30daab5db0b55d7fc1a5414ae3/src/main/java/org/pitest/mutationtest/engine/gregor). 
 
-The engine to use is indicated by the mutationEngine config parameter. If none is supplied the default "gregor" engine will be used.
+Pit is designed to support the integration of other mutation engines. Although multiple mutation engine plugins may be supplied, only one may currently be used within a single analysis.
+
+The mutationEngine config parameter specifies the engine to use. If none is supplied the default engine is used.
 
 Implementing a mutation engine is non trivial - for details of what is required see the org.pitest.mutationtest.engine.gregor.* packages.
 
-#### Descartes
-Descartes is a mutation engine plugin for PIT which implements extreme mutation operators.
+#### Activating extreme mutation (pit-descartes)
+[pit-descartes](http://github.com/STAMP-project/pitest-descartes) is a mutation engine for Pit which implements extreme mutation operators.
 
-In Extreme Mutation testing, the whole logic of a method under test is eliminated. All
-statements in a void method are removed. In other case the body is replaced by a return
-statement. With this approach, a smaller number of mutants is generated.
-The goal of Descartes is to bring an effective implementation of this kind of mutation
-operator into the world of PIT and check its performance in real world projects.
+Extreme Mutation testing, originally proposed by [Niedermayr and colleagues](https://arxiv.org/pdf/1611.07163.pdf), consists in completely removing the whole logic of each method that is covered by one test case at least. All
+statements in a void method are removed. In other cases the body is replaced by a return
+statement. 
 
-Descartes is availabe in [Maven Central](http://search.maven.org), and source and
+The key rationales for this engine are as follow:
+ * a method is a good level of abstraction to reason about the code and the test suite
+ * extreme mutation generates much less mutants than the [default mutation operators of Pit](http://pitest.org/quickstart/mutators/)
+ * extreme mutation is a good preliminary analysis to strengthen the test suite before running the fine-grained mutation operators
+ 
+The goal of [pit-descartes](http://github.com/STAMP-project/pitest-descartes) is to bring an effective implementation of this kind of mutationoperator into the world of PIT.
+
+pit-descartes is availabe in [Maven Central](http://search.maven.org), and source and
 documentation are available in [Descartes github](http://github.com/STAMP-project/pitest-descartes).

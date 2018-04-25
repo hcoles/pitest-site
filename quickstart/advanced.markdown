@@ -79,7 +79,7 @@ To create a new test prioritiser implement the **org.pitest.mutationtest.build.T
 
 ### Mutation Engine
 
-The default mutation engine of Pit is called [Gregor](https://github.com/AntonKovalyov1/pit_project/tree/f52389ea0bbadb30daab5db0b55d7fc1a5414ae3/src/main/java/org/pitest/mutationtest/engine/gregor). 
+The default mutation engine of Pit is called [Gregor](https://github.com/hcoles/pitest/tree/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor). 
 
 Pit is designed to support the integration of other mutation engines. Although multiple mutation engine plugins may be supplied, only one may currently be used within a single analysis.
 

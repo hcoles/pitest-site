@@ -214,6 +214,10 @@ Michal Jedynak maintains an IntelliJ plugin. [PIT intellij plugin](http://plugin
 
 It is also possible to launch PIT from most other IDEs as a Java application.
 
+## How can I combine all the reports for a project with multiple modules into a single report?
+
+See [Test Aggregation Across Modules](/aggregating_tests_across_modules)
+
 ## I'd like to help out, what can I do?
 
 See [how to help](/how_to_help)

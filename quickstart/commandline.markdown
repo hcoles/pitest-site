@@ -22,7 +22,7 @@ Please only use the commandline tool if you have a really good reason to do so.
 A mutation coverage report can be launched from the command line as follows
 
 ```
-java -cp &lt;your classpath including pit jar and dependencies&gt; \
+java -cp <your classpath including pit jar and dependencies> \
     org.pitest.mutationtest.commandline.MutationCoverageReport \
     --reportDir <outputdir> \
     --targetClasses com.your.package.tobemutated* \
@@ -275,7 +275,7 @@ Path to write history information for incremental analysis. May be the same as h
 ### Mutate all classes in package example.foo (and sub pacakges) in two threads potentially using any test on class path but do not mutate hashCode or equals methods
 
 ```
-java -cp &lt;your classpath&gt; \
+java -cp <your classpath> \
      org.pitest.mutationtest.commandline.MutationCoverageReport \
     --reportDir c:\\mutationReports \
     --targetClasses example.foo.* \
@@ -288,7 +288,7 @@ java -cp &lt;your classpath&gt; \
 ### Mutate the classes example.foo.Specific and example.foo.Other using tests from the Suite example.ReflectionSuite that directly call the mutees
 
 ```
-java -cp &lt;your classpath&gt; \
+java -cp <your classpath> \
      org.pitest.mutationtest.commandline.MutationCoverageReport \
     --reportDir c:\\mutationReports \
     --targetClasses example.foo.Specfic, example.foo.Other \

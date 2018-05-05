@@ -1,3 +1,9 @@
+---
+title: Test Aggregation Across Modules
+layout: default
+permalink: /aggregating_tests_across_modules/
+---
+
 # Test Aggregation Across Modules
 
 It is not uncommon to organize code into a single build with multiple modules. But PIT Test is not aware of the interconnection of these different modules

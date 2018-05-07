@@ -771,6 +771,6 @@ h2 + .row {
   
 }
 
-code, table.table td {
+table.table td {
     line-height: 34px;
 }

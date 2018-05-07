@@ -87,19 +87,19 @@ with their boundary counterpart as per the table below.
 
 For example
 
-<pre class="prettyprint lang-java">
-if (a &lt; b) {
+```java
+if (a < b) {
   // do something
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
-if (a &lt;= b) {
+```java
+if (a <= b) {
   // do something
 }
-</pre>
+```
 
 <a name="NEGATE_CONDITIONALS" id="NEGATE_CONDITIONALS"></a>
 
@@ -153,19 +153,19 @@ to the replacement table below.
 
 For example
 
-<pre class="prettyprint lang-java">
+```java
 if (a == b) {
   // do something
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 if (a != b) {
   // do something
 }
-</pre>
+```
 
 This mutator overlaps to a degree with the conditionals boundary mutator, but is less **stable** i.e these
 mutations are generally easier for a test suite to detect.
@@ -182,19 +182,19 @@ execute
 For example
 
 
-<pre class="prettyprint lang-java">
+```java
 if (a == b) {
   // do something
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 if (true) {
   // do something
 }
-</pre>
+```
 
 Although not currently enabled by default it is highly recommended that you enable it if you wish to ensure your test suite has full coverage of conditional statements.
 
@@ -202,39 +202,39 @@ As shown above the basic remove conditionals mutator ensures that the statements
 
 Additional specialised versions of the mutator exist that will ensure the block never executes so
 
-<pre class="prettyprint lang-java">
+```java
 if (a == b) {
   // do something
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 if (false) {
   // do something
 }
-</pre>
+```
 
 If an else block is present it will always execute 
 
-<pre class="prettyprint lang-java">
+```java
 if (a == b) {
   // do something
 } else {
   // do something else
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 if (false) {
   // do something
 } else {
   // do something else
 }
-</pre>
+```
 
 Specialisations also exist that will mutate the bytecode instructions for order checks (eg <=, >).
 
@@ -322,28 +322,28 @@ selected according to the table below.
 
 For example
 
-<pre class="prettyprint lang-java">
+```java
 int a = b + c;
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 int a = b - c;
-</pre>
+```
 
 Keep in mind that the `+` operator on `String`s as in
 
-<pre class="prettyprint lang-java">
+```java
 String a = "foo" + "bar";
-</pre>
+```
 
 is **not a mathematical operator** but a string concatenation and will be 
 replaced by the compiler with something like
 
-<pre class="prettyprint lang-java">
+```java
 String a = new StringBuilder("foo").append("bar").toString();
-</pre>
+```
 
 
 Please note that the compiler will also use binary arithmetic operations for
@@ -353,7 +353,7 @@ exists. This special opcode is restricted to local variables (also called stack
 variables) and cannot be used for member variables. That means the math mutator
 will also mutate
 
-<pre class="prettyprint lang-java">
+```java
 public class A {
   private int i;
 
@@ -361,11 +361,11 @@ public class A {
     this.i++;
   }
 }
-</pre>
+```
 
 to
 
-<pre class="prettyprint lang-java">
+```java
 public class A {
   private int i;
 
@@ -373,7 +373,7 @@ public class A {
     this.i = this.i - 1;
   }
 }
-</pre>
+```
 
 See the [Increments Mutator](#INCREMENTS) for details.
 
@@ -390,21 +390,21 @@ increments with decrements and vice versa.
 
 For example
 
-<pre class="prettyprint lang-java">
+```java
 public int method(int i) {
   i++;
   return i;
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 public int method(int i) {
   i--;
   return i;
 }
-</pre>
+```
 
 Please note that the increments mutator will be applied to increments of 
 **local variables only**. Increments and decrements of member variables will be
@@ -420,19 +420,19 @@ Invert Negatives Mutator (INVERT_NEGS)
 The invert negatives mutator inverts negation of integer and floating point 
 numbers. For example
 
-<pre class="prettyprint lang-java">
+```java
 public float negate(final float i) {
   return -i;
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 public float negate(final float i) {
   return i;
 }
-</pre>
+```
 
 <a name="INLINE_CONSTS" id="INLINE_CONSTS"></a>
 
@@ -442,12 +442,12 @@ Inline Constant Mutator (INLINE_CONSTS)
 The inline constant mutator mutates inline constants. An inline constant is a
 literal value assigned to a non-final variable, for example
 
-<pre class="prettyprint lang-java">
+```java
 public void foo() {
   int i = 3;
   // do something with i
 }
-</pre>
+```
 
 Depending on the type of the inline constant another mutation is used. The rules
 are a little complex due to the different ways that apparently similar Java statements
@@ -503,27 +503,27 @@ are converted to byte code.
 
 For example
 
-<pre class="prettyprint lang-java">
+```java
 public int foo() {
   int i = 42;
   return i;
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 public int foo() {
   int i = 43;
   return i;
 }
-</pre>
+```
 
 Please note that the compiler might optimize the use of final variables 
 (regardless whether those are stack variables or member variables). For example
 the following code
 
-<pre class="prettyprint lang-java">
+```java
 public class A {
   private static final int VAR = 13;
   
@@ -532,17 +532,17 @@ public class A {
     return "" + VAR + ":" + i;
   }
 }
-</pre>
+```
 
 will be changed/optimized by the compiler to
 
-<pre class="prettyprint lang-java">
+```java
 public class A {
   public String foo() {
     return "13:42";
   }
 }
-</pre>
+```
 
 In such situations the mutation engine can not mutate any variable.
 
@@ -605,20 +605,20 @@ on the return type of the method another mutation is used.<a href="#fn4"><sup>4<
 
 For example
 
-<pre class="prettyprint lang-java">
+```java
 public Object foo() {
   return new Object();
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 public Object foo() {
   new Object();
   return null;
 }
-</pre>
+```
 
 <a name="VOID_METHOD_CALLS" id="VOID\_METHOD\_CALLS"></a>
 
@@ -629,7 +629,7 @@ Void Method Call Mutator (VOID_METHOD_CALLS)
 
 The void method call mutator removes method calls to void methods. For example
 
-<pre class="prettyprint lang-java">
+```java
 public void someVoidMethod(int i) {
   // does something
 }
@@ -639,11 +639,11 @@ public int foo() {
   doSomething(i);
   return i;
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 public void someVoidMethod(int i) {
   // does something
 }
@@ -652,7 +652,7 @@ public int foo() {
   int i = 5;
   return i;
 }
-</pre>
+```
 
 Please note that constructor calls are **not considered void method calls**.
 See the [Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of 
@@ -763,7 +763,7 @@ Table: Java Default Values for Primitives and Reference Types
 
 For example
 
-<pre class="prettyprint lang-java">
+```java
 public int someNonVoidMethod() {
   return 5;
 }
@@ -772,11 +772,11 @@ public void foo() {
   int i = someNonVoidMethod();
   // do more stuff with i
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 public int someNonVoidMethod() {
   return 5;
 }
@@ -785,11 +785,11 @@ public void foo() {
   int i = 0;
   // do more stuff with i
 }
-</pre>
+```
 
 and for method calls returning an object type the call
 
-<pre class="prettyprint lang-java">
+```java
 public Object someNonVoidMethod() {
   return new Object();
 }
@@ -798,11 +798,11 @@ public void foo() {
   Object o = someNonVoidMethod();
   // do more stuff with o
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 public Object someNonVoidMethod() {
   return new Object();
 }
@@ -811,7 +811,7 @@ public void foo() {
   Object o = null;
   // do more stuff with o
 }
-</pre>
+```
 
 Please note that this mutation is fairly unstable for some types (especially Objects where
 **`NullPointerException`s** are likely) and may also create equivalent mutations if
@@ -830,21 +830,21 @@ Constructor Call Mutator (CONSTRUCTOR_CALLS)
 The constructor call mutator replaces constructor calls with `null` values. For
 example
 
-<pre class="prettyprint lang-java">
+```java
 public Object foo() {
   Object o = new Object();
   return o;
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
 public Object foo() {
   Object o = null;
   return o;
 }
-</pre>
+```
 
 Please note that this mutation is fairly unstable and likely to cause **`NullPointerException`s** even
 with weak test suites.
@@ -912,31 +912,31 @@ Table: Java Default Values for Primitives and Reference Types
 
 For example
 
-<pre class="prettyprint lang-java">
+```java
 public class MutateMe {
     private final int x = 5;
     //...
 }
-</pre>
+```
 
 will be mutated to
 
-<pre class="prettyprint lang-java">
+```java
   public class MutateMe {
     private final int x = 0;
     ...
   }
-</pre>
+```
 
 **Please Note: This mutator is likely to create equivalent mutations** if a
 member variable is **explicitly** initialized with the Java default value for 
 the specific type of the member variable as in
 
-<pre class="prettyprint lang-java">
+```java
 public class EquivalentMutant {
     private int x = 0;
 }
-</pre>
+```
 
 <a name="EXPERIMENTAL_SWITCH" id="EXPERIMENTAL_SWITCH"></a>
 

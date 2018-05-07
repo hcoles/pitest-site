@@ -18,33 +18,33 @@ PIT is available from [maven central](http://search.maven.org/#search|ga|1|a%3A%
 
 Add the plugin to build/plugins in your pom.xml
 
-<pre class="prettyprint lang-xml">
-&lt;plugin&gt;
-    &lt;groupId&gt;org.pitest&lt;/groupId&gt;
-    &lt;artifactId&gt;pitest-maven&lt;/artifactId&gt;
-    &lt;version&gt;LATEST&lt;/version&gt;
- &lt;/plugin&gt;
-</pre>
+```xml
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>LATEST</version>
+ </plugin>
+```
 
 **That's it, you're up and running.**
 
 By default pitest will mutate all code in your project. You can limit which code is mutated and which tests are run using `targetClasses` and `targetTests`.
 
-<pre class="prettyprint lang-xml">
-&lt;plugin&gt;
-    &lt;groupId&gt;org.pitest&lt;/groupId&gt;
-    &lt;artifactId&gt;pitest-maven&lt;/artifactId&gt;
-    &lt;version&gt;LATEST&lt;/version&gt;
-    &lt;configuration&gt;
-        &lt;targetClasses&gt;
-            &lt;param&gt;com.your.package.root.want.to.mutate*&lt;/param&gt;
-        &lt;/targetClasses&gt;
-        &lt;targetTests&gt;
-            &lt;param&gt;com.your.package.root*&lt;/param&gt;
-        &lt;/targetTests&gt;
-    &lt;/configuration&gt;
-&lt;/plugin&gt;
-</pre>
+```xml
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>LATEST</version>
+    <configuration>
+        <targetClasses>
+            <param>com.your.package.root.want.to.mutate*</param>
+        </targetClasses>
+        <targetTests>
+            <param>com.your.package.root*</param>
+        </targetTests>
+    </configuration>
+</plugin>
+```
 
 If no `targetClasses` are provided in versions before 1.11.12-SNAPSHOT pitest assumes that your classes live in a package matching your projects group id. In versions after 1.11.12 pitest will scan your project to determine which classes are present.
 
@@ -56,25 +56,25 @@ The mutation coverage goal analyses all classes in the codebase that match the t
 
 It can be run directly from the commandline
 
-<pre class="prettyprint lang-bash">
+```bash
 mvn org.pitest:pitest-maven:mutationCoverage
-</pre>
+```
 
 This will output an html report to **target/pit-reports/YYYYMMDDHHMI**.
 
 To speed-up repeated analysis of the same codebase set the `withHistory` parameter to true.
 
-<pre class="prettyprint lang-bash">
+```bash
 mvn -DwithHistory org.pitest:pitest-maven:mutationCoverage
-</pre>
+```
 
 ### scmMutationCoverage goal
 
 The scm mutation coverage goal analyses only classes that match the filters and the source file has a given status within the project source control system (by default ADDED or MODIFIED). This provides a quick way to check the coverage of changes prior to checking code in / pushing code to a repository.
 
-<pre class="prettyprint lang-bash">
+```bash
 mvn org.pitest:pitest-maven:scmMutationCoverage -Dinclude=ADDED,UNKNOWN -DmutationThreshold=85
-</pre>
+```
 
 To use this goal the maven [scm plugin](http://maven.apache.org/scm/maven-scm-plugin/usage.html) must be correctly configured for the project
 
@@ -99,21 +99,21 @@ The classes to be mutated. This is expressed as a list of globs.
 
 For example
 
-<pre class="prettyprint lang-xml">
-&lt;targetClasses&gt;
-    &lt;param&gt;com.mycompany.*&lt;/param&gt;
-&lt;/targetClasses&gt;
-</pre>
+```xml
+<targetClasses>
+    <param>com.mycompany.*</param>
+</targetClasses>
+```
 
 or
 
-<pre class="prettyprint lang-xml">
-&lt;targetClasses&gt;
-    &lt;param&gt;com.mycompany.package.*&lt;/param&gt;
-    &lt;param&gt;com.mycompany.packageB.Foo*&lt;/param&gt;
-    &lt;param&gt;com.partner.*&lt;/param&gt;
-&lt;/targetClasses&gt;
-</pre>
+```xml
+<targetClasses>
+    <param>com.mycompany.package.*</param>
+    <param>com.mycompany.packageB.Foo*</param>
+    <param>com.partner.*</param>
+</targetClasses>
+```
 
 If no targetClasses are supplied pitest will automatically determine what to mutate. 
 
@@ -151,14 +151,14 @@ List of mutation operators to apply.
 
 for example
 
-<pre class="prettyprint lang-xml">
-&lt;configuration&gt;
-    &lt;mutators&gt;
-        &lt;mutator&gt;CONSTRUCTOR_CALLS&lt;/mutator&gt;
-        &lt;mutator&gt;NON_VOID_METHOD_CALLS&lt;/mutator&gt;
-    &lt;/mutators&gt;
-&lt;/configuration&gt;
-</pre>
+```xml
+<configuration>
+    <mutators>
+        <mutator>CONSTRUCTOR_CALLS</mutator>
+        <mutator>NON_VOID_METHOD_CALLS</mutator>
+    </mutators>
+</configuration>
+```
 
 For details of the available mutators and the default set applied see [mutation operators](/quickstart/mutators/).
 
@@ -193,14 +193,14 @@ packages as follows
 
 So, the configuration section must look like:
 
-<pre class="prettyprint lang-xml">
-&lt;avoidCallsTo&gt;
-    &lt;avoidCallsTo&gt;java.util.logging&lt;/avoidCallsTo&gt;
-    &lt;avoidCallsTo&gt;org.apache.log4j&lt;/avoidCallsTo&gt;
-    &lt;avoidCallsTo&gt;org.slf4j&lt;/avoidCallsTo&gt;
-    &lt;avoidCallsTo&gt;org.apache.commons.logging&lt;/avoidCallsTo&gt;
-&lt;/avoidCallsTo&gt;
-</pre>
+```xml
+<avoidCallsTo>
+    <avoidCallsTo>java.util.logging</avoidCallsTo>
+    <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+    <avoidCallsTo>org.slf4j</avoidCallsTo>
+    <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+</avoidCallsTo>
+```
 
 
 ### verbose
@@ -233,11 +233,11 @@ to the process, but may be used to pass any valid JVM argument.
 
 For example when running on OpenJDK 7 the it is sometimes necessary to disable the split verifier.
 
-<pre class="prettyprint lang-xml">
-&lt;jvmArgs&gt;
-    &lt;value&gt;-XX:-UseSplitVerifier&lt;/value&gt;
-&lt;/jvmArgs&gt;
-</pre>
+```xml
+<jvmArgs>
+    <value>-XX:-UseSplitVerifier</value>
+</jvmArgs>
+```
 
 ### jvm
 
@@ -311,20 +311,20 @@ In the case of any doubt PIT will act cautiously and assume that the code is not
 
 This will be detected as two separate inlined instructions
 
-<pre class="prettyprint lang-xml">
+```java
 finally {
     int++;
     int++;
 }
-</pre>
+```
 
 But this will look confusing so PIT will assume no in-lining is taking place.
 
-<pre class="prettyprint lang-xml">
+```java
 finally {
     int++; int++;
 }
-</pre>
+```
 
 This sort of pattern might not be common with integer addition, but things like string concatenation are likely to produce multiple similar instructions on the same line.
 
@@ -364,11 +364,11 @@ This is a convenient way of using history files to speed up local analysis.
 
 You can skip the launch by adding the parameter ``skip`` on ``configuration`` section:
 
-<pre class="prettyprint lang-xml">
-&lt;configuration&gt;
-    &lt;skip&gt;true&lt;/skip&gt;
-&lt;/configuration&gt;
-</pre>
+```xml
+<configuration>
+    <skip>true</skip>
+</configuration>
+```
 
 It's very useful on maven module: when you need to skip an entire module, you can add this setting on the declaration of the plugin to ignore it.
 
@@ -377,30 +377,30 @@ It's very useful on maven module: when you need to skip an entire module, you ca
 Starting with version 1.1.6, the pit maven plugin has a maven report goal.  This goal should only be invoked as part of the maven site lifecycle.  To execute this goal, the ``mutationCoverage`` goal must have already been executed to produce an HTML report (i.e. the ``outputFormat`` parameter must have HTML in it if the parameter is specified.  The report goal then copies the latest HTML report to the site directory.  If multiple reports exist (as in the case where ``timestampedReports`` is set to true), then only the report with the latest create time is used.
 
 To generate the pit site report, set up the pitest-maven plugin in the project's pom as explained in the Getting Started section above and the ``<reporting>`` section as explained below.  Then, execute both the ``mutationCoverage`` goal and the site lifecycle.  For example:
-<pre class="prettyprint lang-xml">
+```bash
 mvn clean org.pitest:pitest-maven:mutationCoverage site
-</pre>
+```
 
 ### POM Configuration
 The following configuration is the minimum required to generate the pit site report:
-<pre class="prettyprint lang-xml">
-&lt;reporting&gt;
-    &lt;plugins&gt;
-        &lt;plugin&gt;
-            &lt;groupId&gt;org.pitest&lt;/groupId&gt;
-            &lt;artifactId&gt;pitest-maven&lt;/artifactId&gt;
-            &lt;version&gt;LATEST&lt;/version&gt;
-            &lt;reportSets&gt;
-                &lt;reportSet&gt;
-                    &lt;reports&gt;
-                        &lt;report&gt;report&lt;/report&gt;
-                    &lt;/reports&gt;
-                &lt;/reportSet&gt;
-            &lt;/reportSets&gt;
-        &lt;/plugin&gt;
-    &lt;/plugins&gt;
-&lt;/reporting&gt;
-</pre>
+```xml
+<reporting>
+    <plugins>
+        <plugin>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-maven</artifactId>
+            <version>LATEST</version>
+            <reportSets>
+                <reportSet>
+                    <reports>
+                        <report>report</report>
+                    </reports>
+                </reportSet>
+            </reportSets>
+        </plugin>
+    </plugins>
+</reporting>
+```
 
 #### Additional Parameters
 Additional parameters exist to customize the generation of the report.  They are:
@@ -436,34 +436,34 @@ Additional parameters exist to customize the generation of the report.  They are
 * User property is ``${pit.report.outputdir}``
 
 ##### Example Showing All Options
-<pre class="prettyprint lang-xml">
-&lt;reporting&gt;
-    &lt;plugins&gt;
-        &lt;plugin&gt;
-            &lt;groupId&gt;org.pitest&lt;/groupId&gt;
-            &lt;artifactId&gt;pitest-maven&lt;/artifactId&gt;
-            &lt;version&gt;LATEST&lt;/version&gt;
-            &lt;configuration&gt;
-                &lt;skip&gt;false&lt;/skip&gt;
-                &lt;reportsDirectory&gt;${project.build.directory}/pit-custom-output-dir&lt;/reportsDirectory&gt;
-                &lt;sourceDataFormats&gt;
-                    &lt;sourceDataFormat&gt;HTML&lt;/sourceDataFormat&gt;
-                &lt;/sourceDataFormats&gt;
-                &lt;siteReportName&gt;my-pit-report-name&lt;/siteReportName&gt;
-                &lt;siteReportDescription&gt;my pit report custom description&lt;/siteReportDescription&gt;
-                &lt;siteReportDirectory&gt;pit-custom-site-directory&lt;/siteReportDirectory&gt;
-            &lt;/configuration&gt;
-            &lt;reportSets&gt;
-                &lt;reportSet&gt;
-                    &lt;reports&gt;
-                        &lt;report&gt;report&lt;/report&gt;
-                    &lt;/reports&gt;
-                &lt;/reportSet&gt;
-            &lt;/reportSets&gt;
-        &lt;/plugin&gt;
-    &lt;/plugins&gt;
-&lt;/reporting&gt;
-</pre>
+```xml
+<reporting>
+    <plugins>
+        <plugin>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-maven</artifactId>
+            <version>LATEST</version>
+            <configuration>
+                <skip>false</skip>
+                <reportsDirectory>${project.build.directory}/pit-custom-output-dir</reportsDirectory>
+                <sourceDataFormats>
+                    <sourceDataFormat>HTML</sourceDataFormat>
+                </sourceDataFormats>
+                <siteReportName>my-pit-report-name</siteReportName>
+                <siteReportDescription>my pit report custom description</siteReportDescription>
+                <siteReportDirectory>pit-custom-site-directory</siteReportDirectory>
+            </configuration>
+            <reportSets>
+                <reportSet>
+                    <reports>
+                        <report>report</report>
+                    </reports>
+                </reportSet>
+            </reportSets>
+        </plugin>
+    </plugins>
+</reporting>
+```
 
 ### Handling projects composed of mutiple Maven modules (PitMP)
 [PitMP (PIT for Multi-module Project)](http://github.com/STAMP-project/pitmp-maven-plugin) is a Maven plugin to run

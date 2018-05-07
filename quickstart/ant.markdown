@@ -17,25 +17,25 @@ Download the latest pitest and pitest-ant jars and put them somewhere convenient
 
 First define the PIT task within your build
 
-<pre class="prettyprint lang-xml">
-&lt;taskdef name="pitest" classname="org.pitest.ant.PitestTask" classpathref="pit.path" /&gt;
-</pre>
+```xml
+<taskdef name="pitest" classname="org.pitest.ant.PitestTask" classpathref="pit.path" />
+```
 
 The referenced classpath should pitest.jar, pitest-ant.jar and pitest-entry.jar along with any plugins you wish to use. The test library (i.e JUnit or TestNG), xstream and xmlpull must also be referenced here as well as on your compilation classpath. The requirement for these additional jars will hopefully be removed in a future release.
 
 Next create a target
 
-<pre class="prettyprint lang-xml">
-&lt;target name="mutationCoverage"&gt;
-    &lt;pitest
+```xml
+<target name="mutationCoverage">
+    <pitest
         pitClasspath="pit.path"
         classPath="mutation.path"
         targetClasses="com.yourcodebase.*"
         targetTests="com.yourcodebase.*"
         reportDir="pathToWhereYouWantOutput"
-        sourceDir="pathToYourSource"/&gt;
-&lt;/target&gt;
-</pre>
+        sourceDir="pathToYourSource"/>
+</target>
+```
 
 Two separate classpaths need to be supplied - pitClasspath should contain to the pitest jars and plugins (plus test library), classPath should contain the classpath used when normally running your unit tests (including the test library).
 
@@ -59,15 +59,15 @@ To help people evaluate PIT an example project using ant is provided at [pit ant
 
 To try it out checkout the source
 
-<pre class="prettyprint lang-bash">
+```bash
 git clone https://github.com/hcoles/pitest-ant-example.git
-</pre>
+```
 
 then run the pit target
 
-<pre class="prettyprint lang-bash">
+```bash
 ant pit
-</pre>
+```
 
 Mutation testing should complete in 10 to 20 seconds (most of which is PIT waiting to decide if it has encountered an infinite loop), then results should be
 written in html to the pitReports folder.

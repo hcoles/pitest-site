@@ -54,36 +54,13 @@ The conditionals boundary mutator replaces the relational operators `<, <=, >, >
 
 with their boundary counterpart as per the table below.
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-            Original conditional
-            </th>
-            <th>
-            Mutated conditional
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>&lt;</td>
-            <td>&lt;=</td>
-        </tr>
-        <tr>
-            <td>&lt;=</td>
-            <td>&lt;</td>
-        </tr>
-        <tr>
-            <td>&gt;</td>
-            <td>&gt;=</td>
-        </tr>
-        <tr>
-            <td>&gt;=</td>
-            <td>&gt;</td>
-        </tr>
-    </tbody>
-</table>
+| Original conditional | Mutated conditional |
+|----------------------|---------------------|
+| <                    | <=                  |
+| <=                   | <                   |
+| \>                   | \>=                 |
+| \>=                  | \>                  |
+{:.table }
 
 For example
 
@@ -111,45 +88,15 @@ Negate Conditionals Mutator (NEGATE_CONDITIONALS)
 The negate conditionals mutator will mutate all conditionals found according
 to the replacement table below.
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-            Original conditional
-            </th>
-            <th>
-            Mutated conditional
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>==</td>
-            <td>!=</td>
-        </tr>
-        <tr>
-            <td>!=</td>
-            <td>==</td>
-        </tr>
-        <tr>
-            <td>&lt;=</td>
-            <td>&gt;</td>
-        </tr>
-        <tr>
-            <td>&gt;=</td>
-            <td>&lt;</td>
-        </tr>
-        <tr>
-            <td>&lt;</td>
-            <td>&gt;=</td>
-        </tr>
-        <tr>
-            <td>&gt;</td>
-            <td>&lt;=</td>
-        </tr>
-
-    </tbody>
-</table>
+| Original conditional | Mutated conditional |
+|----------------------|---------------------|
+| ==                   | !=                  |
+| !=                   | ==                  |
+| <=                   | \>                  |
+| \>=                  | <                   |
+| <                    | \>=                 |
+| \>                   | <=                  |
+{:.table }
 
 For example
 
@@ -260,64 +207,20 @@ The math mutator replaces binary arithmetic operations for either integer or
 floating-point arithmetic with another operation. The replacements will be 
 selected according to the table below.
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-            Original conditional
-            </th>
-            <th>
-            Mutated conditional
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>+</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>-</td>
-            <td>+</td>
-        </tr>
-        <tr>
-            <td>*</td>
-            <td>/</td>
-        </tr>
-        <tr>
-            <td>/</td>
-            <td>*</td>
-        </tr>
-        <tr>
-            <td>%</td>
-            <td>*</td>
-        </tr>
-        <tr>
-            <td>&amp;</td>
-            <td>|</td>
-        </tr>
-        <tr>
-            <td>|</td>
-            <td>&amp;</td>
-        </tr>
-        <tr>
-            <td>^</td>
-            <td>&amp;</td>
-        </tr>
-        <tr>
-            <td>&lt;&lt;</td>
-            <td>&gt;&gt;</td>
-        </tr>
-        <tr>
-            <td>&gt;&gt;</td>
-            <td>&lt;&lt;</td>
-        </tr>
-        <tr>
-            <td>&gt;&gt;&gt;</td>
-            <td>&lt;&lt;</td>
-        </tr>
-    </tbody>
-</table>
+| Original conditional | Mutated conditional |
+|----------------------|---------------------|
+| \+                   | \-                  |
+| \-                   | \+                  |
+| *                    | /                   |
+| /                    | *                   |
+| %                    | *                   |
+| &                    | \|                  |
+| \|                   | &                   |
+| ^                    | &                   |
+| \<<                  | \>>                 |
+| \>>                  | \<<                 |
+| \>>>                 | \<<                 |
+{:.table}
 
 
 For example
@@ -453,53 +356,15 @@ Depending on the type of the inline constant another mutation is used. The rules
 are a little complex due to the different ways that apparently similar Java statements
 are converted to byte code.
 
+| Constant Type            | Mutation
+|--------------------------|---
+| `boolean`                | replace the unmutated value `true` with `false` and replace the unmutated value `false` with `true`
+| `integer` `byte` `short` | replace the unmutated value `1` with `0`, `-1` with `1`, `5` with `-1` or otherwise increment the unmutated value by one. <a href="#fn1"><sup>1</sup></a> <a name="fnref1" id="fnref1"></a>
+| `long`                   | replace the unmutated value `1` with `0`, otherwise increment the unmutated value by one.
+| `float`                  | replace the unmutated values `1.0` and `2.0` with `0.0` and replace any other value with `1.0` <a href="#fn2"><sup>2</sup></a> <a name="fnref2" id="fnref2"></a>
+| `double`                 | replace the unmutated value `1.0` with `0.0` and replace any other value with `1.0` <a href="#fn3"><sup>3</sup></a> <a name="fnref3" id="fnref3"></a>
+{:.table}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Constant Type</th>
-            <th>Mutation</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>boolean</code></td>
-            <td>
-                replace the unmutated value <code>true</code> with <code>false</code> and
-                replace the unmutated value <code>false</code> with <code>true</code>
-            </td>
-        </tr>
-        <tr>
-            <td><code>integer</code> <code>byte</code> <code>short</code></td>
-            <td>
-                replace the unmutated value <code>1</code> with <code>0</code>,
-                <code>-1</code> with <code>1</code>, <code>5</code> with <code>-1</code>
-                or otherwise increment the unmutated value by one. <a href="#fn1"><sup>1</sup></a> <a name="fnref1" id="fnref1"></a>
-            </td>
-        </tr>
-        <tr>
-            <td><code>long</code></td>
-            <td>
-                replace the unmutated value <code>1</code> with <code>0</code>, otherwise
-                increment the unmutated value by one.
-            </td>
-        </tr>
-        <tr>
-            <td><code>float</code></td>
-            <td>
-                replace the unmutated values <code>1.0</code> and <code>2.0</code>
-                with <code>0.0</code> and replace any other value with <code>1.0</code> <a href="#fn2"><sup>2</sup></a> <a name="fnref2" id="fnref2"></a>
-            </td>
-        </tr>
-        <tr>
-            <td><code>double</code></td>
-            <td>
-                replace the unmutated value <code>1.0</code> with <code>0.0</code>
-                and replace any other value with <code>1.0</code> <a href="#fn3"><sup>3</sup></a> <a name="fnref3" id="fnref3"></a>
-            </td>
-        </tr>
-    </tbody>
-</table>
 
 For example
 
@@ -556,52 +421,14 @@ Return Values Mutator (RETURN_VALS)
 The return values mutator mutates the return values of method calls. Depending
 on the return type of the method another mutation is used.<a href="#fn4"><sup>4</sup></a> <a name="fnref4" id="fnref4"></a>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Return Type</th>
-            <th>Mutation</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>boolean</code></td>
-            <td>
-                replace the unmutated return value <code>true</code> with <code>false</code> and
-                replace the unmutated return value <code>false</code> with <code>true</code>
-            </td>
-        </tr>
-        <tr>
-            <td><code>int</code> <code>byte</code> <code>short</code></td>
-            <td>
-                if the unmutated return value is <code>0</code> return <code>1</code>, otherwise
-                mutate to return value <code>0</code>
-            </td>
-        </tr>
-        <tr>
-            <td><code>long</code></td>
-            <td>
-                replace the unmutated return value <code>x</code> with the result of <code>x+1</code>
-            </td>
-        </tr>
-        <tr>
-            <td><code>float</code> <code>double</code></td>
-            <td>
-                replace the unmutated return value <code>x</code> with the result of
-                <code>-(x+1.0)</code> if <code>x</code> is not <code>NAN</code> and
-                replace <code>NAN</code> with <code>0</code>
-            </td>
-        </tr>
-        <tr>
-            <td><code>Object</code></td>
-            <td>
-                replace non-<code>null</code> return values with <code>null</code> and throw a
-                <code>java.lang.RuntimeException</code> if the unmutated method
-                would return <code>null</code>
-            </td>
-        </tr>
-    </tbody>
-</table>
+| Return Type          | Mutation 
+|----------------------|---
+| `boolean`            | replace the unmutated return value `true` with `false` and replace the unmutated return value `false` with `true`
+| `int` `byte` `short` | if the unmutated return value is `0` return `1`, otherwise mutate to return value `0`
+| `long`               | replace the unmutated return value `x` with the result of `x+1`
+| `float` `double`     | replace the unmutated return value `x` with the result of `-(x+1.0)` if `x` is not `NAN` and replace `NAN` with `0`
+| `Object`             | replace non-`null` return values with `null` and throw a `java.lang.RuntimeException` if the unmutated method would return `null`
+{:.table}
 
 For example
 
@@ -729,37 +556,14 @@ type. See the table below.
 
 Table: Java Default Values for Primitives and Reference Types
 
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Type</th>
-            <th>Default Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>boolean</code></td>
-            <td><code>false</code></td>
-        </tr>
-        <tr>
-            <td><code>int</code> <code>byte</code> <code>short</code> <code>long</code></td>
-            <td><code>0</code></td>
-        </tr>
-        <tr>
-            <td><code>float</code> <code>double</code></td>
-            <td><code>0.0</code></td>
-        </tr>
-        <tr>
-            <td><code>char</code></td>
-            <td><code>'\u0000'</code></td>
-        </tr>
-        <tr>
-            <td><code>Object</code></td>
-            <td><code>null</code></td>
-        </tr>
-    </tbody>
-</table>
+| Type                        | Default value |
+|-----------------------------|---------------|
+| `boolean`                   | `false`       |
+| `int` `byte` `short` `long` | `0`           |
+| `float` `double`            | `0.0`         |
+| `char`                      | `'\u0000'`    |
+| `Object`                    | `null`        |
+{:.table}
 
 For example
 
@@ -866,50 +670,15 @@ type. See the table below.
 
 Table: Java Default Values for Primitives and Reference Types
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Type</th>
-            <th>Default Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <code>boolean</code>
-            </td>
-            <td>`false`</td>
-        </tr>
-        <tr>
-            <td>
-                <code>int</code>
-                <code>short</code>
-                <code>byte</code>
-                <code>long</code>
-            </td>
-            <td>`0`</td>
-        </tr>
-        <tr>
-            <td>
-                <code>float</code>
-                <code>double</code>
-            </td>
-            <td>`0.0`</td>
-        </tr>
-        <tr>
-            <td>
-                <code>char</code>
-            </td>
-            <td>`'\u0000'`</td>
-        </tr>
-        <tr>
-            <td>
-                <code>Object</code>
-            </td>
-            <td>`null`</td>
-        </tr>
-    </tbody>
-</table>
+
+| Type                        | Default value |
+|-----------------------------|---------------|
+| `boolean`                   | `false`       |
+| `int` `byte` `short` `long` | `0`           |
+| `float` `double`            | `0.0`         |
+| `char`                      | `'\u0000'`    |
+| `Object`                    | `null`        |
+{:.table}
 
 For example
 

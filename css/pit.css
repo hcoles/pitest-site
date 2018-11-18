@@ -24,6 +24,19 @@ h3 code {
   font-weight: normal;
 }
 
+/* "Improve this page" links
+-------------------------------------------------- */
+.improve a {
+  float: right;
+  top: 27px;
+  position: relative;
+  color: #ddd;
+}
+
+.improve a:hover {
+  color: #ccc;
+}
+
 /* Sections
 -------------------------------------------------- */
 

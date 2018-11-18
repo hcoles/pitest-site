@@ -6,9 +6,7 @@ tags: roadmap
 layout: post
 ---
 
-Several people have asked if there is a roadmap for PIT, so with a nod to Heisenberg <a href="#fn1"><sup>1</sup></a>
-<a name="fnref1" id="fnref1"></a>
-[now we do](/roadmap/).
+Several people have asked if there is a roadmap for PIT, so with a nod to Heisenberg <sup id="fnref1">[1](#fn1)</sup> [now we do](/roadmap/).
 
 <!-- more -->
 

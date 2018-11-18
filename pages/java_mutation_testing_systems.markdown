@@ -42,7 +42,7 @@ Jester was the first open source mutation system for Java, but does not appear t
 
 WebSite : [http://jester.sourceforge.net/](http://jester.sourceforge.net/)
 
-Simple Jester is a variant of the original Jester by the same author who describes it as easier to use, but slower <a name="fnref1" id="fnref1"></a> <a href="#fn1"><sup>1</sup></a>.
+Simple Jester is a variant of the original Jester by the same author who describes it as easier to use, but slower <sup id="fnref1">[1]((#fn1))</sup>.
 
 It appears to no longer be actively developed or supported.
 
@@ -131,7 +131,7 @@ Of these libraries, BCEL is no longer actively developed or maintained.
 * Generally much faster
 * Generally easier to integrate into a build
 * Can potentially create mutants without access to source files
-* Same mutation operators can in theory work for other JVM languages <a name="fnref2" id="fnref2"></a> <a href="#fn2"><sup>2</sup></a>
+* Same mutation operators can in theory work for other JVM languages <sup id="fnref2">[2](#fn2)</sup>
 
 #### Cons
 
@@ -203,7 +203,7 @@ Optimisations may also be implemented to choose an optimal running order for the
 
 #### Cons
 
-* Some overhead required to measure coverage <a name="fnref3" id="fnref3"></a> <a href="#fn3"><sup>3</sup></a>.
+* Some overhead required to measure coverage <sup id="fnref3">[3](#fn3)</sup>.
 
 ## Mutant insertion
 
@@ -352,14 +352,14 @@ by other tools, eg XML, RDMS etc.
 
 ### Classification and details
 
-| System                          | Generation | Selection    | Insertion     | Detection   | Output | SF    | License | Mailing List                                                            |
-|---------------------------------|------------|--------------|---------------|-------------|--------|-------|---------|-------------------------------------------------------------------------|
-| [Jester](#jester)               | Source     | Naive ?      | Naive ?       | Naive ?     | **AS** | N     | MIT     | N                                                                       |
-| [Simple Jester](#simple-jester) | Source     | Naive ?      | Naive ?       | Naive ?     | **AS** | N     | MIT     | N                                                                       |
-| [Jumble](#jumble)               | BCEL       | Convention   | NDClassloader | **EE Fine** | T      | N     | APCH2   | **Y** <a name="fnref4" id="fnref4"></a> <a href="#fn4"><sup>4</sup></a>. |
-| [PIT](#pit)                     | ASM        | **Coverage** | Instrument    | **EE Fine** | **AS** | **Y** | APCH2   | **Y** <a name="fnref5" id="fnref5"></a> <a href="#fn5"><sup>5</sup></a>. |
-| [µJava](#µjava)                 | Source ?   | Manual       | N/A           | N/A         | **AS** | N     | ?       | N                                                                       |
-| [javaLanche](#javalanche)       | ASM        | **Coverage** | Schemata      | EE Fine ?   | P      | **Y** | LGPL    | N                                                                       |
+| System                          | Generation | Selection    | Insertion     | Detection   | Output | SF    | License | Mailing List                            |
+|---------------------------------|------------|--------------|---------------|-------------|--------|-------|---------|-----------------------------------------|
+| [Jester](#jester)               | Source     | Naive ?      | Naive ?       | Naive ?     | **AS** | N     | MIT     | N                                       |
+| [Simple Jester](#simple-jester) | Source     | Naive ?      | Naive ?       | Naive ?     | **AS** | N     | MIT     | N                                       |
+| [Jumble](#jumble)               | BCEL       | Convention   | NDClassloader | **EE Fine** | T      | N     | APCH2   | **Y** <sup id="fnref4">[4](#fn4)</sup>. |
+| [PIT](#pit)                     | ASM        | **Coverage** | Instrument    | **EE Fine** | **AS** | **Y** | APCH2   | **Y** <sup id="fnref5">[5](#fn5)</sup>. |
+| [µJava](#µjava)                 | Source ?   | Manual       | N/A           | N/A         | **AS** | N     | ?       | N                                       |
+| [javaLanche](#javalanche)       | ASM        | **Coverage** | Schemata      | EE Fine ?   | P      | **Y** | LGPL    | N                                       |
 {:.table}
 
 ### Java and Test framework support
@@ -385,14 +385,14 @@ by other tools, eg XML, RDMS etc.
 *note that with the exception of PIT little information is available on the compatibility of the various mutation testing systems and
 mocking frameworks. Most mocking systems are implemented with dynamic proxies or custom class loaders, and will probably work across all the mutation testing sytems. The exceptions are Powermock and JMockit where issues might be encountered.*
 
-| System                          | Ant | Maven | Eclipse                                                               | Powermock | JMock | JMock2 | Mockito | JMockit                                                               | EasyMock                                                            |
-|---------------------------------|-----|-------|-----------------------------------------------------------------------|-----------|-------|--------|---------|-----------------------------------------------------------------------|---------------------------------------------------------------------|
-| [Jester](#jester)               | N   | N     | N                                                                     | ?         | ?     | ?      | ?       | ?                                                                     | ?                                                                   |   
-| [Simple Jester](#simple-jester) | N   | N     | N                                                                     | ?         | ?     | ?      | ?       | ?                                                                     | ?                                                                   |
-| [Jumble](#jumble)               |**Y**| N     | **Y**                                                                 | ?         | **Y** | **Y**  | **Y**   | N <a name="fnref6" id="fnref6"></a> <a href="#fn6"><sup>6</sup></a>.  | ?                                                                   |
-| [PIT](#pit)                     |**Y**|**Y**  | 3rd                                                                   | **Y**     | **Y** | **Y**  | **Y**   | **Y**                                                                 | **Y**                                                               |
-| [µJava](#µjava)                 | N   | N     | 3rd <a name="fnref7" id="fnref7"></a> <a href="#fn7"><sup>7</sup></a> | ?         | ?     | ?      | ?       | ?                                                                     | ?                                                                   |
-| [javaLanche](#javalanche)       | N   | N     | N                                                                     | ?         | ?     | ?      | ?       | N <a name="fnref8" id="fnref8"></a> <a href="#fn8"><sup>8</sup></a>.  | ! <a name="fnref9" id="fnref9"></a> <a href="#fn9"><sup>9</sup></a>.|
+| System                          | Ant | Maven | Eclipse                              | Powermock | JMock | JMock2 | Mockito | JMockit                             | EasyMock                           |
+|---------------------------------|-----|-------|--------------------------------------|-----------|-------|--------|---------|-------------------------------------|------------------------------------|
+| [Jester](#jester)               | N   | N     | N                                    | ?         | ?     | ?      | ?       | ?                                   | ?                                  |   
+| [Simple Jester](#simple-jester) | N   | N     | N                                    | ?         | ?     | ?      | ?       | ?                                   | ?                                  |
+| [Jumble](#jumble)               |**Y**| N     | **Y**                                | ?         | **Y** | **Y**  | **Y**   | N <sup id="fnref6">[6](#fn6)</sup>. | ?                                  |
+| [PIT](#pit)                     |**Y**|**Y**  | 3rd                                  | **Y**     | **Y** | **Y**  | **Y**   | **Y**                               | **Y**                              |
+| [µJava](#µjava)                 | N   | N     | 3rd <sup id="fnref7">[7](#fn7)</sup> | ?         | ?     | ?      | ?       | ?                                   | ?                                  |
+| [javaLanche](#javalanche)       | N   | N     | ?                                    | ?         | ?     | ?      | ?       | N <sup id="fnref8">[8](#fn8)</sup>. | ! <sup id="fnref9">[9](#fn9)</sup>.|
 {:.table}
 
 # Conclusions

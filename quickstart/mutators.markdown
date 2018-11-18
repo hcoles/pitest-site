@@ -359,10 +359,10 @@ are converted to byte code.
 | Constant Type            | Mutation
 |--------------------------|---
 | `boolean`                | replace the unmutated value `true` with `false` and replace the unmutated value `false` with `true`
-| `integer` `byte` `short` | replace the unmutated value `1` with `0`, `-1` with `1`, `5` with `-1` or otherwise increment the unmutated value by one. <a href="#fn1"><sup>1</sup></a> <a name="fnref1" id="fnref1"></a>
+| `integer` `byte` `short` | replace the unmutated value `1` with `0`, `-1` with `1`, `5` with `-1` or otherwise increment the unmutated value by one. <sup id="fnref1">[1](#fn1)</sup>
 | `long`                   | replace the unmutated value `1` with `0`, otherwise increment the unmutated value by one.
-| `float`                  | replace the unmutated values `1.0` and `2.0` with `0.0` and replace any other value with `1.0` <a href="#fn2"><sup>2</sup></a> <a name="fnref2" id="fnref2"></a>
-| `double`                 | replace the unmutated value `1.0` with `0.0` and replace any other value with `1.0` <a href="#fn3"><sup>3</sup></a> <a name="fnref3" id="fnref3"></a>
+| `float`                  | replace the unmutated values `1.0` and `2.0` with `0.0` and replace any other value with `1.0` <sup id="fnref2">[2](#fn2)</sup>
+| `double`                 | replace the unmutated value `1.0` with `0.0` and replace any other value with `1.0` <sup id="fnref3">[3](#fn3)</sup>
 {:.table}
 
 
@@ -419,7 +419,7 @@ Return Values Mutator (RETURN_VALS)
 **Active by default**
 
 The return values mutator mutates the return values of method calls. Depending
-on the return type of the method another mutation is used.<a href="#fn4"><sup>4</sup></a> <a name="fnref4" id="fnref4"></a>
+on the return type of the method another mutation is used.<sup id="fnref4">[4](#fn4)</sup></a>
 
 | Return Type          | Mutation 
 |----------------------|---

@@ -30,11 +30,11 @@ h3 code {
   float: right;
   top: 27px;
   position: relative;
-  color: #ddd;
+  color: #bbb;
 }
 
 .improve a:hover {
-  color: #ccc;
+  color: #aaa;
 }
 
 /* Sections

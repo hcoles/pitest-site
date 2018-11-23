@@ -9,7 +9,7 @@ permalink: /java_mutation_testing_systems/
 ## Overview
 
 Several mutation testing systems for Java exist, this page in an attempt to objectively
-categorise and compare they way in which they are implemented and their relative merits.
+categorise and compare the way in which they are implemented and their relative merits.
 
 In most cases the information assembled below has been obtained from the web without any direct experience
 of the tools so is incomplete and potentially inaccurate. **Corrections, additions and clarifications are welcomed.**
@@ -26,7 +26,7 @@ It is the result of a collaboration between two universities, Korea Advanced Ins
 
 Source code is available on a limited basis to researchers in mutation analysis.
 
-According to the website :-
+According to the website :
 
 >"We offer µJava on an "as-is" basis as a service to the community. We welcome comments and feedback, but do not guarantee support in the form of question answering, bug fixing, or improvements (in other words, we don't have money for support, just good intentions)."
 

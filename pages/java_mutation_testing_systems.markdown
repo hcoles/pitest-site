@@ -42,7 +42,7 @@ Jester was the first open source mutation system for Java, but does not appear t
 
 WebSite : [http://jester.sourceforge.net/](http://jester.sourceforge.net/)
 
-Simple Jester is a variant of the original Jester by the same author who describes it as easier to use, but slower <sup id="fnref1">[1]((#fn1))</sup>.
+Simple Jester is a variant of the original Jester by the same author who describes it as easier to use, but slower <sup id="fnref1">[1](#fn1)</sup>.
 
 It appears to no longer be actively developed or supported.
 

@@ -42,7 +42,7 @@ This interface has now been replaced by **org.pitest.mutationtest.build.Mutation
 
 ### Mutation interceptor
 
-A mutation incterceptor is passed a complete list of all mutation that will be generated to each class before the mutation are challenged byt tests. It is also passed a mutater that can be used to generated the mutants and a tree based representation of the unmutated class' bytecode.
+A mutation interceptor is passed a complete list of all mutation that will be generated to each class before the mutation are challenged by tests. It is also passed a mutater that can be used to generated the mutants and a tree based representation of the unmutated class' bytecode.
 
 An interceptor may modify the supplied mutants, filter mutants from the list or perform a side effect such as generate a report.
 
@@ -71,7 +71,7 @@ To create a new interceptor implement the `org.pitest.mutationtest.build.Mutatio
 
 ### Test prioritiser
 
-A test prioritiser assigns tests to be run against each mutation and decides the order in which they will be used to to challenge the mutant.
+A test prioritiser assigns tests to be run against each mutation and decides the order in which they will be used to challenge the mutant.
 
 Only one test prioritiser may be supplied.
 

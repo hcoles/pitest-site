@@ -33,7 +33,7 @@ to other mutation testing systems, but that can still mean that things will take
 
 You may be able to speed things up by
 
-* Using more threads. The optimum number will vary, but will generally be between 1 and the number of cpus on your machine.
+* Using more threads. The optimum number will vary, but will generally be between 1 and the number of CPUs on your machine.
 * Limit the number of mutation per class. This will give you a less complete picture however.
 * Use filters to target only those packages or classes that are currently of interest
 
@@ -60,7 +60,7 @@ of your source code in order to generate a human readable report.
 
 ## My tests normally run green but PIT says the suite isn't green
 
-Most commonly this is because either :-
+Most commonly this is because either :
 
 * PIT is picking up tests that are not included/are excluded in the normal test config
 * Some test rely on an environment variable or other property set in the test config, but not set in the pitest config
@@ -104,9 +104,8 @@ used only as part of a heuristic to optimise run order.
 
 Timeouts when running mutation tests are caused by one of two things
 
-1 A mutation that causes an infinite loop
-
-2 PIT thinking an infinite loop has occurred but being wrong
+* A mutation that causes an infinite loop
+* PIT thinking an infinite loop has occurred but being wrong
 
 In order to detect infinite loops PIT measures the normal execution time of each test
 without any mutations present. When the test is run in the presence of a mutation
@@ -119,7 +118,7 @@ Unfortunately the real world is more complex than this.
 Test times can vary due to the order in which the tests are run. The first test in a class may have
 a execution time much higher than the others as the JVM will need to load the classes
 required for that test. This can be particularly pronounced in code that uses XML binding
-frameworks such as jaxb where classloading may take several seconds.
+frameworks such as JAXB where classloading may take several seconds.
 
 When PIT runs the tests against a mutation the order of the tests will be different. Tests that
 previously took milliseconds may now take seconds as they now carry the overhead of classloading. 
@@ -136,7 +135,7 @@ Java 7 introduced stricter requirements for verifying stack frames, which caused
 earlier versions of PIT. It is believed that there were all resolved in 0.29.
 
 If you see a verify error, please raise a defect. The issue can be worked around
-by passing -XX:-UseSplitVerifier to the child jvm processes that PIT launches using the **jvmArgs** option. 
+by passing -XX:-UseSplitVerifier to the child JVM processes that PIT launches using the **jvmArgs** option. 
 
 ## How does PIT compare the mutation testing system X
 

@@ -23,6 +23,7 @@ permalink: /links/
 * [Nicolas Fränkel at JavaZone (10 mins)](http://vimeo.com/105758362)
 * [Alexandre Victoor on pitest and sonar (18 mins in French)](https://www.youtube.com/watch?v=ck2dIrrVTWs)
 * Marcin Zajączkowski at Boiling Frogs [(slides in English)](https://speakerdeck.com/szpak/mutation-testing-how-good-your-tests-really-are) [(video in Polish - 60 mins)](https://www.youtube.com/watch?v=lhvDp0_2MI4)
+* [Sébastien Laoût for Ubik Ingénierie at GDG Lille (slides in French - with presenter comments)](http://slaout.linux62.org/intestption)
 
 ## Books and articles about mutation testing and PIT
 

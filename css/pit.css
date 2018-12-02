@@ -24,11 +24,31 @@ h3 code {
   font-weight: normal;
 }
 
+a {
+  color: #428bca;
+}
+
+a:hover {
+  color: #2a6496;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+
 /* "Improve this page" links
 -------------------------------------------------- */
 .improve a {
   float: right;
-  top: 27px;
+  top: 17px;
   position: relative;
   color: #bbb;
 }
@@ -274,9 +294,9 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 .pitdoc {
   text-align: center;
   color: #5a5a5a;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: 200;
-  line-height: 1.5em;
+  line-height: 1.3em;
   color: #000;
   text-align: left;
 }
@@ -651,14 +671,6 @@ h2 + .row {
 /* Tablet to desktop
 ------------------------- */
 @media (min-width: 768px) and (max-width: 979px) {
-  /* Remove any padding from the body */
-  body {
-    padding-top: 0;
-  }
-  /* Widen masthead and social buttons to fill body padding */
-  .jumbotron {
-    margin-top: -20px; /* Offset bottom margin on .navbar */
-  }
   /* Adjust sidenav width */
   .bs-docs-sidenav {
     width: 166px;
@@ -672,15 +684,10 @@ h2 + .row {
 /* Tablet
 ------------------------- */
 @media (max-width: 767px) {
-  /* Remove any padding from the body */
-  body {
-    padding-top: 0;
-  }
 
   /* Widen masthead and social buttons to fill body padding */
   .jumbotron {
     padding: 40px 20px;
-    margin-top:   -20px; /* Offset bottom margin on .navbar */
     margin-right: -20px;
     margin-left:  -20px;
   }
@@ -730,10 +737,6 @@ h2 + .row {
 /* Landscape phones
 ------------------------- */
 @media (max-width: 480px) {
-  /* Remove padding above jumbotron */
-  body {
-    padding-top: 0;
-  }
 
   /* Change up some type stuff */
   h2 small {

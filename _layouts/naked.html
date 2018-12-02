@@ -7,9 +7,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
-          integrity="sha384-7tY7Dc2Q8WQTKGz2Fa0vC4dWQo07N4mJjKvHfIGnxuC4vPqFGFQppd9b3NWpf18/"
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          rel="stylesheet"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
           crossorigin="anonymous"
     >
 
@@ -22,38 +27,37 @@
 
     <!-- Navbar
     ================================================== -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="/">Pitest</a>
-          </div>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Pitest</a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li>
-                <a href="/quickstart">Quickstart</a>
-              </li>
-              <li>
-                <a href="/faq">FAQ</a>
-              </li>
-              <li>
-                <a href="/downloads">Downloads</a>
-              </li>
-              <li>
-                <a href="/links">Links</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
-            </ul>
-          </div>
-      </div>
-    </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/quickstart/">Quickstart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/faq/">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/downloads">Downloads</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/links">Links</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     {{ content }}
 
@@ -76,13 +80,18 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"
-            integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ="
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous">
     </script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
-            integrity="sha384-oFMgcGzKX7GaHtF4hx14KbxdsGjyfHK6m1comHjI1FH6g4m6qYre+4cnZbwaYbHD"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous">
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous">
     </script>
 

@@ -40,14 +40,20 @@ Here is the list of available mutators:
 - [Non Void Method Calls Mutator](#NON_VOID_METHOD_CALLS)
 - [Primitive returns Mutator](#PRIMITIVE_RETURNS)
 - [Remove Conditionals Mutator](#REMOVE_CONDITIONALS)
+- [Remove Increments](#REMOVE_INCREMENTS)
 - [True returns Mutator](#TRUE_RETURNS)
+
+(*experimental mutators, deactivated by default*)
+- [Experimental Argument Propagation](#EXPERIMENTAL_ARGUMENT_PROPAGATION)
+- [Experimental Big Integer](#EXPERIMENTAL_BIG_INTEGER)
 - [Experimental Member Variable Mutator](#EXPERIMENTAL_MEMBER_VARIABLE)
+- [Experimental Naked Receiver](#EXPERIMENTAL_NAKED_RECEIVER)
 - [Experimental Switch Mutator](#EXPERIMENTAL_SWITCH)
 
 See the current [code](https://github.com/hcoles/pitest/blob/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor/config/Mutator.java) for current list (latest development version).
 
 ----
-
+#Default Mutators
 <a name="CONDITIONALS_BOUNDARY" id="CONDITIONALS_BOUNDARY"></a>
 
 Conditionals Boundary Mutator (CONDITIONALS_BOUNDARY)
@@ -337,6 +343,8 @@ public int foo() {
   return i;
 }
 ```
+
+#Optional Mutators
 
 <a name="CONSTRUCTOR_CALLS" id="CONSTRUCTOR_CALLS"></a>
 
@@ -649,6 +657,15 @@ The names reflect which branch will be forced to execute (the "if" or the "else"
 
 The reason these are not enabled by default is that there is a large degree of overlap in the tests required to kill these mutations and those required to kill mutations from other default operators such as the conditional boundaries mutator.
 
+<a name="REMOVE_INCREMENTS" id="REMOVE_INCREMENTS"></a>
+
+Remove Increments Mutator (REMOVE\_INCREMENTS)
+-------------------------------------
+
+Optional mutator that removes local variable increments.
+
+<a name="EXPERIMENTAL_MEMBER_VARIABLE" id="EXPERIMENTAL_MEMBER_VARIABLE"></a>
+
 <a name="TRUE_RETURNS" id="TRUE_RETURNS"></a>
 
 True returns Mutator (TRUE\_RETURNS)
@@ -657,6 +674,30 @@ True returns Mutator (TRUE\_RETURNS)
 Replaces primitive and boxed boolean return values with true.
 
 Pitest will filter out equivalent mutations to methods that are already hard coded to return true.
+
+
+#Experimental Mutators
+
+<a name="EXPERIMENTAL_ARGUMENT_PROPAGATION" id="EXPERIMENTAL_ARGUMENT_PROPAGATION"></a>
+
+Experimental Argument Propagation (EXPERIMENTAL\_ARGUMENT\_PROPAGATION)
+-------------------------------------
+
+Experimental mutator that replaces method call with one of its parameters of matching type
+
+<a name="EXPERIMENTAL_BIG_INTEGER" id="EXPERIMENTAL_BIG_INTEGER"></a>
+
+Experimental Big Integer (EXPERIMENTAL\_BIG\_INTEGER)
+-------------------------------------
+
+Experimental mutator that swaps big integer methods
+
+<a name="EXPERIMENTAL_NAKED_RECEIVER" id="EXPERIMENTAL_NAKED_RECEIVER"></a>
+
+Experimental Naked Receiver (EXPERIMENTAL\_NAKED\_RECEIVER)
+-------------------------------------
+
+Experimental mutator that replaces method call with this
 
 <a name="EXPERIMENTAL_MEMBER_VARIABLE" id="EXPERIMENTAL_MEMBER_VARIABLE"></a>
 

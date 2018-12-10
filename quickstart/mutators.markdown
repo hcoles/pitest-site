@@ -683,21 +683,21 @@ Pitest will filter out equivalent mutations to methods that are already hard cod
 Experimental Argument Propagation (EXPERIMENTAL\_ARGUMENT\_PROPAGATION)
 -------------------------------------
 
-Experimental mutator that replaces method call with one of its parameters of matching type
+Experimental mutator that replaces method call with one of its parameters of matching type.
 
 <a name="EXPERIMENTAL_BIG_INTEGER" id="EXPERIMENTAL_BIG_INTEGER"></a>
 
 Experimental Big Integer (EXPERIMENTAL\_BIG\_INTEGER)
 -------------------------------------
 
-Experimental mutator that swaps big integer methods
+Experimental mutator that swaps big integer methods.
 
 <a name="EXPERIMENTAL_NAKED_RECEIVER" id="EXPERIMENTAL_NAKED_RECEIVER"></a>
 
 Experimental Naked Receiver (EXPERIMENTAL\_NAKED\_RECEIVER)
 -------------------------------------
 
-Experimental mutator that replaces method call with this
+Experimental mutator that replaces method call with a naked receiver.
 
 <a name="EXPERIMENTAL_MEMBER_VARIABLE" id="EXPERIMENTAL_MEMBER_VARIABLE"></a>
 

@@ -33,16 +33,27 @@ Here is the list of available mutators:
 
 (*deactivated by default*)
 - [Constructor Calls Mutator](#CONSTRUCTOR_CALLS)
+- [Empty returns Mutator](#EMPTY_RETURNS)
+- [False Returns Mutator](#FALSE_RETURNS)
 - [Inline Constant Mutator](#INLINE_CONSTS)
+- [Null returns Mutator](NULL_RETURNS)
 - [Non Void Method Calls Mutator](#NON_VOID_METHOD_CALLS)
+- [Primitive returns Mutator](#PRIMITIVE_RETURNS)
 - [Remove Conditionals Mutator](#REMOVE_CONDITIONALS)
+- [Remove Increments](#REMOVE_INCREMENTS)
+- [True returns Mutator](#TRUE_RETURNS)
+
+(*experimental mutators, deactivated by default*)
+- [Experimental Argument Propagation](#EXPERIMENTAL_ARGUMENT_PROPAGATION)
+- [Experimental Big Integer](#EXPERIMENTAL_BIG_INTEGER)
 - [Experimental Member Variable Mutator](#EXPERIMENTAL_MEMBER_VARIABLE)
+- [Experimental Naked Receiver](#EXPERIMENTAL_NAKED_RECEIVER)
 - [Experimental Switch Mutator](#EXPERIMENTAL_SWITCH)
 
 See the current [code](https://github.com/hcoles/pitest/blob/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor/config/Mutator.java) for current list (latest development version).
 
 ----
-
+#Default Mutators
 <a name="CONDITIONALS_BOUNDARY" id="CONDITIONALS_BOUNDARY"></a>
 
 Conditionals Boundary Mutator (CONDITIONALS_BOUNDARY)
@@ -78,123 +89,62 @@ if (a <= b) {
 }
 ```
 
-<a name="NEGATE_CONDITIONALS" id="NEGATE_CONDITIONALS"></a>
+<a name="INCREMENTS" id="INCREMENTS"></a>
 
-Negate Conditionals Mutator (NEGATE_CONDITIONALS)
--------------------------------------------------
+Increments Mutator (INCREMENTS)
+-------------------------------
 
 **Active by default**
 
-The negate conditionals mutator will mutate all conditionals found according
-to the replacement table below.
-
-| Original conditional | Mutated conditional |
-|----------------------|---------------------|
-| ==                   | !=                  |
-| !=                   | ==                  |
-| <=                   | \>                  |
-| \>=                  | <                   |
-| <                    | \>=                 |
-| \>                   | <=                  |
-{:.table }
+The increments mutator will mutate increments, decrements and assignment
+increments and decrements of local variables (stack variables). It will replace
+increments with decrements and vice versa.
 
 For example
 
 ```java
-if (a == b) {
-  // do something
+public int method(int i) {
+  i++;
+  return i;
 }
 ```
 
 will be mutated to
 
 ```java
-if (a != b) {
-  // do something
+public int method(int i) {
+  i--;
+  return i;
 }
 ```
 
-This mutator overlaps to a degree with the conditionals boundary mutator, but is less **stable** i.e these
-mutations are generally easier for a test suite to detect.
+Please note that the increments mutator will be applied to increments of 
+**local variables only**. Increments and decrements of member variables will be
+covered by the [Math Mutator](#MATH).
 
+<a name="INVERT_NEGS" id="INVERT_NEGS"></a>
 
-<a name="REMOVE_CONDITIONALS" id="REMOVE_CONDITIONALS"></a>
+Invert Negatives Mutator (INVERT_NEGS)
+--------------------------------------
 
-Remove Conditionals Mutator (REMOVE_CONDITIONALS)
--------------------------------------------------
+**Active by default**
 
-The remove conditionals mutator will remove all conditionals statements such that the guarded statements always
-execute
-
-For example
-
+The invert negatives mutator inverts negation of integer and floating point 
+numbers. For example
 
 ```java
-if (a == b) {
-  // do something
+public float negate(final float i) {
+  return -i;
 }
 ```
 
 will be mutated to
 
 ```java
-if (true) {
-  // do something
+public float negate(final float i) {
+  return i;
 }
 ```
-
-Although not currently enabled by default it is highly recommended that you enable it if you wish to ensure your test suite has full coverage of conditional statements.
-
-As shown above the basic remove conditionals mutator ensures that the statements following the conditional always execute. It will also only mutate only equality checks (eg ==, !=).
-
-Additional specialised versions of the mutator exist that will ensure the block never executes so
-
-```java
-if (a == b) {
-  // do something
-}
-```
-
-will be mutated to
-
-```java
-if (false) {
-  // do something
-}
-```
-
-If an else block is present it will always execute 
-
-```java
-if (a == b) {
-  // do something
-} else {
-  // do something else
-}
-```
-
-will be mutated to
-
-```java
-if (false) {
-  // do something
-} else {
-  // do something else
-}
-```
-
-Specialisations also exist that will mutate the bytecode instructions for order checks (eg <=, >).
-
-The available specialisations are
-
-* REMOVE_CONDITIONALS_EQ_IF
-* REMOVE_CONDITIONALS_EQ_ELSE
-* REMOVE_CONDITIONALS_ORD_IF
-* REMOVE_CONDITIONALS_ORD_ELSE
-
-The names reflect which branch will be forced to execute (the "if" or the "else") and the type of checks that will be mutated. 
-
-The reason these are not enabled by default is that there is a large degree of overlap in the tests required to kill these mutations and those required to kill mutations from other default operators such as the conditional boundaries mutator.
 
 <a name="MATH" id="MATH"></a>
 
@@ -280,62 +230,181 @@ public class A {
 
 See the [Increments Mutator](#INCREMENTS) for details.
 
-<a name="INCREMENTS" id="INCREMENTS"></a>
+<a name="NEGATE_CONDITIONALS" id="NEGATE_CONDITIONALS"></a>
 
-Increments Mutator (INCREMENTS)
--------------------------------
+Negate Conditionals Mutator (NEGATE_CONDITIONALS)
+-------------------------------------------------
 
 **Active by default**
 
-The increments mutator will mutate increments, decrements and assignment
-increments and decrements of local variables (stack variables). It will replace
-increments with decrements and vice versa.
+The negate conditionals mutator will mutate all conditionals found according
+to the replacement table below.
+
+| Original conditional | Mutated conditional |
+|----------------------|---------------------|
+| ==                   | !=                  |
+| !=                   | ==                  |
+| <=                   | \>                  |
+| \>=                  | <                   |
+| <                    | \>=                 |
+| \>                   | <=                  |
+{:.table }
 
 For example
 
 ```java
-public int method(int i) {
-  i++;
-  return i;
+if (a == b) {
+  // do something
 }
 ```
 
 will be mutated to
 
 ```java
-public int method(int i) {
-  i--;
-  return i;
+if (a != b) {
+  // do something
 }
 ```
 
-Please note that the increments mutator will be applied to increments of 
-**local variables only**. Increments and decrements of member variables will be
-covered by the [Math Mutator](#MATH).
+This mutator overlaps to a degree with the conditionals boundary mutator, but is less **stable** i.e these
+mutations are generally easier for a test suite to detect.
 
-<a name="INVERT_NEGS" id="INVERT_NEGS"></a>
+<a name="RETURN_VALS" id="RETURN_VALS"></a>
 
-Invert Negatives Mutator (INVERT_NEGS)
---------------------------------------
+Return Values Mutator (RETURN_VALS)
+-----------------------------------
 
 **Active by default**
 
-The invert negatives mutator inverts negation of integer and floating point 
-numbers. For example
+The return values mutator mutates the return values of method calls. Depending
+on the return type of the method another mutation is used.<sup id="fnref4">[4](#fn4)</sup></a>
+
+| Return Type          | Mutation 
+|----------------------|---
+| `boolean`            | replace the unmutated return value `true` with `false` and replace the unmutated return value `false` with `true`
+| `int` `byte` `short` | if the unmutated return value is `0` return `1`, otherwise mutate to return value `0`
+| `long`               | replace the unmutated return value `x` with the result of `x+1`
+| `float` `double`     | replace the unmutated return value `x` with the result of `-(x+1.0)` if `x` is not `NAN` and replace `NAN` with `0`
+| `Object`             | replace non-`null` return values with `null` and throw a `java.lang.RuntimeException` if the unmutated method would return `null`
+{:.table}
+
+For example
 
 ```java
-public float negate(final float i) {
-  return -i;
+public Object foo() {
+  return new Object();
 }
 ```
 
 will be mutated to
 
 ```java
-public float negate(final float i) {
+public Object foo() {
+  new Object();
+  return null;
+}
+```
+
+Please note that constructor calls are **not considered void method calls**.
+See the [Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of 
+constructors or the [Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for
+mutations of non void methods.
+
+<a name="VOID_METHOD_CALLS" id="VOID\_METHOD\_CALLS"></a>
+
+Void Method Call Mutator (VOID_METHOD_CALLS)
+--------------------------------------------
+
+**Active by default**
+
+The void method call mutator removes method calls to void methods. For example
+
+```java
+public void someVoidMethod(int i) {
+  // does something
+}
+
+public int foo() {
+  int i = 5;
+  doSomething(i);
   return i;
 }
 ```
+
+will be mutated to
+
+```java
+public void someVoidMethod(int i) {
+  // does something
+}
+
+public int foo() {
+  int i = 5;
+  return i;
+}
+```
+
+#Optional Mutators
+
+<a name="CONSTRUCTOR_CALLS" id="CONSTRUCTOR_CALLS"></a>
+
+Constructor Call Mutator (CONSTRUCTOR_CALLS)
+--------------------------------------------
+Optional mutator that replaces constructor calls with `null` values. For example
+
+```java
+public Object foo() {
+  Object o = new Object();
+  return o;
+}
+```
+
+will be mutated to
+
+```java
+public Object foo() {
+  Object o = null;
+  return o;
+}
+```
+
+Please note that this mutation is fairly unstable and likely to cause **`NullPointerException`s** even
+with weak test suites.
+
+This mutator does not affect non constructor method calls. See [Void Method Call Mutator](#VOID_METHOD_CALL) for 
+mutations of void methods and
+[Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for mutations of non void
+methods.
+
+<a name="EMPTY_RETURNS" id="EMPTY_RETURNS"></a>
+
+Empty returns Mutator (EMPTY\_RETURNS)
+--------------------------------------
+
+Replaces return values with an 'empty' value for that type as follows
+
+* java.lang.String -> ""
+* java.util.Optional -> Optional.empty()
+* java.util.List -> Collections.emptyList()
+* java.util.Collection -> Collections.emptyList()
+* java.util.Set -> Collections.emptySet()
+* java.lang.Integer -> 0
+* java.lang.Short -> 0
+* java.lang.Long -> 0
+* java.lang.Character -> 0
+* java.lang.Float -> 0
+* java.lang.Double -> 0
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return the empty value.
+
+<a name="FALSE_RETURNS" id="FALSE_RETURNS"></a>
+
+False returns Mutator (FALSE\_RETURNS)
+-------------------------------------
+
+Replaces primitive and boxed boolean return values with false.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return false.
 
 <a name="INLINE_CONSTS" id="INLINE_CONSTS"></a>
 
@@ -410,131 +479,6 @@ public class A {
 ```
 
 In such situations the mutation engine can not mutate any variable.
-
-<a name="RETURN_VALS" id="RETURN_VALS"></a>
-
-Return Values Mutator (RETURN_VALS)
------------------------------------
-
-**Active by default**
-
-The return values mutator mutates the return values of method calls. Depending
-on the return type of the method another mutation is used.<sup id="fnref4">[4](#fn4)</sup></a>
-
-| Return Type          | Mutation 
-|----------------------|---
-| `boolean`            | replace the unmutated return value `true` with `false` and replace the unmutated return value `false` with `true`
-| `int` `byte` `short` | if the unmutated return value is `0` return `1`, otherwise mutate to return value `0`
-| `long`               | replace the unmutated return value `x` with the result of `x+1`
-| `float` `double`     | replace the unmutated return value `x` with the result of `-(x+1.0)` if `x` is not `NAN` and replace `NAN` with `0`
-| `Object`             | replace non-`null` return values with `null` and throw a `java.lang.RuntimeException` if the unmutated method would return `null`
-{:.table}
-
-For example
-
-```java
-public Object foo() {
-  return new Object();
-}
-```
-
-will be mutated to
-
-```java
-public Object foo() {
-  new Object();
-  return null;
-}
-```
-
-<a name="VOID_METHOD_CALLS" id="VOID\_METHOD\_CALLS"></a>
-
-Void Method Call Mutator (VOID_METHOD_CALLS)
---------------------------------------------
-
-**Active by default**
-
-The void method call mutator removes method calls to void methods. For example
-
-```java
-public void someVoidMethod(int i) {
-  // does something
-}
-
-public int foo() {
-  int i = 5;
-  doSomething(i);
-  return i;
-}
-```
-
-will be mutated to
-
-```java
-public void someVoidMethod(int i) {
-  // does something
-}
-
-public int foo() {
-  int i = 5;
-  return i;
-}
-```
-
-Please note that constructor calls are **not considered void method calls**.
-See the [Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of 
-constructors or the [Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for
-mutations of non void methods.
-
-
-<a name="TRUE_RETURNS" id="TRUE_RETURNS"></a>
-
-True returns Mutator (TRUE\_RETURNS)
--------------------------------------
-
-Replaces primitive and boxed boolean return values with true.
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return true.
-
-
-<a name="FALSE_RETURNS" id="FALSE_RETURNS"></a>
-
-False returns Mutator (FALSE\_RETURNS)
--------------------------------------
-
-Replaces primitive and boxed boolean return values with false.
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return false.
-
-<a name="PRIMITIVE_RETURNS" id="PRIMITIVE_RETURNS"></a>
-
-Primitive returns Mutator (PRIMITIVE\_RETURNS)
-----------------------------------------------
-
-Replaces int, short, long, char, float and double return values with 0.
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return 0.
-
-<a name="EMPTY_RETURNS" id="EMPTY_RETURNS"></a>
-
-Empty returns Mutator (EMPTY\_RETURNS)
---------------------------------------
-
-Replaces return values with an 'empty' value for that type as follows
-
-* java.lang.String -> ""
-* java.util.Optional -> Optional.empty()
-* java.util.List -> Collections.emptyList()
-* java.util.Collection -> Collections.emptyList()
-* java.util.Set -> Collections.emptySet()
-* java.lang.Integer -> 0
-* java.lang.Short -> 0
-* java.lang.Long -> 0
-* java.lang.Character -> 0
-* java.lang.Float -> 0
-* java.lang.Double -> 0
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return the empty value.
 
 <a name="NULL_RETURNS" id="NULL_RETURNS"></a>
 
@@ -626,37 +570,134 @@ This mutator does not affect void methods or constructor calls. See
 [Void Method Call Mutator](#VOID_METHOD_CALL) for mutations of void methods and
 [Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of constructors.
 
-<a name="CONSTRUCTOR_CALLS" id="CONSTRUCTOR_CALLS"></a>
+<a name="PRIMITIVE_RETURNS" id="PRIMITIVE_RETURNS"></a>
 
-Constructor Call Mutator (CONSTRUCTOR_CALLS)
---------------------------------------------
+Primitive returns Mutator (PRIMITIVE\_RETURNS)
+----------------------------------------------
 
-The constructor call mutator replaces constructor calls with `null` values. For
-example
+Replaces int, short, long, char, float and double return values with 0.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return 0.
+
+<a name="REMOVE_CONDITIONALS" id="REMOVE_CONDITIONALS"></a>
+
+Remove Conditionals Mutator (REMOVE_CONDITIONALS)
+-------------------------------------------------
+
+The remove conditionals mutator will remove all conditionals statements such that the guarded statements always
+execute
+
+For example
+
 
 ```java
-public Object foo() {
-  Object o = new Object();
-  return o;
+if (a == b) {
+  // do something
 }
 ```
 
 will be mutated to
 
 ```java
-public Object foo() {
-  Object o = null;
-  return o;
+if (true) {
+  // do something
 }
 ```
 
-Please note that this mutation is fairly unstable and likely to cause **`NullPointerException`s** even
-with weak test suites.
+Although not currently enabled by default it is highly recommended that you enable it if you wish to ensure your test suite has full coverage of conditional statements.
 
-This mutator does not affect non constructor method calls. See [Void Method Call Mutator](#VOID_METHOD_CALL) for 
-mutations of void methods and
-[Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for mutations of non void
-methods.
+As shown above the basic remove conditionals mutator ensures that the statements following the conditional always execute. It will also only mutate only equality checks (eg ==, !=).
+
+Additional specialised versions of the mutator exist that will ensure the block never executes so
+
+```java
+if (a == b) {
+  // do something
+}
+```
+
+will be mutated to
+
+```java
+if (false) {
+  // do something
+}
+```
+
+If an else block is present it will always execute 
+
+```java
+if (a == b) {
+  // do something
+} else {
+  // do something else
+}
+```
+
+will be mutated to
+
+```java
+if (false) {
+  // do something
+} else {
+  // do something else
+}
+```
+
+Specialisations also exist that will mutate the bytecode instructions for order checks (eg <=, >).
+
+The available specialisations are
+
+* REMOVE_CONDITIONALS_EQ_IF
+* REMOVE_CONDITIONALS_EQ_ELSE
+* REMOVE_CONDITIONALS_ORD_IF
+* REMOVE_CONDITIONALS_ORD_ELSE
+
+The names reflect which branch will be forced to execute (the "if" or the "else") and the type of checks that will be mutated. 
+
+The reason these are not enabled by default is that there is a large degree of overlap in the tests required to kill these mutations and those required to kill mutations from other default operators such as the conditional boundaries mutator.
+
+<a name="REMOVE_INCREMENTS" id="REMOVE_INCREMENTS"></a>
+
+Remove Increments Mutator (REMOVE\_INCREMENTS)
+-------------------------------------
+
+Optional mutator that removes local variable increments.
+
+<a name="EXPERIMENTAL_MEMBER_VARIABLE" id="EXPERIMENTAL_MEMBER_VARIABLE"></a>
+
+<a name="TRUE_RETURNS" id="TRUE_RETURNS"></a>
+
+True returns Mutator (TRUE\_RETURNS)
+-------------------------------------
+
+Replaces primitive and boxed boolean return values with true.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return true.
+
+
+#Experimental Mutators
+
+<a name="EXPERIMENTAL_ARGUMENT_PROPAGATION" id="EXPERIMENTAL_ARGUMENT_PROPAGATION"></a>
+
+Experimental Argument Propagation (EXPERIMENTAL\_ARGUMENT\_PROPAGATION)
+-------------------------------------
+
+Experimental mutator that replaces method call with one of its parameters of matching type.
+
+<a name="EXPERIMENTAL_BIG_INTEGER" id="EXPERIMENTAL_BIG_INTEGER"></a>
+
+Experimental Big Integer (EXPERIMENTAL\_BIG\_INTEGER)
+-------------------------------------
+
+Experimental mutator that swaps big integer methods.
+
+<a name="EXPERIMENTAL_NAKED_RECEIVER" id="EXPERIMENTAL_NAKED_RECEIVER"></a>
+
+Experimental Naked Receiver (EXPERIMENTAL\_NAKED\_RECEIVER)
+-------------------------------------
+
+Experimental mutator that replaces method call with a naked receiver.
 
 <a name="EXPERIMENTAL_MEMBER_VARIABLE" id="EXPERIMENTAL_MEMBER_VARIABLE"></a>
 

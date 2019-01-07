@@ -36,7 +36,7 @@ Here is the list of available mutators:
 - [Empty returns Mutator](#EMPTY_RETURNS)
 - [False Returns Mutator](#FALSE_RETURNS)
 - [Inline Constant Mutator](#INLINE_CONSTS)
-- [Null returns Mutator](NULL_RETURNS)
+- [Null returns Mutator](#NULL_RETURNS)
 - [Non Void Method Calls Mutator](#NON_VOID_METHOD_CALLS)
 - [Primitive returns Mutator](#PRIMITIVE_RETURNS)
 - [Remove Conditionals Mutator](#REMOVE_CONDITIONALS)

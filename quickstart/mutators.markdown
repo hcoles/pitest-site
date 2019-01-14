@@ -326,7 +326,7 @@ public void someVoidMethod(int i) {
 
 public int foo() {
   int i = 5;
-  doSomething(i);
+  someVoidMethod(i);
   return i;
 }
 ```

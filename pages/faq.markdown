@@ -75,8 +75,7 @@ PIT is tested against the major mocking frameworks as part of its build.
 
 PIT is currently the only mutation testing system known to work with all of JMock, EasyMock, Mockito, PowerMock and JMockit.
 
-If your mocking framework of choice is not listed above the chances are still good that PIT will work with it. If it doesn't
-let us know and we'll look at getting that fixed.
+If your mocking framework of choice is not listed above the chances are still good that PIT will work with it. If it doesn't let us know and we'll look at getting that fixed.
 
 ## My code has really poor test coverage, will mutation testing take forever?
 
@@ -151,6 +150,27 @@ a copy of the contents of the finally block for each possible exit point. PIT cr
 the copied blocks. Most test suites are only able to kill one of these mutations.
 
 As of 0.28 PIT contains experimental support for detecting inlined code that is now active by default.
+
+## Mutations in static initializers and enums 
+
+Static initializers and other code that is only run once per JVM (such as code in enum constructors) cause a bit of a problem with two of the strategies pitest uses to make mutation testing usable fast.
+
+### Coverage targeting
+
+Pitest will only run tests that execute the line of code where a mutation is placed. Unfortunately the only test to execute a static initializer will be the first test to run that causes that class to load.
+
+### Mutant insertion
+
+Pitest inserts mutants into a jvm by re-writing the class after it has loaded. This is orders of magnitude faster than starting a new jvm or creating a new classloader, but code in static initializer blocks is not re-run so the mutants have no effect.
+
+### Mitigation
+
+Pitest tries to avoid mutating static initializer code. It will not create mutants in
+
+* static initializers
+* private methods called only from static initializers
+
+You will however encounter other scenarios which this simple filtering will miss.
 
 ## Can I activate more mutators without relisting all the default ones?
 

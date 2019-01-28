@@ -38,6 +38,13 @@ Here is the list of available mutators:
 - [Remove Conditionals Mutator](#REMOVE_CONDITIONALS)
 - [Experimental Member Variable Mutator](#EXPERIMENTAL_MEMBER_VARIABLE)
 - [Experimental Switch Mutator](#EXPERIMENTAL_SWITCH)
+- [Negation Mutator](#EXPERIMENTAL_ABS)
+- [Arithmetic Operator Replacement Mutator](#EXPERIMENTAL_AOR)
+- [Arithmetic Operator Deletion Mutator](#EXPERIMENTAL_AOD)
+- [Constant Replacement Mutator](#EXPERIMENTAL_CRCR)
+- [Bitwise Operator Mutator](#EXPERIMENTAL_OBBN)
+- [Relational Operator Replacement Mutator](#EXPERIMENTAL_ROR)
+- [Unary Operator Insertion Mutator](#EXPERIMENTAL_UOI)
 
 See the current [code](https://github.com/hcoles/pitest/blob/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor/config/Mutator.java) for current list (latest development version).
 
@@ -947,8 +954,303 @@ The switch mutator finds the first label within a switch statement that differs 
 
 *Thanks to Stefan Penndorf who contributed this documentation.*
 
-<hr/>
+<a name="ABS" id="EXPERIMENTAL_ABS"></a>
 
+Negation Mutator (ABS)
+-------------------------------------------------
+This mutator replace any use of a numeric variable (local valiable, field, array cell) with its negation. For example:
+```java
+public float get(final float i) {
+  return i;
+}
+```
+
+will be mutated to
+
+```java
+public float get(final float i) {
+  return -i;
+}
+```
+<a name="AOR" id="EXPERIMENTAL_AOR"></a>
+
+Arithmetic Operator Replacement Mutator (AOR)
+-------------------------------------------------
+Like the math mutator, this mutator replaces binary arithmetic operations for either integer or floating-point arithmetic with another operation. The mutator is composed of 4 sub-mutators (AOR_1 to AOR_4) that mutate operators according to the table below.
+<table>
+    <thead>
+        <tr>
+            <th>
+            Original operator
+            </th>
+            <th>
+            AOR_1
+            </th>
+            <th>
+            AOR_2
+            </th>
+            <th>
+            AOR_3
+            </th>
+            <th>
+            AOR_4
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>+</td>
+            <td>-</td>
+            <td>*</td>
+            <td>/</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>+</td>
+            <td>*</td>
+            <td>/</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>/</td>
+            <td>%</td>
+            <td>+</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>/</td>
+            <td>*</td>
+            <td>%</td>
+            <td>+</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>*</td>
+            <td>/</td>
+            <td>+</td>
+            <td>-</td>
+        </tr>
+    </tbody>
+</table>
+
+<a name="AOD" id="EXPERIMENTAL_AOD"></a>
+
+Arithmetic Operator Deletion Mutator (AOD)
+-------------------------------------------------
+This mutator replaces an arithmetic operation with one of its members. The mutator is composed of 2 sub-mutators, AOD_1 and AOD_2, that mutate the operation to its first and second member respectively.
+For example
+
+```java
+int a = b + c;
+```
+
+will be mutated to
+
+```java
+int a = b;
+```
+
+and to
+
+```java
+int a = c;
+```
+
+<a name="CRCR" id="EXPERIMENTAL_CRCR"></a>
+
+Constant Replacement Mutator (CRCR)
+-------------------------------------------------
+Like the inline constant mutator, this mutator mutates inline constant. The mutator is composed of 6 sub-mutators (CRCR1 to CRCR6) that mutate constants according to the table below.
+<table>
+    <thead>
+        <tr>
+            <th>
+            Constant
+            </th>
+            <th>
+            CRCR1
+            </th>
+            <th>
+            CRCR2
+            </th>
+            <th>
+            CRCR3
+            </th>
+            <th>
+            CRCR4
+            </th>
+            <th>
+            CRCR5
+            </th>
+            <th>
+            CRCR6
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>c</td>
+            <td>1</td>
+            <td>0</td>
+            <td>-1</td>
+            <td>-c</td>
+            <td>c+1</td>
+            <td>c-1</td>
+        </tr>
+    </tbody>
+</table>
+
+<a name="OBBN" id="EXPERIMENTAL_OBBN"></a>
+
+Bitwise Operator Mutator (OBBN)
+-------------------------------------------------
+This mutator mutates bitwise and (&) and or (|). It is composed of three sub-mutators, OBBN1, OBBN2 and OBBN3 that respectively reverse the operators, replace a bitwise operation by its first member, and by its second member.
+For example
+
+```java
+a & b;
+```
+
+will be mutated to
+
+```java
+a | b;
+```
+
+by OBBN1, to
+
+```java
+a;
+```
+
+by OBBN2 and to
+
+```java
+b;
+```
+
+by OBBN3.
+
+<a name="ROR" id="EXPERIMENTAL_ROR"></a>
+
+Relational Operator Replacement Mutator (ROR)
+-------------------------------------------------
+This mutator replaces a relational operator with another one. The mutator is composed of 5 sub-mutators (ROR1 to ROR5) that mutate the operators according to the table below.
+<table>
+    <thead>
+        <tr>
+            <th>
+            Original operator
+            </th>
+            <th>
+            ROR_1
+            </th>
+            <th>
+            ROR_2
+            </th>
+            <th>
+            ROR_3
+            </th>
+            <th>
+            ROR_4
+            </th>
+            <th>
+            ROR_5
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&lt;</td>
+            <td>&lt;=</td>
+            <td>&gt;</td>
+            <td>&gt;=</td>
+            <td>==</td>
+            <td>!=</td>
+        </tr>
+        <tr>
+            <td>&lt;=</td>
+            <td>&lt;</td>
+            <td>&gt;</td>
+            <td>&gt;=</td>
+            <td>==</td>
+            <td>!=</td>
+        </tr>
+        <tr>
+            <td>&gt;</td>
+            <td>&lt;</td>
+            <td>&lt;=</td>
+            <td>&gt;=</td>
+            <td>==</td>
+            <td>!=</td>
+        </tr>
+        <tr>
+            <td>&gt;=</td>
+            <td>&lt;</td>
+            <td>&lt;=</td>
+            <td>&gt;</td>
+            <td>==</td>
+            <td>!=</td>
+        </tr>
+        <tr>
+            <td>==</td>
+            <td>&lt;</td>
+            <td>&lt;=</td>
+            <td>&gt;</td>
+            <td>&gt;=</td>
+            <td>!=</td>
+        </tr>
+        <tr>
+            <td>!=</td>
+            <td>&lt;</td>
+            <td>&lt;=</td>
+            <td>&gt;</td>
+            <td>&gt;=</td>
+            <td>==</td>
+        </tr>
+    </tbody>
+</table>
+
+<a name="UOI" id="EXPERIMENTAL_UOI"></a>
+
+Unary Operator Insertion (UOI)
+-------------------------------------------------
+This mutator inserts a unary operator (increment or decrement) to a variable call. It affects local variables, parameters and array variables. It is composed of 4 sub-mutators, UOI1 to UOI4 that insert operators according to the table below.
+<table>
+    <thead>
+        <tr>
+            <th>
+            Variable
+            </th>
+            <th>
+            UOI1
+            </th>
+            <th>
+            UOI2
+            </th>
+            <th>
+            UOI3
+            </th>
+            <th>
+            UOI4
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>a</td>
+            <td>a++</td>
+            <td>a--</td>
+            <td>++a</td>
+            <td>--a</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr/>
 1. <a name="fn1" id="fn1"></a> Integer numbers and booleans are actually represented in the same way be the JVM,
   it is therefore never safe if change a 0 to anything but a 1 or a 1 to anything but a 0.
   [↩](#fnref1)

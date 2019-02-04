@@ -5,6 +5,8 @@ This is the repository for [pitest.org](pitest.org)
 The site in hosted by [GitHub Pages](https://pages.github.com/) and uses
 [Jekyll](https://jekyllrb.com/).
 
-To run the site locally you can follow Jekyll's [quickstart](https://jekyllrb.com/docs/).
+To run the site locally you first need to install a [ruby development environment](https://jekyllrb.com/docs/installation/).
 
-Then just run `bundle exec jekyll serve` to get a local site running at [http://localhost:4000](http://localhost:4000).
+Then run `bundle installl`.
+
+Finally run `bundle exec jekyll serve` to get a local site running at [http://localhost:4000](http://localhost:4000).

@@ -277,7 +277,7 @@ Return Values Mutator (RETURN_VALS)
 **Active by default**
 
 The return values mutator mutates the return values of method calls. Depending
-on the return type of the method another mutation is used.<sup id="fnref4">[4](#fn4)</sup></a>
+on the return type of the method another mutation is used.<sup id="fnref4">[4](#fn4)</sup>
 
 | Return Type          | Mutation 
 |----------------------|---

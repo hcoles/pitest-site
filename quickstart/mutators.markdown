@@ -344,7 +344,7 @@ public int foo() {
 }
 ```
 
-#Optional Mutators
+# Optional Mutators
 
 <a name="CONSTRUCTOR_CALLS" id="CONSTRUCTOR_CALLS"></a>
 
@@ -760,7 +760,7 @@ The switch mutator finds the first label within a switch statement that differs 
 
 <hr/>
 
-1. <a name="fn1" id="fn1"></a> Integer numbers and booleans are actually represented in the same way be the JVM,
+1. <a name="fn1" id="fn1"></a> Integer numbers and booleans are actually represented in the same way by the JVM,
   it is therefore never safe if change a 0 to anything but a 1 or a 1 to anything but a 0.
   [↩](#fnref1)
 2. <a name="fn2" id="fn2"></a> Floating point numbers are always changed to 1 rather than adding 1 to the original value

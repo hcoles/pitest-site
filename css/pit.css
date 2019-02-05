@@ -53,16 +53,9 @@ a:hover {
 /* Anchors
 -------------------------------------------------- */
 
-/*
- Generates an invisible dom element right before the target anchor.
- This element has a height great enough for the navbar to not hide the actual anchor we want to show.
- Got the idea from : https://stackoverflow.com/a/28824157/9924986
- */
-:target::before {
-  content: "";
-  display: inline-block;
-  height: 75px;      /* empiric value matching the navbar plus a small margin */
-  margin: -75px 0 0; /* negation of the height */
+/* Ensure anchors are far enough from the top to not be hidden by the navbar */
+:target {
+  border-top: 60px solid transparent;
 }
 
 /* "Improve this page" links

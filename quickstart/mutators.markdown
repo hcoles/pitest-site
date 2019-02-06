@@ -869,12 +869,12 @@ This mutator replaces a relational operator with another one. The mutator is com
 
 | Original operator | ROR1 | ROR2 | ROR3 | ROR4 | ROR5 |
 |-------------------|------|------|------|------|------|
-| &lt;              | &lt;=| &gt; | &gt;=| ==   | !=   |
-| &lt;=             | &lt; | &gt; | &gt;=| ==   | !=   |
-| &gt;              | &lt; | &lt;=| &gt; | ==   | !=   |
-| &gt;=             | &lt; | &lt;=| &gt; | ==   | !=   |
-| ==                | &lt; | &lt;=| &gt; | &gt;=| !=   |
-| !=                | &lt; | &lt;=| &gt; | &gt;=| ==   |
+| <                 | <=   | \>   | \>=  | ==   | !=   |
+| <=                | <    | \>   | \>=  | ==   | !=   |
+| \>                | <    | <=   | \>=  | ==   | !=   |
+| \>=               | <    | <=   | \>   | ==   | !=   |
+| ==                | <    | <=   | \>   | \>=  | !=   |
+| !=                | <    | <=   | \>   | \>=  | ==   |
 {:.table}
 
 <a name="UOI" id="EXPERIMENTAL_UOI"></a>

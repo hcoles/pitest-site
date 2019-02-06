@@ -763,8 +763,6 @@ Experimental Switch Mutator (EXPERIMENTAL_SWITCH)
 
 The switch mutator finds the first label within a switch statement that differs from the default label. It mutates the switch statement by replacing the default label (wherever it is used) with this label. All the other labels are replaced by the default one.
 
-*Thanks to Stefan Penndorf who contributed this documentation.*
-
 <a name="ABS" id="EXPERIMENTAL_ABS"></a>
 
 Negation Mutator (ABS)
@@ -891,6 +889,7 @@ This mutator inserts a unary operator (increment or decrement) to a variable cal
 {:.table}
 
 
+*Thanks to Stefan Penndorf who contributed this documentation.*
 <hr/>
 1. <a name="fn1" id="fn1"></a> Integer numbers and booleans are actually represented in the same way be the JVM,
   it is therefore never safe if change a 0 to anything but a 1 or a 1 to anything but a 0.

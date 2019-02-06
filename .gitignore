@@ -10,3 +10,4 @@ site.hi
 *.iws
 .idea
 *.lock
+*.orig

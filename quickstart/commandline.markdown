@@ -75,21 +75,6 @@ then any test fixture that matched targetClasses may be used, it is however reco
 This parameter can be used to point PIT to a top level suite or suites. Custom suites such as [ClassPathSuite](http://johanneslink.net/projects/cpsuite.jsp)
 ClassPathSuite are supported. Tests found via these suites can also be limited by the distance filter (see below).
 
-
-### <del>\--inScopeClasses</del> (removed in 0.27)
-
-<del>The inScopeClasses and targetClasses parameters look confusingly similar. Both are comma separated
-lists of globs that will be matched against the names of classes on your classpath.</del>
-
-<del>Only classes that match the inScopeClasses globs will be considered as runnable tests or mutable classes. If you
-have a large classpath to scan this parameter can be used to limit the classes that are examined (and therefore loaded).</del>
-
-<del>The targetClasses globs are then used to filter out a subset of these classes which will be considered
-for mutation.</del>
-
-<del>In practice inScopeClasses and targetClasses are often then same.</del>
-
-
 ### \--dependencyDistance
 
 PIT can optionally apply an additional filter to the supplied tests, such that only tests a certain distance from 
@@ -108,11 +93,6 @@ The number of threads to use when mutation testing.
 ### \--mutateStaticInits
 
 Whether or not to create mutations in static initializers. Defaults to false.
-
-### <del>\--includeJarFiles</del> (removed in 0.25)
-
-<del>Whether or not to consider classes in jar files for mutations and as a source
-of tests.</del>
 
 ### \--mutators
 

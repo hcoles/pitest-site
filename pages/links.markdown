@@ -11,6 +11,8 @@ permalink: /links/
 * Phil Glover maintains an Eclipse plugin. [Pitclipse](https://github.com/philglover/pitclipse)
 * Alexandre Victoor maintains a Sonar plugin. [PIT Sonar plugin](http://docs.codehaus.org/display/SONAR/Pitest)
 * Michal Jedynak maintains an Intellij plugin. [PIT intellij plugin](https://plugins.jetbrains.com/plugin/7119-pit-mutation-testing-idea-plugin)
+* Oscar Luis Vera Perez maitains Descartes, an extreme mutation engine. [pit-descartes](http://github.com/STAMP-project/pitest-descartes)
+* Caroline Landry maintains PitMP, a Maven plugin to run PIT on multi-module projects. [pitmp-maven-plugin](http://github.com/STAMP-project/pitmp-maven-plugin)
 
 ## Videos
 
@@ -21,6 +23,7 @@ permalink: /links/
 * [Nicolas Fränkel at JavaZone (10 mins)](http://vimeo.com/105758362)
 * [Alexandre Victoor on pitest and sonar (18 mins in French)](https://www.youtube.com/watch?v=ck2dIrrVTWs)
 * Marcin Zajączkowski at Boiling Frogs [(slides in English)](https://speakerdeck.com/szpak/mutation-testing-how-good-your-tests-really-are) [(video in Polish - 60 mins)](https://www.youtube.com/watch?v=lhvDp0_2MI4)
+* [Sébastien Laoût for Ubik Ingénierie at GDG Lille (slides in French - with presenter comments)](http://slaout.linux62.org/intestption)
 
 ## Books and articles about mutation testing and PIT
 

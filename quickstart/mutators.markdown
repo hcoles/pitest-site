@@ -33,10 +33,21 @@ Here is the list of available mutators:
 
 (*deactivated by default*)
 - [Constructor Calls Mutator](#CONSTRUCTOR_CALLS)
+- [Empty returns Mutator](#EMPTY_RETURNS)
+- [False Returns Mutator](#FALSE_RETURNS)
 - [Inline Constant Mutator](#INLINE_CONSTS)
+- [Null returns Mutator](#NULL_RETURNS)
 - [Non Void Method Calls Mutator](#NON_VOID_METHOD_CALLS)
+- [Primitive returns Mutator](#PRIMITIVE_RETURNS)
 - [Remove Conditionals Mutator](#REMOVE_CONDITIONALS)
+- [Remove Increments](#REMOVE_INCREMENTS)
+- [True returns Mutator](#TRUE_RETURNS)
+
+(*experimental mutators, deactivated by default*)
+- [Experimental Argument Propagation](#EXPERIMENTAL_ARGUMENT_PROPAGATION)
+- [Experimental Big Integer](#EXPERIMENTAL_BIG_INTEGER)
 - [Experimental Member Variable Mutator](#EXPERIMENTAL_MEMBER_VARIABLE)
+- [Experimental Naked Receiver](#EXPERIMENTAL_NAKED_RECEIVER)
 - [Experimental Switch Mutator](#EXPERIMENTAL_SWITCH)
 - [Negation Mutator](#EXPERIMENTAL_ABS)
 - [Arithmetic Operator Replacement Mutator](#EXPERIMENTAL_AOR)
@@ -49,7 +60,7 @@ Here is the list of available mutators:
 See the current [code](https://github.com/hcoles/pitest/blob/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor/config/Mutator.java) for current list (latest development version).
 
 ----
-
+# Default Mutators
 <a name="CONDITIONALS_BOUNDARY" id="CONDITIONALS_BOUNDARY"></a>
 
 Conditionals Boundary Mutator (CONDITIONALS_BOUNDARY)
@@ -61,36 +72,13 @@ The conditionals boundary mutator replaces the relational operators `<, <=, >, >
 
 with their boundary counterpart as per the table below.
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-            Original conditional
-            </th>
-            <th>
-            Mutated conditional
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>&lt;</td>
-            <td>&lt;=</td>
-        </tr>
-        <tr>
-            <td>&lt;=</td>
-            <td>&lt;</td>
-        </tr>
-        <tr>
-            <td>&gt;</td>
-            <td>&gt;=</td>
-        </tr>
-        <tr>
-            <td>&gt;=</td>
-            <td>&gt;</td>
-        </tr>
-    </tbody>
-</table>
+| Original conditional | Mutated conditional |
+|----------------------|---------------------|
+| <                    | <=                  |
+| <=                   | <                   |
+| \>                   | \>=                 |
+| \>=                  | \>                  |
+{:.table }
 
 For example
 
@@ -108,6 +96,147 @@ if (a <= b) {
 }
 ```
 
+<a name="INCREMENTS" id="INCREMENTS"></a>
+
+Increments Mutator (INCREMENTS)
+-------------------------------
+
+**Active by default**
+
+The increments mutator will mutate increments, decrements and assignment
+increments and decrements of local variables (stack variables). It will replace
+increments with decrements and vice versa.
+
+For example
+
+```java
+public int method(int i) {
+  i++;
+  return i;
+}
+```
+
+will be mutated to
+
+```java
+public int method(int i) {
+  i--;
+  return i;
+}
+```
+
+Please note that the increments mutator will be applied to increments of 
+**local variables only**. Increments and decrements of member variables will be
+covered by the [Math Mutator](#MATH).
+
+<a name="INVERT_NEGS" id="INVERT_NEGS"></a>
+
+Invert Negatives Mutator (INVERT_NEGS)
+--------------------------------------
+
+**Active by default**
+
+The invert negatives mutator inverts negation of integer and floating point 
+numbers. For example
+
+```java
+public float negate(final float i) {
+  return -i;
+}
+```
+
+will be mutated to
+
+```java
+public float negate(final float i) {
+  return i;
+}
+```
+
+<a name="MATH" id="MATH"></a>
+
+Math Mutator (MATH)
+-------------------
+
+**Active by default**
+
+The math mutator replaces binary arithmetic operations for either integer or 
+floating-point arithmetic with another operation. The replacements will be 
+selected according to the table below.
+
+| Original conditional | Mutated conditional |
+|----------------------|---------------------|
+| \+                   | \-                  |
+| \-                   | \+                  |
+| *                    | /                   |
+| /                    | *                   |
+| %                    | *                   |
+| &                    | \|                  |
+| \|                   | &                   |
+| ^                    | &                   |
+| \<<                  | \>>                 |
+| \>>                  | \<<                 |
+| \>>>                 | \<<                 |
+{:.table}
+
+
+For example
+
+```java
+int a = b + c;
+```
+
+will be mutated to
+
+```java
+int a = b - c;
+```
+
+Keep in mind that the `+` operator on `String`s as in
+
+```java
+String a = "foo" + "bar";
+```
+
+is **not a mathematical operator** but a string concatenation and will be 
+replaced by the compiler with something like
+
+```java
+String a = new StringBuilder("foo").append("bar").toString();
+```
+
+
+Please note that the compiler will also use binary arithmetic operations for
+increments, decrements and assignment increments and decrements of non-local
+variables (member variables) although a special `iinc` opcode for increments 
+exists. This special opcode is restricted to local variables (also called stack
+variables) and cannot be used for member variables. That means the math mutator
+will also mutate
+
+```java
+public class A {
+  private int i;
+
+  public void foo() {
+    this.i++;
+  }
+}
+```
+
+to
+
+```java
+public class A {
+  private int i;
+
+  public void foo() {
+    this.i = this.i - 1;
+  }
+}
+```
+
+See the [Increments Mutator](#INCREMENTS) for details.
+
 <a name="NEGATE_CONDITIONALS" id="NEGATE_CONDITIONALS"></a>
 
 Negate Conditionals Mutator (NEGATE_CONDITIONALS)
@@ -118,45 +247,15 @@ Negate Conditionals Mutator (NEGATE_CONDITIONALS)
 The negate conditionals mutator will mutate all conditionals found according
 to the replacement table below.
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-            Original conditional
-            </th>
-            <th>
-            Mutated conditional
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>==</td>
-            <td>!=</td>
-        </tr>
-        <tr>
-            <td>!=</td>
-            <td>==</td>
-        </tr>
-        <tr>
-            <td>&lt;=</td>
-            <td>&gt;</td>
-        </tr>
-        <tr>
-            <td>&gt;=</td>
-            <td>&lt;</td>
-        </tr>
-        <tr>
-            <td>&lt;</td>
-            <td>&gt;=</td>
-        </tr>
-        <tr>
-            <td>&gt;</td>
-            <td>&lt;=</td>
-        </tr>
-
-    </tbody>
-</table>
+| Original conditional | Mutated conditional |
+|----------------------|---------------------|
+| ==                   | !=                  |
+| !=                   | ==                  |
+| <=                   | \>                  |
+| \>=                  | <                   |
+| <                    | \>=                 |
+| \>                   | <=                  |
+{:.table }
 
 For example
 
@@ -177,6 +276,315 @@ if (a != b) {
 This mutator overlaps to a degree with the conditionals boundary mutator, but is less **stable** i.e these
 mutations are generally easier for a test suite to detect.
 
+<a name="RETURN_VALS" id="RETURN_VALS"></a>
+
+Return Values Mutator (RETURN_VALS)
+-----------------------------------
+
+**Active by default**
+
+The return values mutator mutates the return values of method calls. Depending
+on the return type of the method another mutation is used.<sup id="fnref4">[4](#fn4)</sup>
+
+| Return Type          | Mutation 
+|----------------------|---
+| `boolean`            | replace the unmutated return value `true` with `false` and replace the unmutated return value `false` with `true`
+| `int` `byte` `short` | if the unmutated return value is `0` return `1`, otherwise mutate to return value `0`
+| `long`               | replace the unmutated return value `x` with the result of `x+1`
+| `float` `double`     | replace the unmutated return value `x` with the result of `-(x+1.0)` if `x` is not `NAN` and replace `NAN` with `0`
+| `Object`             | replace non-`null` return values with `null` and throw a `java.lang.RuntimeException` if the unmutated method would return `null`
+{:.table}
+
+For example
+
+```java
+public Object foo() {
+  return new Object();
+}
+```
+
+will be mutated to
+
+```java
+public Object foo() {
+  new Object();
+  return null;
+}
+```
+
+Please note that constructor calls are **not considered void method calls**.
+See the [Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of 
+constructors or the [Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for
+mutations of non void methods.
+
+<a name="VOID_METHOD_CALLS" id="VOID\_METHOD\_CALLS"></a>
+
+Void Method Call Mutator (VOID_METHOD_CALLS)
+--------------------------------------------
+
+**Active by default**
+
+The void method call mutator removes method calls to void methods. For example
+
+```java
+public void someVoidMethod(int i) {
+  // does something
+}
+
+public int foo() {
+  int i = 5;
+  someVoidMethod(i);
+  return i;
+}
+```
+
+will be mutated to
+
+```java
+public void someVoidMethod(int i) {
+  // does something
+}
+
+public int foo() {
+  int i = 5;
+  return i;
+}
+```
+
+# Optional Mutators
+
+<a name="CONSTRUCTOR_CALLS" id="CONSTRUCTOR_CALLS"></a>
+
+Constructor Call Mutator (CONSTRUCTOR_CALLS)
+--------------------------------------------
+Optional mutator that replaces constructor calls with `null` values. For example
+
+```java
+public Object foo() {
+  Object o = new Object();
+  return o;
+}
+```
+
+will be mutated to
+
+```java
+public Object foo() {
+  Object o = null;
+  return o;
+}
+```
+
+Please note that this mutation is fairly unstable and likely to cause **`NullPointerException`s** even
+with weak test suites.
+
+This mutator does not affect non constructor method calls. See [Void Method Call Mutator](#VOID_METHOD_CALL) for 
+mutations of void methods and
+[Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for mutations of non void
+methods.
+
+<a name="EMPTY_RETURNS" id="EMPTY_RETURNS"></a>
+
+Empty returns Mutator (EMPTY\_RETURNS)
+--------------------------------------
+
+Replaces return values with an 'empty' value for that type as follows
+
+* java.lang.String -> ""
+* java.util.Optional -> Optional.empty()
+* java.util.List -> Collections.emptyList()
+* java.util.Collection -> Collections.emptyList()
+* java.util.Set -> Collections.emptySet()
+* java.lang.Integer -> 0
+* java.lang.Short -> 0
+* java.lang.Long -> 0
+* java.lang.Character -> 0
+* java.lang.Float -> 0
+* java.lang.Double -> 0
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return the empty value.
+
+<a name="FALSE_RETURNS" id="FALSE_RETURNS"></a>
+
+False returns Mutator (FALSE\_RETURNS)
+-------------------------------------
+
+Replaces primitive and boxed boolean return values with false.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return false.
+
+<a name="INLINE_CONSTS" id="INLINE_CONSTS"></a>
+
+Inline Constant Mutator (INLINE_CONSTS)
+---------------------------------------
+
+The inline constant mutator mutates inline constants. An inline constant is a
+literal value assigned to a non-final variable, for example
+
+```java
+public void foo() {
+  int i = 3;
+  // do something with i
+}
+```
+
+Depending on the type of the inline constant another mutation is used. The rules
+are a little complex due to the different ways that apparently similar Java statements
+are converted to byte code.
+
+| Constant Type            | Mutation
+|--------------------------|---
+| `boolean`                | replace the unmutated value `true` with `false` and replace the unmutated value `false` with `true`
+| `integer` `byte` `short` | replace the unmutated value `1` with `0`, `-1` with `1`, `5` with `-1` or otherwise increment the unmutated value by one. <sup id="fnref1">[1](#fn1)</sup>
+| `long`                   | replace the unmutated value `1` with `0`, otherwise increment the unmutated value by one.
+| `float`                  | replace the unmutated values `1.0` and `2.0` with `0.0` and replace any other value with `1.0` <sup id="fnref2">[2](#fn2)</sup>
+| `double`                 | replace the unmutated value `1.0` with `0.0` and replace any other value with `1.0` <sup id="fnref3">[3](#fn3)</sup>
+{:.table}
+
+
+For example
+
+```java
+public int foo() {
+  int i = 42;
+  return i;
+}
+```
+
+will be mutated to
+
+```java
+public int foo() {
+  int i = 43;
+  return i;
+}
+```
+
+Please note that the compiler might optimize the use of final variables 
+(regardless whether those are stack variables or member variables). For example
+the following code
+
+```java
+public class A {
+  private static final int VAR = 13;
+  
+  public String foo() {
+    final int i = 42;
+    return "" + VAR + ":" + i;
+  }
+}
+```
+
+will be changed/optimized by the compiler to
+
+```java
+public class A {
+  public String foo() {
+    return "13:42";
+  }
+}
+```
+
+In such situations the mutation engine can not mutate any variable.
+
+<a name="NULL_RETURNS" id="NULL_RETURNS"></a>
+
+Null returns Mutator (NULL\_RETURNS)
+--------------------------------------
+
+Replaces return values with null. Methods that can be mutated by the EMPTY_RETURNS mutator or that are directly annotated with NotNull will not be mutated.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return null.
+
+<a name="NON_VOID_METHOD_CALLS" id="NON_VOID_METHOD_CALLS"></a>
+
+Non Void Method Call Mutator (NON\_VOID\_METHOD\_CALLS)
+----------------------------------------------------
+
+The non void method call mutator removes method calls to non void methods.
+Their return value is replaced by the Java Default Value for that specific
+type. See the table below.
+
+Table: Java Default Values for Primitives and Reference Types
+
+| Type                        | Default value |
+|-----------------------------|---------------|
+| `boolean`                   | `false`       |
+| `int` `byte` `short` `long` | `0`           |
+| `float` `double`            | `0.0`         |
+| `char`                      | `'\u0000'`    |
+| `Object`                    | `null`        |
+{:.table}
+
+For example
+
+```java
+public int someNonVoidMethod() {
+  return 5;
+}
+
+public void foo() {
+  int i = someNonVoidMethod();
+  // do more stuff with i
+}
+```
+
+will be mutated to
+
+```java
+public int someNonVoidMethod() {
+  return 5;
+}
+
+public void foo() {
+  int i = 0;
+  // do more stuff with i
+}
+```
+
+and for method calls returning an object type the call
+
+```java
+public Object someNonVoidMethod() {
+  return new Object();
+}
+
+public void foo() {
+  Object o = someNonVoidMethod();
+  // do more stuff with o
+}
+```
+
+will be mutated to
+
+```java
+public Object someNonVoidMethod() {
+  return new Object();
+}
+
+public void foo() {
+  Object o = null;
+  // do more stuff with o
+}
+```
+
+Please note that this mutation is fairly unstable for some types (especially Objects where
+**`NullPointerException`s** are likely) and may also create equivalent mutations if
+it replaces a method that already returns one of the default values without also having
+a side effect.
+
+This mutator does not affect void methods or constructor calls. See 
+[Void Method Call Mutator](#VOID_METHOD_CALL) for mutations of void methods and
+[Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of constructors.
+
+<a name="PRIMITIVE_RETURNS" id="PRIMITIVE_RETURNS"></a>
+
+Primitive returns Mutator (PRIMITIVE\_RETURNS)
+----------------------------------------------
+
+Replaces int, short, long, char, float and double return values with 0.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return 0.
 
 <a name="REMOVE_CONDITIONALS" id="REMOVE_CONDITIONALS"></a>
 
@@ -256,416 +664,14 @@ The names reflect which branch will be forced to execute (the "if" or the "else"
 
 The reason these are not enabled by default is that there is a large degree of overlap in the tests required to kill these mutations and those required to kill mutations from other default operators such as the conditional boundaries mutator.
 
-<a name="MATH" id="MATH"></a>
+<a name="REMOVE_INCREMENTS" id="REMOVE_INCREMENTS"></a>
 
-Math Mutator (MATH)
--------------------
+Remove Increments Mutator (REMOVE\_INCREMENTS)
+-------------------------------------
 
-**Active by default**
+Optional mutator that removes local variable increments.
 
-The math mutator replaces binary arithmetic operations for either integer or 
-floating-point arithmetic with another operation. The replacements will be 
-selected according to the table below.
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-            Original conditional
-            </th>
-            <th>
-            Mutated conditional
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>+</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>-</td>
-            <td>+</td>
-        </tr>
-        <tr>
-            <td>*</td>
-            <td>/</td>
-        </tr>
-        <tr>
-            <td>/</td>
-            <td>*</td>
-        </tr>
-        <tr>
-            <td>%</td>
-            <td>*</td>
-        </tr>
-        <tr>
-            <td>&amp;</td>
-            <td>|</td>
-        </tr>
-        <tr>
-            <td>|</td>
-            <td>&amp;</td>
-        </tr>
-        <tr>
-            <td>^</td>
-            <td>&amp;</td>
-        </tr>
-        <tr>
-            <td>&lt;&lt;</td>
-            <td>&gt;&gt;</td>
-        </tr>
-        <tr>
-            <td>&gt;&gt;</td>
-            <td>&lt;&lt;</td>
-        </tr>
-        <tr>
-            <td>&gt;&gt;&gt;</td>
-            <td>&lt;&lt;</td>
-        </tr>
-    </tbody>
-</table>
-
-
-For example
-
-```java
-int a = b + c;
-```
-
-will be mutated to
-
-```java
-int a = b - c;
-```
-
-Keep in mind that the `+` operator on `String`s as in
-
-```java
-String a = "foo" + "bar";
-```
-
-is **not a mathematical operator** but a string concatenation and will be 
-replaced by the compiler with something like
-
-```java
-String a = new StringBuilder("foo").append("bar").toString();
-```
-
-
-Please note that the compiler will also use binary arithmetic operations for
-increments, decrements and assignment increments and decrements of non-local
-variables (member variables) although a special `iinc` opcode for increments 
-exists. This special opcode is restricted to local variables (also called stack
-variables) and cannot be used for member variables. That means the math mutator
-will also mutate
-
-```java
-public class A {
-  private int i;
-
-  public void foo() {
-    this.i++;
-  }
-}
-```
-
-to
-
-```java
-public class A {
-  private int i;
-
-  public void foo() {
-    this.i = this.i - 1;
-  }
-}
-```
-
-See the [Increments Mutator](#INCREMENTS) for details.
-
-<a name="INCREMENTS" id="INCREMENTS"></a>
-
-Increments Mutator (INCREMENTS)
--------------------------------
-
-**Active by default**
-
-The increments mutator will mutate increments, decrements and assignment
-increments and decrements of local variables (stack variables). It will replace
-increments with decrements and vice versa.
-
-For example
-
-```java
-public int method(int i) {
-  i++;
-  return i;
-}
-```
-
-will be mutated to
-
-```java
-public int method(int i) {
-  i--;
-  return i;
-}
-```
-
-Please note that the increments mutator will be applied to increments of 
-**local variables only**. Increments and decrements of member variables will be
-covered by the [Math Mutator](#MATH).
-
-<a name="INVERT_NEGS" id="INVERT_NEGS"></a>
-
-Invert Negatives Mutator (INVERT_NEGS)
---------------------------------------
-
-**Active by default**
-
-The invert negatives mutator inverts negation of integer and floating point 
-numbers. For example
-
-```java
-public float negate(final float i) {
-  return -i;
-}
-```
-
-will be mutated to
-
-```java
-public float negate(final float i) {
-  return i;
-}
-```
-
-<a name="INLINE_CONSTS" id="INLINE_CONSTS"></a>
-
-Inline Constant Mutator (INLINE_CONSTS)
----------------------------------------
-
-The inline constant mutator mutates inline constants. An inline constant is a
-literal value assigned to a non-final variable, for example
-
-```java
-public void foo() {
-  int i = 3;
-  // do something with i
-}
-```
-
-Depending on the type of the inline constant another mutation is used. The rules
-are a little complex due to the different ways that apparently similar Java statements
-are converted to byte code.
-
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Constant Type</th>
-            <th>Mutation</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>boolean</code></td>
-            <td>
-                replace the unmutated value <code>true</code> with <code>false</code> and
-                replace the unmutated value <code>false</code> with <code>true</code>
-            </td>
-        </tr>
-        <tr>
-            <td><code>integer</code> <code>byte</code> <code>short</code></td>
-            <td>
-                replace the unmutated value <code>1</code> with <code>0</code>,
-                <code>-1</code> with <code>1</code>, <code>5</code> with <code>-1</code>
-                or otherwise increment the unmutated value by one. <a href="#fn1"><sup>1</sup></a> <a name="fnref1" id="fnref1"></a>
-            </td>
-        </tr>
-        <tr>
-            <td><code>long</code></td>
-            <td>
-                replace the unmutated value <code>1</code> with <code>0</code>, otherwise
-                increment the unmutated value by one.
-            </td>
-        </tr>
-        <tr>
-            <td><code>float</code></td>
-            <td>
-                replace the unmutated values <code>1.0</code> and <code>2.0</code>
-                with <code>0.0</code> and replace any other value with <code>1.0</code> <a href="#fn2"><sup>2</sup></a> <a name="fnref2" id="fnref2"></a>
-            </td>
-        </tr>
-        <tr>
-            <td><code>double</code></td>
-            <td>
-                replace the unmutated value <code>1.0</code> with <code>0.0</code>
-                and replace any other value with <code>1.0</code> <a href="#fn3"><sup>3</sup></a> <a name="fnref3" id="fnref3"></a>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-For example
-
-```java
-public int foo() {
-  int i = 42;
-  return i;
-}
-```
-
-will be mutated to
-
-```java
-public int foo() {
-  int i = 43;
-  return i;
-}
-```
-
-Please note that the compiler might optimize the use of final variables 
-(regardless whether those are stack variables or member variables). For example
-the following code
-
-```java
-public class A {
-  private static final int VAR = 13;
-  
-  public String foo() {
-    final int i = 42;
-    return "" + VAR + ":" + i;
-  }
-}
-```
-
-will be changed/optimized by the compiler to
-
-```java
-public class A {
-  public String foo() {
-    return "13:42";
-  }
-}
-```
-
-In such situations the mutation engine can not mutate any variable.
-
-<a name="RETURN_VALS" id="RETURN_VALS"></a>
-
-Return Values Mutator (RETURN_VALS)
------------------------------------
-
-**Active by default**
-
-The return values mutator mutates the return values of method calls. Depending
-on the return type of the method another mutation is used.<a href="#fn4"><sup>4</sup></a> <a name="fnref4" id="fnref4"></a>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Return Type</th>
-            <th>Mutation</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>boolean</code></td>
-            <td>
-                replace the unmutated return value <code>true</code> with <code>false</code> and
-                replace the unmutated return value <code>false</code> with <code>true</code>
-            </td>
-        </tr>
-        <tr>
-            <td><code>int</code> <code>byte</code> <code>short</code></td>
-            <td>
-                if the unmutated return value is <code>0</code> return <code>1</code>, otherwise
-                mutate to return value <code>0</code>
-            </td>
-        </tr>
-        <tr>
-            <td><code>long</code></td>
-            <td>
-                replace the unmutated return value <code>x</code> with the result of <code>x+1</code>
-            </td>
-        </tr>
-        <tr>
-            <td><code>float</code> <code>double</code></td>
-            <td>
-                replace the unmutated return value <code>x</code> with the result of
-                <code>-(x+1.0)</code> if <code>x</code> is not <code>NAN</code> and
-                replace <code>NAN</code> with <code>0</code>
-            </td>
-        </tr>
-        <tr>
-            <td><code>Object</code></td>
-            <td>
-                replace non-<code>null</code> return values with <code>null</code> and throw a
-                <code>java.lang.RuntimeException</code> if the unmutated method
-                would return <code>null</code>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-For example
-
-```java
-public Object foo() {
-  return new Object();
-}
-```
-
-will be mutated to
-
-```java
-public Object foo() {
-  new Object();
-  return null;
-}
-```
-
-<a name="VOID_METHOD_CALLS" id="VOID\_METHOD\_CALLS"></a>
-
-Void Method Call Mutator (VOID_METHOD_CALLS)
---------------------------------------------
-
-**Active by default**
-
-The void method call mutator removes method calls to void methods. For example
-
-```java
-public void someVoidMethod(int i) {
-  // does something
-}
-
-public int foo() {
-  int i = 5;
-  doSomething(i);
-  return i;
-}
-```
-
-will be mutated to
-
-```java
-public void someVoidMethod(int i) {
-  // does something
-}
-
-public int foo() {
-  int i = 5;
-  return i;
-}
-```
-
-Please note that constructor calls are **not considered void method calls**.
-See the [Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of 
-constructors or the [Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for
-mutations of non void methods.
-
+<a name="EXPERIMENTAL_MEMBER_VARIABLE" id="EXPERIMENTAL_MEMBER_VARIABLE"></a>
 
 <a name="TRUE_RETURNS" id="TRUE_RETURNS"></a>
 
@@ -677,191 +683,31 @@ Replaces primitive and boxed boolean return values with true.
 Pitest will filter out equivalent mutations to methods that are already hard coded to return true.
 
 
-<a name="FALSE_RETURNS" id="FALSE_RETURNS"></a>
+# Experimental Mutators
 
-False returns Mutator (FALSE\_RETURNS)
+<a name="EXPERIMENTAL_ARGUMENT_PROPAGATION" id="EXPERIMENTAL_ARGUMENT_PROPAGATION"></a>
+
+Experimental Argument Propagation (EXPERIMENTAL\_ARGUMENT\_PROPAGATION)
 -------------------------------------
 
-Replaces primitive and boxed boolean return values with false.
+Experimental mutator that replaces method call with one of its parameters of matching type.
 
-Pitest will filter out equivalent mutations to methods that are already hard coded to return false.
+<a name="EXPERIMENTAL_BIG_INTEGER" id="EXPERIMENTAL_BIG_INTEGER"></a>
 
-<a name="PRIMITIVE_RETURNS" id="PRIMITIVE_RETURNS"></a>
+Experimental Big Integer (EXPERIMENTAL\_BIG\_INTEGER)
+-------------------------------------
 
-Primitive returns Mutator (PRIMITIVE\_RETURNS)
-----------------------------------------------
+Experimental mutator that swaps big integer methods.
 
-Replaces int, short, long, char, float and double return values with 0.
+<a name="EXPERIMENTAL_NAKED_RECEIVER" id="EXPERIMENTAL_NAKED_RECEIVER"></a>
 
-Pitest will filter out equivalent mutations to methods that are already hard coded to return 0.
+Experimental Naked Receiver (EXPERIMENTAL\_NAKED\_RECEIVER)
+-------------------------------------
 
-<a name="EMPTY_RETURNS" id="EMPTY_RETURNS"></a>
-
-Empty returns Mutator (EMPTY\_RETURNS)
---------------------------------------
-
-Replaces return values with an 'empty' value for that type as follows
-
-* java.lang.String -> ""
-* java.util.Optional -> Optional.empty()
-* java.util.List -> Collections.emptyList()
-* java.util.Collection -> Collections.emptyList()
-* java.util.Set -> Collections.emptySet()
-* java.lang.Integer -> 0
-* java.lang.Short -> 0
-* java.lang.Long -> 0
-* java.lang.Character -> 0
-* java.lang.Float -> 0
-* java.lang.Double -> 0
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return the empty value.
-
-<a name="NULL_RETURNS" id="NULL_RETURNS"></a>
-
-Null returns Mutator (NULL\_RETURNS)
---------------------------------------
-
-Replaces return values with null. Methods that can be mutated by the EMPTY_RETURNS mutator or that are directly annotated with NotNull will not be mutated.
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return null.
-
-<a name="NON_VOID_METHOD_CALLS" id="NON_VOID_METHOD_CALLS"></a>
-
-Non Void Method Call Mutator (NON\_VOID\_METHOD\_CALLS)
-----------------------------------------------------
-
-The non void method call mutator removes method calls to non void methods.
-Their return value is replaced by the Java Default Value for that specific
-type. See the table below.
-
-Table: Java Default Values for Primitives and Reference Types
-
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Type</th>
-            <th>Default Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>boolean</code></td>
-            <td><code>false</code></td>
-        </tr>
-        <tr>
-            <td><code>int</code> <code>byte</code> <code>short</code> <code>long</code></td>
-            <td><code>0</code></td>
-        </tr>
-        <tr>
-            <td><code>float</code> <code>double</code></td>
-            <td><code>0.0</code></td>
-        </tr>
-        <tr>
-            <td><code>char</code></td>
-            <td><code>'\u0000'</code></td>
-        </tr>
-        <tr>
-            <td><code>Object</code></td>
-            <td><code>null</code></td>
-        </tr>
-    </tbody>
-</table>
-
-For example
-
-```java
-public int someNonVoidMethod() {
-  return 5;
-}
-
-public void foo() {
-  int i = someNonVoidMethod();
-  // do more stuff with i
-}
-```
-
-will be mutated to
-
-```java
-public int someNonVoidMethod() {
-  return 5;
-}
-
-public void foo() {
-  int i = 0;
-  // do more stuff with i
-}
-```
-
-and for method calls returning an object type the call
-
-```java
-public Object someNonVoidMethod() {
-  return new Object();
-}
-
-public void foo() {
-  Object o = someNonVoidMethod();
-  // do more stuff with o
-}
-```
-
-will be mutated to
-
-```java
-public Object someNonVoidMethod() {
-  return new Object();
-}
-
-public void foo() {
-  Object o = null;
-  // do more stuff with o
-}
-```
-
-Please note that this mutation is fairly unstable for some types (especially Objects where
-**`NullPointerException`s** are likely) and may also create equivalent mutations if
-it replaces a method that already returns one of the default values without also having
-a side effect.
-
-This mutator does not affect void methods or constructor calls. See 
-[Void Method Call Mutator](#VOID_METHOD_CALL) for mutations of void methods and
-[Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of constructors.
-
-<a name="CONSTRUCTOR_CALLS" id="CONSTRUCTOR_CALLS"></a>
-
-Constructor Call Mutator (CONSTRUCTOR_CALLS)
---------------------------------------------
-
-The constructor call mutator replaces constructor calls with `null` values. For
-example
-
-```java
-public Object foo() {
-  Object o = new Object();
-  return o;
-}
-```
-
-will be mutated to
-
-```java
-public Object foo() {
-  Object o = null;
-  return o;
-}
-```
-
-Please note that this mutation is fairly unstable and likely to cause **`NullPointerException`s** even
-with weak test suites.
-
-This mutator does not affect non constructor method calls. See [Void Method Call Mutator](#VOID_METHOD_CALL) for 
-mutations of void methods and
-[Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for mutations of non void
-methods.
+Experimental mutator that replaces method call with a naked receiver.
 
 <a name="EXPERIMENTAL_MEMBER_VARIABLE" id="EXPERIMENTAL_MEMBER_VARIABLE"></a>
+
 Experimental Member Variable Mutator (EXPERIMENTAL\_MEMBER\_VARIABLE)
 -------------------------------------------------------------------
 
@@ -872,50 +718,15 @@ type. See the table below.
 
 Table: Java Default Values for Primitives and Reference Types
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Type</th>
-            <th>Default Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <code>boolean</code>
-            </td>
-            <td>`false`</td>
-        </tr>
-        <tr>
-            <td>
-                <code>int</code>
-                <code>short</code>
-                <code>byte</code>
-                <code>long</code>
-            </td>
-            <td>`0`</td>
-        </tr>
-        <tr>
-            <td>
-                <code>float</code>
-                <code>double</code>
-            </td>
-            <td>`0.0`</td>
-        </tr>
-        <tr>
-            <td>
-                <code>char</code>
-            </td>
-            <td>`'\u0000'`</td>
-        </tr>
-        <tr>
-            <td>
-                <code>Object</code>
-            </td>
-            <td>`null`</td>
-        </tr>
-    </tbody>
-</table>
+
+| Type                        | Default value |
+|-----------------------------|---------------|
+| `boolean`                   | `false`       |
+| `int` `byte` `short` `long` | `0`           |
+| `float` `double`            | `0.0`         |
+| `char`                      | `'\u0000'`    |
+| `Object`                    | `null`        |
+{:.table}
 
 For example
 
@@ -977,64 +788,15 @@ public float get(final float i) {
 Arithmetic Operator Replacement Mutator (AOR)
 -------------------------------------------------
 Like the math mutator, this mutator replaces binary arithmetic operations for either integer or floating-point arithmetic with another operation. The mutator is composed of 4 sub-mutators (AOR_1 to AOR_4) that mutate operators according to the table below.
-<table>
-    <thead>
-        <tr>
-            <th>
-            Original operator
-            </th>
-            <th>
-            AOR_1
-            </th>
-            <th>
-            AOR_2
-            </th>
-            <th>
-            AOR_3
-            </th>
-            <th>
-            AOR_4
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>+</td>
-            <td>-</td>
-            <td>*</td>
-            <td>/</td>
-            <td>%</td>
-        </tr>
-        <tr>
-            <td>-</td>
-            <td>+</td>
-            <td>*</td>
-            <td>/</td>
-            <td>%</td>
-        </tr>
-        <tr>
-            <td>*</td>
-            <td>/</td>
-            <td>%</td>
-            <td>+</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>/</td>
-            <td>*</td>
-            <td>%</td>
-            <td>+</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>%</td>
-            <td>*</td>
-            <td>/</td>
-            <td>+</td>
-            <td>-</td>
-        </tr>
-    </tbody>
-</table>
+
+| Original operator | AOR_1 | AOR_2 | AOR_3 | AOR_4 |
+|-------------------|-------|-------|-------|-------|
+| \+                | \-    | *     | /     | %     |
+| \-                | \+    | *     | /     | %     |
+| *                 | /     | %     | \+    | \-    |
+| /                 | *     | %     | \+    | \-    |
+| %                 | *     | /     | \+    | \-    |
+{:.table}
 
 <a name="AOD" id="EXPERIMENTAL_AOD"></a>
 
@@ -1064,44 +826,11 @@ int a = c;
 Constant Replacement Mutator (CRCR)
 -------------------------------------------------
 Like the inline constant mutator, this mutator mutates inline constant. The mutator is composed of 6 sub-mutators (CRCR1 to CRCR6) that mutate constants according to the table below.
-<table>
-    <thead>
-        <tr>
-            <th>
-            Constant
-            </th>
-            <th>
-            CRCR1
-            </th>
-            <th>
-            CRCR2
-            </th>
-            <th>
-            CRCR3
-            </th>
-            <th>
-            CRCR4
-            </th>
-            <th>
-            CRCR5
-            </th>
-            <th>
-            CRCR6
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>c</td>
-            <td>1</td>
-            <td>0</td>
-            <td>-1</td>
-            <td>-c</td>
-            <td>c+1</td>
-            <td>c-1</td>
-        </tr>
-    </tbody>
-</table>
+
+| Constant | CRCR1 | CRCR2 | CRCR3 | CRCR4 | CRCR5 | CRCR6 |
+|----------|-------|-------|-------|-------|-------|-------|
+| c        | 1     | 0     | -1    | -c    | c+1   | c-1   |
+{:.table}
 
 <a name="OBBN" id="EXPERIMENTAL_OBBN"></a>
 
@@ -1139,116 +868,28 @@ by OBBN3.
 Relational Operator Replacement Mutator (ROR)
 -------------------------------------------------
 This mutator replaces a relational operator with another one. The mutator is composed of 5 sub-mutators (ROR1 to ROR5) that mutate the operators according to the table below.
-<table>
-    <thead>
-        <tr>
-            <th>
-            Original operator
-            </th>
-            <th>
-            ROR_1
-            </th>
-            <th>
-            ROR_2
-            </th>
-            <th>
-            ROR_3
-            </th>
-            <th>
-            ROR_4
-            </th>
-            <th>
-            ROR_5
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>&lt;</td>
-            <td>&lt;=</td>
-            <td>&gt;</td>
-            <td>&gt;=</td>
-            <td>==</td>
-            <td>!=</td>
-        </tr>
-        <tr>
-            <td>&lt;=</td>
-            <td>&lt;</td>
-            <td>&gt;</td>
-            <td>&gt;=</td>
-            <td>==</td>
-            <td>!=</td>
-        </tr>
-        <tr>
-            <td>&gt;</td>
-            <td>&lt;</td>
-            <td>&lt;=</td>
-            <td>&gt;=</td>
-            <td>==</td>
-            <td>!=</td>
-        </tr>
-        <tr>
-            <td>&gt;=</td>
-            <td>&lt;</td>
-            <td>&lt;=</td>
-            <td>&gt;</td>
-            <td>==</td>
-            <td>!=</td>
-        </tr>
-        <tr>
-            <td>==</td>
-            <td>&lt;</td>
-            <td>&lt;=</td>
-            <td>&gt;</td>
-            <td>&gt;=</td>
-            <td>!=</td>
-        </tr>
-        <tr>
-            <td>!=</td>
-            <td>&lt;</td>
-            <td>&lt;=</td>
-            <td>&gt;</td>
-            <td>&gt;=</td>
-            <td>==</td>
-        </tr>
-    </tbody>
-</table>
+
+| Original operator | ROR1 | ROR2 | ROR3 | ROR4 | ROR5 |
+|-------------------|------|------|------|------|------|
+| &lt;              | &lt;=| &gt; | &gt;=| ==   | !=   |
+| &lt;=             | &lt; | &gt; | &gt;=| ==   | !=   |
+| &gt;              | &lt; | &lt;=| &gt; | ==   | !=   |
+| &gt;=             | &lt; | &lt;=| &gt; | ==   | !=   |
+| ==                | &lt; | &lt;=| &gt; | &gt;=| !=   |
+| !=                | &lt; | &lt;=| &gt; | &gt;=| ==   |
+{:.table}
 
 <a name="UOI" id="EXPERIMENTAL_UOI"></a>
 
 Unary Operator Insertion (UOI)
 -------------------------------------------------
 This mutator inserts a unary operator (increment or decrement) to a variable call. It affects local variables, parameters and array variables. It is composed of 4 sub-mutators, UOI1 to UOI4 that insert operators according to the table below.
-<table>
-    <thead>
-        <tr>
-            <th>
-            Variable
-            </th>
-            <th>
-            UOI1
-            </th>
-            <th>
-            UOI2
-            </th>
-            <th>
-            UOI3
-            </th>
-            <th>
-            UOI4
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>a</td>
-            <td>a++</td>
-            <td>a--</td>
-            <td>++a</td>
-            <td>--a</td>
-        </tr>
-    </tbody>
-</table>
+
+| Variable | UOI1 | UOI2 | UOI3 | UOI4 |
+|----------|------|------|------|------|
+| a        | a++  | a--  | ++a  | --a  |
+{:.table}
+
 
 <hr/>
 1. <a name="fn1" id="fn1"></a> Integer numbers and booleans are actually represented in the same way be the JVM,

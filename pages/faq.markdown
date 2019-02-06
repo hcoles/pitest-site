@@ -20,6 +20,7 @@ So PIT originally stood for Parallel Isolated Test. Now it stands for PIT.
 PIT requires Java 5 or above and either JUnit or TestNG to be on the classpath.
 
 JUnit 4.6 or above is supported (note JUnit 3 tests can be run using JUnit 4 so JUnit 3 tests are supported).
+JUnit 5 is not supported out of the box at this time, a plugin can be found here [here](https://github.com/pitest/pitest-junit5-plugin) 
 
 TestNG support in PIT is quite new. PIT is built and tested against TestNG 6.1.1, it may work with earlier and later versions but this has not yet been tested. 
 
@@ -33,7 +34,7 @@ to other mutation testing systems, but that can still mean that things will take
 
 You may be able to speed things up by
 
-* Using more threads. The optimum number will vary, but will generally be between 1 and the number of cpus on your machine.
+* Using more threads. The optimum number will vary, but will generally be between 1 and the number of CPUs on your machine.
 * Limit the number of mutation per class. This will give you a less complete picture however.
 * Use filters to target only those packages or classes that are currently of interest
 
@@ -60,7 +61,7 @@ of your source code in order to generate a human readable report.
 
 ## My tests normally run green but PIT says the suite isn't green
 
-Most commonly this is because either :-
+Most commonly this is because either :
 
 * PIT is picking up tests that are not included/are excluded in the normal test config
 * Some test rely on an environment variable or other property set in the test config, but not set in the pitest config
@@ -74,8 +75,7 @@ PIT is tested against the major mocking frameworks as part of its build.
 
 PIT is currently the only mutation testing system known to work with all of JMock, EasyMock, Mockito, PowerMock and JMockit.
 
-If your mocking framework of choice is not listed above the chances are still good that PIT will work with it. If it doesn't
-let us know and we'll look at getting that fixed.
+If your mocking framework of choice is not listed above the chances are still good that PIT will work with it. If it doesn't let us know and we'll look at getting that fixed.
 
 ## My code has really poor test coverage, will mutation testing take forever?
 
@@ -104,9 +104,8 @@ used only as part of a heuristic to optimise run order.
 
 Timeouts when running mutation tests are caused by one of two things
 
-1 A mutation that causes an infinite loop
-
-2 PIT thinking an infinite loop has occurred but being wrong
+* A mutation that causes an infinite loop
+* PIT thinking an infinite loop has occurred but being wrong
 
 In order to detect infinite loops PIT measures the normal execution time of each test
 without any mutations present. When the test is run in the presence of a mutation
@@ -119,7 +118,7 @@ Unfortunately the real world is more complex than this.
 Test times can vary due to the order in which the tests are run. The first test in a class may have
 a execution time much higher than the others as the JVM will need to load the classes
 required for that test. This can be particularly pronounced in code that uses XML binding
-frameworks such as jaxb where classloading may take several seconds.
+frameworks such as JAXB where classloading may take several seconds.
 
 When PIT runs the tests against a mutation the order of the tests will be different. Tests that
 previously took milliseconds may now take seconds as they now carry the overhead of classloading. 
@@ -136,7 +135,7 @@ Java 7 introduced stricter requirements for verifying stack frames, which caused
 earlier versions of PIT. It is believed that there were all resolved in 0.29.
 
 If you see a verify error, please raise a defect. The issue can be worked around
-by passing -XX:-UseSplitVerifier to the child jvm processes that PIT launches using the **jvmArgs** option. 
+by passing -XX:-UseSplitVerifier to the child JVM processes that PIT launches using the **jvmArgs** option. 
 
 ## How does PIT compare the mutation testing system X
 
@@ -151,6 +150,27 @@ a copy of the contents of the finally block for each possible exit point. PIT cr
 the copied blocks. Most test suites are only able to kill one of these mutations.
 
 As of 0.28 PIT contains experimental support for detecting inlined code that is now active by default.
+
+## Mutations in static initializers and enums 
+
+Static initializers and other code that is only run once per JVM (such as code in enum constructors) cause a bit of a problem with two of the strategies pitest uses to make mutation testing usable fast.
+
+### Coverage targeting
+
+Pitest will only run tests that execute the line of code where a mutation is placed. Unfortunately the only test to execute a static initializer will be the first test to run that causes that class to load.
+
+### Mutant insertion
+
+Pitest inserts mutants into a jvm by re-writing the class after it has loaded. This is orders of magnitude faster than starting a new jvm or creating a new classloader, but code in static initializer blocks is not re-run so the mutants have no effect.
+
+### Mitigation
+
+Pitest tries to avoid mutating static initializer code. It will not create mutants in
+
+* static initializers
+* private methods called only from static initializers
+
+You will however encounter other scenarios which this simple filtering will miss.
 
 ## Can I activate more mutators without relisting all the default ones?
 

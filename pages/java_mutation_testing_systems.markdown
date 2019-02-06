@@ -9,7 +9,7 @@ permalink: /java_mutation_testing_systems/
 ## Overview
 
 Several mutation testing systems for Java exist, this page in an attempt to objectively
-categorise and compare they way in which they are implemented and their relative merits.
+categorise and compare the way in which they are implemented and their relative merits.
 
 In most cases the information assembled below has been obtained from the web without any direct experience
 of the tools so is incomplete and potentially inaccurate. **Corrections, additions and clarifications are welcomed.**
@@ -26,7 +26,7 @@ It is the result of a collaboration between two universities, Korea Advanced Ins
 
 Source code is available on a limited basis to researchers in mutation analysis.
 
-According to the website :-
+According to the website :
 
 >"We offer µJava on an "as-is" basis as a service to the community. We welcome comments and feedback, but do not guarantee support in the form of question answering, bug fixing, or improvements (in other words, we don't have money for support, just good intentions)."
 
@@ -42,7 +42,7 @@ Jester was the first open source mutation system for Java, but does not appear t
 
 WebSite : [http://jester.sourceforge.net/](http://jester.sourceforge.net/)
 
-Simple Jester is a variant of the original Jester by the same author who describes it as easier to use, but slower <a name="fnref1" id="fnref1"></a> <a href="#fn1"><sup>1</sup></a>.
+Simple Jester is a variant of the original Jester by the same author who describes it as easier to use, but slower <sup id="fnref1">[1](#fn1)</sup>.
 
 It appears to no longer be actively developed or supported.
 
@@ -131,7 +131,7 @@ Of these libraries, BCEL is no longer actively developed or maintained.
 * Generally much faster
 * Generally easier to integrate into a build
 * Can potentially create mutants without access to source files
-* Same mutation operators can in theory work for other JVM languages <a name="fnref2" id="fnref2"></a> <a href="#fn2"><sup>2</sup></a>
+* Same mutation operators can in theory work for other JVM languages <sup id="fnref2">[2](#fn2)</sup>
 
 #### Cons
 
@@ -203,7 +203,7 @@ Optimisations may also be implemented to choose an optimal running order for the
 
 #### Cons
 
-* Some overhead required to measure coverage <a name="fnref3" id="fnref3"></a> <a href="#fn3"><sup>3</sup></a>.
+* Some overhead required to measure coverage <sup id="fnref3">[3](#fn3)</sup>.
 
 ## Mutant insertion
 
@@ -352,176 +352,27 @@ by other tools, eg XML, RDMS etc.
 
 ### Classification and details
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>System</th>
-            <th>Generation</th>
-            <th>Selection</th>
-            <th>Insertion</th>
-            <th>Detection</th>
-            <th>Output</th>
-            <th>SF</th>
-            <th>License</th>
-            <th>Mailing List</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><a href="#jester">Jester</a></td>
-            <td>Source</td>
-            <td>Naive?</td>
-            <td>Naive?</td>
-            <td>Naive?</td>
-            <td><strong>AS</strong></td>
-            <td>N</td>
-            <td>MIT</td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td><a href="#simple jester">Simple Jester</a></td>
-            <td>Source</td>
-            <td>Naive?</td>
-            <td>Naive?</td>
-            <td>Naive?</td>
-            <td><strong>AS</strong></td>
-            <td>N</td>
-            <td>MIT</td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td><a href="#jumble">Jumble</a></td>
-            <td>BCEL</td>
-            <td>Convention</td>
-            <td>NDClassloader</td>
-            <td><strong>EE Fine</strong></td>
-            <td>T</td>
-            <td>N</td>
-            <td>APCH2</td>
-            <td><strong>Y</strong><a name="fnref4" id="fnref4"></a> <a href="#fn4"><sup>4</sup></a>.</td>
-        </tr>
-        <tr>
-            <td><a href="#pit">PIT</a></td>
-            <td>ASM</td>
-            <td><strong>Coverage</strong></td>
-            <td>Instrument</td>
-            <td><strong>EE Fine</strong></td>
-            <td><strong>AS</strong></td>
-            <td><strong>Y</strong></td>
-            <td>APCH2</td>
-            <td><strong>Y</strong><a name="fnref5" id="fnref5"></a> <a href="#fn5"><sup>5</sup></a>.</td>
-        </tr>
-        <tr>
-            <td><a href="#&micro;Java">&micro;Java</a></td>
-            <td>Source?</td>
-            <td>Manual</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td><strong>AS</strong></td>
-            <td>N</td>
-            <td>?</td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td><a href="#javaLanche">javaLanche</a></td>
-            <td>ASM</td>
-            <td><strong>Coverage</strong></td>
-            <td>Schemata</td>
-            <td>EE Fine?</td>
-            <td>P</td>
-            <td><strong>Y</strong></td>
-            <td>LGPL</td>
-            <td>N</td>
-        </tr>
-    </tbody>
-</table>
-
+| System                          | Generation | Selection    | Insertion     | Detection   | Output | SF    | License | Mailing List                            |
+|---------------------------------|------------|--------------|---------------|-------------|--------|-------|---------|-----------------------------------------|
+| [Jester](#jester)               | Source     | Naive ?      | Naive ?       | Naive ?     | **AS** | N     | MIT     | N                                       |
+| [Simple Jester](#simple-jester) | Source     | Naive ?      | Naive ?       | Naive ?     | **AS** | N     | MIT     | N                                       |
+| [Jumble](#jumble)               | BCEL       | Convention   | NDClassloader | **EE Fine** | T      | N     | APCH2   | **Y** <sup id="fnref4">[4](#fn4)</sup>. |
+| [PIT](#pit)                     | ASM        | **Coverage** | Instrument    | **EE Fine** | **AS** | **Y** | APCH2   | **Y** <sup id="fnref5">[5](#fn5)</sup>. |
+| [µJava](#µjava)                 | Source ?   | Manual       | N/A           | N/A         | **AS** | N     | ?       | N                                       |
+| [javaLanche](#javalanche)       | ASM        | **Coverage** | Schemata      | EE Fine ?   | P      | **Y** | LGPL    | N                                       |
+{:.table}
 
 ### Java and Test framework support
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>System</th>
-            <th>1.4</th>
-            <th>1.5</th>
-            <th>1.6</th>
-            <th>1.7</th>
-            <th>1.8</th>
-            <th>JUnit3</th>
-            <th>JUnit4</th>
-            <th>TestNG</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><a href="#jester">Jester</a></td>
-            <td>N</td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td>N</td>
-            <td>N</td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td><a href="#simple jester">Simple Jester</a></td>
-            <td>N</td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td>N</td>
-            <td>N</td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td><a href="#jumble">Jumble</a></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td>?</td>
-            <td>?</td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td><a href="#pit">PIT</a></td>
-            <td>N</td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-        </tr>
-        <tr>
-            <td><a href="#&micro;Java">&micro;Java</a></td>
-            <td><strong>Y</strong></td>
-            <td>N</td>
-            <td>N</td>
-            <td>N</td>
-            <td>N</td>
-            <td>N</td>
-            <td>N</td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td><a href="#javaLanche">javaLanche</a></td>
-            <td>N</td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td>?</td>
-            <td>?</td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td>N</td>
-        </tr>
-    </tbody>
-</table>
+| System                          | 1.4 | 1.5 | 1.6 | 1.7 | 1.8 | JUnit3 | JUnit4 | TestNG |
+|---------------------------------|-----|-----|-----|-----|-----|--------|--------|--------|
+| [Jester](#jester)               | N   |**Y**|**Y**| N   | N   |**Y**   |**Y**   | N      |
+| [Simple Jester](#simple-jester) | N   |**Y**|**Y**| N   | N   |**Y**   |**Y**   | N      |
+| [Jumble](#jumble)               |**Y**|**Y**|**Y**| ?   | ?   |**Y**   |**Y**   | N      |
+| [PIT](#pit)                     | N   |**Y**|**Y**|**Y**|**Y**|**Y**   |**Y**   |**Y**   |
+| [µJava](#µjava)                 |**Y**| N   | N   | N   | N   | N      | N      | N      |
+| [javaLanche](#javalanche)       | N   |**Y**|**Y**| ?   | ?   |**Y**   |**Y**   | N      |
+{:.table}
 
 ### Tool integration
 
@@ -534,96 +385,15 @@ by other tools, eg XML, RDMS etc.
 *note that with the exception of PIT little information is available on the compatibility of the various mutation testing systems and
 mocking frameworks. Most mocking systems are implemented with dynamic proxies or custom class loaders, and will probably work across all the mutation testing sytems. The exceptions are Powermock and JMockit where issues might be encountered.*
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>System</th>
-            <th>Ant</th>
-            <th>Maven</th>
-            <th>Eclipse</th>
-            <th>Powermock</th>
-            <th>JMock</th>
-            <th>JMock2</th>
-            <th>Mockito</th>
-            <th>JMockit</th>
-            <th>EasyMock</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><a href="#jester">Jester</a></td>
-            <td>N</td>
-            <td>N</td>
-            <td>N</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-        </tr>
-        <tr>
-            <td><a href="#simple jester">Simple Jester</a></td>
-            <td>N</td>
-            <td>N</td>
-            <td>N</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-        </tr>
-        <tr>
-            <td><a href="#jumble">Jumble</a></td>
-            <td><strong>Y</strong></td>
-            <td>N</td>
-            <td><strong>Y</strong></td>
-            <td>?</td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td>N<a name="fnref6" id="fnref6"></a> <a href="#fn6"><sup>6</sup></a>.</td>
-            <td>?</td>
-        </tr>
-        <tr>
-            <td><a href="#pit">PIT</a></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td>3rd</td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-            <td><strong>Y</strong></td>
-        </tr>
-        <tr>
-            <td><a href="#&micro;Java">&micro;Java</a></td>
-            <td>N</td>
-            <td>N</td>
-            <td>3rd <a name="fnref7" id="fnref7"></a> <a href="#fn7"><sup>7</sup></a>.</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-        </tr>
-        <tr>
-            <td><a href="#javaLanche">javaLanche</a></td>
-            <td>N</td>
-            <td>N</td>
-            <td>N</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>N<a name="fnref8" id="fnref8"></a> <a href="#fn8"><sup>8</sup></a>.</td>
-            <td>! <a name="fnref9" id="fnref9"></a> <a href="#fn9"><sup>9</sup></a>.</td>
-        </tr>
-    </tbody>
-</table>
+| System                          | Ant | Maven | Eclipse                              | Powermock | JMock | JMock2 | Mockito | JMockit                             | EasyMock                           |
+|---------------------------------|-----|-------|--------------------------------------|-----------|-------|--------|---------|-------------------------------------|------------------------------------|
+| [Jester](#jester)               | N   | N     | N                                    | ?         | ?     | ?      | ?       | ?                                   | ?                                  |   
+| [Simple Jester](#simple-jester) | N   | N     | N                                    | ?         | ?     | ?      | ?       | ?                                   | ?                                  |
+| [Jumble](#jumble)               |**Y**| N     | **Y**                                | ?         | **Y** | **Y**  | **Y**   | N <sup id="fnref6">[6](#fn6)</sup>. | ?                                  |
+| [PIT](#pit)                     |**Y**|**Y**  | 3rd                                  | **Y**     | **Y** | **Y**  | **Y**   | **Y**                               | **Y**                              |
+| [µJava](#µjava)                 | N   | N     | 3rd <sup id="fnref7">[7](#fn7)</sup> | ?         | ?     | ?      | ?       | ?                                   | ?                                  |
+| [javaLanche](#javalanche)       | N   | N     | ?                                    | ?         | ?     | ?      | ?       | N <sup id="fnref8">[8](#fn8)</sup>. | ! <sup id="fnref9">[9](#fn9)</sup>.|
+{:.table}
 
 # Conclusions
 

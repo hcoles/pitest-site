@@ -28,8 +28,7 @@ Add the plugin to build/plugins in your pom.xml
 
 **That's it, you're up and running.**
 
-By default pitest will mutate all code in your project. You can limit which code is mutated and which tests are run using `targetClasses` and `targetTests`.
-
+By default pitest will mutate all code in your project. You can limit which code is mutated and which tests are run using `targetClasses` and `targetTests`. Be sure to read the [globs](#globs) section if you want to use exact class names.
 ```xml
 <plugin>
     <groupId>org.pitest</groupId>
@@ -46,7 +45,7 @@ By default pitest will mutate all code in your project. You can limit which code
 </plugin>
 ```
 
-If no `targetClasses` are provided in versions before 1.11.12-SNAPSHOT pitest assumes that your classes live in a package matching your projects group id. In versions after 1.11.12 pitest will scan your project to determine which classes are present.
+If no `targetClasses` are provided in versions before 1.2.0, pitest assumes that your classes live in a package matching your projects group id. In 1.2.0 and later verions pitest will scan your project to determine which classes are present.
 
 PIT provides two goals
 
@@ -82,6 +81,9 @@ To use this goal the maven [scm plugin](http://maven.apache.org/scm/maven-scm-pl
 
 This goal does not currently guarantee to analyse changes made to non public classes that are not inner classes.
 
+## <a name="globs" id="globs"></a> Globs
+
+Globs are pretty simple and will work as expected as long as you match packages (like `com.your.package.root.want.to.mutate*`). But if you match exact class names, inner classes won't be included. If you need them you'll have to either add a '*' at the end of the glob to also match them (`com.package.Class*` instead of `com.package.Class`) or to add another rule for it (`com.package.Class.*` in addition to `com.package.Class`).
 
 ## Other options
 
@@ -95,7 +97,7 @@ Output directory for the reports
 
 ### targetClasses
 
-The classes to be mutated. This is expressed as a list of globs.
+The classes to be mutated. This is expressed as a list of [globs](#globs).
 
 For example
 
@@ -117,7 +119,7 @@ or
 
 If no targetClasses are supplied pitest will automatically determine what to mutate. 
 
-Before 1.11.12 pitest assumed that all code lives in a package matching the maven group id. After 1.11.12 the classes to mutate are determined by scanning the maven output directory.
+Before 1.2.0 pitest assumed that all code lives in a package matching the maven group id. In 1.2.0 and later versions, the classes to mutate are determined by scanning the maven output directory.
 
 ### targetTests
 
@@ -169,13 +171,13 @@ globs will be excluded from mutation.
 
 ### excludedClasses
 
-List of globs to match against class names. Matching classes will be excluded from mutation. 
+List of [globs](#globs) to match against class names. Matching classes will be excluded from mutation. 
 
 Prior to 1.3.0 matching test classes were also not run. From 1.3.0 onwards tests are excluded with the excludedTests parameter
 
 ### excludedTestClasses
 
-List of globs to match against test class names. Matching tests will not be run (note if a suite includes an
+List of [globs](#globs) to match against test class names. Matching tests will not be run (note if a suite includes an
 excluded class, then it will "leak" back in).
 
 ### avoidCallsTo

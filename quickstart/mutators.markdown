@@ -23,35 +23,35 @@ The following table list available mutators and wheter or not they are part of a
 
 | Mutators                                                                | "DEFAULT" group| "NEW_DEFAULTS" group | "STRONGER" group | "ALL" group|
 |-------------------------------------------------------------------------|:--------------:|:--------------------:|:----------------:|:----------:|
-| [Conditionals Boundary Mutator](#CONDITIONALS_BOUNDARY)                 | yes            | yes                  | yes              | yes        |
-| [Increments Mutator](#INCREMENTS)                                       | yes            | yes                  | yes              | yes        |
-| [Invert Negatives Mutator](#INVERT_NEGS)                                | yes            | yes                  | yes              | yes        |
-| [Math Mutator](#MATH)                                                   | yes            | yes                  | yes              | yes        |
-| [Negate Conditionals Mutator](#NEGATE_CONDITIONALS)                     | yes            | yes                  | yes              | yes        |
-| [Return Values Mutator](#RETURN_VALS)                                   | yes            |                      | yes              | yes        |
-| [Void Method Calls Mutator](#VOID_METHOD_CALLS)                         | yes            | yes                  | yes              | yes        |
-| [Constructor Calls Mutator](#CONSTRUCTOR_CALLS)                         |                |                      |                  | yes        |
-| [Empty returns Mutator](#EMPTY_RETURNS)                                 |                |                      |                  | yes        |
-| [False Returns Mutator](#FALSE_RETURNS)                                 |                |                      |                  | yes        |
-| [Inline Constant Mutator](#INLINE_CONSTS)                               |                |                      |                  | yes        |
-| [Null returns Mutator](#NULL_RETURNS)                                   |                |                      |                  | yes        |
-| [Non Void Method Calls Mutator](#NON_VOID_METHOD_CALLS)                 |                |                      |                  | yes        |
-| [Primitive returns Mutator](#PRIMITIVE_RETURNS)                         |                |                      |                  | yes        |
-| [Remove Conditionals Mutator](#REMOVE_CONDITIONALS)                     |                |                      |                  | yes        |
+| [Conditionals Boundary](#CONDITIONALS_BOUNDARY)                         | yes            | yes                  | yes              | yes        |
+| [Increments](#INCREMENTS)                                               | yes            | yes                  | yes              | yes        |
+| [Invert Negatives](#INVERT_NEGS)                                        | yes            | yes                  | yes              | yes        |
+| [Math](#MATH)                                                           | yes            | yes                  | yes              | yes        |
+| [Negate Conditionals](#NEGATE_CONDITIONALS)                             | yes            | yes                  | yes              | yes        |
+| [Return Values](#RETURN_VALS)                                           | yes            |                      | yes              | yes        |
+| [Void Method Calls](#VOID_METHOD_CALLS)                                 | yes            | yes                  | yes              | yes        |
+| [Constructor Calls](#CONSTRUCTOR_CALLS)                                 |                |                      |                  | yes        |
+| [Empty returns](#EMPTY_RETURNS)                                         |                |                      |                  | yes        |
+| [False Returns](#FALSE_RETURNS)                                         |                |                      |                  | yes        |
+| [Inline Constant](#INLINE_CONSTS)                                       |                |                      |                  | yes        |
+| [Null returns](#NULL_RETURNS)                                           |                |                      |                  | yes        |
+| [Non Void Method Calls](#NON_VOID_METHOD_CALLS)                         |                |                      |                  | yes        |
+| [Primitive returns](#PRIMITIVE_RETURNS)                                 |                |                      |                  | yes        |
+| [Remove Conditionals](#REMOVE_CONDITIONALS)                             |                |                      |                  | yes        |
 | [Remove Increments](#REMOVE_INCREMENTS)                                 |                |                      |                  | yes        |
-| [True returns Mutator](#TRUE_RETURNS)                                   |                |                      |                  | yes        |
+| [True returns](#TRUE_RETURNS)                                           |                |                      |                  | yes        |
 | [Experimental Argument Propagation](#EXPERIMENTAL_ARGUMENT_PROPAGATION) |                |                      |                  | yes        |
 | [Experimental Big Integer](#EXPERIMENTAL_BIG_INTEGER)                   |                |                      |                  | yes        |
-| [Experimental Member Variable Mutator](#EXPERIMENTAL_MEMBER_VARIABLE)   |                |                      |                  | yes        |
+| [Experimental Member Variable](#EXPERIMENTAL_MEMBER_VARIABLE)           |                |                      |                  | yes        |
 | [Experimental Naked Receiver](#EXPERIMENTAL_NAKED_RECEIVER)             |                |                      |                  | yes        |
-| [Experimental Switch Mutator](#EXPERIMENTAL_SWITCH)                     |                |                      | yes              | yes        |
-| [Negation Mutator](#EXPERIMENTAL_ABS)                                   |                |                      |                  | yes        |
-| [Arithmetic Operator Replacement Mutator](#EXPERIMENTAL_AOR)            |                |                      |                  | yes        |
-| [Arithmetic Operator Deletion Mutator](#EXPERIMENTAL_AOD)               |                |                      |                  | yes        |
-| [Constant Replacement Mutator](#EXPERIMENTAL_CRCR)                      |                |                      |                  | yes        |
-| [Bitwise Operator Mutator](#EXPERIMENTAL_OBBN)                          |                |                      |                  | yes        |
-| [Relational Operator Replacement Mutator](#EXPERIMENTAL_ROR)            |                |                      |                  | yes        |
-| [Unary Operator Insertion Mutator](#EXPERIMENTAL_UOI)                   |                |                      |                  | yes        |
+| [Experimental Switch](#EXPERIMENTAL_SWITCH)                             |                |                      | yes              | yes        |
+| [Negation](#EXPERIMENTAL_ABS)                                           |                |                      |                  | yes        |
+| [Arithmetic Operator Replacement](#EXPERIMENTAL_AOR)                    |                |                      |                  | yes        |
+| [Arithmetic Operator Deletion](#EXPERIMENTAL_AOD)                       |                |                      |                  | yes        |
+| [Constant Replacement](#EXPERIMENTAL_CRCR)                              |                |                      |                  | yes        |
+| [Bitwise Operator](#EXPERIMENTAL_OBBN)                                  |                |                      |                  | yes        |
+| [Relational Operator Replacement](#EXPERIMENTAL_ROR)                    |                |                      |                  | yes        |
+| [Unary Operator Insertion](#EXPERIMENTAL_UOI)                           |                |                      |                  | yes        |
 {:.table }      
 
 See the current [code](https://github.com/hcoles/pitest/blob/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor/config/Mutator.java) for current list (latest development version).

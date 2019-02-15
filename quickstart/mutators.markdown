@@ -21,38 +21,38 @@ The operators are largely designed to be **stable** (i.e not be too easy to dete
 
 The following table list available mutators and wheter or not they are part of a group :
 
-| Mutators                                                                | "DEFAULT" group| "NEW_DEFAULTS" group | "STRONGER" group | "ALL" group|
-|-------------------------------------------------------------------------|:--------------:|:--------------------:|:----------------:|:----------:|
-| [Conditionals Boundary](#CONDITIONALS_BOUNDARY)                         | yes            | yes                  | yes              | yes        |
-| [Increments](#INCREMENTS)                                               | yes            | yes                  | yes              | yes        |
-| [Invert Negatives](#INVERT_NEGS)                                        | yes            | yes                  | yes              | yes        |
-| [Math](#MATH)                                                           | yes            | yes                  | yes              | yes        |
-| [Negate Conditionals](#NEGATE_CONDITIONALS)                             | yes            | yes                  | yes              | yes        |
-| [Return Values](#RETURN_VALS)                                           | yes            |                      | yes              | yes        |
-| [Void Method Calls](#VOID_METHOD_CALLS)                                 | yes            | yes                  | yes              | yes        |
-| [Constructor Calls](#CONSTRUCTOR_CALLS)                                 |                |                      |                  | yes        |
-| [Empty returns](#EMPTY_RETURNS)                                         |                |                      |                  | yes        |
-| [False Returns](#FALSE_RETURNS)                                         |                |                      |                  | yes        |
-| [Inline Constant](#INLINE_CONSTS)                                       |                |                      |                  | yes        |
-| [Null returns](#NULL_RETURNS)                                           |                |                      |                  | yes        |
-| [Non Void Method Calls](#NON_VOID_METHOD_CALLS)                         |                |                      |                  | yes        |
-| [Primitive returns](#PRIMITIVE_RETURNS)                                 |                |                      |                  | yes        |
-| [Remove Conditionals](#REMOVE_CONDITIONALS)                             |                |                      |                  | yes        |
-| [Remove Increments](#REMOVE_INCREMENTS)                                 |                |                      |                  | yes        |
-| [True returns](#TRUE_RETURNS)                                           |                |                      |                  | yes        |
-| [Experimental Argument Propagation](#EXPERIMENTAL_ARGUMENT_PROPAGATION) |                |                      |                  | yes        |
-| [Experimental Big Integer](#EXPERIMENTAL_BIG_INTEGER)                   |                |                      |                  | yes        |
-| [Experimental Member Variable](#EXPERIMENTAL_MEMBER_VARIABLE)           |                |                      |                  | yes        |
-| [Experimental Naked Receiver](#EXPERIMENTAL_NAKED_RECEIVER)             |                |                      |                  | yes        |
-| [Experimental Switch](#EXPERIMENTAL_SWITCH)                             |                |                      | yes              | yes        |
-| [Negation](#EXPERIMENTAL_ABS)                                           |                |                      |                  | yes        |
-| [Arithmetic Operator Replacement](#EXPERIMENTAL_AOR)                    |                |                      |                  | yes        |
-| [Arithmetic Operator Deletion](#EXPERIMENTAL_AOD)                       |                |                      |                  | yes        |
-| [Constant Replacement](#EXPERIMENTAL_CRCR)                              |                |                      |                  | yes        |
-| [Bitwise Operator](#EXPERIMENTAL_OBBN)                                  |                |                      |                  | yes        |
-| [Relational Operator Replacement](#EXPERIMENTAL_ROR)                    |                |                      |                  | yes        |
-| [Unary Operator Insertion](#EXPERIMENTAL_UOI)                           |                |                      |                  | yes        |
-{:.table }      
+| Mutators                                                                | "DEFAULT" group| "NEW_DEFAULTS" group | "STRONGER" group                | "ALL" group|
+|-------------------------------------------------------------------------|:--------------:|:--------------------:|:-------------------------------:|:----------:|
+| [Conditionals Boundary](#CONDITIONALS_BOUNDARY)                         | yes            | yes                  | yes                             | yes        |
+| [Increments](#INCREMENTS)                                               | yes            | yes                  | yes                             | yes        |
+| [Invert Negatives](#INVERT_NEGS)                                        | yes            | yes                  | yes                             | yes        |
+| [Math](#MATH)                                                           | yes            | yes                  | yes                             | yes        |
+| [Negate Conditionals](#NEGATE_CONDITIONALS)                             | yes            | yes                  | yes                             | yes        |
+| [Return Values](#RETURN_VALS)                                           | yes            |                      | yes                             | yes        |
+| [Void Method Calls](#VOID_METHOD_CALLS)                                 | yes            | yes                  | yes                             | yes        |
+| [Constructor Calls](#CONSTRUCTOR_CALLS)                                 |                |                      |                                 | yes        |
+| [Empty returns](#EMPTY_RETURNS)                                         |                |                      |                                 | yes        |
+| [False Returns](#FALSE_RETURNS)                                         |                |                      |                                 | yes        |
+| [Inline Constant](#INLINE_CONSTS)                                       |                |                      |                                 | yes        |
+| [Null returns](#NULL_RETURNS)                                           |                |                      |                                 | yes        |
+| [Non Void Method Calls](#NON_VOID_METHOD_CALLS)                         |                |                      |                                 | yes        |
+| [Primitive returns](#PRIMITIVE_RETURNS)                                 |                |                      |                                 | yes        |
+| [Remove Conditionals](#REMOVE_CONDITIONALS)                             |                |                      | [EQ_ELSE](#rm_cdt_eq_else) case | yes        |
+| [Remove Increments](#REMOVE_INCREMENTS)                                 |                |                      |                                 | yes        |
+| [True returns](#TRUE_RETURNS)                                           |                |                      |                                 | yes        |
+| [Experimental Argument Propagation](#EXPERIMENTAL_ARGUMENT_PROPAGATION) |                |                      |                                 | yes        |
+| [Experimental Big Integer](#EXPERIMENTAL_BIG_INTEGER)                   |                |                      |                                 | yes        |
+| [Experimental Member Variable](#EXPERIMENTAL_MEMBER_VARIABLE)           |                |                      |                                 | yes        |
+| [Experimental Naked Receiver](#EXPERIMENTAL_NAKED_RECEIVER)             |                |                      |                                 | yes        |
+| [Experimental Switch](#EXPERIMENTAL_SWITCH)                             |                |                      | yes                             | yes        |
+| [Negation](#EXPERIMENTAL_ABS)                                           |                |                      |                                 | yes        |
+| [Arithmetic Operator Replacement](#EXPERIMENTAL_AOR)                    |                |                      |                                 | yes        |
+| [Arithmetic Operator Deletion](#EXPERIMENTAL_AOD)                       |                |                      |                                 | yes        |
+| [Constant Replacement](#EXPERIMENTAL_CRCR)                              |                |                      |                                 | yes        |
+| [Bitwise Operator](#EXPERIMENTAL_OBBN)                                  |                |                      |                                 | yes        |
+| [Relational Operator Replacement](#EXPERIMENTAL_ROR)                    |                |                      |                                 | yes        |
+| [Unary Operator Insertion](#EXPERIMENTAL_UOI)                           |                |                      |                                 | yes        |
+{:.table }    
 
 See the current [code](https://github.com/hcoles/pitest/blob/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor/config/Mutator.java) for current list (latest development version).
 
@@ -650,10 +650,9 @@ if (false) {
 
 Specialisations also exist that will mutate the bytecode instructions for order checks (eg <=, >).
 
-The available specialisations are
-
+The available specialisations are:
 * REMOVE_CONDITIONALS_EQ_IF
-* REMOVE_CONDITIONALS_EQ_ELSE
+* <a name="rm_cdt_eq_else" id="rm_cdt_eq_else"> REMOVE_CONDITIONALS_EQ_ELSE
 * REMOVE_CONDITIONALS_ORD_IF
 * REMOVE_CONDITIONALS_ORD_ELSE
 

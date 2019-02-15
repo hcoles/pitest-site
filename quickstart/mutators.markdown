@@ -17,11 +17,6 @@ The operators are largely designed to be **stable** (i.e not be too easy to dete
 
 # Available mutators
 
-We'll briefly describe the available mutators in the following sections. See the [test cases](#TEST_CASES) for
-more detailed examples.
-
-Here is the list of available mutators:
-
 (*activated by default*)
 - [Conditionals Boundary Mutator](#CONDITIONALS_BOUNDARY)
 - [Increments Mutator](#INCREMENTS)

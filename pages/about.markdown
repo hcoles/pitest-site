@@ -15,7 +15,7 @@ to the google group where they'll getter a better/faster response.
 
 Elsewhere on the web you can find me at
 
-* [twitter](https://twitter.com/0hjc "twitter profile")
+* [twitter](https://twitter.com/_pitest "twitter profile")
 * [github](https://github.com/hcoles "github profile")
 * [stackoverflow](http://stackoverflow.com/users/640224/henry "stackoverflow profile")
 * [linkedin](http://www.linkedin.com/pub/henry-coles/3/ab9/474 "linkedin profile")

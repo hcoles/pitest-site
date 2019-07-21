@@ -24,7 +24,7 @@ WebSite : [http://cs.gmu.edu/offutt/mujava/](http://cs.gmu.edu/~offutt/mujava/)
  
 It is the result of a collaboration between two universities, Korea Advanced Institute of Science and Technology (KAIST) in S. Korea and George Mason University in the USA. 
 
-Source code is available on a limited basis to researchers in mutation analysis.
+As of 2015, the source code has been made available at https://cs.gmu.edu/~offutt/mujava/
 
 According to the website :
 

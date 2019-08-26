@@ -181,7 +181,7 @@ List of classpaths which should be considered to contain mutable code. If your b
 separate output directories for tests and production classes this parameter should be set to your code output directory in order
 to avoid mutating test helper classes etc.
 
-If no mutableCodePath is supplied PIt will default to considering anything not defined within a jar or zip file as being a
+If no mutableCodePath is supplied PIT will default to considering anything not defined within a jar or zip file as being a
 candidate for mutation.
 
 PIT will always attempt not to mutate test classes even if they are defined on a mutable path.
@@ -229,7 +229,7 @@ This sort of pattern might not be common with integer addition, but things like 
 
 ### \--timestampedReports 
 
-By default PIT will create a date and time stamped folder for its output each it is run. This can can make automation difficult, so the behaviour can be suppressed by passing --timestampedReports=false.
+By default PIT will create a date and time stamped folder for its output each time it is run. This can can make automation difficult, so the behaviour can be suppressed by passing `--timestampedReports=false`.
 
 ### \--mutationThreshold
 
@@ -252,7 +252,7 @@ Path to write history information for incremental analysis. May be the same as h
 
 ## Examples
 
-### Mutate all classes in package example.foo (and sub pacakges) in two threads potentially using any test on class path but do not mutate hashCode or equals methods
+### Mutate all classes in package example.foo (and sub packages) in two threads potentially using any test on class path but do not mutate hashCode or equals methods
 
 ```
 java -cp <your classpath> \

@@ -56,7 +56,7 @@ Interceptors should give an indication of the type of operation they will perfor
 
 The declared type of interceptor is used only to determine the order in which they are run. 
 
-Interceptor also declare a feature that they provide - this allows interceptors to be enabled and disabled and passed parameters using pitest's simple featute language.
+Interceptor also declare a feature that they provide - this allows interceptors to be enabled and disabled and passed parameters using pitest's simple feature language.
 
 eg.
 

@@ -39,7 +39,7 @@ classpath string for you, it may however cause problems if you use plugins that 
 
 Additional classPath elements can be supplied as a comma separated list, and the default use of the launch classpath suppressed with a flag.
 
-When run a folder containing html mutation reports will be written the supplied reportDir path.
+When run a folder containing html mutation reports will be written in the supplied reportDir path.
 
 ## Configuration
 
@@ -72,8 +72,8 @@ com.mycompany.package.*, com.mycompany.packageB.Foo, com.partner.*
 A comma separated list of globs can be supplied to this parameter to limit the tests available to be run. If this parameter is not supplied
 then any test fixture that matched targetClasses may be used, it is however recommended that this parameter is always explicitly set.
 
-This parameter can be used to point PIT to a top level suite or suites. Custom suites such as [ClassPathSuite](http://johanneslink.net/projects/cpsuite.jsp)
-ClassPathSuite are supported. Tests found via these suites can also be limited by the distance filter (see below).
+This parameter can be used to point PIT to a top level suite or suites. Custom suites such as [ClassPathSuite](https://github.com/takari/takari-cpsuite)
+are supported. Tests found via these suites can also be limited by the distance filter (see below).
 
 ### \--dependencyDistance
 

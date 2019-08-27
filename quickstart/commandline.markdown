@@ -126,6 +126,8 @@ packages as follows
 * org.slf4j
 * org.apache.commons.logging
 
+If the feature `FLOGCALL` is disabled, this parameter is ignored and logging calls are also mutated.
+
 ### \--verbose
 
 Output verbose logging. Defaults to off/false.

@@ -82,8 +82,8 @@ if ( i > 1 ) {
 
 A common example are mutations to code related to logging or debug. Most teams are not interested 
 in testing these. PIT avoids generating this type of equivalent mutation by not generating mutations
-for lines that contain a call to common logging frameworks (this list of frameworks is configurable, so
-mutation of logging statements can be enabled by configuring a list containing only a non-existent class).
+for lines that contain a call to common logging frameworks (this list of frameworks is configurable,
+to enable mutation of logging statements disable the feature `FLOGCALL`).
       
 ## Running the tests
 

@@ -204,6 +204,7 @@ So, the configuration section must look like:
 </avoidCallsTo>
 ```
 
+If the feature `FLOGCALL` is disabled, this parameter is ignored and logging calls are also mutated.
 
 ### verbose
 

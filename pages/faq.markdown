@@ -212,7 +212,9 @@ henry@pitest.org
 
 ## Could I accidentally release mutated code if I use PIT?
 
-No. The mutations that PIT generates are held in memory and never written to disk. 
+No. The mutations that PIT generates are held in memory and never written to disk,
+except if explicitly enabled using the `EXPORT` feature. But even then they are
+only dumped inside the report directory and should not be released accidentally.
 
 ## Where are snapshot releases uploaded to?
 

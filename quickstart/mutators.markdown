@@ -31,15 +31,15 @@ The following table list available mutators and wheter or not they are part of a
 | [Return Values](#RETURN_VALS)                                           | yes            |                      | yes                             | yes        |
 | [Void Method Calls](#VOID_METHOD_CALLS)                                 | yes            | yes                  | yes                             | yes        |
 | [Constructor Calls](#CONSTRUCTOR_CALLS)                                 |                |                      |                                 | yes        |
-| [Empty returns](#EMPTY_RETURNS)                                         |                |                      |                                 | yes        |
-| [False Returns](#FALSE_RETURNS)                                         |                |                      |                                 | yes        |
+| [Empty returns](#EMPTY_RETURNS)                                         |                | yes                  |                                 | yes        |
+| [False Returns](#FALSE_RETURNS)                                         |                | yes                  |                                 | yes        |
 | [Inline Constant](#INLINE_CONSTS)                                       |                |                      |                                 | yes        |
-| [Null returns](#NULL_RETURNS)                                           |                |                      |                                 | yes        |
+| [Null returns](#NULL_RETURNS)                                           |                | yes                  |                                 | yes        |
 | [Non Void Method Calls](#NON_VOID_METHOD_CALLS)                         |                |                      |                                 | yes        |
-| [Primitive returns](#PRIMITIVE_RETURNS)                                 |                |                      |                                 | yes        |
+| [Primitive returns](#PRIMITIVE_RETURNS)                                 |                | yes                  |                                 | yes        |
 | [Remove Conditionals](#REMOVE_CONDITIONALS)                             |                |                      | [EQ_ELSE](#rm_cdt_eq_else) case | yes        |
 | [Remove Increments](#REMOVE_INCREMENTS)                                 |                |                      |                                 | yes        |
-| [True returns](#TRUE_RETURNS)                                           |                |                      |                                 | yes        |
+| [True returns](#TRUE_RETURNS)                                           |                | yes                  |                                 | yes        |
 | [Experimental Argument Propagation](#EXPERIMENTAL_ARGUMENT_PROPAGATION) |                |                      |                                 | yes        |
 | [Experimental Big Integer](#EXPERIMENTAL_BIG_INTEGER)                   |                |                      |                                 | yes        |
 | [Experimental Member Variable](#EXPERIMENTAL_MEMBER_VARIABLE)           |                |                      |                                 | yes        |

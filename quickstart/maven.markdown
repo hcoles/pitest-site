@@ -221,7 +221,7 @@ Defaults to 1.25
 Constant amount of additional time to allow a test to run for (after the application of the timeoutFactor) before
 considering it to be stuck in an infinite loop.
 
-Defaults to 3000
+Defaults to 4000
 
 ### maxMutationsPerClass
 

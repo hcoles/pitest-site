@@ -18,7 +18,6 @@ permalink: /links/
 
 * [Testing like it's 1971 at Lean Agile Scotland (28 mins)](https://vimeo.com/145201725)
 * [Mutation testing at VirtualJUG (103 mins)](https://www.youtube.com/watch?v=nf2xpqcZouY)
-* [Me talking mutation testing (32 mins)](http://vimeo.com/89083982)
 * [Gleb Smirnov at GeeCON (58 mins)](http://vimeo.com/99550776) 
 * [Nicolas Fränkel at JavaZone (10 mins)](http://vimeo.com/105758362)
 * [Alexandre Victoor on pitest and sonar (18 mins in French)](https://www.youtube.com/watch?v=ck2dIrrVTWs)

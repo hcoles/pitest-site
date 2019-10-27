@@ -877,7 +877,7 @@ This mutator replaces a relational operator with another one. The mutator is com
 
 Unary Operator Insertion (UOI)
 -------------------------------------------------
-This mutator inserts a unary operator (increment or decrement) to a variable call. It affects local variables, parameters and array variables. It is composed of 4 sub-mutators, UOI1 to UOI4 that insert operators according to the table below.
+This mutator inserts a unary operator (increment or decrement) to a variable call. It affects local variables, array variables, fields, and parameters. It is composed of 4 sub-mutators, UOI1 to UOI4 that insert operators according to the table below.
 
 | Variable | UOI1 | UOI2 | UOI3 | UOI4 |
 |----------|------|------|------|------|

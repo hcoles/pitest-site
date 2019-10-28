@@ -19,9 +19,9 @@ The operators are largely designed to be **stable** (i.e not be too easy to dete
 
 # Available mutators and groups
 
-The following table list available mutators and wheter or not they are part of a group :
+The following table list available mutators and whether or not they are part of a group :
 
-| Mutators                                                                | "DEFAULT" group| "NEW_DEFAULTS" group | "STRONGER" group                | "ALL" group|
+| Mutators                                                                | "DEFAULTS" group| "NEW_DEFAULTS" group | "STRONGER" group                | "ALL" group|
 |-------------------------------------------------------------------------|:--------------:|:--------------------:|:-------------------------------:|:----------:|
 | [Conditionals Boundary](#CONDITIONALS_BOUNDARY)                         | yes            | yes                  | yes                             | yes        |
 | [Increments](#INCREMENTS)                                               | yes            | yes                  | yes                             | yes        |

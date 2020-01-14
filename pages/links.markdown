@@ -23,6 +23,7 @@ permalink: /links/
 * [Alexandre Victoor on pitest and sonar (18 mins in French)](https://www.youtube.com/watch?v=ck2dIrrVTWs)
 * Marcin Zajączkowski at Boiling Frogs [(slides in English)](https://speakerdeck.com/szpak/mutation-testing-how-good-your-tests-really-are) [(video in Polish - 60 mins)](https://www.youtube.com/watch?v=lhvDp0_2MI4)
 * [Sébastien Laoût for Ubik Ingénierie at GDG Lille (slides in French - with presenter comments)](http://slaout.linux62.org/intestption)
+* [German Pecha Kucha 'Mit Mutationstests die Tests testen' - 7 mins](https://www.youtube.com/watch?v=Qz-0wQT3_wY)
 
 ## Books and articles about mutation testing and PIT
 
@@ -32,6 +33,6 @@ permalink: /links/
 * The *Overload* 108 article is based on a presentation Filip van Laenen gave at OOP 2012 in Munich. The slides from that presentation can be viewed at SlideShare. [Mutation Testing](http://www.slideshare.net/filipvanlaenen/mutation-testing-11298526)
 * [An introduction to Mutation Testing](https://pedrorijo.com/blog/intro-mutation/), by Pedro Rijo, which contains the problem that Mutation Testing tries to solve, the presentation of the basic concepts, and a quick section on Extreme Mutation. Slides for the talk based on the article available at [speakerdeck](https://speakerdeck.com/pedrorijo91/mutation-testing-pixels-camp-2019).
 * PIT gets a mention in Tomek Kaczanowski's book [Practical Unit Testing with TestNG and Mockito](http://www.amazon.com/gp/product/839348930X).
-
+* German article about mutation testing with PIT [Mutationstests mit PIT in Java](https://m.heise.de/developer/artikel/Mutationstests-mit-PIT-in-Java-3888683.html)
 
 <br/>

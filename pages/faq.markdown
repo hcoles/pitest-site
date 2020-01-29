@@ -220,10 +220,6 @@ only dumped inside the report directory and should not be released accidentally.
 
 [https://oss.sonatype.org/content/repositories/snapshots/org/pitest/](https://oss.sonatype.org/content/repositories/snapshots/org/pitest/)
 
-## Does PIT work with Sonar?
-
-Alexandre Victoor maintains a Sonar plugin. [PIT Sonar plugin](http://docs.codehaus.org/display/SONAR/Pitest)
-
 ## How do I use PIT with Gradle?
 
 See [PIT Gradle plugin](http://gradle-pitest-plugin.solidsoft.info/)

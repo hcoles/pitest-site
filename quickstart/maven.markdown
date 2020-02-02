@@ -22,7 +22,7 @@ Add the plugin to build/plugins in your pom.xml
 <plugin>
     <groupId>org.pitest</groupId>
     <artifactId>pitest-maven</artifactId>
-    <version>LATEST</version>
+    <version>1.4.11</version>
  </plugin>
 ```
 

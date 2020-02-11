@@ -31,6 +31,6 @@ permalink: /links/
 * The *Overload* 108 article is based on a presentation Filip van Laenen gave at OOP 2012 in Munich. The slides from that presentation can be viewed at SlideShare. [Mutation Testing](http://www.slideshare.net/filipvanlaenen/mutation-testing-11298526)
 * [An introduction to Mutation Testing](https://pedrorijo.com/blog/intro-mutation/), by Pedro Rijo, which contains the problem that Mutation Testing tries to solve, the presentation of the basic concepts, and a quick section on Extreme Mutation. Slides for the talk based on the article available at [speakerdeck](https://speakerdeck.com/pedrorijo91/mutation-testing-pixels-camp-2019).
 * PIT gets a mention in Tomek Kaczanowski's book [Practical Unit Testing with TestNG and Mockito](http://www.amazon.com/gp/product/839348930X).
-
+* State-of-the-art mutation-based automated program repair system PraPR ([ISSTA'19](https://ali-ghanbari.github.io/publications/issta19.pdf) and [ASE'19](https://ali-ghanbari.github.io/publications/ase19-demo-9.pdf)), by Ali Ghanbari and Lingming Zhang, is based on PIT ([usage](https://github.com/prapr/prapr), [source code](https://github.com/ali-ghanbari/prapr-sc), [demo video](https://www.youtube.com/watch?v=A4EBfkdwRFg)).
 
 <br/>

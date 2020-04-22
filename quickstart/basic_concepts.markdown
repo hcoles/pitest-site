@@ -51,7 +51,7 @@ By applying the mutation operators PIT will generate a number (potentially a ver
 **mutants**. These are Java classes which contain a mutation (or fault) which should make them behave differently from
 the unmutated class.
 
-PIT will then run your tests using this mutant instead of the umutated class. An effective set of tests should
+PIT will then run your tests using this mutant instead of the unmutated class. An effective set of tests should
 fail in the presence of the mutant.
 
 ## Equivalent Mutations

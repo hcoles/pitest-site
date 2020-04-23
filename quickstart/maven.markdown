@@ -238,7 +238,7 @@ For example when running on OpenJDK 7 the it is sometimes necessary to disable t
 
 ```xml
 <jvmArgs>
-    <value>-XX:-UseSplitVerifier</value>
+    <jvmArg>-XX:-UseSplitVerifier</jvmArg>
 </jvmArgs>
 ```
 

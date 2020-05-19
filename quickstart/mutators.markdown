@@ -21,37 +21,37 @@ The operators are largely designed to be **stable** (i.e not be too easy to dete
 
 The following table list available mutators and whether or not they are part of a group :
 
-| Mutators                                                                | "DEFAULTS" group| "NEW_DEFAULTS" group | "STRONGER" group                | "ALL" group|
-|-------------------------------------------------------------------------|:--------------:|:--------------------:|:-------------------------------:|:----------:|
-| [Conditionals Boundary](#CONDITIONALS_BOUNDARY)                         | yes            | yes                  | yes                             | yes        |
-| [Increments](#INCREMENTS)                                               | yes            | yes                  | yes                             | yes        |
-| [Invert Negatives](#INVERT_NEGS)                                        | yes            | yes                  | yes                             | yes        |
-| [Math](#MATH)                                                           | yes            | yes                  | yes                             | yes        |
-| [Negate Conditionals](#NEGATE_CONDITIONALS)                             | yes            | yes                  | yes                             | yes        |
-| [Return Values](#RETURN_VALS)                                           | yes            |                      | yes                             | yes        |
-| [Void Method Calls](#VOID_METHOD_CALLS)                                 | yes            | yes                  | yes                             | yes        |
-| [Constructor Calls](#CONSTRUCTOR_CALLS)                                 |                |                      |                                 | yes        |
-| [Empty returns](#EMPTY_RETURNS)                                         |                | yes                  |                                 | yes        |
-| [False Returns](#FALSE_RETURNS)                                         |                | yes                  |                                 | yes        |
-| [Inline Constant](#INLINE_CONSTS)                                       |                |                      |                                 | yes        |
-| [Null returns](#NULL_RETURNS)                                           |                | yes                  |                                 | yes        |
-| [Non Void Method Calls](#NON_VOID_METHOD_CALLS)                         |                |                      |                                 | yes        |
-| [Primitive returns](#PRIMITIVE_RETURNS)                                 |                | yes                  |                                 | yes        |
-| [Remove Conditionals](#REMOVE_CONDITIONALS)                             |                |                      | [EQ_ELSE](#rm_cdt_eq_else) case | yes        |
-| [Remove Increments](#REMOVE_INCREMENTS)                                 |                |                      |                                 | yes        |
-| [True returns](#TRUE_RETURNS)                                           |                | yes                  |                                 | yes        |
-| [Experimental Argument Propagation](#EXPERIMENTAL_ARGUMENT_PROPAGATION) |                |                      |                                 | yes        |
-| [Experimental Big Integer](#EXPERIMENTAL_BIG_INTEGER)                   |                |                      |                                 | yes        |
-| [Experimental Member Variable](#EXPERIMENTAL_MEMBER_VARIABLE)           |                |                      |                                 | yes        |
-| [Experimental Naked Receiver](#EXPERIMENTAL_NAKED_RECEIVER)             |                |                      |                                 | yes        |
-| [Experimental Switch](#EXPERIMENTAL_SWITCH)                             |                |                      | yes                             | yes        |
-| [Negation](#EXPERIMENTAL_ABS)                                           |                |                      |                                 | yes        |
-| [Arithmetic Operator Replacement](#EXPERIMENTAL_AOR)                    |                |                      |                                 | yes        |
-| [Arithmetic Operator Deletion](#EXPERIMENTAL_AOD)                       |                |                      |                                 | yes        |
-| [Constant Replacement](#EXPERIMENTAL_CRCR)                              |                |                      |                                 | yes        |
-| [Bitwise Operator](#EXPERIMENTAL_OBBN)                                  |                |                      |                                 | yes        |
-| [Relational Operator Replacement](#EXPERIMENTAL_ROR)                    |                |                      |                                 | yes        |
-| [Unary Operator Insertion](#EXPERIMENTAL_UOI)                           |                |                      |                                 | yes        |
+| Mutators                                                                | "OLD_DEFAULTS" group| "DEFAULTS" group | "STRONGER" group                | "ALL" group|
+|-------------------------------------------------------------------------|:-------------------:|:----------------:|:-------------------------------:|:----------:|
+| [Conditionals Boundary](#CONDITIONALS_BOUNDARY)                         | yes                 | yes              | yes                             | yes        |
+| [Increments](#INCREMENTS)                                               | yes                 | yes              | yes                             | yes        |
+| [Invert Negatives](#INVERT_NEGS)                                        | yes                 | yes              | yes                             | yes        |
+| [Math](#MATH)                                                           | yes                 | yes              | yes                             | yes        |
+| [Negate Conditionals](#NEGATE_CONDITIONALS)                             | yes                 | yes              | yes                             | yes        |
+| [Return Values](#RETURN_VALS)                                           | yes                 |                  |                                 | yes        |
+| [Void Method Calls](#VOID_METHOD_CALLS)                                 | yes                 | yes              | yes                             | yes        |
+| [Empty returns](#EMPTY_RETURNS)                                         |                     | yes              | yes                             | yes        |
+| [False Returns](#FALSE_RETURNS)                                         |                     | yes              | yes                             | yes        |
+| [True returns](#TRUE_RETURNS)                                           |                     | yes              | yes                             | yes        |
+| [Null returns](#NULL_RETURNS)                                           |                     | yes              | yes                             | yes        |
+| [Primitive returns](#PRIMITIVE_RETURNS)                                 |                     | yes              | yes                             | yes        |
+| [Remove Conditionals](#REMOVE_CONDITIONALS)                             |                     |                  | [EQ_ELSE](#rm_cdt_eq_else) case | yes        |
+| [Experimental Switch](#EXPERIMENTAL_SWITCH)                             |                     |                  | yes                             | yes        |
+| [Inline Constant](#INLINE_CONSTS)                                       |                     |                  |                                 | yes        |
+| [Constructor Calls](#CONSTRUCTOR_CALLS)                                 |                     |                  |                                 | yes        |
+| [Non Void Method Calls](#NON_VOID_METHOD_CALLS)                         |                     |                  |                                 | yes        |
+| [Remove Increments](#REMOVE_INCREMENTS)                                 |                     |                  |                                 | yes        |
+| [Experimental Argument Propagation](#EXPERIMENTAL_ARGUMENT_PROPAGATION) |                     |                  |                                 | yes        |
+| [Experimental Big Integer](#EXPERIMENTAL_BIG_INTEGER)                   |                     |                  |                                 | yes        |
+| [Experimental Member Variable](#EXPERIMENTAL_MEMBER_VARIABLE)           |                     |                  |                                 | yes        |
+| [Experimental Naked Receiver](#EXPERIMENTAL_NAKED_RECEIVER)             |                     |                  |                                 | yes        |
+| [Negation](#EXPERIMENTAL_ABS)                                           |                     |                  |                                 | yes        |
+| [Arithmetic Operator Replacement](#EXPERIMENTAL_AOR)                    |                     |                  |                                 | yes        |
+| [Arithmetic Operator Deletion](#EXPERIMENTAL_AOD)                       |                     |                  |                                 | yes        |
+| [Constant Replacement](#EXPERIMENTAL_CRCR)                              |                     |                  |                                 | yes        |
+| [Bitwise Operator](#EXPERIMENTAL_OBBN)                                  |                     |                  |                                 | yes        |
+| [Relational Operator Replacement](#EXPERIMENTAL_ROR)                    |                     |                  |                                 | yes        |
+| [Unary Operator Insertion](#EXPERIMENTAL_UOI)                           |                     |                  |                                 | yes        |
 {:.table }    
 
 See the current [code](https://github.com/hcoles/pitest/blob/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor/config/Mutator.java) for current list (latest development version).
@@ -278,7 +278,9 @@ mutations are generally easier for a test suite to detect.
 Return Values Mutator (RETURN_VALS)
 -----------------------------------
 
-**Active by default**
+This mutator has been superseded by the new returns mutator set. 
+See [Empty returns](#EMPTY_RETURNS), [False returns](#FALSE_RETURNS), [True returns](#TRUE_RETURNS), 
+[Null returns](#NULL_RETURNS) and [Primitive returns](#PRIMITIVE_RETURNS).
 
 The return values mutator mutates the return values of method calls. Depending
 on the return type of the method another mutation is used.<sup id="fnref4">[4](#fn4)</sup>
@@ -348,6 +350,78 @@ public int foo() {
 }
 ```
 
+<a name="EMPTY_RETURNS" id="EMPTY_RETURNS"></a>
+
+Empty returns Mutator (EMPTY\_RETURNS)
+--------------------------------------
+
+**Active by default**
+
+Replaces return values with an 'empty' value for that type as follows
+
+* java.lang.String -> ""
+* java.util.Optional -> Optional.empty()
+* java.util.List -> Collections.emptyList()
+* java.util.Collection -> Collections.emptyList()
+* java.util.Set -> Collections.emptySet()
+* java.lang.Integer -> 0
+* java.lang.Short -> 0
+* java.lang.Long -> 0
+* java.lang.Character -> 0
+* java.lang.Float -> 0
+* java.lang.Double -> 0
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return the empty value.
+
+
+<a name="FALSE_RETURNS" id="FALSE_RETURNS"></a>
+
+False returns Mutator (FALSE\_RETURNS)
+-------------------------------------
+
+**Active by default**
+
+Replaces primitive and boxed boolean return values with false.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return false.
+
+
+<a name="TRUE_RETURNS" id="TRUE_RETURNS"></a>
+
+True returns Mutator (TRUE\_RETURNS)
+-------------------------------------
+
+**Active by default**
+
+Replaces primitive and boxed boolean return values with true.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return true.
+
+<a name="NULL_RETURNS" id="NULL_RETURNS"></a>
+
+Null returns Mutator (NULL\_RETURNS)
+--------------------------------------
+
+**Active by default**
+
+Replaces return values with null. Methods that can be mutated by the EMPTY_RETURNS mutator or that are directly annotated with NotNull will not be mutated.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return null.
+
+
+<a name="PRIMITIVE_RETURNS" id="PRIMITIVE_RETURNS"></a>
+
+Primitive returns Mutator (PRIMITIVE\_RETURNS)
+----------------------------------------------
+
+**Active by default**
+
+Replaces int, short, long, char, float and double return values with 0.
+
+Pitest will filter out equivalent mutations to methods that are already hard coded to return 0.
+
+
+
 # Optional Mutators
 
 <a name="CONSTRUCTOR_CALLS" id="CONSTRUCTOR_CALLS"></a>
@@ -380,35 +454,7 @@ mutations of void methods and
 [Non Void Method Call Mutator](#NON_VOID_METHOD_CALL) for mutations of non void
 methods.
 
-<a name="EMPTY_RETURNS" id="EMPTY_RETURNS"></a>
 
-Empty returns Mutator (EMPTY\_RETURNS)
---------------------------------------
-
-Replaces return values with an 'empty' value for that type as follows
-
-* java.lang.String -> ""
-* java.util.Optional -> Optional.empty()
-* java.util.List -> Collections.emptyList()
-* java.util.Collection -> Collections.emptyList()
-* java.util.Set -> Collections.emptySet()
-* java.lang.Integer -> 0
-* java.lang.Short -> 0
-* java.lang.Long -> 0
-* java.lang.Character -> 0
-* java.lang.Float -> 0
-* java.lang.Double -> 0
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return the empty value.
-
-<a name="FALSE_RETURNS" id="FALSE_RETURNS"></a>
-
-False returns Mutator (FALSE\_RETURNS)
--------------------------------------
-
-Replaces primitive and boxed boolean return values with false.
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return false.
 
 <a name="INLINE_CONSTS" id="INLINE_CONSTS"></a>
 
@@ -483,15 +529,6 @@ public class A {
 ```
 
 In such situations the mutation engine can not mutate any variable.
-
-<a name="NULL_RETURNS" id="NULL_RETURNS"></a>
-
-Null returns Mutator (NULL\_RETURNS)
---------------------------------------
-
-Replaces return values with null. Methods that can be mutated by the EMPTY_RETURNS mutator or that are directly annotated with NotNull will not be mutated.
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return null.
 
 <a name="NON_VOID_METHOD_CALLS" id="NON_VOID_METHOD_CALLS"></a>
 
@@ -573,15 +610,6 @@ a side effect.
 This mutator does not affect void methods or constructor calls. See 
 [Void Method Call Mutator](#VOID_METHOD_CALL) for mutations of void methods and
 [Constructor Call Mutator](#CONSTRUCTOR_CALL) for mutations of constructors.
-
-<a name="PRIMITIVE_RETURNS" id="PRIMITIVE_RETURNS"></a>
-
-Primitive returns Mutator (PRIMITIVE\_RETURNS)
-----------------------------------------------
-
-Replaces int, short, long, char, float and double return values with 0.
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return 0.
 
 <a name="REMOVE_CONDITIONALS" id="REMOVE_CONDITIONALS"></a>
 
@@ -666,17 +694,6 @@ Remove Increments Mutator (REMOVE\_INCREMENTS)
 -------------------------------------
 
 Optional mutator that removes local variable increments.
-
-<a name="EXPERIMENTAL_MEMBER_VARIABLE" id="EXPERIMENTAL_MEMBER_VARIABLE"></a>
-
-<a name="TRUE_RETURNS" id="TRUE_RETURNS"></a>
-
-True returns Mutator (TRUE\_RETURNS)
--------------------------------------
-
-Replaces primitive and boxed boolean return values with true.
-
-Pitest will filter out equivalent mutations to methods that are already hard coded to return true.
 
 
 # Experimental Mutators

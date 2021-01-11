@@ -24,7 +24,7 @@ when a reasonable number of interesting new features have been implemented.
 ## Coming at some point
 
 1. <del>Ant task (probably dependent on point 3 above)</del> Ant supported since 0.26 
-2. <del>Sonar plugin - see <a href="http://code.google.com/p/pitestrunner/issues/detail?id=8">issue 8</a></del> Sonar plugin contributed by Alexandre Victoor see [sonar plugin](http://docs.codehaus.org/display/SONAR/Pitest)
+2. <del>Sonar plugin - see <a href="http://code.google.com/p/pitestrunner/issues/detail?id=8">issue 8</a></del> Sonar plugin contributed by Alexandre Victoor see [sonar plugin](https://github.com/VinodAnandan/sonar-pitest)
 3. <del>An eclipse plugin</del> Development begun by Phil Glover see [pitclipse](https://github.com/philglover/pitclipse)
 4. Webapp or GUI for browsing results and marking equivalent mutants (dependent on 1 of coming soon) [&asymp; help?](/how_to_help/)
 5. New / improved mutation operators based on [mutation of java objects](http://www.cs.colostate.edu/~bieman/Pubs/AlexanderBiemanGhoshJiISSRE02.pdf) [&asymp; help?](/how_to_help/)

@@ -107,7 +107,7 @@ globs will be excluded from mutation.
 
 List of globs to match against class names. Matching classes will be excluded from mutation. 
 
-Prior to release 1.3.0 tests matching this filter were also exlcuded from being run. From 1.3.0 onwards tests are excluded with the excludedTests parameter.
+Prior to release 1.3.0 tests matching this filter were also excluded from being run. From 1.3.0 onwards tests are excluded with the excludedTests parameter.
 
 ### \--excludedTests
 

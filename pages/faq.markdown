@@ -42,7 +42,7 @@ One thing to watch out for that can slow PIT down are tests on the classpath tha
 normally run. Some teams have very slow exhaustive tests or performance tests that are not run by their build scripts.
 
 As PIT examines the entire classpath it will try to run these so may not even start running
-mutations for several hours. These tests can be excluded using the **excludeClasses** option.
+mutations for several hours. These tests can be excluded using the **excludedClasses** option.
 
 ## PIT found no classes to mutate / no tests to run. What am I doing wrong?
 

@@ -11,3 +11,4 @@ site.hi
 .idea
 *.lock
 *.orig
+.DS_Store

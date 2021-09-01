@@ -32,6 +32,7 @@ to other mutation testing systems, but that can still mean that things will take
 
 You may be able to speed things up by
 
+* Using the [CDG accelerator plugin](https://pitest.groupcdg.com/docs/accelerator) 
 * Using more threads. The optimum number will vary, but will generally be between 1 and the number of CPUs on your machine.
 * Limit the number of mutation per class. This will give you a less complete picture however.
 * Use filters to target only those packages or classes that are currently of interest
@@ -41,6 +42,10 @@ normally run. Some teams have very slow exhaustive tests or performance tests th
 
 As PIT examines the entire classpath it will try to run these so may not even start running
 mutations for several hours. These tests can be excluded using the **excludedClasses** option.
+
+The most effective way to use mutation testing is usually to limit analysis to code that you are changing. This strategy is [discussed in a blog post](https://blog.pitest.org/dont-let-your-code-dry).
+
+Tooling is available to [integrate pitest into pull requests](https://pitest.groupcdg.com).
 
 ## PIT found no classes to mutate / no tests to run. What am I doing wrong?
 
@@ -149,6 +154,7 @@ the copied blocks. Most test suites are only able to kill one of these mutations
 
 As of 0.28 PIT contains experimental support for detecting inlined code that is now active by default.
 
+
 ## Mutations in static initializers and enums 
 
 Static initializers and other code that is only run once per JVM (such as code in enum constructors) cause a bit of a problem with two of the strategies pitest uses to make mutation testing usable fast.
@@ -174,9 +180,10 @@ You will however encounter other scenarios which this simple filtering will miss
 
 Yes. You can specify both individual mutators and groups of them using the same syntax.
 
-Two groups are currently defined
+Three groups are currently defined
 
 * DEFAULTS
+* STRONGER
 * ALL
 
 To use the defaults, plus some others
@@ -198,15 +205,31 @@ or
 
 in your pom.xml
 
+## Is it random?
+
+No.
+
+Given the same input pitest will always generate the same mutants, and (with a couple of caveats) will always produce the same results.
+
+Pitest works hard to be fully deterministic, but two factors might cause the results to differ slightly between two runs with the same input.
+
+### Timeouts
+
+Mutants causing infinite loops are detected by comparing the time taken to run a test without the mutant to the time taken when the mutant is present.
+Both these measurements can be affected by external factors (other processes on the machine etc etc), so a mutant may be detected as timed out on one run,
+but killed or surviving on another.
+
+### Static initializers
+
+As discussed above static initalization code causes some problems for mutation testing, in certain circumstances it can also esult in small differences between
+runs, especially if timeouts occurs as these require starting a new jvm.
+
 ## I have a problem, where can I get help?
 
 Try asking a question at
 
 [http://groups.google.com/group/pitusers](http://groups.google.com/group/pitusers)
 
-I'm also relatively friendly, and can be contacted at
-
-henry@pitest.org
 
 ## Could I accidentally release mutated code if I use PIT?
 

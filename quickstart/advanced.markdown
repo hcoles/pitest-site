@@ -20,7 +20,7 @@ The launch classpath (aka the tool classpath) and the classpath of the system un
 
 To work correctly with the maven mojo plugins should include an implementation vendor and implementation title in the jar manifest that match the maven group id and artifact id of the plugin.
 
-The extension points are described below. Be aware that it is relatively likely that the described interfaces will change as development continues.
+The extension points are described below. Be aware that it is likely that the described interfaces will change as development continues.
 
 ### Mutation Result Listener (aka output format)
 
@@ -77,9 +77,54 @@ Only one test prioritiser may be supplied.
 
 To create a new test prioritiser implement the **org.pitest.mutationtest.build.TestPrioritiserFactory** interface. 
 
-### Mutation Engine
+### Mutator
 
-The default mutation engine of Pit is called [Gregor](https://github.com/hcoles/pitest/tree/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor). 
+The default mutation engine, [Gregor](https://github.com/hcoles/pitest/tree/master/pitest/src/main/java/org/pitest/mutationtest/engine/gregor), allows new mutators
+to be added as plugins as of release 1.7.0.
+
+New mutators are created by implementing the `org.pitest.mutationtest.engine.gregor.MethodMutatorFactory` interface, which acts as a factory for ASM `MethodVisitors`.
+
+It is important that a `MethodVisitor` created by mutator does not make other changes to the bytecode (e.g by failing to call super.visitX), and that it only activates its mutation when
+`context.shouldMutate` returns true.
+
+An instance of a mutator must mutate only one location in a method with one type of mutation. 
+
+A mutator must provide both a `name` and a `globally unique id`.
+
+The name (e.g 'CONDITIONALS_BOUNDARY') is human readable, and is used to activate/deactivate the mutator from the build script. Multiple instances of the same (or different) mutators 
+may share the same name, if they work logically to produce the same logical effect.
+
+The globally unique id must be unique for each instance of the mutator, and must be consistent between multiple runs.
+
+For most mutators there will only ever be a single instance, and the name and id can be the same.
+
+Sometimes there will be many instances. For example, 100 instances are created of the `org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator`. Each one has a different
+unique id, and affects only a certain branch within a switch statement.
+
+As well as implementing the `org.pitest.mutationtest.engine.gregor.MethodMutatorFactory` interface, a mutator must also provide one of
+
+* A no args constructor
+* A single enum instance
+* A public static method named factory returning List<MethodMutatorFactory>
+
+### Mutator Group
+
+New groupings of mutators can be introduced using the `org.pitest.mutationtest.engine.gregor.config.MutatorGroup` introduced in 1.7.0.
+
+It defines a single method that allows existing mutators to be grouped together under a new name.
+
+```java
+public void register(Map<String, List<MethodMutatorFactory>> mutators) {
+
+    mutators.put("MYGROUP", gather(mutators,"INVERT_NEGS",
+            "RETURN_VALS",
+            "MATH",
+            "CONDITIONALS_BOUNDARY",
+            "INCREMENTS"));
+```
+
+
+### Mutation Engine
 
 Pit is designed to support the integration of other mutation engines. Although multiple mutation engine plugins may be supplied, only one may currently be used within a single analysis.
 

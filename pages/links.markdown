@@ -7,6 +7,7 @@ permalink: /links/
 
 ## PIT Ecosystem
 
+* Arcmutate provide plugins that improve pitest, including git integration [arcmutate](https://www.arcmutate.com/)
 * Marcin Zajączkowski maintains a Gradle plugin. [PIT Gradle plugin](http://gradle-pitest-plugin.solidsoft.info/)
 * Phil Glover maintains an Eclipse plugin. [Pitclipse](https://github.com/philglover/pitclipse)
 * Michal Jedynak maintains an Intellij plugin. [PIT intellij plugin](https://plugins.jetbrains.com/plugin/7119-pit-mutation-testing-idea-plugin)

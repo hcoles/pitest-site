@@ -5,10 +5,12 @@ title: PIT Mutation Testing
 
 <div class="jumbotron masthead">
   <div class="container">
-<img src="/images/pit-black-150x152.png"/>
-<br/><br/>
-                <h1>Real world mutation testing</h1>
-                <p class="description">PIT is a state of the art <strong>mutation testing</strong> system, providing <strong>gold standard test coverage</strong> for Java and the jvm. It's fast, scalable and integrates with modern test and build tooling.</p>
+    <img src="/images/pit-black-150x152.png" />
+    <br /><br />
+    <h1>Real world mutation testing</h1>
+    <p class="description">PIT is a state of the art <strong>mutation testing</strong> system, providing <strong>gold
+        standard test coverage</strong> for Java and the jvm. It's fast, scalable and integrates with modern test and
+      build tooling.</p>
     <p>
       <a href="/quickstart" class="btn btn-primary btn-large">Get Started</a>
     </p>
@@ -19,7 +21,7 @@ title: PIT Mutation Testing
       <li>
         <a href="https://github.com/hcoles/pitest/issues">Issues</a>
       </li>
-     <li>
+      <li>
         <a href="https://github.com/hcoles/pitest">Source</a>
       </li>
       <li>
@@ -33,15 +35,16 @@ title: PIT Mutation Testing
   <div class="container">
     <ul class="bs-docs-social-buttons">
       <li class="follow-btn">
-       <a href="https://twitter.com/_pitest" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @_pitest</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <a href="https://twitter.com/_pitest" class="twitter-follow-button" data-show-count="false"
+          data-show-screen-name="false">Follow @_pitest</a>
+        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
       </li>
       <li class="tweet-btn">
-<a href="https://twitter.com/share" class="twitter-share-button" data-via="_pitest" data-count="none">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="_pitest" data-count="none">Tweet</a>
+        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
       </li>
       <li>
-      <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+        <div class="g-plusone" data-size="medium" data-annotation="none"></div>
       </li>
     </ul>
   </div>
@@ -57,55 +60,74 @@ title: PIT Mutation Testing
     <div class="row-fluid">
       <div class="span12">
         <p class="marketing-info">
-        Mutation testing is conceptually quite simple.<p>
+          Mutation testing is conceptually quite simple.
+        <p>
 
- <p class="marketing-info"> Faults (or <strong>mutations</strong>) are automatically seeded into your code, then your tests are run. If your tests fail then the mutation is <strong>killed</strong>, if your tests pass then the mutation <strong>lived</strong>. </p>
+        <p class="marketing-info"> Faults (or <strong>mutations</strong>) are automatically seeded into your code, then
+          your tests are run. If your tests fail then the mutation is <strong>killed</strong>, if your tests pass then
+          the mutation <strong>lived</strong>. </p>
 
-<p class="marketing-info">The quality of your tests can be gauged from the percentage of mutations killed.</p> 
+        <p class="marketing-info">The quality of your tests can be gauged from the percentage of mutations killed.</p>
 
-<h1>What?</h1>
-<p class="marketing-byline">Really it is quite simple</p>
+        <h1>What?</h1>
+        <p class="marketing-byline">Really it is quite simple</p>
 
-<p class="marketing-info">To put it another way - PIT runs your unit tests against automatically modified versions of your application code. When the application code changes, it should produce different results and cause the unit tests to fail. If a unit test does not fail in this situation, it may indicate an issue with the test suite. </p>
+        <p class="marketing-info">To put it another way - PIT runs your unit tests against automatically modified
+          versions of your application code. When the application code changes, it should produce different results and
+          cause the unit tests to fail. If a unit test does not fail in this situation, it may indicate an issue with
+          the test suite. </p>
 
-<h1>Why?</h1>
-<p class="marketing-byline">What&#39;s wrong with line coverage?</p>
+        <h1>Why?</h1>
+        <p class="marketing-byline">What&#39;s wrong with line coverage?</p>
 
-<p class="marketing-info">Traditional test coverage (i.e line, statement, branch, etc.) measures only which code is <strong>executed</strong> by your tests. It does <strong>not</strong> check that your tests are actually able to <strong>detect faults</strong> in the executed code. It is therefore only able to identify code that is definitely <strong>not tested</strong>.</p>
+        <p class="marketing-info">Traditional test coverage (i.e line, statement, branch, etc.) measures only which code
+          is <strong>executed</strong> by your tests. It does <strong>not</strong> check that your tests are actually
+          able to <strong>detect faults</strong> in the executed code. It is therefore only able to identify code that
+          is definitely <strong>not tested</strong>.</p>
 
-<p class="marketing-info">The most extreme examples of the problem are tests with no assertions. Fortunately these are uncommon in most code bases. Much more common is code that is only <strong>partially tested</strong> by its suite. A suite that only partially tests code can still execute all its branches <i>(<a href="/weak_tests">examples</a>)</i>.</p>
+        <p class="marketing-info">The most extreme examples of the problem are tests with no assertions. Fortunately
+          these are uncommon in most code bases. Much more common is code that is only <strong>partially tested</strong>
+          by its suite. A suite that only partially tests code can still execute all its branches <i>(<a
+              href="/weak_tests">examples</a>)</i>.</p>
 
-<p class="marketing-info">As it is actually able to detect whether each statement is meaningfully tested, mutation testing is the <strong>gold standard</strong> against which all other types of coverage are measured.</p> 
+        <p class="marketing-info">As it is actually able to detect whether each statement is meaningfully tested,
+          mutation testing is the <strong>gold standard</strong> against which all other types of coverage are measured.
+        </p>
 
-<h1>Why PIT?</h1>
-<p class="marketing-byline"></p>
+        <h1>Why PIT?</h1>
+        <p class="marketing-byline"></p>
 
-<p class="marketing-info">There are other mutation testing systems for Java, but they are not widely used.<p>
+        <p class="marketing-info">There are other mutation testing systems for Java, but they are not widely used.
+        <p>
 
-<p class="marketing-info">They are mostly slow, difficult to use and written to meet the needs of academic research rather than real development teams.<p>
+        <p class="marketing-info">They are mostly slow, difficult to use and written to meet the needs of academic
+          research rather than real development teams.
+        <p>
 
-<p class="marketing-info">PIT is different. It&#39;s</p>
+        <p class="marketing-info">PIT is different. It&#39;s</p>
 
 
-<ul class="marketing-info">
-<li><strong>fast</strong> - can analyse in <strong>minutes</strong> what would take earlier systems <strong>days</strong></li>
-<li><strong>easy to use</strong> - works with ant, maven, gradle and others</li>
-<li><strong>actively developed</strong></li>
-<li><strong>actively supported</strong></li>
-</ul>
+        <ul class="marketing-info">
+          <li><strong>fast</strong> - can analyse in <strong>minutes</strong> what would take earlier systems
+            <strong>days</strong></li>
+          <li><strong>easy to use</strong> - works with ant, maven, gradle and others</li>
+          <li><strong>actively developed</strong></li>
+          <li><strong>actively supported</strong></li>
+        </ul>
 
-<p class="marketing-info">The reports produced by PIT are in an easy to read format combining <strong>line coverage</strong> and <strong>mutation coverage</strong> information.</p>
+        <p class="marketing-info">The reports produced by PIT are in an easy to read format combining <strong>line
+            coverage</strong> and <strong>mutation coverage</strong> information.</p>
 
-<p><img src="/images/wicket_core_example32.png"/>
+        <p><img src="/images/wicket_core_example32.png" />
 
-<p><i>Example snippet taken from coverage report of <a href="http://wicket.apache.org/">Wicket Core</a></i></p>
+        <p><i>Example snippet taken from coverage report of <a href="http://wicket.apache.org/">Wicket Core</a></i></p>
 
-<p><i>Light green shows line coverage, dark green shows mutation coverage.</i></p>
+        <p><i>Light green shows line coverage, dark green shows mutation coverage.</i></p>
 
-<p><i>Light pink show lack of line coverage, dark pink shows lack of mutation coverage.</i></p>
+        <p><i>Light pink show lack of line coverage, dark pink shows lack of mutation coverage.</i></p>
 
       </div>
-  
+
     </div>
 
     <hr class="soften">
@@ -113,25 +135,26 @@ title: PIT Mutation Testing
     <h1>Success stories</h1>
     <p class="marketing-byline"></p>
     <div class="row-fluid">
-    <div class="span12">
-      <img src="/images/ladders-logo.jpg"/>
-      <p><br/>"... While we also used Clover for basic code coverage, as we got our PIT mutation coverage up into the 90s I stopped paying much attention to Clover"</p>
-</p>"... This gave us extreme confidence in our tests ... The effects of that confidence were outstanding."</p>
-      <p><i>Kyle Winter, Lead Software Engineer, The Ladders</i></p>
+      <div class="span12">
+        <img src="/images/ladders-logo.jpg" />
+        <p><br />"... While we also used Clover for basic code coverage, as we got our PIT mutation coverage up into the
+          90s I stopped paying much attention to Clover"</p>
+        </p>"... This gave us extreme confidence in our tests ... The effects of that confidence were outstanding."</p>
+        <p><i>Kyle Winter, Lead Software Engineer, The Ladders</i></p>
+      </div>
     </div>
-   </div>
     <div class="row-fluid">
-    <div class="span12">
-      <img src="/images/sky_summer_logo.png"/>
-      <p>". . . from my own personal experience of using PIT I've found it not only gives me confidence in the quality of both my own and others unit test quality, but has actually been a design aid in so much that as well as finding untested code, it can also find redundant code that when deleted still implements the intended functionality."</p>
-      <p><a href="/sky_experience">more</a></p>
-      <p><i>Matt Kirk, Lead Developer, British Sky Broadcasting</i></p>
-    </div>
+      <div class="span12">
+        <img src="/images/sky_summer_logo.png" />
+        <p>". . . from my own personal experience of using PIT I've found it not only gives me confidence in the quality
+          of both my own and others unit test quality, but has actually been a design aid in so much that as well as
+          finding untested code, it can also find redundant code that when deleted still implements the intended
+          functionality."</p>
+        <p><a href="/sky_experience">more</a></p>
+        <p><i>Matt Kirk, Lead Developer, British Sky Broadcasting</i></p>
+      </div>
     </div>
 
   </div>
 
 </div>
-
-
-

@@ -56,7 +56,7 @@ The mutation coverage goal analyses all classes in the codebase that match the t
 It can be run directly from the commandline
 
 ```bash
-mvn org.pitest:pitest-maven:mutationCoverage
+mvn test-compile org.pitest:pitest-maven:mutationCoverage
 ```
 
 This will output an html report to **target/pit-reports/YYYYMMDDHHMI**.
@@ -64,7 +64,7 @@ This will output an html report to **target/pit-reports/YYYYMMDDHHMI**.
 To speed-up repeated analysis of the same codebase set the `withHistory` parameter to true.
 
 ```bash
-mvn -DwithHistory org.pitest:pitest-maven:mutationCoverage
+mvn -DwithHistory test-compile org.pitest:pitest-maven:mutationCoverage
 ```
 
 ### scmMutationCoverage goal

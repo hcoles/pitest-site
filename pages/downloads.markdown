@@ -23,6 +23,8 @@ See [https://github.com/hcoles/pitest/releases](https://github.com/hcoles/pitest
 
 These are old releases from before pitest was migrated to github. Please see [https://github.com/hcoles/pitest/releases](https://github.com/hcoles/pitest/releases) for recent releases.
 
+Binaries for all releases can be found on [maven central](https://search.maven.org/search?q=org.pitest).
+
 ### 0.32
 
 * restores java 7 compatibility

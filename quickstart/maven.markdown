@@ -218,7 +218,7 @@ Defaults to 1.25
 
 ### timeoutConstant
 
-Constant amount of additional time to allow a test to run for (after the application of the timeoutFactor) before
+Constant amount of additional time, in milliseconds, to allow a test to run for (after the application of the timeoutFactor) before
 considering it to be stuck in an infinite loop.
 
 Defaults to 4000

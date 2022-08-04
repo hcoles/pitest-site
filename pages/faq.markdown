@@ -32,7 +32,7 @@ to other mutation testing systems, but that can still mean that things will take
 
 You may be able to speed things up by
 
-* Using the [CDG accelerator plugin](https://pitest.groupcdg.com/docs/accelerator) 
+* Using [arcmutate](https://www.arcmutate.com/).
 * Using more threads. The optimum number will vary, but will generally be between 1 and the number of CPUs on your machine.
 * Limit the number of mutation per class. This will give you a less complete picture however.
 * Use filters to target only those packages or classes that are currently of interest

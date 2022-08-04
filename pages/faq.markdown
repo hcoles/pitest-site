@@ -32,7 +32,7 @@ to other mutation testing systems, but that can still mean that things will take
 
 You may be able to speed things up by
 
-* Using the [CDG accelerator plugin](https://pitest.groupcdg.com/docs/accelerator) 
+* Using the [Arcmutate accelerator plugin](https://docs.arcmutate.com/docs/accelerator.html) 
 * Using more threads. The optimum number will vary, but will generally be between 1 and the number of CPUs on your machine.
 * Limit the number of mutation per class. This will give you a less complete picture however.
 * Use filters to target only those packages or classes that are currently of interest
@@ -45,7 +45,7 @@ mutations for several hours. These tests can be excluded using the **excludedCla
 
 The most effective way to use mutation testing is usually to limit analysis to code that you are changing. This strategy is [discussed in a blog post](https://blog.pitest.org/dont-let-your-code-dry).
 
-Tooling is available to [integrate pitest into pull requests](https://pitest.groupcdg.com).
+Tooling is available to [integrate pitest into pull requests](https://www.arcmutate.com).
 
 ## PIT found no classes to mutate / no tests to run. What am I doing wrong?
 
@@ -205,6 +205,8 @@ or
 
 in your pom.xml
 
+Using the `ALL` option is strongly discouraged.
+
 ## Is it random?
 
 No.
@@ -256,6 +258,19 @@ It is also possible to launch PIT from most other IDEs as a Java application.
 ## How can I combine all the reports for a project with multiple modules into a single report?
 
 See [Test Aggregation Across Modules](/aggregating_tests_across_modules)
+
+
+## Pitest mutates bytecode, does that mean it works with all JVM languages?
+
+Sort of yes, but mainly no.
+
+Although pitest can mutate the bytecode of other languages, the results are not generally useful. Unless pitest explicitly supports the language, the mutations it generates
+will of be 'junk' - mutants that do not correspond to a source file a programmer might produce.
+
+Currently supported languages are
+
+* Java
+* Kotlin (via the [Arcmutate kotlin plugin](https://docs.arcmutate.com/docs/kotlin.html)
 
 ## I'd like to help out, what can I do?
 

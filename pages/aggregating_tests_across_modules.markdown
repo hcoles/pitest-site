@@ -12,7 +12,7 @@ at runtime, and therefore will not generate a single report across all of the su
 ## Writing a custom aggregation tool
 
 The PIT Test tool comes with a module called pitest-aggregator. This package has a class called `org.pitest.aggregate.ReportAggregator.Builder`. 
-This class can be used to programmatically build up an aggregation of reports in order to output a single report across the total system.
+This class can be used to programmatically build up an aggregation of reports to output a single report across the total system.
 
 ```java
 ReportAggregator.Builder raBuilder = ReportAggregator.builder();
@@ -37,7 +37,7 @@ patterns used by the Surefire plugin's report aggregation tool. The aggregated r
 
 ### Building the Module Reports
 
-First you will need to add the a report for each of the modules of interest. The following would be placed in the POM file for each of the modules you're
+First, you will need to add a report for each of the modules of interest. The following would be placed in the POM file for each of the modules you're
 wish to aggregate.
 
 ```xml
@@ -72,7 +72,7 @@ The above configuration will run the mutation tests and generate the Line Covera
 
 ### Aggregating the Reports
 
-Then you will create another module for your report aggregation. In the POM file for this module you will include the use of the `report-aggregate` goal. This module will also require you to list your individual report modules as dependencies.
+Then you will create another module for your report aggregation. In the POM file for this module, you will include the use of the `report-aggregate` goal. This module will also require you to list your individual report modules as dependencies.
 
 ```xml
 ...

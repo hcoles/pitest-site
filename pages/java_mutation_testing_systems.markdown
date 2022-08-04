@@ -9,7 +9,7 @@ permalink: /java_mutation_testing_systems/
 ## Overview
 
 Several mutation testing systems for Java exist, this page in an attempt to objectively
-categorise and compare the way in which they are implemented and their relative merits.
+categorise and compare how they are implemented and their relative merits.
 
 In most cases the information assembled below has been obtained from the web without any direct experience
 of the tools so is incomplete and potentially inaccurate. **Corrections, additions and clarifications are welcomed.**
@@ -53,7 +53,7 @@ WebSite : [http://jumble.sourceforge.net/](http://jumble.sourceforge.net/)
 Jumble was developed in 2003-2006 by a commercial company in New Zealand before being open sourced under the GPL licence. The licence was later
 changed to Apache2 to enable the mutator to be used in earlier versions of PIT.
 
-Allthough no releases have been made since 2009 some development activity seems to still be taking place and the authors respond to queries to the
+Although no releases have been made since 2009 some development activity seems to still be taking place and the authors respond to queries to the
 mailing list.
 
 
@@ -61,7 +61,7 @@ mailing list.
 
 WebSite : [http://www.st.cs.uni-saarland.de/mutation/](http://www.st.cs.uni-saarland.de/mutation/)
 
-Javalanche was developed by a team based at Sarland University in Germany.
+Javalanche was developed by a team based at Saarland University in Germany.
 
 According to their website
 
@@ -77,9 +77,9 @@ PIT was developed just for fun, originally as a parallel and distributed testing
 into being a mutation testing tool. 
 
 Early versions of PIT used the Jumble mutation engine, but made improvements over Jumble in terms of performance,
-usability and compatibility with third party libraries (e.g mocking frameworks). Recent versions of PIT use its own mutation engine.
+usability and compatibility with third-party libraries (e.g mocking frameworks). Recent versions of PIT use its own mutation engine.
 
-PIT's aim is to provide a high performance, scalable user friendly tool that makes mutation testing practical for real world codebases. As of the 0.29 release PIT is also the first generally available incremental mutation testing system, with the option to amortize the cost of analysis by storing a history of results.
+PIT aims to provide a high-performance, scalable user-friendly tool that makes mutation testing practical for real-world codebases. As of the 0.29 release PIT is also the first generally available incremental mutation testing system, with the option to amortize the cost of analysis by storing a history of results.
 
 Source code is provided and support is available via mailing list and public issue tracking.
  
@@ -92,11 +92,11 @@ Mutation testing can be conceptually split into four phases
 * Mutant insertion - in which mutants are loaded into a JVM
 * Mutant detection - in which the selected tests are run against the loaded mutant
 
-In practice some of these phases may be concurrent or hard to distinguish from each other. In some systems only the generation phase is automated.
+In practice, some of these phases may be concurrent or hard to distinguish from each other. In some systems only the generation phase is automated.
 
 There are various strategies by which these phases might be implemented, some possibilities for each stage are discussed in the next section.
 
-For bytecode based systems the mutant detection phase will usually be the most computationally expensive, but its speed is likely to be largely determined  by how well the test selection stage was performed.
+For bytecode-based systems the mutant detection phase will usually be the most computationally expensive, but its speed is likely to be largely determined by how well the test selection stage was performed.
 
 For source code mutation systems the generation phase may also represent a significant proportion of the computational cost if a naive approach is followed.
 
@@ -109,12 +109,12 @@ Source mutators create mutations by making changes to the Java source files and 
 #### Pros
 
 * A large range of mutations can be generated this way
-* Mutations can closely mimic the types of error a programmer might make
+* Mutations can closely mimic the types of errors a programmer might make
 * The mutations made can be clearly described and understood
 
 #### Cons
 
-* Source based mutators are generally harder to integrate into a build
+* Source-based mutators are generally harder to integrate into a build
 * Generating mutations in this way is relatively slow
 * Mutants must be written to disk, limiting the methods by which they can be inserted
 * In theory a mutant class could be accidentally released
@@ -122,7 +122,7 @@ Source mutators create mutations by making changes to the Java source files and 
 ### Byte code
 
 Byte code mutators create mutations by manipulating the compiled byte code. This will
-usually be done using a third party library such as ASM, javassist or BCEL.
+usually be done using a third-party library such as ASM, Javassist or BCEL.
 
 Of these libraries, BCEL is no longer actively developed or maintained.
 
@@ -137,13 +137,13 @@ Of these libraries, BCEL is no longer actively developed or maintained.
 
 * More difficult to develop mutation operators this way
 * Mutations are divorced from the source code and may not be representative of errors a programmer would make
-* Can be hard to describe / explain the mutations that must work around intricacies of the JVM
+* Can be hard to describe/explain the mutations that must work around intricacies of the JVM
 
 
 ## Test selection
 
-There are are great many possible ways in which test selection might be performed and optimised. The decisions
-made at this stage will largely dictate the performance of detection phase. 
+There are many great possible ways in which test selection might be performed and optimised. The decisions
+made at this stage will largely dictate the performance of the detection phase. 
 
 Very broadly we can categorize the strategies as follows, but there may be significant differences between systems that have been
 placed within the same category.
@@ -152,7 +152,7 @@ placed within the same category.
 ### Manual
 
 It is left to the user to select the tests to be run against a mutant. These systems are not designed to be integrated into a build, but
-instead provide an interface by which a user can select an individual class to mutate and the tests to run.
+instead, provide an interface by which a user can select an individual class to mutate and the tests to run.
 
 #### Pros
 
@@ -209,7 +209,7 @@ Optimisations may also be implemented to choose an optimal running order for the
 
 ### Naive
 
-Mutants are generated, the class files written to disk, and a new JVM launched with the mutant on the classpath.
+Mutants are generated, the class files written to disk, and a new JVM is launched with the mutant on the classpath.
 
 #### Pros
 
@@ -222,7 +222,7 @@ Mutants are generated, the class files written to disk, and a new JVM launched w
 
 ### Mutant schemata
 
-A single class is generated that contains all mutants, each mutant is then enabled programmatically. Mutant schemata could be used as part of any scheme for mutant insertion, but makes most sense as a variant of a scheme in which class files are written to disk.
+A single class is generated that contains all mutants, each mutant is then enabled programmatically. Mutant schemata could be used as part of any scheme for mutant insertion, but makes more sense as a variant of a scheme in which class files are written to disk.
 
 #### Pros
 
@@ -233,7 +233,7 @@ A single class is generated that contains all mutants, each mutant is then enabl
 
 * Mutants will not be active during the construction of static state (singletons, static initializers etc)
 
-### Non delegating class loader
+### Non-delegating class loader
 
 Mutants are held in memory and inserted into the JVM by creating a new classloader that does not delegate to its parent when loading
 the mutant class.
@@ -246,7 +246,7 @@ the mutant class.
 
 #### Cons
 
-* Breaking the delegation model can lead to classpath issues, particularly with code that uses XML apis
+* Breaking the delegation model can lead to classpath issues, particularly with code that uses XML APIs
 * Can require large amounts of permgen space
 
 ### Delegating class loader
@@ -256,18 +256,18 @@ Mutants are held in memory and inserted into the JVM by creating a new classload
 #### Pros
 
 * Faster than naive scheme
-* Fewer classpath problems than non delegating classloader
+* Fewer classpath problems than non-delegating classloader
 * Mutants will be active during the construction of static state (singletons, static initializers etc)
 * Mutants cannot be accidentally released
 
 #### Cons
 
-* Slower than non delegating classloader as requires more classloading 
-* Requires more permgen space than non delegating loader
+* Slower than non-delegating classloader as requires more classloading 
+* Requires more permgen space than non-delegating loader
 
 ### Debugger hotswap
 
-Mutants are held in memory and the debugger api used to insert them into a running JVM.
+Mutants are held in memory and the debugger API is used to insert them into a running JVM.
 
 *Note the expected performance of this approach is unclear. The debugger can degrade the overall performance
 of a JVM significantly, but this approach does avoid having to launch a new JVM for each mutant.*
@@ -281,20 +281,20 @@ of a JVM significantly, but this approach does avoid having to launch a new JVM 
 
 * Performance (?)
 * Mutants will not be active during the construction of static state (singletons, static initializers etc)
-* Requires a JVM with support for this api
+* Requires a JVM with support for this API
 
-### Instrumentation api
+### Instrumentation API
 
-Mutants are held in memory and inserted into a JVM using the instrumentation api.
+Mutants are held in memory and inserted into a JVM using the instrumentation API.
 
 #### Pros
 
-* Faster than classloaders and debugger api
+* Faster than classloaders and debugger API
 
 #### Cons
 
 * Mutants will not be active during the construction of static state (singletons, static initializers etc)
-* Requires a JVM with support for this api
+* Requires a JVM with support for this API
 
 ## Mutant detection
 
@@ -320,7 +320,7 @@ The selected test classes are run until one of them kills a mutant.
 
 #### Cons
 
-* All tests within a class are run to completion so slower than a more fine grained approach
+* All tests within a class are run to completion so slower than a more fine-grained approach
 
 ### Early exit (fine)
 
@@ -340,8 +340,8 @@ Test classes are split into individual test cases which are then run until one o
 
 The output of the tools can be broadly categorized as follows
 
-* Plain text (**T**) - simple output containing description of the mutation and results
-* Prettified (**P**) - similar content to plain text but with visual formatting, usually html
+* Plain text (**T**) - simple output containing the description of the mutation and results
+* Prettified (**P**) - similar content to plain text but with visual formatting, usually HTML
 * Annotated Source (**AS**) - original or mutated source file is annotated with results
 
 These formats are largely for human consumption. The tools may also produce results in a structured format (**SF**) suitable to be read and manipulated
@@ -383,7 +383,7 @@ by other tools, eg XML, RDMS etc.
 * ? - don't know
 
 *note that with the exception of PIT little information is available on the compatibility of the various mutation testing systems and
-mocking frameworks. Most mocking systems are implemented with dynamic proxies or custom class loaders, and will probably work across all the mutation testing sytems. The exceptions are Powermock and JMockit where issues might be encountered.*
+mocking frameworks. Most mocking systems are implemented with dynamic proxies or custom class loaders, and will probably work across all the mutation testing systems. The exceptions are Powermock and JMockit where issues might be encountered.*
 
 | System                          | Ant | Maven | Eclipse                              | Powermock | JMock | JMock2 | Mockito | JMockit                             | EasyMock                           |
 |---------------------------------|-----|-------|--------------------------------------|-----------|-------|--------|---------|-------------------------------------|------------------------------------|
@@ -399,7 +399,7 @@ mocking frameworks. Most mocking systems are implemented with dynamic proxies or
 
 Of the systems listed, the only three that seem suitable for any serious use in real projects are PIT, Jumble and Javalanche.
 
-Jumble is the only one to offer support for versions of Java prior to 1.5. It is however slower and less sophisticated than the two coverage based systems and is unable to provide a view on the effectiveness of a whole test suite. Documentation is limited, but support is available via a mailing list.
+Jumble is the only one to offer support for versions of Java prior to 1.5. It is however slower and less sophisticated than the two coverage based systems and is unable to provide a view of the effectiveness of a whole test suite. Documentation is limited, but support is available via a mailing list.
 
 Javalanche is less mature than Jumble, and currently does not integrate with any of the main build tools. It is unclear what support is available, and documentation is limited. It does however provide the unique feature of equivalent mutation detection. This comes with a high computational cost, but would be the least time consuming approach if you have a large number of surviving mutants and a requirement to categorize each one.
 
@@ -419,11 +419,11 @@ Support is available via a google group and documentation is the strongest of th
   [↩](#fnref4)
 5. [pit google group](http://groups.google.com/group/pitusers?pli=1) <a name="fn5" id="fn5"></a>
   [↩](#fnref5)
-6. [jmockit bug report of issues with jumble](http://code.google.com/p/jmockit/issues/detail?id=92) <a name="fn6" id="fn6"></a>
+6. [jmockit bug report of issues with Jumble](http://code.google.com/p/jmockit/issues/detail?id=92) <a name="fn6" id="fn6"></a>
   [↩](#fnref6)
 7. note that [muclipse](http://muclipse.sourceforge.net/) is no longer actively developed <a name="fn7" id="fn7"></a>
   [↩](#fnref7)
-8. [user report of issues with JMockit and javalanche](http://groups.google.com/group/pitusers/browse_thread/thread/ffcf8b5a7ff1bcc2) <a name="fn8" id="fn8"></a>
+8. [user report of issues with JMockit and Javalanche](http://groups.google.com/group/pitusers/browse_thread/thread/ffcf8b5a7ff1bcc2) <a name="fn8" id="fn8"></a>
   [↩](#fnref8)
-9. [report of issues with easymock and javalanche](http://blog.octo.com/en/mutation-testing-a-step-further-to-the-perfection/)<a name="fn9" id="fn9"></a>
+9. [report of issues with EasyMock and Javalanche](http://blog.octo.com/en/mutation-testing-a-step-further-to-the-perfection/)<a name="fn9" id="fn9"></a>
   [↩](#fnref9)

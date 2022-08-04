@@ -28,7 +28,7 @@ Add the plugin to build/plugins in your pom.xml
 
 **That's it, you're up and running.**
 
-By default pitest will mutate all code in your project. You can limit which code is mutated and which tests are run using `targetClasses` and `targetTests`. Be sure to read the [globs](#globs) section if you want to use exact class names.
+By default, PITest will mutate all code in your project. You can limit which code is mutated and which tests are run using `targetClasses` and `targetTests`. Be sure to read the [globs](#globs) section if you want to use exact class names.
 ```xml
 <plugin>
     <groupId>org.pitest</groupId>
@@ -45,21 +45,21 @@ By default pitest will mutate all code in your project. You can limit which code
 </plugin>
 ```
 
-If no `targetClasses` are provided in versions before 1.2.0, pitest assumes that your classes live in a package matching your projects group id. In 1.2.0 and later verions pitest will scan your project to determine which classes are present.
+If no `targetClasses` are provided in versions before 1.2.0, pitest assumes that your classes live in a package matching your projects group id. In 1.2.0 and later versions PITest will scan your project to determine which classes are present.
 
 PIT provides two goals
 
 ### mutationCoverage goal
 
-The mutation coverage goal analyses all classes in the codebase that match the target tests and target classes filters.
+The mutation coverage goal analyses all classes in the codebase that match the target tests and target class filters.
 
-It can be run directly from the commandline
+It can be run directly from the command line
 
 ```bash
 mvn test-compile org.pitest:pitest-maven:mutationCoverage
 ```
 
-This will output an html report to **target/pit-reports/YYYYMMDDHHMI**.
+This will output an HTML report to **target/pit-reports/YYYYMMDDHHMI**.
 
 To speed-up repeated analysis of the same codebase set the `withHistory` parameter to true.
 
@@ -69,7 +69,7 @@ mvn -DwithHistory test-compile org.pitest:pitest-maven:mutationCoverage
 
 ### scmMutationCoverage goal
 
-The scm mutation coverage goal analyses only classes that match the filters and the source file has a given status within the project source control system (by default ADDED or MODIFIED). This provides a quick way to check the coverage of changes prior to checking code in / pushing code to a repository.
+The scm mutation coverage goal analyses only the classes that match the filters and the source file has a given status within the project source control system (by default ADDED or MODIFIED). This provides a quick way to check the coverage of changes prior to checking code in / pushing code to a repository.
 
 ```bash
 mvn org.pitest:pitest-maven:scmMutationCoverage -Dinclude=ADDED,UNKNOWN -DmutationThreshold=85
@@ -97,7 +97,7 @@ Output directory for the reports
 
 ### targetClasses
 
-The classes to be mutated. This is expressed as a list of [globs](#globs).
+These are the classes to be mutated. This is expressed as a list of [globs](#globs).
 
 For example
 
@@ -117,7 +117,7 @@ or
 </targetClasses>
 ```
 
-If no targetClasses are supplied pitest will automatically determine what to mutate. 
+If no targetClasses are supplied PITest will automatically determine what to mutate. 
 
 Before 1.2.0 pitest assumed that all code lives in a package matching the maven group id. In 1.2.0 and later versions, the classes to mutate are determined by scanning the maven output directory.
 
@@ -141,7 +141,7 @@ a large project as it avoids the overheads of calculating the times and coverage
 
 ### threads
 
-The number of threads to use when mutation testing. By default a single thread will be used.
+The number of threads to use when mutation testing. By default, a single thread will be used.
 
 ### mutateStaticInitializers
 
@@ -218,7 +218,7 @@ Defaults to 1.25
 
 ### timeoutConstant
 
-Constant amount of additional time, in milliseconds, to allow a test to run for (after the application of the timeoutFactor) before
+Constant amount of additional time, in milliseconds, to allow a test to run for (after the application of the *timeoutFactor*) before
 considering it to be stuck in an infinite loop.
 
 Defaults to 4000
@@ -234,7 +234,7 @@ Defaults to 0 (unlimited)
 List of arguments to use when PIT launches child processes. This is most commonly used to increase the amount of memory available
 to the process, but may be used to pass any valid JVM argument.
 
-For example when running on OpenJDK 7 the it is sometimes necessary to disable the split verifier.
+For example, when running on OpenJDK 7 it is sometimes necessary to disable the split verifier.
 
 ```xml
 <jvmArgs>
@@ -244,7 +244,7 @@ For example when running on OpenJDK 7 the it is sometimes necessary to disable t
 
 ### jvm
 
-The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.
+The path to the java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.
 
 ### outputFormats
 
@@ -254,7 +254,7 @@ Defaults to HTML.
 
 ### failWhenNoMutations
 
-Whether to throw error when no mutations found.
+Whether to throw error when no mutations are found.
 
 Defaults to true.
 
@@ -286,12 +286,12 @@ Defaults to gregor
 
 ### testPlugin
 
-The test framework to use. Support values are
+The test framework to use. Supported values are
 
-* junit (default) - runs junit 3 and 4 tests
+* junit (default) - runs JUnit 3 and 4 tests
 * testng - runs TestNG tests
 
-Support for other test frameoworks such as junit5 can be added via plugins.
+Support for other test frameworks such as JUnit5 can be added via plugins.
 
 ### additionalClasspathElements
 
@@ -302,7 +302,7 @@ These will be used in addition to the classpath with which PIT is launched.
 
 Enabled by default since 0.29.
 
-Indicates if PIT should attempt to detect the inlined code generated by the java compiler in order to implement
+Indicates if PIT should attempt to detect the inlined code generated by the java compiler to implement
 finally blocks. Each copy of the inlined code would normally be mutated separately, resulting in multiple
 identical looking mutations. When inlined code detection is enabled PIT will attempt to spot inlined code and create
 only a single mutation that mutates all affected instructions simultaneously.
@@ -310,7 +310,7 @@ only a single mutation that mutates all affected instructions simultaneously.
 The algorithm cannot easily distinguish between inlined copies of code, and genuine duplicate instructions
 on the same line within a finally block.
 
-In the case of any doubt PIT will act cautiously and assume that the code is not inlined.
+In the case of any doubt, PIT will act cautiously and assume that the code is not inlined.
 
 This will be detected as two separate inlined instructions
 
@@ -335,7 +335,7 @@ Defaults to false.
 
 ### timestampedReports 
 
-By default PIT will create a date and time stamped folder for its output each it is run. This can can make automation difficult, so the behaviour can be suppressed by setting timestampedReports to false.
+By default, PIT will create a date and time stamped folder for its output each it is run. This can make automation difficult, so the behaviour can be suppressed by setting timestampedReports to false.
 
 Defaults to true.
 
@@ -468,7 +468,7 @@ Additional parameters exist to customize the generation of the report.  They are
 </reporting>
 ```
 
-### Handling projects composed of mutiple Maven modules (PitMP)
+### Handling projects composed of multiple Maven modules (PitMP)
 [PitMP (PIT for Multi-module Project)](http://github.com/STAMP-project/pitmp-maven-plugin) is a Maven plugin to run
 PIT on multi-module projects.
 
@@ -481,5 +481,5 @@ PitMP extends PIT, it doesn't rewrite PIT features. So, all PIT properties can b
 mutated to the whole project tree, instead of mutating only the classes of
 the test suite module.
 
-PitMP is availabe in [Maven Central](http://search.maven.org), and source and
+PitMP is available in [Maven Central](http://search.maven.org), and source and
 documentation are available in [PitMP github](http://github.com/STAMP-project/pitmp-maven-plugin).

@@ -11,9 +11,9 @@ the code it executes. It is also easy to understand how uses tests are written d
 
 It can be less obvious how superficially good tests can fully execute code without fully testing it. The simple explanation is that the suite has **missing test cases**.
 
-Some common types of missing test are shown below. This list is by no means exhaustive, but shows patterns of missed tests that I have seen across multiple code bases.
+Some common types of missing tests are shown below. This list is by no means exhaustive, but shows patterns of missed tests that I have seen across multiple code bases.
 
-In most cases the tests that have been written are sufficient to generate 100% branch coverage, but the code can be mutated such that it's functionality is changed but all tests still pass.
+In most cases, the tests that have been written are sufficient to generate 100% branch coverage, but the code can be mutated such that its functionality is changed but all tests still pass.
 
 
 ## The untested side effect
@@ -90,4 +90,3 @@ public void shouldNotPerformActionWhenGivenFalse() {
 ```
 
 *The return value of the function is never checked.*
-

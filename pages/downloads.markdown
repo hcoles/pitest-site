@@ -21,7 +21,7 @@ See [https://github.com/hcoles/pitest/releases](https://github.com/hcoles/pitest
 
 ## Historic releases
 
-These are old releases from before pitest was migrated to github. Please see [https://github.com/hcoles/pitest/releases](https://github.com/hcoles/pitest/releases) for recent releases.
+These are old releases from before pitest was migrated to Github. Please see [https://github.com/hcoles/pitest/releases](https://github.com/hcoles/pitest/releases) for recent releases.
 
 Binaries for all releases can be found on [maven central](https://search.maven.org/search?q=org.pitest).
 
@@ -46,12 +46,12 @@ Note, setup for Ant based projects changes in this release. See [ant setup](http
 * Much faster line coverage calculation
 * Fix for issue 78 - Error when PowerMockito test stores mock as member
 
-This release also changes a number of internal implementation details, some of which may be of interest/importance to those maintaining tools that
+This release also changes some internal implementation details, some of which may be of interest/importance to those maintaining tools that
 integrate with PIT.
 
 Mutations are now scoped internally as described in [https://groups.google.com/forum/#!topic/pitusers/E0-3QZuMYjE](https://groups.google.com/forum/#!topic/pitusers/E0-3QZuMYjE)
 
-A new class (org.pitest.mutationtest.tooling.EntryPoint) has been introduced that removes some of the duplication that existed in the various ways of launching mutation analysis. 
+A new class (org.pitest.mutationtest.tooling.EntryPoint) has been introduced that removes some of the duplications that existed in the various ways of launching mutation analysis. 
 
 ### 0.30
 
@@ -75,7 +75,7 @@ A new class (org.pitest.mutationtest.tooling.EntryPoint) has been introduced tha
 * Improved Java 7 support
 * Upgrade of ASM from 3.3 to 4
 * Fix for concurrency issues during coverage collection
-* Fix for issue 53 - problems with snapshot junit versions
+* Fix for issue 53 - problems with snapshot JUnit versions
 * Fix for issue 59 - duplicate dependencies set via maven
 
 
@@ -94,7 +94,7 @@ A new class (org.pitest.mutationtest.tooling.EntryPoint) has been introduced tha
 * Support for JUnit 3 suite methods
 * Fixes for incorrect detection of JUnit 3 tests
 
-**Known issue** - Fix for issue 33 may not resolve issue for maven 2 users.
+**Known issue** - Fix for issue 33 may not resolve the issue for maven 2 users.
 
 Detection of Groovy code has not yet been tested with Groovy 2 which may generate substantially different
 byte code to earlier versions.
@@ -108,7 +108,7 @@ byte code to earlier versions.
 * Fix for issues 35/38 - experimental member variable mutator now corrects stack
 * Fix for issue 39 - order of classpath elements now maintained when running from maven
 
-**Upgrading users may need to modify their build due to removal of the inScopeClasses parameter**
+**Upgrading users may need to modify their build due to the removal of the inScopeClasses parameter**
 
 ### 0.26
 
@@ -117,7 +117,7 @@ byte code to earlier versions.
 * Fix for issues 12/27 - no longer hangs when code under test launches non daemon threads
 * Fix for issue 26 - now warns when no test library found on classpath
 * Fix for issue 30 - now errors if mutated classes have no line or source debug
-* Fix for issue 32 - now correctly handles of JUnit assumptions 
+* Fix for issue 32 - now correctly handles JUnit assumptions 
 
 **Known issue** - The new member variable mutator may cause errors in synchronized errors. The mutator is
 however disabled by default, and the generated errors are correctly handled by PIT.
@@ -125,13 +125,13 @@ however disabled by default, and the generated errors are correctly handled by P
 ### 0.25
 
 * TestNG support (experimental)
-* Fix for issue where mutations in nested classes not isolated from each other
+* Fix for issue where mutations in nested classes are not isolated from each other
 * Fix for broken classpath isolation for projects using xstream
 * Improved handling of JUnit parametrized tests
 * Ability to limit mutations to specific classpath roots (--mutableCodePaths)
 * Ability to add non launch classpath roots (--classPath) (experimental)
 * Read configuration values from XML (experimental)
-* Option to not throw error when no mutations found
+* Option to not throw an error when no mutations are found
 * Consistent ordering of classes in HTML report
 * Statistics written to console
 * Classes no longer loaded during initial classpath scanning
@@ -157,7 +157,7 @@ however disabled by default, and the generated errors are correctly handled by P
 ### 0.21
 
 * Significant performance improvements
-* Support for powermock via both classloader (requires PowerMockIgnore annotation) and java agent
+* Support for PowerMock via both classloader (requires PowerMockIgnore annotation) and java agent
 * Minor error reporting and usability improvements
 * Fix for major defect around dependency analysis
 * PIT dependencies no longer placed on classpath when running via maven
@@ -172,7 +172,7 @@ however disabled by default, and the generated errors are correctly handled by P
 
 ### 0.19
 
-* Built in enum methods now excluded from mutation
+* Built-in enum methods now excluded from mutation
 * Fixed bug around reporting of untested classes
 * Support for excluding tests greater than a certain distance from class
 * Support for excluding methods from mutation analysis

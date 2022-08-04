@@ -10,7 +10,7 @@ permalink: /links/
 * Arcmutate provide plugins that improve pitest, including git integration [arcmutate](https://www.arcmutate.com/)
 * Marcin Zajączkowski maintains a Gradle plugin. [PIT Gradle plugin](http://gradle-pitest-plugin.solidsoft.info/)
 * Phil Glover maintains an Eclipse plugin. [Pitclipse](https://github.com/philglover/pitclipse)
-* Michal Jedynak maintains an Intellij plugin. [PIT intellij plugin](https://plugins.jetbrains.com/plugin/7119-pit-mutation-testing-idea-plugin)
+* Michal Jedynak maintains an Intellij plugin. [PIT Intellij plugin](https://plugins.jetbrains.com/plugin/7119-pit-mutation-testing-idea-plugin)
 * Oscar Luis Vera Perez maintains Descartes, an extreme mutation engine. [pit-descartes](http://github.com/STAMP-project/pitest-descartes)
 * Caroline Landry maintains PitMP, a Maven plugin to run PIT on multi-module projects. [pitmp-maven-plugin](http://github.com/STAMP-project/pitmp-maven-plugin)
 

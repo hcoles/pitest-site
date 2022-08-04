@@ -11,13 +11,13 @@ permalink: /quickstart/commandline/
 
 ## Installation
 
-Download the pitest-command-line and pitest jars and place them somewhere convenient.
+Download the pitest-command-line and PITest jars and place them somewhere convenient.
 
 ## Getting started
 
-It recommended that you use one of the provided build system plugins instead of the commandline tool. The build plugins are easier to use and you are much less likely to encounter configuration problems. 
+It is recommended that you use one of the provided build system plugins instead of the command line tool. The build plugins are easier to use and you are much less likely to encounter configuration problems. 
 
-Please only use the commandline tool if you have a really good reason to do so.
+Please only use the command line tool if you have a really good reason to do so.
 
 A mutation coverage report can be launched from the command line as follows
 
@@ -30,16 +30,16 @@ java -cp <your classpath including pit jar and dependencies> \
     --sourceDirs <pathtosource>
 ```
 
-The command line jar, core pitest jar and either JUnit or TestNG will need to be on the classpath. 
+The command line jar, core PITest jar and either JUnit or TestNG will need to be on the classpath. 
 
-The commandline tool supports two methods of supplying the classpath to be mutated.
+The command line tool supports two methods of supplying the classpath to be mutated.
 
-By default the launch classpath will be used. This can be convenient when launching from an IDE such as Eclipse as the IDE will create the
+By default, the launch classpath will be used. This can be convenient when launching from an IDE such as Eclipse as the IDE will create the
 classpath string for you, it may however cause problems if you use plugins that require conflicting versions of libraries that your code also depends on.
 
-Additional classPath elements can be supplied as a comma separated list, and the default use of the launch classpath suppressed with a flag.
+Additional classPath elements can be supplied as a comma-separated list, and the default use of the launch classpath is suppressed with a flag.
 
-When run a folder containing html mutation reports will be written in the supplied reportDir path.
+When run a folder containing HTML mutation reports will be written in the supplied *reportDir* path.
 
 ## Configuration
 
@@ -53,7 +53,7 @@ Output directory for the reports
 
 ### \--targetClasses
 
-The classes to be mutated. This is expressed as a comma separated list of globs.
+These are the classes to be mutated. This is expressed as a comma-separated list of globs.
 
 For example
 
@@ -69,8 +69,8 @@ com.mycompany.package.*, com.mycompany.packageB.Foo, com.partner.*
 
 ### \--targetTests
 
-A comma separated list of globs can be supplied to this parameter to limit the tests available to be run. If this parameter is not supplied
-then any test fixture that matched targetClasses may be used, it is however recommended that this parameter is always explicitly set.
+A comma-separated list of globs can be supplied to this parameter to limit the tests available to be run. If this parameter is not supplied
+then any test fixture that matched *targetClasses* may be used, it is however recommended that this parameter is always explicitly set.
 
 This parameter can be used to point PIT to a top level suite or suites. Custom suites such as [ClassPathSuite](https://github.com/takari/takari-cpsuite)
 are supported. Tests found via these suites can also be limited by the distance filter (see below).
@@ -107,11 +107,11 @@ globs will be excluded from mutation.
 
 List of globs to match against class names. Matching classes will be excluded from mutation. 
 
-Prior to release 1.3.0 tests matching this filter were also excluded from being run. From 1.3.0 onwards tests are excluded with the excludedTests parameter.
+Prior to release 1.3.0 tests matching this filter were also excluded from being run. From 1.3.0 onwards tests are excluded with the *excludedTests* parameter.
 
 ### \--excludedTests
 
-List of globs to match against test class names. Mathcing tests will not be run (note if a test suite includes an excluded class, then it will "leak" back in).
+List of globs to match against test class names. Matching tests will not be run (note if a test suite includes an excluded class, then it will "leak" back in).
 
 ### \--avoidCallsTo
 
@@ -140,7 +140,7 @@ Defaults to 1.25
 
 ### \--timeoutConst
 
-Constant amount of additional time to allow a test to run for (after the application of the timeoutFactor) before
+Constant amount of additional time to allow a test to run for (after the application of the *timeoutFactor*) before
 considering it to be stuck in an infinite loop.
 
 Defaults to 4000
@@ -157,7 +157,7 @@ to the process, but may be used to pass any valid JVM argument.
 
 ### \--jvmPath
 
-The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.
+The path to the java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.
 
 ### \--outputFormats
 
@@ -167,7 +167,7 @@ Defaults to HTML.
 
 ### \--failWhenNoMutations
 
-Whether to throw an error when no mutations found.
+Whether to throw an error when no mutations are found.
 
 Defaults to true
 
@@ -190,7 +190,7 @@ PIT will always attempt not to mutate test classes even if they are defined on a
 
 ### \--testPlugin
 
-Plugin to use to run tests. Defaults to junit.
+Plugin to use to run tests. Defaults to JUnit.
 
 ### \--includedGroups
 
@@ -204,11 +204,11 @@ Comma separated list of TestNG groups/JUnit categories to exclude from mutation 
 
 Enabled by default since 0.29.
 
-Flag to indicate if PIT should attempt to detect the inlined code generated by the java compiler in order to implement finally blocks. Each copy of the inlined code would normally be mutated separately, resulting in multiple identical looking mutations. When inlined code detection is enabled PIT will attempt to spot inlined code and create only a single mutation that mutates all affected instructions simultaneously.
+Flag to indicate if PIT should attempt to detect the inlined code generated by the java compiler to implement finally blocks. Each copy of the inlined code would normally be mutated separately, resulting in multiple identical looking mutations. When inlined code detection is enabled PIT will attempt to spot inlined code and create only a single mutation that mutates all affected instructions simultaneously.
 
 The algorithm cannot easily distinguish between inlined copies of code, and genuine duplicate instructions on the same line within a finally block. 
 
-In the case of any doubt PIT will act cautiously and assume that the code is not inlined.
+In the case of any doubt, PIT will act cautiously and assume that the code is not inlined.
 
 This will be detected as two separate inlined instructions
 
@@ -231,17 +231,17 @@ This sort of pattern might not be common with integer addition, but things like 
 
 ### \--timestampedReports 
 
-By default PIT will create a date and time stamped folder for its output each time it is run. This can can make automation difficult, so the behaviour can be suppressed by passing `--timestampedReports=false`.
+By default, PIT will create a date and time stamped folder for its output each time it is run. This can make automation difficult, so the behaviour can be suppressed by passing `--timestampedReports=false`.
 
 ### \--mutationThreshold
 
-Mutation score threshold below which the build will fail. This is an integer percent (0-100) that represents the fraction of killed mutations out of all mutations.
+Mutation score threshold below which the build will fail. This is an integer percentage (0-100) that represents the fraction of killed mutations out of all mutations.
 
 Please bear in mind that your build may contain equivalent mutations. Careful thought must therefore be given when selecting a threshold.
 
 ### \--coverageThreshold
 
-Line coverage threshold below which the build will fail. This is an integer percent (0-100) that represents the fraction of the project covered by the tests.
+Line coverage threshold below which the build will fail. This is an integer percentage (0-100) that represents the fraction of the project covered by the tests.
 
 ### \--historyInputLocation
 
@@ -254,7 +254,7 @@ Path to write history information for incremental analysis. May be the same as h
 
 ## Examples
 
-### Mutate all classes in package example.foo (and sub packages) in two threads potentially using any test on class path but do not mutate hashCode or equals methods
+### Mutate all classes in package example.foo (and sub-packages) in two threads potentially using any test on classpath but do not mutate hashCode or equals methods
 
 ```
 java -cp <your classpath> \

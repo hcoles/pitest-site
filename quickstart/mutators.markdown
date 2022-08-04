@@ -373,7 +373,7 @@ Replaces return values with an 'empty' value for that type as follows
 * java.lang.Float -> 0
 * java.lang.Double -> 0
 
-Pitest will filter out equivalent mutations to methods that are already hard coded to return the empty value.
+Pitest will filter out equivalent mutations to methods that are already hard-coded to return the empty value.
 
 
 <a name="FALSE_RETURNS" id="FALSE_RETURNS"></a>
@@ -397,7 +397,7 @@ True returns Mutator (TRUE\_RETURNS)
 
 Replaces primitive and boxed boolean return values with true.
 
-Pitest will filter out equivalent mutations to methods that are already hard coded to return true.
+Pitest will filter out equivalent mutations to methods that are already hard-coded to return true.
 
 <a name="NULL_RETURNS" id="NULL_RETURNS"></a>
 
@@ -408,7 +408,7 @@ Null returns Mutator (NULL\_RETURNS)
 
 Replaces return values with null. Methods that can be mutated by the EMPTY_RETURNS mutator or that are directly annotated with NotNull will not be mutated.
 
-Pitest will filter out equivalent mutations to methods that are already hard coded to return null.
+Pitest will filter out equivalent mutations to methods that are already hard-coded to return null.
 
 
 <a name="PRIMITIVE_RETURNS" id="PRIMITIVE_RETURNS"></a>
@@ -420,7 +420,7 @@ Primitive returns Mutator (PRIMITIVE\_RETURNS)
 
 Replaces int, short, long, char, float and double return values with 0.
 
-Pitest will filter out equivalent mutations to methods that are already hard coded to return 0.
+Pitest will filter out equivalent mutations to methods that are already hard-coded to return 0.
 
 
 
@@ -640,7 +640,7 @@ if (true) {
 
 Although not currently enabled by default it is highly recommended that you enable it if you wish to ensure your test suite has full coverage of conditional statements.
 
-As shown above the basic remove conditionals mutator ensures that the statements following the conditional always execute. It will also only mutate only equality checks (eg ==, !=).
+As shown above, the basic remove conditionals mutator ensures that the statements following the conditional always execute. It will also only mutate only equality checks (eg ==, !=).
 
 Additional specialised versions of the mutator exist that will ensure the block never executes so
 
@@ -782,7 +782,7 @@ The switch mutator finds the first label within a switch statement that differs 
 
 Negation Mutator (ABS)
 -------------------------------------------------
-This mutator replace any use of a numeric variable (local valiable, field, array cell) with its negation. For example:
+This mutator replaces any use of a numeric variable (local variable, field, array cell) with its negation. For example:
 ```java
 public float get(final float i) {
   return i;
@@ -815,7 +815,7 @@ Like the math mutator, this mutator replaces binary arithmetic operations for ei
 
 Arithmetic Operator Deletion Mutator (AOD)
 -------------------------------------------------
-This mutator replaces an arithmetic operation with one of its members. The mutator is composed of 2 sub-mutators, AOD_1 and AOD_2, that mutate the operation to its first and second member respectively.
+This mutator replaces an arithmetic operation with one of its members. The mutator is composed of 2 sub-mutators, AOD_1 and AOD_2, that mutate the operation to its first and second members respectively.
 For example
 
 ```java

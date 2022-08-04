@@ -34,7 +34,7 @@ You may be able to speed things up by
 
 * Using the [CDG accelerator plugin](https://pitest.groupcdg.com/docs/accelerator) 
 * Using more threads. The optimum number will vary, but will generally be between 1 and the number of CPUs on your machine.
-* Limit the number of mutation per class. This will give you a less complete picture however.
+* Limit the number of mutations per class. This will give you a less complete picture however.
 * Use filters to target only those packages or classes that are currently of interest
 
 One thing to watch out for that can slow PIT down are tests on the classpath that are not
@@ -60,17 +60,17 @@ the filters are not excluding your code. If you have supplied a specific mutable
 
 Note that PIT is a bytecode mutator - it does not compile your code but instead modifies
 the byte code in memory. Your code must be on the classpath - PIT only requires the location
-of your source code in order to generate a human readable report.
+of your source code to generate a human-readable report.
 
 ## My tests normally run green but PIT says the suite isn't green
 
 Most commonly this is because either :
 
 * PIT is picking up tests that are not included/are excluded in the normal test config
-* Some test rely on an environment variable or other property set in the test config, but not set in the pitest config
+* Some tests rely on an environment variable or other property set in the test config, but not set in the pitest config
 * The tests have a hidden order dependency that is not revealed during the normal test run 
 
-If you are using an unusual or custom JUnit runner this can also sometimes causes problems. To make things fast PIT does some tricky stuff to split your tests into small independent units. This works well with most JUnit runners but if you encounter one where it doesn't please post to the user group. 
+If you are using an unusual or custom JUnit runner this can also sometimes cause problems. To make things fast PIT does some tricky stuff to split your tests into small independent units. This works well with most JUnit runners but if you encounter one where it doesn't please post to the user group. 
 
 ## Will PIT work with my mocking framework?
 
@@ -116,18 +116,18 @@ PIT checks that the test doesn't run for any longer than
 
 normal time * x + y
 
-Unfortunately the real world is more complex than this. 
+Unfortunately, the real world is more complex than this. 
 
 Test times can vary due to the order in which the tests are run. The first test in a class may have
-a execution time much higher than the others as the JVM will need to load the classes
+an execution time much higher than the others as the JVM will need to load the classes
 required for that test. This can be particularly pronounced in code that uses XML binding
-frameworks such as JAXB where classloading may take several seconds.
+frameworks such as JAXB where class loading may take several seconds.
 
 When PIT runs the tests against a mutation the order of the tests will be different. Tests that
-previously took milliseconds may now take seconds as they now carry the overhead of classloading. 
+previously took milliseconds may now take seconds as they now carry the overhead of class loading. 
 PIT may therefore incorrectly flag the mutation as causing an infinite loop.
 
-An fix for this issue may be developed in a future version of PIT. In the meantime
+A fix for this issue may be developed in a future version of PIT. In the meantime
 if you encounter a large number of timeouts, try increasing y in the equations above
 to a large value with **--timeoutConst** (**timeoutConstant** in maven).
 
@@ -148,7 +148,7 @@ See [mutation testing systems compared](/java_mutation_testing_systems)
 
 Are the mutations in finally blocks? Do you seem to have two or more identical mutations, some killed and some not?
 
-If so this is due to the way in which the java compiler handles finally blocks. Basically the compiler creates
+If so this is due to how java compiler handles finally blocks. Basically, the compiler creates
 a copy of the contents of the finally block for each possible exit point. PIT creates separate mutations for each of
 the copied blocks. Most test suites are only able to kill one of these mutations.
 
@@ -161,11 +161,11 @@ Static initializers and other code that is only run once per JVM (such as code i
 
 ### Coverage targeting
 
-Pitest will only run tests that execute the line of code where a mutation is placed. Unfortunately the only test to execute a static initializer will be the first test to run that causes that class to load.
+Pitest will only run tests that execute the line of code where a mutation is placed. Unfortunately, the only test to execute a static initializer will be the first test to run that causes that class to load.
 
 ### Mutant insertion
 
-Pitest inserts mutants into a jvm by re-writing the class after it has loaded. This is orders of magnitude faster than starting a new jvm or creating a new classloader, but code in static initializer blocks is not re-run so the mutants have no effect.
+Pitest inserts mutants into a JVM by re-writing the class after it has loaded. This is orders of magnitude faster than starting a new JVM or creating a new classloader, but code in static initializer blocks is not re-run so the mutants have no effect.
 
 ### Mitigation
 
@@ -216,13 +216,13 @@ Pitest works hard to be fully deterministic, but two factors might cause the res
 ### Timeouts
 
 Mutants causing infinite loops are detected by comparing the time taken to run a test without the mutant to the time taken when the mutant is present.
-Both these measurements can be affected by external factors (other processes on the machine etc etc), so a mutant may be detected as timed out on one run,
+Both these measurements can be affected by external factors (other processes on the machine, etc.), so a mutant may be detected as timed out on one run,
 but killed or surviving on another.
 
 ### Static initializers
 
-As discussed above static initalization code causes some problems for mutation testing, in certain circumstances it can also esult in small differences between
-runs, especially if timeouts occurs as these require starting a new jvm.
+As discussed above static initialization code causes some problems for mutation testing, in certain circumstances it can also result in small differences between
+runs, especially if timeouts occur as these require starting a new JVM.
 
 ## I have a problem, where can I get help?
 
@@ -249,7 +249,7 @@ See [PIT Gradle plugin](http://gradle-pitest-plugin.solidsoft.info/)
 
 Phil Glover maintains an Eclipse plugin. [Pitclipse](https://github.com/philglover/pitclipse)
 
-Michal Jedynak maintains an IntelliJ plugin. [PIT intellij plugin](http://plugins.intellij.net/plugin/?idea&pluginId=7119)
+Michal Jedynak maintains an IntelliJ plugin. [PIT IntelliJ plugin](http://plugins.intellij.net/plugin/?idea&pluginId=7119)
 
 It is also possible to launch PIT from most other IDEs as a Java application.
 
@@ -260,4 +260,3 @@ See [Test Aggregation Across Modules](/aggregating_tests_across_modules)
 ## I'd like to help out, what can I do?
 
 See [how to help](/how_to_help)
-

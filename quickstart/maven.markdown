@@ -288,7 +288,7 @@ Defaults to gregor
 
 The test framework to use. Supported values are
 
-* JUnit (default) - runs JUnit 3 and 4 tests
+* junit (default) - runs JUnit 3 and 4 tests
 * testng - runs TestNG tests
 
 Support for other test frameworks such as JUnit5 can be added via plugins.

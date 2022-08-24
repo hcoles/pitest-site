@@ -23,7 +23,7 @@ Add the plugin to build/plugins in your pom.xml
     <groupId>org.pitest</groupId>
     <artifactId>pitest-maven</artifactId>
     <version>LATEST</version>
- </plugin>
+</plugin>
 ```
 
 **That's it, you're up and running.**
@@ -75,7 +75,7 @@ The scm mutation coverage goal analyses only classes that match the filters and 
 mvn org.pitest:pitest-maven:scmMutationCoverage -Dinclude=ADDED,UNKNOWN -DmutationThreshold=85
 ```
 
-To use this goal the maven [scm plugin](http://maven.apache.org/scm/maven-scm-plugin/usage.html) must be correctly configured for the project
+To use this goal the maven [scm plugin](https://maven.apache.org/scm/maven-scm-plugin/usage.html) must be correctly configured for the project
 
 
 
@@ -125,7 +125,7 @@ Before 1.2.0 pitest assumed that all code lives in a package matching the maven 
 
 A list of globs can be supplied to this parameter to limit the tests available to be run.
 
-This parameter can be used to point PIT to a top level suite or suites. Custom suites such as [ClassPathSuite](http://johanneslink.net/projects/cpsuite.jsp) 
+This parameter can be used to point PIT to a top level suite or suites. Custom suites such as [ClassPathSuite](https://johanneslink.net/projects/cpsuite.jsp) 
 are supported. Tests found via these suites can also be limited by the distance filter (see below).
 
 ### maxDependencyDistance
@@ -286,7 +286,7 @@ Defaults to gregor
 
 ### testPlugin
 
-The test framework to use. Support values are
+The test framework to use. Supported values are
 
 * junit (default) - runs junit 3 and 4 tests
 * testng - runs TestNG tests
@@ -335,19 +335,19 @@ Defaults to false.
 
 ### timestampedReports 
 
-By default PIT will create a date and time stamped folder for its output each it is run. This can can make automation difficult, so the behaviour can be suppressed by setting timestampedReports to false.
+By default PIT will create a date and time stamped folder for each output each it runs. This can make automation difficult, so the behaviour can be suppressed by setting timestampedReports to false.
 
 Defaults to true.
 
 ### mutationThreshold
 
-Mutation score threshold at which to fail build.
+Mutation score threshold at which to fail the build.
 
 Please bear in mind that your build may contain equivalent mutations. Careful thought must therefore be given when selecting a threshold.
 
 ### coverageThreshold
 
-Line coverage threshold at which to fail build.
+Line coverage threshold at which to fail the build.
 
 ### historyInputFile
 
@@ -468,8 +468,8 @@ Additional parameters exist to customize the generation of the report.  They are
 </reporting>
 ```
 
-### Handling projects composed of mutiple Maven modules (PitMP)
-[PitMP (PIT for Multi-module Project)](http://github.com/STAMP-project/pitmp-maven-plugin) is a Maven plugin to run
+### Handling projects composed of multiple Maven modules (PitMP)
+[PitMP (PIT for Multi-module Project)](https://github.com/STAMP-project/pitmp-maven-plugin) is a Maven plugin to run
 PIT on multi-module projects.
 
 By default, PIT mutates only the classes defined in the same module as the test suite.    
@@ -481,5 +481,5 @@ PitMP extends PIT, it doesn't rewrite PIT features. So, all PIT properties can b
 mutated to the whole project tree, instead of mutating only the classes of
 the test suite module.
 
-PitMP is availabe in [Maven Central](http://search.maven.org), and source and
-documentation are available in [PitMP github](http://github.com/STAMP-project/pitmp-maven-plugin).
+PitMP is availabe in [Maven Central](https://search.maven.org), and source and
+documentation are available in [PitMP github](https://github.com/STAMP-project/pitmp-maven-plugin).

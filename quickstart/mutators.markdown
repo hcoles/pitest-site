@@ -37,7 +37,7 @@ The following table list available mutators and whether or not they are part of 
 | [True returns](#TRUE_RETURNS)                                           |                     | yes              | yes                             | yes        |
 | [Null returns](#NULL_RETURNS)                                           |                     | yes              | yes                             | yes        |
 | [Primitive returns](#PRIMITIVE_RETURNS)                                 |                     | yes              | yes                             | yes        |
-| [Remove Conditionals](#REMOVE_CONDITIONALS)                             |                     |                  | [EQ_ELSE](#rm_cdt_eq_else) case | yes        |
+| [Remove Conditionals](#REMOVE_CONDITIONALS)                             |                     |                  | [EQUAL_ELSE](#rm_cdt_eq_else) case | yes        |
 | [Experimental Switch](#EXPERIMENTAL_SWITCH)                             |                     |                  | yes                             | yes        |
 | [Inline Constant](#INLINE_CONSTS)                                       |                     |                  |                                 | yes        |
 | [Constructor Calls](#CONSTRUCTOR_CALLS)                                 |                     |                  |                                 | yes        |
@@ -681,10 +681,10 @@ if (false) {
 Specialisations also exist that will mutate the bytecode instructions for order checks (eg <=, >).
 
 The available specialisations are:
-* REMOVE_CONDITIONALS_EQ_IF
-* <a name="rm_cdt_eq_else" id="rm_cdt_eq_else"> REMOVE_CONDITIONALS_EQ_ELSE
-* REMOVE_CONDITIONALS_ORD_IF
-* REMOVE_CONDITIONALS_ORD_ELSE
+* REMOVE_CONDITIONALS_EQUAL_IF
+* <a name="rm_cdt_eq_else" id="rm_cdt_eq_else"> REMOVE_CONDITIONALS_EQUAL_ELSE
+* REMOVE_CONDITIONALS_ORDER_IF
+* REMOVE_CONDITIONALS_ORDER_ELSE
 
 The names reflect which branch will be forced to execute (the "if" or the "else") and the type of checks that will be mutated. 
 

@@ -91,6 +91,23 @@ PIT tries to work sensibly out of the box, but also provides many configuration 
 
 The number of threads and list of mutation operators are both worth having a play with.
 
+### features
+
+List of pitest features to enable or disable. Available options are shown in the console output when verbose logging is enabled. Additional features may be added by pitest plugins.
+
+Some features are enabled by default and must be disabled with `-featureName`, others must be enabled explicitly with `+featureName`.
+
+For example
+
+```xml
+<features>
+  <feature>-frecord</feature>
+  <feature>+auto_threads</feature>
+</features>
+```
+
+Will disable the filtering of junk mutations in code the compiler generates to support Java records, and enable the automatic setting of the number of threads based on the number of cores reported by the current machine.
+
 ### reportsDirectory
 
 Output directory for the reports
@@ -335,9 +352,9 @@ Defaults to false.
 
 ### timestampedReports 
 
-By default PIT will create a date and time stamped folder for each output each it runs. This can make automation difficult, so the behaviour can be suppressed by setting timestampedReports to false.
+When set to true, PIT will create a date and time stamped folder for each output each time it runs.
 
-Defaults to true.
+Defaults to false.
 
 ### mutationThreshold
 
@@ -374,6 +391,13 @@ You can skip the launch by adding the parameter ``skip`` on ``configuration`` se
 ```
 
 It's very useful on maven module: when you need to skip an entire module, you can add this setting on the declaration of the plugin to ignore it.
+
+
+### fullMutationMatrix
+
+When set to true causes pitest to continue processing after a test fails and record addition failing tests when XML output is enabled. This is a partially supported feature added due to demand from the research community. Other pitest features are not guaranteed to work correctly when it is enabled.
+
+Defaults to false.
 
 ## Reporting Goal
 ### Introduction
@@ -483,3 +507,7 @@ the test suite module.
 
 PitMP is availabe in [Maven Central](https://search.maven.org), and source and
 documentation are available in [PitMP github](https://github.com/STAMP-project/pitmp-maven-plugin).
+
+### Integrating pitest into pull requests
+
+[Arcmutate](https://www.arcmutate.com) provides pull request integration and other advanced features.

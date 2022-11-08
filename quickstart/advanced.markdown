@@ -16,9 +16,9 @@ extension point the default behaviour will be either replaced or extended.
 
 Plugins must be listed, using the qualified factory name, into a file located in `classpath:META-INF/services` named with the qualified name of the factory interface (e.g. `org.pitest.mutationtest.MutationResultListenerFactory`), packaged into jar files and added to the classpath with which PIT is launched. If the plugin code has dependencies these must be either included in the jar or added to the classpath manually.
 
-The launch classpath (aka the tool classpath) and the classpath of the system under test (aka the client classpath) are generally kept seperate so no conflict should occur if the system under test contains a conflicting version of a library used by a plugin. Some plugins must however be present while the tests are executed - these plugins should either contain no dependencies or should relocate them to internal packages to ensure that no conflict occurs. Extension points that carry this requirement can be easily identified as they extend the ClientClasspathPlugin interface.
+The launch classpath (aka the tool classpath) and the classpath of the system under test (aka the client classpath) are generally kept separate so no conflict should occur if the system under test contains a conflicting version of a library used by a plugin. Some plugins must however be present while the tests are executed - these plugins should either contain no dependencies or should relocate them to internal packages to ensure that no conflict occurs. Extension points that carry this requirement can be easily identified as they extend the ClientClasspathPlugin interface.
 
-To work correctly with the maven mojo plugins should include an implementation vendor and implementation title in the jar manifest that match the maven group id and artifact id of the plugin.
+To work correctly with the maven mojo plugins should include an implementation vendor and implementation title in the jar manifest that match the maven group id and artefact id of the plugin.
 
 The extension points are described below. Be aware that it is likely that the described interfaces will change as development continues.
 
@@ -32,7 +32,7 @@ To create a new listener implement the **org.pitest.mutationtest.MutationResultL
 
 ### Mutation filter
 
-A mutation filter is passed a complete list of all mutations generated for each class before the mutations are challenged by tests. It may remove mutations from this list based on any arbritary criteria.
+A mutation filter is passed a complete list of all mutations generated for each class before the mutations are challenged by tests. It may remove mutations from this list based on any arbitrary criteria.
 
 Multiple filters may be supplied. All filters on the classpath will be applied unless they implement some mechanism to disable themselves.
 
@@ -58,7 +58,7 @@ The declared type of interceptor is used only to determine the order in which th
 
 Interceptor also declare a feature that they provide - this allows interceptors to be enabled and disabled and passed parameters using pitest's simple feature language.
 
-eg.
+e.g..
 
 ```
 +FOO(max[42] allow[cats] allow[dogs])
@@ -144,7 +144,7 @@ The key rationales for this engine are as follow:
  * extreme mutation generates much less mutants than the [default mutation operators of Pit](http://pitest.org/quickstart/mutators/)
  * extreme mutation is a good preliminary analysis to strengthen the test suite before running the fine-grained mutation operators
  
-The goal of [pit-descartes](http://github.com/STAMP-project/pitest-descartes) is to bring an effective implementation of this kind of mutationoperator into the world of PIT.
+The goal of [pit-descartes](http://github.com/STAMP-project/pitest-descartes) is to bring an effective implementation of this kind of mutation operator into the world of PIT.
 
-pit-descartes is availabe in [Maven Central](http://search.maven.org), and source and
+pit-descartes is available in [Maven Central](http://search.maven.org), and source and
 documentation are available in [Descartes github](http://github.com/STAMP-project/pitest-descartes).

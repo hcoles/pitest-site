@@ -7,7 +7,7 @@ permalink: /weak_tests/
 # Weak tests
 
 It's easy to see how a test with no assertions can generate full branch coverage without meaningfully testing
-the code it executes. It is also easy to understand how uses tests are written due to human error - eg programmers used to a mocking framework that does not distinguish between stubbing and verification forgetting to write verification steps when switching to one that does.
+the code it executes. It is also easy to understand how uses tests are written due to human error - e.g. programmers used to a mocking framework that does not distinguish between stubbing and verification forgetting to write verification steps when switching to one that does.
 
 It can be less obvious how superficially good tests can fully execute code without fully testing it. The simple explanation is that the suite has **missing test cases**.
 

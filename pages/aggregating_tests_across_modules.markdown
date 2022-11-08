@@ -122,7 +122,7 @@ Let's say there is a project with the following sub-modules in Maven:
       
 PIT would be added to the two sub-modules (window-calculator and fft-calculator). In the configuration for `pitest-maven` for each of these sub-modules, the `exportLineCoverage` should be `true`, and the `outputFormat` should *at least include* `XML`.
 
-Then an additional sub-module would be included (eg: `mutation-test-report`). So the new project structure looks like this:
+Then an additional sub-module would be included (e.g.: `mutation-test-report`). So the new project structure looks like this:
 
     org.dsp:digital-signal-processing:0.9-SNAPSHOT
       |
@@ -132,7 +132,7 @@ Then an additional sub-module would be included (eg: `mutation-test-report`). So
       |
       |________ mutation-test-report
 
-In this new sub-module, there would be some section of the pom file which looks like this:
+In this new sub-module, there would be some section of the POM file which looks like this:
 
 ```xml
 <dependencies>

@@ -20,7 +20,7 @@ of the tools so is incomplete and potentially inaccurate. **Corrections, additio
 
 WebSite : [http://cs.gmu.edu/offutt/mujava/](http://cs.gmu.edu/~offutt/mujava/)
 
-&micro;Java is the grandaddy of mutation testing systems for Java, predating even JUnit.
+&micro;Java is the granddaddy of mutation testing systems for Java, predating even JUnit.
  
 It is the result of a collaboration between two universities, Korea Advanced Institute of Science and Technology (KAIST) in S. Korea and George Mason University in the USA. 
 
@@ -53,7 +53,7 @@ WebSite : [http://jumble.sourceforge.net/](http://jumble.sourceforge.net/)
 Jumble was developed in 2003-2006 by a commercial company in New Zealand before being open sourced under the GPL licence. The licence was later
 changed to Apache2 to enable the mutator to be used in earlier versions of PIT.
 
-Allthough no releases have been made since 2009 some development activity seems to still be taking place and the authors respond to queries to the
+Although no releases have been made since 2009 some development activity seems to still be taking place and the authors respond to queries to the
 mailing list.
 
 
@@ -345,7 +345,7 @@ The output of the tools can be broadly categorized as follows
 * Annotated Source (**AS**) - original or mutated source file is annotated with results
 
 These formats are largely for human consumption. The tools may also produce results in a structured format (**SF**) suitable to be read and manipulated
-by other tools, eg XML, RDMS etc.
+by other tools, e.g. XML, RDMS etc.
 
 
 ## Summary Of Mutation Testing Systems
@@ -383,7 +383,7 @@ by other tools, eg XML, RDMS etc.
 * ? - don't know
 
 *note that with the exception of PIT little information is available on the compatibility of the various mutation testing systems and
-mocking frameworks. Most mocking systems are implemented with dynamic proxies or custom class loaders, and will probably work across all the mutation testing sytems. The exceptions are Powermock and JMockit where issues might be encountered.*
+mocking frameworks. Most mocking systems are implemented with dynamic proxies or custom class loaders, and will probably work across all the mutation testing systems. The exceptions are Powermock and JMockit where issues might be encountered.*
 
 | System                          | Ant | Maven | Eclipse                              | Powermock | JMock | JMock2 | Mockito | JMockit                             | EasyMock                           |
 |---------------------------------|-----|-------|--------------------------------------|-----------|-------|--------|---------|-------------------------------------|------------------------------------|

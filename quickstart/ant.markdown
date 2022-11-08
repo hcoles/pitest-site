@@ -45,7 +45,7 @@ The two classpaths are kept separate so no conflict should occur if you use a pl
 
 The classPath parameter is used to supply PIT with the classpath to for examine tests and code to mutate, and for all dependencies required in order to run the tests.
 
-PIT will accept a path defined using any of the standard Ant mechansims.
+PIT will accept a path defined using any of the standard Ant mechanisms.
 
 **Note - by default PIT will not mutate code within jar files or directories called test-classes or test-bin. If this is not the desired behaviour please refer to the general configuration options that PIT supports.**
 

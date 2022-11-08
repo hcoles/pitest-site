@@ -640,7 +640,7 @@ if (true) {
 
 Although not currently enabled by default it is highly recommended that you enable it if you wish to ensure your test suite has full coverage of conditional statements.
 
-As shown above the basic remove conditionals mutator ensures that the statements following the conditional always execute. It will also only mutate only equality checks (eg ==, !=).
+As shown above the basic remove conditionals mutator ensures that the statements following the conditional always execute. It will also only mutate only equality checks (e.g. ==, !=).
 
 Additional specialised versions of the mutator exist that will ensure the block never executes so
 
@@ -678,7 +678,7 @@ if (false) {
 }
 ```
 
-Specialisations also exist that will mutate the bytecode instructions for order checks (eg <=, >).
+Specialisations also exist that will mutate the bytecode instructions for order checks (e.g. <=, >).
 
 The available specialisations are:
 * REMOVE_CONDITIONALS_EQUAL_IF
@@ -782,7 +782,7 @@ The switch mutator finds the first label within a switch statement that differs 
 
 Negation Mutator (ABS)
 -------------------------------------------------
-This mutator replace any use of a numeric variable (local valiable, field, array cell) with its negation. For example:
+This mutator replace any use of a numeric variable (local variable, field, array cell) with its negation. For example:
 ```java
 public float get(final float i) {
   return i;

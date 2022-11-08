@@ -15,9 +15,9 @@ Download the pitest-command-line and pitest jars and place them somewhere conven
 
 ## Getting started
 
-It recommended that you use one of the provided build system plugins instead of the commandline tool. The build plugins are easier to use and you are much less likely to encounter configuration problems. 
+It recommended that you use one of the provided build system plugins instead of the command-line tool. The build plugins are easier to use and you are much less likely to encounter configuration problems. 
 
-Please only use the commandline tool if you have a really good reason to do so.
+Please only use the command-line tool if you have a really good reason to do so.
 
 A mutation coverage report can be launched from the command line as follows
 
@@ -32,7 +32,7 @@ java -cp <your classpath including pit jar and dependencies> \
 
 The command line jar, core pitest jar and either JUnit or TestNG will need to be on the classpath. 
 
-The commandline tool supports two methods of supplying the classpath to be mutated.
+The command-line tool supports two methods of supplying the classpath to be mutated.
 
 By default the launch classpath will be used. This can be convenient when launching from an IDE such as Eclipse as the IDE will create the
 classpath string for you, it may however cause problems if you use plugins that require conflicting versions of libraries that your code also depends on.
@@ -111,7 +111,7 @@ Prior to release 1.3.0 tests matching this filter were also excluded from being 
 
 ### \--excludedTests
 
-List of globs to match against test class names. Mathcing tests will not be run (note if a test suite includes an excluded class, then it will "leak" back in).
+List of globs to match against test class names. Matching tests will not be run (note if a test suite includes an excluded class, then it will "leak" back in).
 
 ### \--avoidCallsTo
 
@@ -157,7 +157,7 @@ to the process, but may be used to pass any valid JVM argument.
 
 ### \--jvmPath
 
-The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.
+The path to the java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.
 
 ### \--outputFormats
 

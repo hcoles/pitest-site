@@ -45,7 +45,7 @@ By default pitest will mutate all code in your project. You can limit which code
 </plugin>
 ```
 
-If no `targetClasses` are provided in versions before 1.2.0, pitest assumes that your classes live in a package matching your projects group id. In 1.2.0 and later verions pitest will scan your project to determine which classes are present.
+If no `targetClasses` are provided in versions before 1.2.0, pitest assumes that your classes live in a package matching your projects group id. In 1.2.0 and later versions pitest will scan your project to determine which classes are present.
 
 PIT provides two goals
 
@@ -53,7 +53,7 @@ PIT provides two goals
 
 The mutation coverage goal analyses all classes in the codebase that match the target tests and target classes filters.
 
-It can be run directly from the commandline
+It can be run directly from the command-line
 
 ```bash
 mvn test-compile org.pitest:pitest-maven:mutationCoverage
@@ -261,7 +261,7 @@ For example when running on OpenJDK 7 the it is sometimes necessary to disable t
 
 ### jvm
 
-The path to tha java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.
+The path to the java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.
 
 ### outputFormats
 
@@ -306,9 +306,9 @@ Defaults to gregor
 The test framework to use. Supported values are
 
 * junit (default) - runs junit 3 and 4 tests
-* testng - runs TestNG tests
+* TestNG - runs TestNG tests
 
-Support for other test frameoworks such as junit5 can be added via plugins.
+Support for other test frameworks such as junit5 can be added via plugins.
 
 ### additionalClasspathElements
 
@@ -505,7 +505,7 @@ PitMP extends PIT, it doesn't rewrite PIT features. So, all PIT properties can b
 mutated to the whole project tree, instead of mutating only the classes of
 the test suite module.
 
-PitMP is availabe in [Maven Central](https://search.maven.org), and source and
+PitMP is available in [Maven Central](https://search.maven.org), and source and
 documentation are available in [PitMP github](https://github.com/STAMP-project/pitmp-maven-plugin).
 
 ### Integrating pitest into pull requests

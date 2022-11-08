@@ -6,7 +6,7 @@ permalink: /sky_experience/
 
 # Experience of introducing mutation testing to a team
 
-*Matt Kirk, a Lead Developer at BSkyB kindly provided the following writeup of their experience with PIT.*
+*Matt Kirk, a Lead Developer at BSkyB kindly provided the following write-up of their experience with PIT.*
 
 ## Manual mutation testing
 

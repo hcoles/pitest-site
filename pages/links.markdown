@@ -28,7 +28,7 @@ permalink: /links/
 
 ## Books and articles about mutation testing and PIT
 
-* Chris Rimmer put together a nice explanation of what mutation testing is all about for a lightning talk in oxford. [Getting mutants to test your tests](http://media.ogn.s3.amazonaws.com/ogn27/microslot-ChrisRimmer.pdf). Audio is also available [mp3](http://media.ogn.s3.amazonaws.com/27-microslot-ChrisRimmer.mp3). 
+* Chris Rimmer put together a nice explanation of what mutation testing is all about for a lightning talk in Oxford. [Getting mutants to test your tests](http://media.ogn.s3.amazonaws.com/ogn27/microslot-ChrisRimmer.pdf). Audio is also available [mp3](http://media.ogn.s3.amazonaws.com/27-microslot-ChrisRimmer.mp3). 
 * Filip van Laenen's article in the ACCU magazine *Overload* provides another nice overview of mutation testing, looking mainly at Ruby, but with
  some discussion of Java and PIT towards the end. [Overload 108](http://accu.org/var/uploads/journals/overload108.pdf)
 * The *Overload* 108 article is based on a presentation Filip van Laenen gave at OOP 2012 in Munich. The slides from that presentation can be viewed at SlideShare. [Mutation Testing](http://www.slideshare.net/filipvanlaenen/mutation-testing-11298526)

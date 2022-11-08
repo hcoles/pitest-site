@@ -223,7 +223,7 @@ but killed or surviving on another.
 
 ### Static initializers
 
-As discussed above static initalization code causes some problems for mutation testing, in certain circumstances it can also esult in small differences between
+As discussed above static initialization code causes some problems for mutation testing, in certain circumstances it can also result in small differences between
 runs, especially if timeouts occurs as these require starting a new jvm.
 
 ## I have a problem, where can I get help?

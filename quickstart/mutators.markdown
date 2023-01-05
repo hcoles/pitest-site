@@ -136,7 +136,7 @@ Invert Negatives Mutator (INVERT_NEGS)
 **Active by default**
 
 The invert negatives mutator inverts negation of integer and floating point 
-numbers. For example
+variables. For example
 
 ```java
 public float negate(final float i) {
@@ -151,6 +151,8 @@ public float negate(final float i) {
   return i;
 }
 ```
+
+Please note, this mutator does not mutate negative constants, only variables.
 
 <a name="MATH" id="MATH"></a>
 

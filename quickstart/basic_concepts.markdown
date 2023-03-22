@@ -104,7 +104,9 @@ For each mutation PIT will report one of the following outcomes
 * **Memory error**
 * **Run error**
 
-**Killed** and **Lived** are self explanatory.
+**Killed** means a test caught the mutation successfully.
+
+**Lived** means the mutation was not detected by the covering test.
 
 **No coverage** is the same as **Lived** except there were no tests that exercised the line of code where the mutation was created.
 

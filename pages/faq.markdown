@@ -259,18 +259,23 @@ It is also possible to launch PIT from most other IDEs as a Java application.
 
 See [Test Aggregation Across Modules](/aggregating_tests_across_modules)
 
+## Can I see the source code of the mutants?
+
+Pitest mutates bytecode. It does not produce mutated source code, so is not able to display it. In theory it is possible to
+generate source code from the mutated bytecode using a decompiler, but in practice the results are poor for anything other than
+very simplistic code.
 
 ## Pitest mutates bytecode, does that mean it works with all JVM languages?
 
 Sort of yes, but mainly no.
 
 Although pitest can mutate the bytecode of other languages, the results are not generally useful. Unless pitest explicitly supports the language, the mutations it generates
-will of be 'junk' - mutants that do not correspond to a source file a programmer might produce.
+will inlcude many 'junk' mutations - mutants that do not correspond to a source file a programmer might produce.
 
 Currently supported languages are
 
 * Java
-* Kotlin (via the [Arcmutate kotlin plugin](https://docs.arcmutate.com/docs/kotlin.html)
+* Kotlin (via the [Arcmutate kotlin plugin](https://docs.arcmutate.com/docs/kotlin.html))
 
 ## I'd like to help out, what can I do?
 

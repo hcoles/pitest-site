@@ -354,7 +354,7 @@ Defaults to false.
 
 When set to true, PIT will create a date and time stamped folder for each output each time it runs.
 
-Defaults to false.
+Defaults to true.
 
 ### mutationThreshold
 

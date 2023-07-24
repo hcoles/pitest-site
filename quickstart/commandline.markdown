@@ -77,14 +77,13 @@ are supported. Tests found via these suites can also be limited by the distance 
 
 ### \--dependencyDistance
 
-PIT can optionally apply an additional filter to the supplied tests, such that only tests a certain distance from 
-a mutated class will be considered for running. e.g A test that directly calls a method on a mutated class has a distance of 0
-, a test that calls a method on a class that uses the mutee as an implementation detail has a distance of 1 etc.
+**Removed in 1.9.0**
 
-**This filter will not work for tests that utilise classes via interfaces, reflection or other methods where the dependencies between classes cannot be determined from the byte code.**
+~~PIT can optionally apply an additional filter to the supplied tests, such that only tests a certain distance from a mutated class will be considered for running. e.g A test that directly calls a method on a mutated class has a distance of 0, a test that calls a method on a class that uses the mutee as an implementation detail has a distance of 1 etc.~~
 
-The distance filter is particularly useful when performing a targeted mutation test of a subset of classes within
-a large project as it avoids the overheads of calculating the times and coverage of tests that cannot exercise the mutees.
+~~This filter will not work for tests that utilise classes via interfaces, reflection or other methods where the dependencies between classes cannot be determined from the byte code.~~
+
+~~The distance filter is particularly useful when performing a targeted mutation test of a subset of classes within a large project as it avoids the overheads of calculating the times and coverage of tests that cannot exercise the mutees.~~
 
 ### \--threads
  
@@ -92,7 +91,9 @@ The number of threads to use when mutation testing.
 
 ### \--mutateStaticInits
 
-Whether or not to create mutations in static initializers. Defaults to false.
+**Support for mutating static initializers was removed in pitest 1.3.0**
+
+~~Whether or not to create mutations in static initializers. Defaults to false.~~
 
 ### \--mutators
 
@@ -148,7 +149,15 @@ Defaults to 4000
 
 ### \--maxMutationsPerClass
 
-The maximum number of mutations to create per class. Use 0 or -ve number to set no limit.
+This parameter was removed in release 1.2.3 and has been replaced by the `CLASSLIMIT` feature.
+
+This can be configured as follows
+
+```bash
+features="+CLASSLIMIT(limit[42])"
+```
+
+~~The maximum number of mutations to create per class. Use 0 or -ve number to set no limit.~~
 
 ### \--jvmArgs
 
@@ -190,7 +199,7 @@ PIT will always attempt not to mutate test classes even if they are defined on a
 
 ### \--testPlugin
 
-Plugin to use to run tests. Defaults to junit.
+**No longer required**. Test plugins are now selected automatically.
 
 ### \--includedGroups
 

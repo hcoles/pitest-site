@@ -32,12 +32,12 @@ the individual module reports will have to also produce these files.
     
 ## Using the Maven Plugin
 
-If you are already using maven, it is possible to use the `PitAggregationMojo` to produce an aggregated report. This Mojo was developed following the 
+If you are already using Maven, it is possible to use the `PitAggregationMojo` to produce an aggregated report. This Mojo was developed following the 
 patterns used by the Surefire plugin's report aggregation tool. The aggregated report is put together in two steps.
 
 ### Building the Module Reports
 
-First you will need to add the a report for each of the modules of interest. The following would be placed in the POM file for each of the modules you're
+First, you will need to add the report for each of the modules of interest. The following would be placed in the POM file for each of the modules you
 wish to aggregate.
 
 ```xml
@@ -72,7 +72,7 @@ The above configuration will run the mutation tests and generate the Line Covera
 
 ### Aggregating the Reports
 
-Then you will create another module for your report aggregation. In the POM file for this module you will include the use of the `report-aggregate` goal. This module will also require you to list your individual report modules as dependencies.
+Then you will create another module for your report aggregation. In the POM file for this module, you will include the use of the `report-aggregate` goal. This module will also require you to list your individual report modules as dependencies.
 
 ```xml
 ...
@@ -108,7 +108,7 @@ Then you will create another module for your report aggregation. In the POM file
 </build>
 ```
 
-In the target directory of this module you will the results of the aggregated report.
+In the target directory of this module, you will see the result of the aggregated report.
 
 ### Simple Example
 
@@ -132,7 +132,7 @@ Then an additional sub-module would be included (e.g.: `mutation-test-report`). 
       |
       |________ mutation-test-report
 
-In this new sub-module, there would be some section of the POM file which looks like this:
+In this new sub-module, there would be some section of the POM file that looks like this:
 
 ```xml
 <dependencies>

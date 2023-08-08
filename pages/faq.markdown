@@ -34,7 +34,7 @@ You may be able to speed things up by
 
 * Using the [Arcmutate accelerator plugin](https://docs.arcmutate.com/docs/accelerator.html) 
 * Using more threads. The optimum number will vary, but will generally be between 1 and the number of CPUs on your machine.
-* Limit the number of mutation per class. This will give you a less complete picture however.
+* Limit the number of mutations per class. This will give you a less complete picture however.
 * Use filters to target only those packages or classes that are currently of interest
 
 One thing to watch out for that can slow PIT down are tests on the classpath that are not
@@ -43,7 +43,7 @@ normally run. Some teams have very slow exhaustive tests or performance tests th
 As PIT examines the entire classpath it will try to run these so may not even start running
 mutations for several hours. These tests can be excluded using the **excludedClasses** option.
 
-The most effective way to use mutation testing is usually to limit analysis to code that you are changing. This strategy is [discussed in a blog post](https://blog.pitest.org/dont-let-your-code-dry).
+The most effective way to use mutation testing is usually to limit analysis to the code that you are changing. This strategy is [discussed in a blog post](https://blog.pitest.org/dont-let-your-code-dry).
 
 Tooling is available to [integrate pitest into pull requests](https://www.arcmutate.com).
 
@@ -67,7 +67,7 @@ of your source code in order to generate a human-readable report.
 Most commonly this is because either :
 
 * PIT is picking up tests that are not included/are excluded in the normal test config
-* Some test rely on an environment variable or other property set in the test config, but not set in the pitest config
+* Some tests rely on an environment variable or other property set in the test config, but not set in the Pitest config
 * The tests have a hidden order dependency that is not revealed during the normal test run 
 
 If you are using an unusual or custom JUnit runner this can also sometimes cause problems. To make things fast PIT does some tricky stuff to split your tests into small independent units. This works well with most JUnit runners but if you encounter one where it doesn't please post to the user group. 
@@ -76,7 +76,7 @@ If you are using an unusual or custom JUnit runner this can also sometimes cause
 
 PIT is tested against the major mocking frameworks as part of its build. 
 
-PIT is currently the only mutation testing system known to work with all of JMock, EasyMock, Mockito, PowerMock and JMockit.
+PIT is currently the only mutation testing system known to work with all of JMock, EasyMock, Mockito, PowerMock, and JMockit.
 
 If your mocking framework of choice is not listed above the chances are still good that PIT will work with it. If it doesn't let us know and we'll look at getting that fixed.
 
@@ -100,7 +100,7 @@ as a unit test for the mutated class are however weighted above other tests.
 
 A class is considered to be the unit test for a particular class if it matches the standard JUnit naming convention of FooTest or TestFoo.
 
-Unlike earlier systems PIT does **not** require that your tests follow this naming convention in order for it to work. Test names are
+Unlike earlier systems, PIT does **not** require that your tests follow this naming convention in order for it to work. Test names are
 used only as part of a heuristic to optimise run order.
 
 ## I'm seeing a lot of timeouts, what's going on?
@@ -157,7 +157,7 @@ As of 0.28 PIT contains experimental support for detecting inlined code that is 
 
 ## Mutations in static initializers and enums 
 
-Static initializers and other code that is only run once per JVM (such as code in enum constructors) cause a bit of a problem with two of the strategies pitest uses to make mutation testing usable fast.
+Static initializers and other code that is only run once per JVM (such as code in enum constructors) cause a bit of a problem with two of the strategies Pitest uses to make mutation testing usable fast.
 
 ### Coverage targeting
 
@@ -211,14 +211,14 @@ Using the `ALL` option is strongly discouraged.
 
 No.
 
-Given the same input pitest will always generate the same mutants, and (with a couple of caveats) will always produce the same results.
+Given the same input Pitest will always generate the same mutants, and (with a couple of caveats) will always produce the same results.
 
 Pitest works hard to be fully deterministic, but two factors might cause the results to differ slightly between two runs with the same input.
 
 ### Timeouts
 
 Mutants causing infinite loops are detected by comparing the time taken to run a test without the mutant to the time taken when the mutant is present.
-Both these measurements can be affected by external factors (other processes on the machine etc etc), so a mutant may be detected as timed out on one run,
+Both these measurements can be affected by external factors (other processes on the machine etc), so a mutant may be detected as timed out on one run,
 but killed or surviving on another.
 
 ### Static initializers
@@ -269,7 +269,7 @@ very simplistic code.
 
 Sort of yes, but mainly no.
 
-Although pitest can mutate the bytecode of other languages, the results are not generally useful. Unless pitest explicitly supports the language, the mutations it generates
+Although Pitest can mutate the bytecode of other languages, the results are not generally useful. Unless Pitest explicitly supports the language, the mutations it generates
 will include many 'junk' mutations - mutants that do not correspond to a source file a programmer might produce.
 
 Currently supported languages are

@@ -30,7 +30,7 @@ java -cp <your classpath including pit jar and dependencies> \
     --sourceDirs <pathtosource>
 ```
 
-The command line jar, core pitest jar and either JUnit or TestNG will need to be on the classpath. 
+The command-line jar, core pitest jar, pitest-entry and either JUnit or TestNG will need to be on the classpath. 
 
 The command-line tool supports two methods of supplying the classpath to be mutated.
 

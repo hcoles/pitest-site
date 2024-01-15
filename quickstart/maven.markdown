@@ -182,10 +182,18 @@ for example
 
 For details of the available mutators and the default set applied see [mutation operators](/quickstart/mutators/).
 
-### excludedMethods
-
-List of globs to match against method names. Methods matching the
-globs will be excluded from mutation.
+### excludedMethods 
+List of params against method names to exclude.
+for example
+```xml
+<configuration>
+    <excludedMethods>
+        <param>equals</param>
+        <param>hashCode</param>
+        <param>toString</param>
+    </excludedMethods>
+</configuration>
+````
 
 ### excludedClasses
 

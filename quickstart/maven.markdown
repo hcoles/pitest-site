@@ -266,6 +266,14 @@ For example when running on OpenJDK 7 the it is sometimes necessary to disable t
 </jvmArgs>
 ```
 
+Or to use a [preview feature](https://docs.oracle.com/en/java/javase/14/language/preview-language-and-vm-features.html) from JDK:
+
+```xml
+<jvmArgs>
+    <jvmArg>--enable-preview</jvmArg>
+</jvmArgs>
+```
+
 ### jvm
 
 The path to the java executable to be used to launch test with. If none is supplied defaults to the one pointed to by ```JAVA_HOME```.

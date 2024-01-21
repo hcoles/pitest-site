@@ -21,6 +21,9 @@ The impatient can jump straight to the section for their chosen build tool - it 
 
 [Gradle quick start (external link)](http://gradle-pitest-plugin.solidsoft.info/)
 
+[bld quick start (external link)](https://github.com/rife2/bld-pitest)
+
+
 ## More detail
 
 [Basic concepts](/quickstart/basic_concepts "Basic concepts")

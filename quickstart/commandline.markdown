@@ -244,13 +244,59 @@ By default PIT will create a date and time stamped folder for its output each ti
 
 ### \--mutationThreshold
 
-Mutation score threshold below which the build will fail. This is an integer percent (0-100) that represents the fraction of killed mutations out of all mutations.
+Mutation score threshold below which the build will fail. This is a percentage (0-100) that represents the fraction of killed mutations out of all mutations.
+
+When `--thresholdPrecision` is set to a value greater than 0, decimal values are supported (e.g. `61.5`). With the default precision of 0, only integer values are used.
 
 Please bear in mind that your build may contain equivalent mutations. Careful thought must therefore be given when selecting a threshold.
 
 ### \--coverageThreshold
 
-Line coverage threshold below which the build will fail. This is an integer percent (0-100) that represents the fraction of the project covered by the tests.
+Line coverage threshold below which the build will fail. This is a percentage (0-100) that represents the fraction of the project covered by the tests.
+
+When `--thresholdPrecision` is set to a value greater than 0, decimal values are supported (e.g. `85.5`). With the default precision of 0, only integer values are used.
+
+### \--testStrengthThreshold
+
+Test strength score threshold below which the build will fail. This is a percentage (0-100) that represents the test strength (killed / (killed + survived), excluding mutants where no coverage information is available).
+
+When `--thresholdPrecision` is set to a value greater than 0, decimal values are supported. With the default precision of 0, only integer values are used.
+
+### The integer threshold blind spot
+
+The `--coverageThreshold`, `--mutationThreshold`, and `--testStrengthThreshold` parameters default to integer percentages. This creates a blind spot where coverage can silently regress without triggering a build failure.
+
+Consider a project with 10,000 lines and 6,147 covered (line coverage **61.47%**). With `--coverageThreshold=61`, the score rounds to 61 and the build passes. But small changes produce surprising results:
+
+```
+(i.)   Lose 97 covered lines (6,147 -> 6,050):
+       actual = 60.50%  ->  rounds to 61%  ->  build PASSES
+       A silent regression of nearly 100 lines.
+
+(ii.)  Add 163 untested lines:
+       actual = 60.50%  ->  rounds to 61%  ->  build PASSES
+       163 lines with no tests, no problem.
+
+(iii.) Add 164 untested lines:
+       actual = 60.49%  ->  rounds to 60%  ->  build FAILS
+       Just 1 line difference from the scenario above.
+
+(iv.)  Add 50 covered lines (6,147 -> 6,197):
+       actual = 61.97%  ->  rounds to 62%  ->  jumps a whole percent
+       A single percentage point jump for 50 lines.
+```
+
+With integer thresholds, the blind spot is approximately **1 full percentage point**. In a project with 10,000 lines, that means up to ~100 lines of coverage can silently drift without the threshold noticing.
+
+The `--thresholdPrecision` parameter solves this problem.
+
+### \--thresholdPrecision
+
+Number of decimal places to use when computing and comparing threshold values for `--mutationThreshold`, `--coverageThreshold`, and `--testStrengthThreshold`.
+
+Defaults to 0 (integer percentages, fully backward compatible).
+
+Setting this to a higher value enables finer-grained threshold enforcement. With `--thresholdPrecision=1`, the project above would report coverage as `61.4` instead of `61`, and a threshold of `61.5` would correctly catch a drop to `61.1`.
 
 ### \--historyInputLocation
 

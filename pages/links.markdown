@@ -32,8 +32,9 @@ permalink: /links/
 * Filip van Laenen's article in the ACCU magazine *Overload* provides another nice overview of mutation testing, looking mainly at Ruby, but with
  some discussion of Java and PIT towards the end. [Overload 108](http://accu.org/var/uploads/journals/overload108.pdf)
 * The *Overload* 108 article is based on a presentation Filip van Laenen gave at OOP 2012 in Munich. The slides from that presentation can be viewed at SlideShare. [Mutation Testing](http://www.slideshare.net/filipvanlaenen/mutation-testing-11298526)
-* [An introduction to Mutation Testing](https://pedrorijo.com/blog/intro-mutation/), by Pedro Rijo, which contains the problem that Mutation Testing tries to solve, the presentation of the basic concepts, and a quick section on Extreme Mutation. Slides for the talk based on the article available at [speakerdeck](https://speakerdeck.com/pedrorijo91/mutation-testing-pixels-camp-2019).
+* [An introduction to Mutation Testing](https://pedrorijo.com/blog/intro-mutation/), by Pedro Rijo, which contains the problem that Mutation Testing tries to solve, the presentation of the basic concepts, and a quick section on Extreme Mutation. Slides for the talk based on the article are available at [speakerdeck](https://speakerdeck.com/pedrorijo91/mutation-testing-pixels-camp-2019).
 * PIT gets a mention in Tomek Kaczanowski's book [Practical Unit Testing with TestNG and Mockito](http://www.amazon.com/gp/product/839348930X).
 * German article about mutation testing with PIT [Mutationstests mit PIT in Java](https://m.heise.de/developer/artikel/Mutationstests-mit-PIT-in-Java-3888683.html)
+* PIT is mentioned in the "Mutation Coverage" chapter of the book [Metrics for Agile Product Teams](https://leanpub.com/metrics-for-agile-product-teams) by Guru Thimmapuram, Kiran Kashyap and Vivek Ganesan
 
 <br/>

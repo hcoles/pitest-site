@@ -25,6 +25,7 @@ permalink: /links/
 * Marcin Zajączkowski at Boiling Frogs [(slides in English)](https://speakerdeck.com/szpak/mutation-testing-how-good-your-tests-really-are) [(video in Polish - 60 mins)](https://www.youtube.com/watch?v=lhvDp0_2MI4)
 * [Sébastien Laoût for Ubik Ingénierie at GDG Lille (slides in French - with presenter comments)](http://slaout.linux62.org/intestption)
 * [German Pecha Kucha 'Mit Mutationstests die Tests testen' - 7 mins](https://www.youtube.com/watch?v=Qz-0wQT3_wY)
+* Ryszard Makuch 'Mutation Testing 101' at Allegro Tech Meeting [(slides in English)](https://github.com/ryszardmakuch/mutation-testing-101-atm-2021/blob/main/Mutation_Testing_101_%20ATM_14_2021.pdf), [(video in Polish - 17 mins)](https://www.youtube.com/watch?v=GibLUL2sYuA)
 
 ## Books and articles about mutation testing and PIT
 

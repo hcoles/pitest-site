@@ -482,7 +482,7 @@ are converted to byte code.
 | Constant Type            | Mutation
 |--------------------------|---
 | `boolean`                | replace the unmutated value `true` with `false` and replace the unmutated value `false` with `true`
-| `integer` `byte` `short` | replace the unmutated value `1` with `0`, `-1` with `1`, `5` with `-1` or otherwise increment the unmutated value by one. <sup id="fnref1">[1](#fn1)</sup>
+| `integer` `byte` `short` | replace the unmutated value `1` with `0`, `Byte.MAX_VALUE` with `Byte.MIN_VALUE`, `Short.MAX_VALUE` with `Short.MIN_VALUE` or otherwise increment the unmutated value by one. <sup id="fnref1">[1](#fn1)</sup>
 | `long`                   | replace the unmutated value `1` with `0`, otherwise increment the unmutated value by one.
 | `float`                  | replace the unmutated values `1.0` and `2.0` with `0.0` and replace any other value with `1.0` <sup id="fnref2">[2](#fn2)</sup>
 | `double`                 | replace the unmutated value `1.0` with `0.0` and replace any other value with `1.0` <sup id="fnref3">[3](#fn3)</sup>
